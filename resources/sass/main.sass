@@ -1,0 +1,201 @@
+@import vars
+@import libs
+@import fonts
+
+::placeholder
+  color: $text-alt-color
+
+input, textarea
+  outline: none
+  &:focus:required
+    border-color: $violent-color
+    box-shadow: 0 3px 10px 0 rgba(34,41,47,.1)
+  &:invalid
+    border-color: red
+  &:required:valid
+  border: 1px solid $text-alt-color
+  background: $bg-alt-color
+  color: $text-color
+  border-radius: .375rem
+  &:not([type="checkbox"]):not([type="radio"])
+    width: 100%
+    padding: .571rem 1rem
+
+input[type="checkbox"]
+  border-radius: 3px;
+  width: 1.285rem
+  height: 1.285rem
+  margin-right: 5px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+  border: 1px solid $text-alt-color
+  appearance: none
+  color-adjust: exact
+  &:not(:checked):not(:focus)
+    background-color: $bg-alt-color
+  &:checked
+    background-image: url("data:image/svg+xml;charset=utf8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9.5 7.5'%3e%3cpolyline points='0.75 4.35 4.18 6.75 8.75 0.75' style='fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px'/%3e%3c/svg%3e")
+    background-color: $violent-color
+    border-color: $violent-color
+    background-size: 65%
+
+a
+  text-decoration: none
+
+body
+    font-size: 1rem
+    min-width: 320px
+    position: relative
+    line-height: 1.45
+    font-family: $font-family
+    overflow-x: hidden
+    color: $text-color
+    background: $bg-color
+
+.btn
+  background: $violent-color
+  color: $text-color
+  border: 1px solid $violent-color
+  font-weight: 500
+  text-align: center
+  padding: .7rem 1.5rem
+  border-radius: .35rem
+  line-height: 1
+  transition: .2s
+  &:hover
+    color: $text-color
+    box-shadow: 0 8px 25px -8px $violent-color
+  &--transparent
+    background: transparent
+    border-color: $text-alt-color
+    color: $text-alt-color
+    &:hover
+      color: $text-color
+      box-shadow: none
+      background: rgba(130,134,139,.04)
+.text-center
+  text-align: center
+
+.menu
+  background: $bg-alt-color
+  width: 260px
+  box-shadow: 0 0 15px 0 rgba(34,41,47,.05)
+  height: 100vh
+  position: fixed
+  top: 0px
+  left: 0px
+  .logo
+    text-align: center
+    font-weight: 600
+    font-size: 1.45rem
+    padding: 1.35rem 0
+    a
+      color: $violent-color
+.top-bar
+  position: fixed
+  right: 0
+  left: 260px
+  min-height: 4.45rem
+  background: $bg-alt-color
+  z-index: 2
+  margin: 1.3rem auto 0
+  padding: .8rem 1rem
+  width: calc(100vw - (100vw - 100%) - calc(2rem * 2) - 260px)
+  max-width: 1440px
+  border-radius: .428rem
+  box-shadow: 0 0 15px 0 rgba(34,41,47,.05)
+.content
+  padding: calc(2rem + 4.45rem + 1.3rem) 2rem 0;
+  position: relative
+  min-height: calc(100% - 3.35rem)
+  margin-left: 260px
+  .container
+    max-width: 1440px
+    width: 100%
+    margin-left: auto
+    margin-right: auto
+  .breadcrumb-top
+    margin-bottom: 1.5rem
+    display: flex
+    align-items: center
+    .header
+      font-weight: 500
+      border-right: 1px solid $text-alt-color
+      padding-right: 1rem
+      font-size: 1.714rem
+    .breadcrumbs
+      padding-left: 1rem
+      ul
+        list-style: none
+        margin: 0px
+        padding: 0px
+        display: flex
+        color: $text-alt-color
+        li + li
+          margin-left: .6rem
+          &:before
+            content: '>'
+            margin-right: .6rem
+        a
+          color: $violent-color
+.dock
+  background: $bg-alt-color
+  border-radius: .428rem
+  box-shadow: 0 0 15px 0 rgba(34,41,47,.05)
+  &__header
+    padding: 1rem
+    border-bottom: 1px solid $text-alt-color
+    display: flex
+    justify-content: flex-end
+  &__foot
+    padding: 1rem
+    display: flex
+    justify-content: space-between
+    align-items: center
+  .btn + .btn
+    margin-left: 1rem
+
+.table-responsive
+  overflow-w: auto
+  table
+    width: 100%
+    color: $text-color
+    border-color: $text-color
+.table-stripped
+  th
+    background: #343d55
+    color: $text-color
+    vertical-align: top
+    text-transform: uppercase
+    font-size: .857rem
+    letter-spacing: .5px
+    padding: .72rem 2rem
+  input[type="checkbox"]:not(.shower)
+    width: 1rem
+    height: 1rem
+    cursor: pointer
+  tr:nth-of-type(2n)
+    --bs-table-accent-bg: #242B3D
+  td
+    border-bottom: 1px solid #3b4253
+    padding: .72rem 2rem
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg)
+    button
+      background: transparent
+      color: $text-color
+      border: none
+
+
+.badge
+  padding: .3rem .5rem
+  font-size: 85%
+  border-radius: 50rem
+  &.pending
+    background: rgba(255,159,67,.12)
+    color: #ff9f43
+  &.completed
+    background: rgba(40,199,111,.12)
+    color: #28c76f
+
+@import login

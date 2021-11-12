@@ -1,0 +1,9 @@
+{
+    "SOURCES_PATH": "../",
+    "TARGET_PATH": "../../public/css/admin/",
+    "LIBRARY_PATHS": [],
+    "OUTPUT_STYLES": "expanded",
+    "SOURCE_COMMENTS": false,
+    "SOURCE_MAP": true,
+    "EXCLUDES": []
+}

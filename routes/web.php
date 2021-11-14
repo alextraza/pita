@@ -18,30 +18,34 @@ use Illuminate\Support\Facades\Route;
  */
 
 // admin routing
-Route::prefix('admin')->group(function() {
+Route::middleware(['auth'])->prefix('admin')->group(function() {
     // orders
     Route::get('/', [
         OrderController::class, 'index'
-    ])->name('dashboard')
-         ->middleware(['auth']);
+    ])->name('dashboard');
     Route::get('/edit/{id}', [
         OrderController::class, 'edit'
-    ])->name('order.edit')
-         ->middleware(['auth']);
+    ])->name('order.edit');
     Route::get('/delete/{id}', [
         OrderController::class, 'delete'
-    ])->name('order.delete')
-         ->middleware(['auth']);
+    ])->name('order.delete');
     Route::get('/archive/{id}', [
         OrderController::class, 'archive'
-    ])->name('order.archive')
-         ->middleware(['auth']);
+    ])->name('order.archive');
 
     // categories
-    Route::get('/category', [
-        CategoryController::class, 'index'
-    ])->name('category')
-         ->middleware(['auth']);
+    Route::prefix('category')->name('category.')->group(function() {
+        Route::get('/', [
+            CategoryController::class, 'index'
+        ])->name('index');
+    });
+
+    // items
+    Route::prefix('item')->name('item.')->group(function() {
+        Route::get('/', function() {
+
+        })->name('index');
+    });
 });
 
 Route::get('login', [AuthController::class, 'index'])->name('login');

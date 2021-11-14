@@ -6,6 +6,6 @@
             <a class="btn" href="#">+ Добавить</a>
             <a class="btn btn--transparent" href="#">- Удалить</a>
         </div>
-        @include('admin.order.index')
+        @include('admin.order.grid')
     </div>
 @endsection

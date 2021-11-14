@@ -9,6 +9,6 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        echo "category";
+        return view('admin.category.index');
     }
 }

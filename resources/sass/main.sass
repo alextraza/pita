@@ -412,6 +412,51 @@ body
     align-items: center
     margin-top: .6rem
 
+label.image
+  position: relative
+  width: auto
+  display: flex
+  align-items: flex-end
+  .img__wrapper
+    display: none
+    position: absolute
+    z-index: 2
+    right: 0
+    top: 100%
+  .img__inner
+    position: relative
+    a
+      position: absolute
+      color: $text-color
+      &.close
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 1.8rem
+        line-height: 1
+        top: 5px
+        right: 5px
+        font-weight: 600
+        color: $bg-color
+      &.delete
+        background: red
+        bottom: 5px
+        left: 5px
+        right: 5px
+        padding: 5px 10px
+        display: flex
+        font-weight: 500
+        justify-content: center
+        align-items: center
+
+.showImage
+  position: absolute
+  right: 0px
+  svg
+    color: $violent-color
+    width: 1.2rem
+  &.active + .img__wrapper
+    display: flex
 
 @import login
 @import menu

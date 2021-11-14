@@ -53,6 +53,22 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/edit/{id}', [
             CategoryController::class, 'save'
         ])->name('post');
+        Route::get('/delete/{id}', [
+            CategoryController::class, 'delete'
+        ])->name('delete');
+        Route::get('/archive/{id}', [
+            CategoryController::class, 'archive'
+        ])->name('archive');
+
+        //delete image
+        Route::post('/delimg/{id}/{attr}', [
+            CategoryController::class, 'imgdel'
+        ])->name('img_delete');
+
+        //change status
+        Route::post('/change-status/{id}', [
+            CategoryController::class, 'chage-status'
+        ])->name('change_status');
     });
 
     // items

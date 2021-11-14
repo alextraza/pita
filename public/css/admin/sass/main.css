@@ -1040,6 +1040,68 @@ body {
   margin-top: .6rem;
 }
 
+label.image {
+  position: relative;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+label.image .img__wrapper {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 100%;
+}
+
+label.image .img__inner {
+  position: relative;
+}
+
+label.image .img__inner a {
+  position: absolute;
+  color: #d0d2d6;
+}
+
+label.image .img__inner a.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  line-height: 1;
+  top: 5px;
+  right: 5px;
+  font-weight: 600;
+  color: #161d31;
+}
+
+label.image .img__inner a.delete {
+  background: red;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  display: flex;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+}
+
+.showImage {
+  position: absolute;
+  right: 0px;
+}
+
+.showImage svg {
+  color: #7367f0;
+  width: 1.2rem;
+}
+
+.showImage.active + .img__wrapper {
+  display: flex;
+}
+
 .login-form {
   position: fixed;
   top: 0px;

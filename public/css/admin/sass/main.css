@@ -530,6 +530,16 @@ a {
   text-decoration: none;
 }
 
+a.disabled {
+  point-events: none;
+  cursor: default;
+}
+
+a.disabled:hover {
+  color: #676d7d;
+  background: transparent;
+}
+
 body {
   font-size: 1rem;
   min-width: 320px;
@@ -568,6 +578,10 @@ body {
   color: #d0d2d6;
   box-shadow: none;
   background: rgba(130, 134, 139, 0.04);
+}
+
+.btn--transparent.del:not(.disabled) {
+  background: #ff000033;
 }
 
 .text-center {

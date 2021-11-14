@@ -26,6 +26,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::get('/edit/{id}', [
         OrderController::class, 'edit'
     ])->name('order.edit');
+    Route::get('/create', [
+        OrderController::class, 'create'
+    ])->name('order.create');
     Route::get('/delete/{id}', [
         OrderController::class, 'delete'
     ])->name('order.delete');

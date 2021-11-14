@@ -5,19 +5,21 @@
 <div class="table-responsive">
     <table class="table-stripped data-table">
         <tr>
-            <th><input type="checkbox" name="all" /></th>
+            <th><input id="checkAll" type="checkbox" name="all" /></th>
             <th class="sorting">id</th>
             <th class="sorting">Дата</th>
             <th class="sorting">Клиент</th>
+            <th class="sorting">Телефон</th>
             <th class="sorting">Статус</th>
             <th>Действие</th>
         </tr>
         @foreach($models as $model)
         <tr>
-            <td><input type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
+            <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
             <td>{{ $model->id }}</td>
             <td>{{ date('d.m.Y', strtotime($model->created_at)) }}</td>
             <td>{{ $model->name }}</td>
+            <td>{{ $model->phone }}</td>
             <td><span class="badge {{ $model->status }}">{{ $model::STATUSES[$model->status] }}</span></td>
             <td>
                 <div class="action-field">

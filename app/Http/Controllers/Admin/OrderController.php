@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $models = Model::paginate(20);
+        $models = Model::getAll();
         return view('admin.dashboard', compact('models'));
     }
 }

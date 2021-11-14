@@ -1,0 +1,60 @@
+.menu
+  background: $bg-alt-color
+  width: 260px
+  box-shadow: 0 0 15px 0 rgba(34,41,47,.05)
+  height: 100vh
+  position: fixed
+  top: 0px
+  left: 0px
+  .logo
+    text-align: center
+    font-weight: 600
+    font-size: 1.45rem
+    padding: 1.35rem  2rem
+    &>*
+      color: $text-color
+    a
+      display: flex
+      align-items: center
+      justify-content: center
+    object
+      margin-right: 10px
+.main-menu-content
+  height: calc(100% - 4.45rem)
+  .main-menu
+    list-style: none
+    margin: 0px
+    padding: 0px
+    padding-bottom: .75rem
+    li
+      position: relative
+      white-space: nowrap
+      margin: 7px 15px 0
+      a
+        padding: 10px 15px 10px 20px
+        display: flex
+        align-items: center
+        span
+          color: $text-color
+        svg
+          height: 20px
+          width: 20px
+          font-size: 1.45rem
+          margin-right: 1.1rem
+          -webkit-flex-shrink: 0
+          -ms-flex-negative: 0
+          flex-shrink: 0
+          color: $text-color
+        &:hover > *
+          -webkit-transition: -webkit-transform .25s ease
+          transition: -webkit-transform .25s ease
+          transition: transform .25s ease
+          transition: transform .25s ease,-webkit-transform .25s ease
+          -webkit-transform: translateX(5px)
+          -ms-transform: translateX(5px)
+          transform: translateX(5px)
+
+      &.active
+        background: linear-gradient(118deg,#7367F0,rgba(115,103,240,.7))
+        box-shadow: 0 0 10px 1px rgba(115,103,240,.7)
+        border-radius: 4px

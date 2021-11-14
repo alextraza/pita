@@ -1,25 +1,47 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+   |--------------------------------------------------------------------------
+   | Web Routes
+   |--------------------------------------------------------------------------
+   |
+   | Here is where you can register web routes for your application. These
+   | routes are loaded by the RouteServiceProvider within a group which
+   | contains the "web" middleware group. Now create something great!
+   |
+ */
 
 // admin routing
 Route::prefix('admin')->group(function() {
-    Route::get('/',
-               [AdminController::class, 'index']
-    )->name('dashboard')->middleware(['auth']);
+    // orders
+    Route::get('/', [
+        OrderController::class, 'index'
+    ])->name('dashboard')
+         ->middleware(['auth']);
+    Route::get('/edit/{id}', [
+        OrderController::class, 'edit'
+    ])->name('order.edit')
+         ->middleware(['auth']);
+    Route::get('/delete/{id}', [
+        OrderController::class, 'delete'
+    ])->name('order.delete')
+         ->middleware(['auth']);
+    Route::get('/archive/{id}', [
+        OrderController::class, 'archive'
+    ])->name('order.archive')
+         ->middleware(['auth']);
+
+    // categories
+    Route::get('/category', [
+        CategoryController::class, 'index'
+    ])->name('category')
+         ->middleware(['auth']);
 });
 
 Route::get('login', [AuthController::class, 'index'])->name('login');

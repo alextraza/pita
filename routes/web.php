@@ -41,6 +41,18 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::get('/', [
             CategoryController::class, 'index'
         ])->name('index');
+        Route::get('/create', [
+            CategoryController::class, 'create'
+        ])->name('create');
+        Route::put('/create', [
+            CategoryController::class, 'store'
+        ])->name('store');
+        Route::get('/edit/{id}', [
+            CategoryController::class, 'edit'
+        ])->name('edit');
+        Route::post('/edit/{id}', [
+            CategoryController::class, 'save'
+        ])->name('post');
     });
 
     // items

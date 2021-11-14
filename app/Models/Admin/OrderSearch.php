@@ -17,7 +17,7 @@ class OrderSearch extends Order
 
     public static function getAll()
     {
-        self::$_model = self::where('id', '>', 1);
+        self::$_model = self::where('id', '>', 0);
         self::sorting();
         self::filtering();
         return self::$_model->paginate(20)

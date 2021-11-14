@@ -14,7 +14,9 @@ class CategoryController extends Controller
     public function index()
     {
         $models = CategorySearch::getAll();
-        return view('admin.category.index', compact('models'));
+        $sort = request()->get('sort');
+        $filter = request()->get('filter');
+        return view('admin.category.index', compact('models', 'sort', 'filter'));
     }
 
     public function create()

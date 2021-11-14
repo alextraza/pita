@@ -817,6 +817,50 @@ body {
   background: #161d31;
 }
 
+.data-table input.changePos {
+  padding: 0px;
+  border-color: transparent;
+  background: transparent;
+  width: 70px;
+  transition: .2s;
+}
+
+.data-table input.changePos:focus {
+  padding: 0 .8rem;
+  background: #283046;
+  border-color: #676d7d;
+}
+
+.data-table .filter {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.6rem;
+}
+
+.data-table .filter svg {
+  color: #676d7d;
+  width: 1.1rem;
+}
+
+.data-table .filter:hover svg, .data-table .filter.active svg {
+  color: #d0d2d6;
+}
+
+.data-table .filter.open + input {
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: calc(100% - 5px);
+  width: 250px;
+  z-index: 2;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.data-table .filter + input {
+  display: none;
+}
+
 .table-responsive {
   overflow-w: auto;
 }
@@ -843,7 +887,7 @@ body {
 }
 
 .table-stripped th.sorting:before, .table-stripped th.sorting:after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4b7bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-up'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-up'%3E%3Cpolyline points='18 15 12 9 6 15'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px;
@@ -852,7 +896,7 @@ body {
   height: 14px;
   content: '';
   right: .3rem;
-  opacity: .5;
+  opacity: .3;
   position: absolute;
   display: block;
 }
@@ -862,8 +906,16 @@ body {
 }
 
 .table-stripped th.sorting:after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b4b7bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   bottom: 0.5rem;
+}
+
+.table-stripped th.sorting.asc:after {
+  opacity: 1;
+}
+
+.table-stripped th.sorting.desc:before {
+  opacity: 1;
 }
 
 .table-stripped input[type="checkbox"]:not(.shower) {
@@ -917,6 +969,14 @@ body {
 .badge.canceled {
   background-color: rgba(234, 84, 85, 0.12);
   color: #EA5455 !important;
+}
+
+.status.accept {
+  color: #28c76f;
+}
+
+.status.denied {
+  color: #ea5455;
 }
 
 .page-info {

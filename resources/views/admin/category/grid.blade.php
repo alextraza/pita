@@ -2,19 +2,19 @@
     <table class="table-stripped data-table">
         <tr>
             <th><input id="checkAll" type="checkbox" name="all" /></th>
-            <th class="sorting">id</th>
-            <th class="sorting">Позиция</th>
-            <th class="sorting">Slug</th>
-            <th class="sorting">Название</th>
-            <th class="sorting">Статус</th>
-            <th class="sorting">Обновлен</th>
+            @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
+            @include('admin.grid.header', ['attr' => 'pos', 'name' => 'Позиция'])
+            @include('admin.grid.header', ['attr' => 'slug', 'name' => 'Slug'])
+            @include('admin.grid.header', ['attr' => 'header', 'name' => 'Название'])
+            @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
+            @include('admin.grid.header', ['attr' => 'updated_at', 'name' => 'Изменен'])
             <th>Действие</th>
         </tr>
         @foreach($models as $model)
         <tr>
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
             <td>{{ $model->id }}</td>
-            <td>{{ $model->pos }}</td>
+            <td>@include('admin.grid.position')</td>
             <td>{{ $model->slug }}</td>
             <td>{{ $model->header }}</td>
             <td>@include('admin.grid.status')</td>

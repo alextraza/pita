@@ -248,6 +248,40 @@ body
         &:hover
           color: $violent-color
           background: $bg-color
+  input.changePos
+    padding: 0px
+    border-color: transparent
+    background: transparent
+    width: 70px
+    transition: .2s
+    &:focus
+      padding: 0 .8rem
+      background: $bg-alt-color
+      border-color: $text-alt-color
+  .filter
+    position: absolute
+    left: 0.5rem
+    top: 0.6rem
+    svg
+      color: $text-alt-color
+      width: 1.1rem
+    &:hover, &.active
+      svg
+        color: $text-color
+    &.open
+      &+input
+        display: block
+        position: absolute
+        left: 0px
+        bottom: calc(100% - 5px)
+        width: 250px
+        z-index: 2
+        padding-top: 0.3rem
+        padding-bottom: 0.3rem
+
+    &+input
+      display: none
+
 
 
 
@@ -271,7 +305,7 @@ body
       cursor: pointer
       &:before,
       &:after
-        background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23b4b7bd\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-chevron-up\'%3E%3Cpolyline points=\'18 15 12 9 6 15\'%3E%3C/polyline%3E%3C/svg%3E')
+        background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ffffff\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-chevron-up\'%3E%3Cpolyline points=\'18 15 12 9 6 15\'%3E%3C/polyline%3E%3C/svg%3E')
         background-repeat: no-repeat
         background-position: center
         background-size: 12px
@@ -280,14 +314,20 @@ body
         height: 14px
         content: ''
         right: .3rem
-        opacity: .5
+        opacity: .3
         position: absolute
         display: block
       &:before
         top: 0.5rem
       &:after
-        background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23b4b7bd\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-chevron-down\'%3E%3Cpolyline points=\'6 9 12 15 18 9\'%3E%3C/polyline%3E%3C/svg%3E')
+        background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ffffff\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-chevron-down\'%3E%3Cpolyline points=\'6 9 12 15 18 9\'%3E%3C/polyline%3E%3C/svg%3E')
         bottom: 0.5rem
+      &.asc
+        &:after
+          opacity: 1
+      &.desc
+        &:before
+          opacity: 1
 
   input[type="checkbox"]:not(.shower)
     width: 1rem
@@ -303,7 +343,6 @@ body
       background: transparent
       color: $text-color
       border: none
-
 
 .badge
   padding: .3rem .5rem
@@ -324,6 +363,12 @@ body
   &.canceled
     background-color: rgba(234,84,85,.12)
     color: #EA5455 !important
+
+.status
+  &.accept
+    color: #28c76f
+  &.denied
+    color: #ea5455
 
 .page-info
   font-size: 0.9rem

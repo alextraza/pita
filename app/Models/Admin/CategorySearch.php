@@ -28,7 +28,7 @@ class categorySearch extends Category
     {
         if ($sort = request()->input('sort')) {
             foreach ($sort as $attribute => $sortDirection) {
-                if (in_array($attribute, self::$sorting)) {
+                if (self::isSorting($attribute)) {
                     self::$_model->orderBy($attribute, $sortDirection);
                 }
             }
@@ -39,10 +39,20 @@ class categorySearch extends Category
     {
         if ($filter = request()->input('filter')) {
             foreach ($filter as $attribute => $like) {
-                if (in_array($attribute, self::$filtering)) {
+                if (self::isFiltering($attribute)) {
                     self::$_model->where($attribute, 'like', '%'.$like.'%');
                 }
             }
         }
+    }
+
+    public static function isSorting($attribute)
+    {
+        return in_array($attribute, self::$sorting);
+    }
+
+    public static function isFiltering($attribute)
+    {
+        return in_array($attribute, self::$filtering);
     }
 }

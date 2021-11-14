@@ -53,4 +53,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  var filterBtn = document.querySelectorAll('a.filter');
+  if (filterBtn) {
+    filterBtn.forEach(function(filter) {
+      filter.onclick = function() {
+        filter.classList.toggle('open');
+        return false;
+      }
+
+    })
+  }
+
 })

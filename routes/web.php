@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -73,9 +74,37 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
 
     // items
     Route::prefix('item')->name('item.')->group(function() {
-        Route::get('/', function() {
+        Route::get('/', [
+            ItemController::class, 'index'
+        ])->name('index');
+        Route::get('/create', [
+            ItemController::class, 'create'
+        ])->name('create');
+        Route::put('/create', [
+            ItemController::class, 'store'
+        ])->name('store');
+        Route::get('/edit/{id}', [
+            ItemController::class, 'edit'
+        ])->name('edit');
+        Route::post('/edit/{id}', [
+            ItemController::class, 'save'
+        ])->name('post');
+        Route::get('/delete/{id}', [
+            ItemController::class, 'delete'
+        ])->name('delete');
+        Route::get('/archive/{id}', [
+            ItemController::class, 'archive'
+        ])->name('archive');
 
-        })->name('index');
+        //delete image
+        Route::post('/delimg/{id}/{attr}', [
+            ItemController::class, 'imgdel'
+        ])->name('img_delete');
+
+        //change status
+        Route::post('/change-status/{id}', [
+            ItemController::class, 'chage-status'
+        ])->name('change_status');
     });
 });
 

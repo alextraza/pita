@@ -6,11 +6,11 @@
     <table class="table-stripped data-table">
         <tr>
             <th><input id="checkAll" type="checkbox" name="all" /></th>
-            <th class="sorting">id</th>
-            <th class="sorting">Дата</th>
-            <th class="sorting">Клиент</th>
-            <th class="sorting">Телефон</th>
-            <th class="sorting">Статус</th>
+            @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
+            @include('admin.grid.header', ['attr' => 'created_at', 'name' => 'Дата'])
+            @include('admin.grid.header', ['attr' => 'name', 'name' => 'Имя'])
+            @include('admin.grid.header', ['attr' => 'phone', 'name' => 'Телефон'])
+            @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
             <th>Действие</th>
         </tr>
         @foreach($models as $model)

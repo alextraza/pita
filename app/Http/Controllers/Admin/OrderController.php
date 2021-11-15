@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseController;
 use Illuminate\Http\Request;
 use App\Models\Admin\OrderSearch as Model;
 
-class OrderController extends Controller
+class OrderController extends BaseController
 {
     public function index()
     {

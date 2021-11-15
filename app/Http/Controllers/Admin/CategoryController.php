@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\Admin\UpdateCategory;
 use App\Http\Requests\Admin\StoreCategory;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Admin\CategorySearch;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     public function index()
     {
@@ -30,11 +29,8 @@ class CategoryController extends Controller
     {
         $model = new Category();
 
-        if ($request->image) {
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $model->image = $imageName;
-        }
+        // if need upload image
+        $model = $this->storeImage($model, $request);
 
         $model->slug = $request->input('slug');
         $model->header = $request->input('header');
@@ -62,11 +58,8 @@ class CategoryController extends Controller
     {
         $model = Category::findOrFail($id);
 
-        if ($request->image) {
-            $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $model->image = $imageName;
-        }
+        // if need upload image
+        $model = $this->storeImage($model, $request);
 
         $model->slug = $request->input('slug');
         $model->header = $request->input('header');

@@ -10,7 +10,10 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $models = Model::getAll();
-        return view('admin.dashboard', compact('models'));
+        $modelName = \App\Models\Admin\OrderSearch::class;
+        $models = $modelName::getAll();
+        $sort = request()->get('sort');
+        $filter = request()->get('filter');
+        return view('admin.dashboard', compact('models', 'modelName', 'sort', 'filter'));
     }
 }

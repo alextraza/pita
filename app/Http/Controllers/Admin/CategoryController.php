@@ -13,10 +13,11 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $models = CategorySearch::getAll();
+        $modelName = \App\Models\Admin\CategorySearch::class;
+        $models = $modelName::getAll();
         $sort = request()->get('sort');
         $filter = request()->get('filter');
-        return view('admin.category.index', compact('models', 'sort', 'filter'));
+        return view('admin.category.index', compact('models', 'modelName', 'sort', 'filter'));
     }
 
     public function create()

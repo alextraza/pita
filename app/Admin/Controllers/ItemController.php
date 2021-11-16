@@ -10,6 +10,8 @@ use App\Models\Item;
 
 class ItemController extends BaseController
 {
+    protected $model = Item::class;
+
     public function index()
     {
         $modelName = \App\Admin\Models\ItemSearch::class;
@@ -21,14 +23,14 @@ class ItemController extends BaseController
 
     public function create()
     {
-        $model = new Item();
+        $model = new $this->model();
         $categoryList = Category::getList();
         return view('admin.item.create', compact('model', 'categoryList'));
     }
 
     public function store(StoreItem $request)
     {
-        $model = $this->setModel(new Item(), $requets);
+        $model = $this->setModel(new $this->model(), $request);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()
@@ -43,14 +45,14 @@ class ItemController extends BaseController
     }
 
     public function edit($id) {
-        $model = Item::findOrFail($id);
+        $model = $this->model::findOrFail($id);
         $categoryList = Category::getList();
         return view('admin.item.edit', compact('model', 'categoryList'));
     }
 
     public function save(UpdateItem $request, $id)
     {
-        $model = $this->setModel(Item::findOrFail($id), $request);
+        $model = $this->setModel($this->model::findOrFail($id), $request);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()
@@ -94,4 +96,5 @@ class ItemController extends BaseController
 
         return $model;
     }
+
 }

@@ -1,9 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  var ddToggler = document.querySelector('.dd-toggle');
+  var ddToggler = document.querySelectorAll('.dd-toggle');
   if (ddToggler) {
-    ddToggler.onclick = function() {
-      ddToggler.classList.toggle('active');
+    ddToggler.forEach(function(element) {
+      element.onclick = function() {
+        element.classList.toggle('active');
+        return false;
+      }
+
+    })
+  }
+
+  var massDelBnt = document.getElementById('massDel');
+  if (massDelBnt) {
+    massDelBnt.onclick = function() {
+      var param = '';
+      let checked = document.querySelectorAll('.checkMe:checked');
+      checked.forEach(function(element, key) {
+        if (!key) {
+          param += '?';
+        } else {
+          param += '&';
+        }
+        param += 'id[]=' + element.value;
+      });
+      param = massDelBnt.href + param;
+      window.location = param;
       return false;
     }
   }

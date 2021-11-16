@@ -32,7 +32,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
     Route::get('/create', [
         OrderController::class, 'create'
     ])->name('order.create');
-    Route::get('/delete/{id}', [
+    Route::get('/delete', [
         OrderController::class, 'delete'
     ])->name('order.delete');
     Route::get('/archive/{id}', [
@@ -56,7 +56,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/edit/{id}', [
             CategoryController::class, 'save'
         ])->name('post');
-        Route::get('/delete/{id}', [
+        Route::get('/delete', [
             CategoryController::class, 'delete'
         ])->name('delete');
         Route::get('/archive/{id}', [
@@ -91,7 +91,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/edit/{id}', [
             ItemController::class, 'save'
         ])->name('post');
-        Route::get('/delete/{id}', [
+        Route::get('/delete', [
             ItemController::class, 'delete'
         ])->name('delete');
         Route::get('/archive/{id}', [
@@ -126,7 +126,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/edit/{id}', [
             PageController::class, 'save'
         ])->name('post');
-        Route::get('/delete/{id}', [
+        Route::get('/delete', [
             PageController::class, 'delete'
         ])->name('delete');
         Route::get('/archive/{id}', [

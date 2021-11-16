@@ -26,7 +26,7 @@
     <div class="dock">
         <div class="dock__header">
             <a class="btn" href="{{ route('item.create') }}">+ Добавить</a>
-            <a id="massDel" class="btn btn--transparent del disabled" href="#">- Удалить</a>
+            <a id="massDel" class="btn btn--transparent del disabled" href="{{ route('item.delete') }}">- Удалить</a>
         </div>
         @include('admin.item.grid')
     </div>

@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
@@ -14,5 +15,11 @@ class BaseController extends Controller
             $model->image = $imageName;
         }
         return $model;
+    }
+
+    public function delete(Request $request)
+    {
+        $this->model::destroy($request->id);
+        return back();
     }
 }

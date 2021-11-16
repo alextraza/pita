@@ -14,7 +14,7 @@ class RemoveItemFields extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->integer('сapacity')->nullable()->after('weight');
+            $table->integer('capacity')->nullable()->after('weight');
             $table->dropColumn(['proteins_alt', 'fats_alt', 'carbo_alt']);
         });
     }

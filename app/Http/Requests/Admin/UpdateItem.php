@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class UpdateItem extends FormRequest
+class UpdateItem extends StoreItem
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +11,7 @@ class UpdateItem extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +21,8 @@ class UpdateItem extends FormRequest
      */
     public function rules()
     {
-        return [
+        return array_merge(parent::rules(), [
             //
-        ];
+        ]);
     }
 }

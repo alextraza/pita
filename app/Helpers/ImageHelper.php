@@ -41,13 +41,13 @@ class ImageHelper
         }
         if ($originPath = static::getImagePath($filename)) {
             $pathInfo = pathinfo($originPath);
-            $name = $pathInfo['filename'];
-            $path = public_path(static::$storePath . $name . '-' . $width . '-' .$height. '.webp');
+            $name = $pathInfo['filename'] . '-' . $width . '-' .$height. '.webp';
+            $path = public_path(static::$storePath . $name);
             $image = Image::make($originPath)->encode('webp', 90);
             $image->resize($width, $height, function($const) {
                 $const->aspectRatio();
             })->save($path);
-            return $path;
+            return asset(static::$storePath . $name);
         }
         return null;
     }

@@ -149,11 +149,11 @@
                 </div>
             </div>
             <div class="md-6">
-                <div class="form-group @error('weigth') has-error @enderror">
+                <div class="form-group @error('weight') has-error @enderror">
                     <label>Вес (г)</label>
-                    <input type="text" name="weigth" value="{{ old('weigth', $model->weigth) }}" />
+                    <input type="text" name="weight" value="{{ old('weight', $model->weight) }}" />
                     @error('weigth')
-                        <span class="text-danger">{{ $errors->first('weigth') }}</span>
+                        <span class="text-danger">{{ $errors->first('weight') }}</span>
                     @enderror
                 </div>
             </div>
@@ -172,22 +172,22 @@
                 </div>
             </div>
             <div class="md-6">
-                <div class="form-group @error('weigth_alt') has-error @enderror">
+                <div class="form-group @error('weight_alt') has-error @enderror">
                     <label>Вес (г)</label>
-                    <input type="text" name="weigth_alt" value="{{ old('weigth_alt', $model->weigth_alt) }}" />
-                    @error('weigth_alt')
-                    <span class="text-danger">{{ $errors->first('weigth_alt') }}</span>
+                    <input type="text" name="weight_alt" value="{{ old('weight_alt', $model->weight_alt) }}" />
+                    @error('weight_alt')
+                    <span class="text-danger">{{ $errors->first('weight_alt') }}</span>
                     @enderror
                 </div>
             </div>
         </div>
     </div>
     <div class="md-8">
-        <div class="form-group @error('content') has-error @enderror">
+        <div class="form-group @error('content_raw') has-error @enderror">
             <label>Описание</label>
-            <textarea name="content" id="content">{{ old('content', $model->content) }}</textarea>
-            @error('content')
-            <span class="text-danger">{{ $errors->first('content') }}</span>
+            <textarea name="content_raw" id="content">{{ old('content_raw', $model->content_raw) }}</textarea>
+            @error('content_raw')
+            <span class="text-danger">{{ $errors->first('content_raw') }}</span>
             @enderror
         </div>
     </div>

@@ -254,10 +254,10 @@ body
     justify-content: space-between
     align-items: center
     background: $bg-alt-color
-    position: sticky
-    z-index: 2
-    bottom: 0px
-    border-top: 1px solid $text-alt-color
+    input.btn,
+    .btn
+      padding-top: .4rem
+      padding-bottom: .4rem
   .btn + .btn
     margin-left: 1rem
   .form__inner
@@ -525,11 +525,18 @@ label.image
   .img__wrapper
     display: none
     position: absolute
-    z-index: 2
+    z-index: 3
     right: 0
     top: 100%
   .img__inner
     position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 200px
+    height: 200px
+    background-image: url(/images/transparent.svg)
+    background-size: 25px
     a
       position: absolute
       color: $text-color

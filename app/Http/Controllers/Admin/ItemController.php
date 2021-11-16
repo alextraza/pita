@@ -38,6 +38,24 @@ class ItemController extends BaseController
         $model->header = $request->input('header');
         $model->pos = $request->input('pos');
         $model->status = $request->input('status');
+        $model->category_id = $request->input('category_id');
+        $model->content_raw = $request->input('content_raw');
+        if ($request->input('content_raw')) {
+            $model->content = markdown()->parse($request->input('content_raw'));
+        } else {
+            $model->content = '';
+        }
+        $model->price = $request->input('price');
+        $model->weight = $request->input('weight');
+        $model->capacity = $request->input('capacity');
+        $model->proteins = $request->input('proteins');
+        $model->fats = $request->input('fats');
+        $model->carbo = $request->input('carbo');
+        $model->energy = $request->input('energy');
+        $model->has_alt = $request->input('has_alt');
+        $model->price_alt = $request->input('price_alt');
+        $model->weight_alt = $request->input('weight_alt');
+
 
         if ($model->save()) {
             if ($request->input('apply')) {
@@ -65,9 +83,27 @@ class ItemController extends BaseController
         // if need upload image
         $model = $this->storeImage($model, $request);
 
+        // set model
         $model->header = $request->input('header');
         $model->pos = $request->input('pos');
         $model->status = $request->input('status');
+        $model->category_id = $request->input('category_id');
+        $model->content_raw = $request->input('content_raw');
+        if ($request->input('content_raw')) {
+            $model->content = markdown()->parse($request->input('content_raw'));
+        } else {
+            $model->content = '';
+        }
+        $model->price = $request->input('price');
+        $model->weight = $request->input('weight');
+        $model->capacity = $request->input('capacity');
+        $model->proteins = $request->input('proteins');
+        $model->fats = $request->input('fats');
+        $model->carbo = $request->input('carbo');
+        $model->energy = $request->input('energy');
+        $model->has_alt = $request->input('has_alt');
+        $model->price_alt = $request->input('price_alt');
+        $model->weight_alt = $request->input('weight_alt');
 
         if ($model->save()) {
             if ($request->input('apply')) {

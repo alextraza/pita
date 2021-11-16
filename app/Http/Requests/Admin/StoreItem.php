@@ -13,7 +13,7 @@ class StoreItem extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class StoreItem extends FormRequest
     public function rules()
     {
         return [
-            //
+            'image' => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'header' => 'required',
+            'pos' => 'integer|nullable',
+            'status' => 'boolean',
+            'category_id' => 'integer|nullable',
+            'price' => 'integer|nullable',
+            'price_alt' => 'integer|nullable',
+            'weight' => 'integer|nullable',
+            'weight_alt' => 'integer|nullable',
+            'capacity' => 'integer|nullable',
+            'proteins' => 'numeric|nullable',
+            'fats' => 'numeric|nullable',
+            'carbo' => 'numeric|nullable',
+            'has_alt' => 'boolean',
         ];
     }
 }

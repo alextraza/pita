@@ -1203,10 +1203,12 @@ body {
   justify-content: space-between;
   align-items: center;
   background: #283046;
-  position: sticky;
-  z-index: 2;
-  bottom: 0px;
-  border-top: 1px solid #676d7d;
+}
+
+.dock__foot input.btn,
+.dock__foot .btn {
+  padding-top: .4rem;
+  padding-bottom: .4rem;
 }
 
 .dock .btn + .btn {
@@ -1579,13 +1581,20 @@ label.image {
 label.image .img__wrapper {
   display: none;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   right: 0;
   top: 100%;
 }
 
 label.image .img__inner {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-image: url(/images/transparent.svg);
+  background-size: 25px;
 }
 
 label.image .img__inner a {

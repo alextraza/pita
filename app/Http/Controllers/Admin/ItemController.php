@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\Admin\UpdateItem;
 use App\Http\Requests\Admin\StoreItem;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\UpdateItem;
+use App\Models\Category;
 use App\Models\Item;
+use Illuminate\Http\Request;
 
 class ItemController extends BaseController
 {
@@ -22,7 +23,8 @@ class ItemController extends BaseController
     public function create()
     {
         $model = new Item();
-        return view('admin.item.create', compact('model'));
+        $categoryList = Category::getList();
+        return view('admin.item.create', compact('model', 'categoryList'));
     }
 
     public function store(StoreItem $request)
@@ -52,7 +54,8 @@ class ItemController extends BaseController
 
     public function edit($id) {
         $model = Item::findOrFail($id);
-        return view('admin.item.edit', compact('model'));
+        $categoryList = Category::getList();
+        return view('admin.item.edit', compact('model', 'categoryList'));
     }
 
     public function save(UpdateItem $request, $id)

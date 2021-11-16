@@ -71,6 +71,9 @@ body
     color: $text-color
     background: $bg-color
 
+.hidden
+  display: none !important
+
 .btn
   background: $violent-color
   color: $text-color
@@ -101,6 +104,12 @@ body
     &:hover
       box-shadow: 0 8px 25px -8px #ff9f4444
       color: $bg-color
+  &--red
+    background: #ea5455
+    border: 1px solid #ea5455
+    &:hover
+      box-shadow: 0 8px 25px -8px #EA5455
+
 
 .text-center
   text-align: center
@@ -114,13 +123,13 @@ body
   left: 260px
   min-height: 4.45rem
   background: $bg-alt-color
-  z-index: 2
+  z-index: 3
   margin: 1.3rem auto 0
   padding: .8rem 1rem
   width: calc(100vw - (100vw - 100%) - calc(2rem * 2) - 260px)
   max-width: 1440px
   border-radius: .428rem
-  box-shadow: 0 0 15px 0 rgba(34,41,47,.05)
+  box-shadow: 0 4px 24px 0 rgba(34,41,47,.4)
   .right
     display: flex
     a
@@ -149,11 +158,39 @@ body
         border-radius: 50%
         right: -11px
         top: -11px
+
+  .session__msg
+    background: $bg-color
+    padding: .2rem .4rem
+    opacity: 0
+    color: #d63384
+    border-radius: .1785rem
+    animation-name: fade_out
+    animation-delay: 0s
+    animation-duration: 5s
+
+@keyframes fade_out
+  0%
+    opacity: 1
+  50%
+    opacity: 1
+  100%
+    opacity: 0
+
 .content
   padding: calc(2rem + 4.45rem + 1.3rem) 2rem 0;
   position: relative
   min-height: calc(100% - 3.35rem)
   margin-left: 260px
+  &__shadow
+    background: linear-gradient(180deg,rgba(22,29,49,.9) 44%,rgba(22,29,49,.43) 73%,rgba(22,29,49,0))
+    padding-top: 2.2rem
+    width: 100%
+    height: 102px
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 2
   .container
     max-width: 1440px
     width: 100%
@@ -202,9 +239,13 @@ body
   box-shadow: 0 0 15px 0 rgba(34,41,47,.05)
   &__header
     padding: 1rem
+    background: $bg-alt-color
     border-bottom: 1px solid $text-alt-color
     display: flex
     justify-content: flex-end
+    position: sticky
+    z-index: 2
+    top: calc(1.3rem + 4.45rem)
     &--fill
       justify-content: space-between
   &__foot
@@ -212,8 +253,15 @@ body
     display: flex
     justify-content: space-between
     align-items: center
+    background: $bg-alt-color
+    position: sticky
+    z-index: 2
+    bottom: 0px
+    border-top: 1px solid $text-alt-color
   .btn + .btn
     margin-left: 1rem
+  .form__inner
+    padding: 1rem
 
 .data-table
   font-size: 0.9rem
@@ -433,19 +481,26 @@ body
 .row
   display: flex
   flex-wrap: wrap
-  gap: 15px
-  padding: 15px
 
 .md-2
-  width: calc(100% / 6 - 10px)
+  flex: 0 0 auto
+  width: calc(100% / 6)
 .md-3
+  flex: 0 0 auto
   width: 25%
 .md-4
-  width: calc(100% / 3 - 10px)
+  flex: 0 0 auto
+  width: calc(100% / 3)
 .md-6
+  flex: 0 0 auto
   width: 50%
+.md-8
+  flex: 0 0 auto
+  width: calc(100% / 3 * 2)
 
 .form-group
+  padding-left: 10px
+  padding-right: 10px
   label
     font-size: .857rem
     margin-bottom: .3rem
@@ -456,6 +511,11 @@ body
     display: flex
     align-items: center
     margin-top: .6rem
+
+.card-header
+  font-weight: 500
+  font-size: 1.3em
+  width: 100%
 
 label.image
   position: relative
@@ -503,5 +563,6 @@ label.image
   &.active + .img__wrapper
     display: flex
 
+@import editor_reset
 @import login
 @import menu

@@ -1,13 +1,13 @@
 @extends('admin.main')
 
 @section('title')
-    Изменить {{ $model->header }}
+    Создать товар
 @endsection
 
 @section('breadcrumb')
     <div class="breadcrumb-top">
         <div class="header">
-            Изменить {{ $model->header }}
+            Создать товар
         </div>
         <div class="breadcrumbs">
             <ul>
@@ -15,10 +15,10 @@
                     <a href="{{ route('dashboard') }}">Заказы</a>
                 </li>
                 <li>
-                    <a href="{{ route('category.index') }}">Категории</a>
+                    <a href="{{ route('item.index') }}">Товары</a>
                 </li>
                 <li>
-                    <span>Изменить</span>
+                    <span>Создать</span>
                 </li>
             </ul>
         </div>
@@ -28,21 +28,21 @@
 
 @section('content')
     <div class="dock">
-        <form method="POST" id="createCategory" action="{{ route('category.post', ['id' => $model->id]) }}" enctype="multipart/form-data">
-            @method('POST')
+        <form method="POST" id="createCategory" action="{{ route('item.store') }}" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
             <div class="dock__header dock__header--fill">
-                <a class="btn btn--red" href="{{ route('category.index') }}">Отменить</a>
+                <a class="btn btn--red" href="{{ route('item.index') }}">Отменить</a>
                 <div class="flex">
                     <input class="btn" name="save" type="submit" value="Сохранить"/>
                     <input class="btn btn--yellow" name="apply" type="submit" value="Применить"/>
                 </div>
             </div>
             <div class="form__inner">
-                @include('admin.category.form')
+                @include('admin.item.form')
             </div>
             <div class="dock__foot dock__foot--fill">
-                <a class="btn btn--red" href="{{ route('category.index') }}">Отменить</a>
+                <a class="btn btn--red" href="{{ route('item.index') }}">Отменить</a>
                 <div class="flex">
                     <input class="btn" name="save" type="submit" value="Сохранить"/>
                     <input class="btn btn--yellow" name="apply" type="submit" value="Применить"/>

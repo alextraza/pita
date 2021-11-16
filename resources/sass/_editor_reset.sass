@@ -1,0 +1,68 @@
+.ss-main
+  color: $text-color
+  .ss-single-selected
+    background: $bg-alt-color
+    border: 1px solid $text-alt-color
+    padding: .571rem 1rem
+    height: auto
+    border-radius: .375rem
+    .placeholder
+      line-height: 1.25
+.ss-content
+  background-color: $bg-alt-color
+  border: 1px solid $violent-color
+  .ss-list
+    .ss-option
+      &:hover
+        background: $bg-color
+      &.ss-disabled
+        color: $text-alt-color
+        background: $bg-alt-color
+  .ss-search
+    input
+      background-color: $text-alt-color
+      border: 1px solid $violent-color
+
+.editor-toolbar
+  border-top: 1px solid $text-alt-color
+  border-left: 1px solid $text-alt-color
+  border-right: 1px solid $text-alt-color
+  border-top-left-radius: .375rem
+  border-top-right-radius: .375rem
+  opacity: .9
+  &.fullscreen
+    background: $bg-alt-color
+    &:before,&:after
+      display: none
+  &.disabled-for-preview
+    a:not(.no-disable)
+      color: #ff9f4344 !important
+      background-color: transparent
+
+  &:hover
+    opacity: 1
+  a
+    color: #ff9f43 !important
+    border: 1px solid transparent
+    border-radius: .358rem
+    &:hover, &.active
+      background-color: rgba(255,159,67,.12)
+      border-color: transparent
+  i.separator
+    border-left: 1px solid $text-alt-color
+    border-right: none
+.editor-preview
+  background: $bg-alt-color
+  &-side
+    background: $bg-alt-color
+    border-color: $text-alt-color
+  pre
+    background: $bg-alt-color
+.CodeMirror
+  background: $bg-alt-color
+  border-color: $text-alt-color
+  color: $text-color
+  &-cursor
+    border-color: $text-color
+  .CodeMirror-selectedtext
+    color: $bg-color

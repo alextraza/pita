@@ -32,15 +32,17 @@
             @method('PUT')
             @csrf
             <div class="dock__header dock__header--fill">
-                <a class="btn btn--transparent del" href="{{ route('category.index') }}">Отменить</a>
+                <a class="btn btn--red" href="{{ route('category.index') }}">Отменить</a>
                 <div class="flex">
                     <input class="btn" name="save" type="submit" value="Сохранить"/>
                     <input class="btn btn--yellow" name="apply" type="submit" value="Применить"/>
                 </div>
             </div>
-            @include('admin.category.form')
+            <div class="form__inner">
+                @include('admin.category.form')
+            </div>
             <div class="dock__foot dock__foot--fill">
-                <a class="btn btn--transparent del" href="{{ route('category.index') }}">Отменить</a>
+                <a class="btn btn--red" href="{{ route('category.index') }}">Отменить</a>
                 <div class="flex">
                     <input class="btn" name="save" type="submit" value="Сохранить"/>
                     <input class="btn btn--yellow" name="apply" type="submit" value="Применить"/>

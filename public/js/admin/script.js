@@ -40,6 +40,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // show atlernative item inputs
+
+  var hasAlt = document.getElementById('has_alt');
+  if (hasAlt) {
+    let altTarget = document.getElementById('alter');
+    hasAlt.addEventListener('change', (event) => {
+      if (event.target.checked) {
+        altTarget.classList.remove('hidden');
+      } else {
+        altTarget.classList.add('hidden');
+      }
+    });
+  }
+
   var showImage = document.querySelector('.showImage');
   if (showImage) {
     let close = document.querySelector('.img__wrapper .close');
@@ -63,5 +77,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     })
   }
+
+  // init slimselect
+  var category = new SlimSelect({
+    select: "#category_id"
+  })
+
+  // init markdown editor
+  var simplemde = new SimpleMDE({ element: document.getElementById("content") });
 
 })

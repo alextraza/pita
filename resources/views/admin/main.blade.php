@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="{{ asset("css/admin/simplemde.min.css") }}" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{ asset("css/admin/sass/main.css") }}" type="text/css" media="screen" />
 </head>
 
@@ -19,7 +20,11 @@
     </div>
     <div class="top-bar">
         <div class="left">
-
+            @if ($message = Session::get('success'))
+                <div class="session__msg">
+                    {{ $message }}
+                </div>
+            @endif
         </div>
         <div class="right">
             <div class="cart">
@@ -41,6 +46,7 @@
         </div>
     </div>
     <div class="content">
+        <div class="content__shadow"></div>
         <div class="container">
 
             @yield('breadcrumb')
@@ -49,6 +55,8 @@
         </div>
     </div>
 
+    <script src="{{ asset("js/admin/slimselect.min.js") }}"></script>
+    <script src="{{ asset("js/admin/simplemde.min.js") }}"></script>
     <script src="{{ asset("js/admin/script.js") }}"></script>
 </body>
 

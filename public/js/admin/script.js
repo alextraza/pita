@@ -79,11 +79,18 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // init slimselect
-  var category = new SlimSelect({
-    select: "#category_id"
-  })
+  let categoryField = document.getElementById("category_id");
+  if (categoryField) {
+    var category = new SlimSelect({
+      select: categoryField,
+    })
+  }
 
   // init markdown editor
-  var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+
+  let textarea = document.getElementById("content");
+  if (textarea) {
+    var simplemde = new SimpleMDE({ element: textarea });
+  }
 
 })

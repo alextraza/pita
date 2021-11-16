@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Admin\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
+use App\Admin\Controllers\BaseController;
 use Illuminate\Http\Request;
-use App\Models\Admin\OrderSearch as Model;
+use App\Admin\Models\OrderSearch as Model;
 
 class OrderController extends BaseController
 {

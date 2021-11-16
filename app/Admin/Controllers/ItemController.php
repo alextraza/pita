@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Admin\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\Admin\StoreItem;
-use App\Http\Requests\Admin\UpdateItem;
+use App\Admin\Controllers\BaseController;
+use App\Admin\Requests\StoreItem;
+use App\Admin\Requests\UpdateItem;
 use App\Models\Category;
 use App\Models\Item;
-use Illuminate\Http\Request;
 
 class ItemController extends BaseController
 {
     public function index()
     {
-        $modelName = \App\Models\Admin\ItemSearch::class;
+        $modelName = \App\Admin\Models\ItemSearch::class;
         $models = $modelName::getAll();
         $sort = request()->get('sort');
         $filter = request()->get('filter');

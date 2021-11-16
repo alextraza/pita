@@ -15,7 +15,7 @@
                     <a href="{{ route('dashboard') }}">Заказы</a>
                 </li>
                 <li>
-                    <a href="{{ route('category.index') }}">Товары</a>
+                    <a href="{{ route('item.index') }}">Товары</a>
                 </li>
                 <li>
                     <span>Изменить</span>

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Admin\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\Admin\UpdateCategory;
-use App\Http\Requests\Admin\StoreCategory;
+use App\Admin\Controllers\BaseController;
+use App\Admin\Requests\UpdateCategory;
+use App\Admin\Requests\StoreCategory;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -12,7 +12,7 @@ class CategoryController extends BaseController
 {
     public function index()
     {
-        $modelName = \App\Models\Admin\CategorySearch::class;
+        $modelName = \App\Admin\Models\CategorySearch::class;
         $models = $modelName::getAll();
         $sort = request()->get('sort');
         $filter = request()->get('filter');

@@ -2,6 +2,7 @@
 
 use App\Admin\Controllers\AdminController;
 use App\Admin\Controllers\CategoryController;
+use App\Admin\Controllers\ConfigController;
 use App\Admin\Controllers\ItemController;
 use App\Admin\Controllers\OrderController;
 use App\Admin\Controllers\PageController;
@@ -142,6 +143,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
             PageController::class, 'chage-status'
         ])->name('change_status');
     });
+    // config
+    Route::get('/config', [
+        ConfigController::class, 'index'
+    ])->name('config.index');
+    Route::post('/config', [
+        ConfigController::class, 'save'
+    ])->name('config.post');
 });
 
 Route::get('login', [AuthController::class, 'index'])->name('login');

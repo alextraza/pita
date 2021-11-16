@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset("css/admin/sass/main.css") }}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{ asset("css/admin/main.css") }}" type="text/css" media="screen" />
 </head>
 
 <body>

@@ -4,7 +4,7 @@ namespace App\Admin\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreItem extends FormRequest
+class StorePage extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,20 +25,13 @@ class StoreItem extends FormRequest
     {
         return [
             'image' => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'slug' => 'required|unique:pages',
             'header' => 'required',
             'pos' => 'integer|nullable',
             'status' => 'boolean',
-            'in_cart' => 'boolean',
-            'category_id' => 'integer|nullable',
-            'price' => 'integer|nullable',
-            'price_alt' => 'integer|nullable',
-            'weight' => 'integer|nullable',
-            'weight_alt' => 'integer|nullable',
-            'capacity' => 'integer|nullable',
-            'proteins' => 'numeric|nullable',
-            'fats' => 'numeric|nullable',
-            'carbo' => 'numeric|nullable',
-            'has_alt' => 'boolean',
+            'title' => 'nullable',
+            'description' => 'nullable',
+            'content_raw' => 'nullable'
         ];
     }
 }

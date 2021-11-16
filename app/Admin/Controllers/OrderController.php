@@ -10,7 +10,7 @@ class OrderController extends BaseController
 {
     public function index()
     {
-        $modelName = \App\Models\Admin\OrderSearch::class;
+        $modelName = \App\Admin\Models\OrderSearch::class;
         $models = $modelName::getAll();
         $sort = request()->get('sort');
         $filter = request()->get('filter');

@@ -27,15 +27,7 @@ class CategoryController extends BaseController
 
     public function store(StoreCategory $request)
     {
-        $model = new Category();
-
-        // if need upload image
-        $model = $this->storeImage($model, $request);
-
-        $model->slug = $request->input('slug');
-        $model->header = $request->input('header');
-        $model->pos = $request->input('pos');
-        $model->status = $request->input('status');
+        $model = $this->setModel(new Category(), $request);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()
@@ -56,15 +48,7 @@ class CategoryController extends BaseController
 
     public function save(UpdateCategory $request, $id)
     {
-        $model = Category::findOrFail($id);
-
-        // if need upload image
-        $model = $this->storeImage($model, $request);
-
-        $model->slug = $request->input('slug');
-        $model->header = $request->input('header');
-        $model->pos = $request->input('pos');
-        $model->status = $request->input('status');
+        $model = $this->setModel(Category::findOrFail($id), $request);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()
@@ -76,5 +60,19 @@ class CategoryController extends BaseController
                 ->withSuccess('Категория ' . $model->header . ' успешно coхранена');
         }
         return redirect()->route('category.edit')->withInput();
+    }
+
+    protected function setModel(Category $model, $requets)
+    {
+        // if need upload image
+        $model = $this->storeImage($model, $request);
+
+        $model->slug = $request->input('slug');
+        $model->header = $request->input('header');
+        $model->header2 = $request->input('header2');
+        $model->pos = $request->input('pos');
+        $model->status = $request->input('status');
+
+        return $model;
     }
 }

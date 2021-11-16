@@ -1,6 +1,6 @@
 {
-    "SOURCES_PATH": "../",
-    "TARGET_PATH": "../../public/css/admin/",
+    "SOURCES_PATH": "sass",
+    "TARGET_PATH": "../public/css/admin/",
     "LIBRARY_PATHS": [],
     "OUTPUT_STYLES": "expanded",
     "SOURCE_COMMENTS": false,

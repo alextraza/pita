@@ -904,6 +904,7 @@ input[type="checkbox"] {
   border: 1px solid #676d7d;
   appearance: none;
   color-adjust: exact;
+  flex: none;
 }
 
 input[type="checkbox"]:not(:checked):not(:focus) {

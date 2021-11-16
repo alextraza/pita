@@ -28,34 +28,7 @@ class ItemController extends BaseController
 
     public function store(StoreItem $request)
     {
-        $model = new Item();
-
-        // if need upload image
-        $model = $this->storeImage($model, $request);
-
-        // set model
-        $model->header = $request->input('header');
-        $model->pos = $request->input('pos');
-        $model->status = $request->input('status');
-        $model->category_id = $request->input('category_id');
-        $model->content_raw = $request->input('content_raw');
-        if ($request->input('content_raw')) {
-            $model->content = markdown()->parse($request->input('content_raw'));
-        } else {
-            $model->content = '';
-        }
-        $model->price = $request->input('price');
-        $model->weight = $request->input('weight');
-        $model->capacity = $request->input('capacity');
-        $model->proteins = $request->input('proteins');
-        $model->fats = $request->input('fats');
-        $model->carbo = $request->input('carbo');
-        $model->energy = $request->input('energy');
-        $model->has_alt = $request->input('has_alt');
-        $model->price_alt = $request->input('price_alt');
-        $model->weight_alt = $request->input('weight_alt');
-
-
+        $model = $this->setModel(new Item(), $requets);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()
@@ -77,8 +50,22 @@ class ItemController extends BaseController
 
     public function save(UpdateItem $request, $id)
     {
-        $model = Item::findOrFail($id);
+        $model = $this->setModel(Item::findOrFail($id), $request);
+        if ($model->save()) {
+            if ($request->input('apply')) {
+                return redirect()
+                    ->route('item.edit', ['id' => $model->id])
+                    ->withSuccess('Товар ' . $model->header . ' успешно coхранен');
+            }
+            return redirect()
+                ->route('item.index')
+                ->withSuccess('Товар ' . $model->header . ' успешно coхранен');
+        }
+        return redirect()->route('item.edit')->withInput();
+    }
 
+    protected function setModel(Item $model, $request)
+    {
         // if need upload image
         $model = $this->storeImage($model, $request);
 
@@ -101,19 +88,10 @@ class ItemController extends BaseController
         $model->carbo = $request->input('carbo');
         $model->energy = $request->input('energy');
         $model->has_alt = $request->input('has_alt');
+        $model->in_cart = $request->input('in_cart');
         $model->price_alt = $request->input('price_alt');
         $model->weight_alt = $request->input('weight_alt');
 
-        if ($model->save()) {
-            if ($request->input('apply')) {
-                return redirect()
-                    ->route('item.edit', ['id' => $model->id])
-                    ->withSuccess('Товар ' . $model->header . ' успешно coхранен');
-            }
-            return redirect()
-                ->route('item.index')
-                ->withSuccess('Товар ' . $model->header . ' успешно coхранен');
-        }
-        return redirect()->route('item.edit')->withInput();
+        return $model;
     }
 }

@@ -123,6 +123,21 @@
                 </div>
             </div>
             <div class="md-6">
+                <div class="form-group @error('status') has-error @enderror">
+                    <label for="status">
+                        Рекомендовать
+                    </label>
+                    <div class="checkbox">
+                        <input type="hidden" name="in_cart" value="0" />
+                        <input id="status" type="checkbox" name="in_cart" value="1" @if (old('in_cart', $model->in_cart)) checked @endif />
+                        Рекомендовать в корзине
+                    </div>
+                    @error('in_cart')
+                    <span class="text-danger">{{ $errors->first('in_cart') }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="md-6">
                 <div class="form-group @error('has_alt') has-error @enderror">
                     <label for="has_alt">
                         Вариан

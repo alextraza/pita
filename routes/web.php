@@ -4,6 +4,7 @@ use App\Admin\Controllers\AdminController;
 use App\Admin\Controllers\CategoryController;
 use App\Admin\Controllers\ItemController;
 use App\Admin\Controllers\OrderController;
+use App\Admin\Controllers\PageController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -106,6 +107,41 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
             ItemController::class, 'chage-status'
         ])->name('change_status');
     });
+
+    // pages
+    Route::prefix('page')->name('page.')->group(function() {
+        Route::get('/', [
+            PageController::class, 'index'
+        ])->name('index');
+        Route::get('/create', [
+            PageController::class, 'create'
+        ])->name('create');
+        Route::put('/create', [
+            PageController::class, 'store'
+        ])->name('store');
+        Route::get('/edit/{id}', [
+            PageController::class, 'edit'
+        ])->name('edit');
+        Route::post('/edit/{id}', [
+            PageController::class, 'save'
+        ])->name('post');
+        Route::get('/delete/{id}', [
+            PageController::class, 'delete'
+        ])->name('delete');
+        Route::get('/archive/{id}', [
+            PageController::class, 'archive'
+        ])->name('archive');
+
+        //delete image
+        Route::post('/delimg/{id}/{attr}', [
+            PageController::class, 'imgdel'
+        ])->name('img_delete');
+
+        //change status
+        Route::post('/change-status/{id}', [
+            PageController::class, 'chage-status'
+        ])->name('change_status');
+    });
 });
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
@@ -114,6 +150,8 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'makeRegister'])->name('register.post');
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/{slug}', function ($slug) {
+    $model = \App\Models\Page::where('slug', $slug)->first();
+    echo $model->content;
+    //return view('welcome');
 });

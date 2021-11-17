@@ -10,6 +10,8 @@ use App\Models\Category;
 
 class CategoryController extends BaseController
 {
+    protected $model = Category::class;
+
     public function index()
     {
         $modelName = \App\Admin\Models\CategorySearch::class;

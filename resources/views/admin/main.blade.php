@@ -4,6 +4,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset("css/admin/simplemde.min.css") }}" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{ asset("css/admin/main.css") }}" type="text/css" media="screen" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body>
@@ -57,6 +58,7 @@
 
     <script src="{{ asset("js/admin/slimselect.min.js") }}"></script>
     <script src="{{ asset("js/admin/simplemde.min.js") }}"></script>
+    <script src="{{ asset("js/admin/axios.min.js") }}"></script>
     <script src="{{ asset("js/admin/script.js") }}"></script>
 </body>
 

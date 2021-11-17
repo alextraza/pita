@@ -14,18 +14,20 @@ document.addEventListener("DOMContentLoaded", function() {
   var massDelBnt = document.getElementById('massDel');
   if (massDelBnt) {
     massDelBnt.onclick = function() {
-      var param = '';
-      let checked = document.querySelectorAll('.checkMe:checked');
-      checked.forEach(function(element, key) {
-        if (!key) {
-          param += '?';
-        } else {
-          param += '&';
-        }
-        param += 'id[]=' + element.value;
-      });
-      param = massDelBnt.href + param;
-      window.location = param;
+      if (confirm('Вы действительно хотите удалить выбранные элементы?')) {
+        var param = '';
+        let checked = document.querySelectorAll('.checkMe:checked');
+        checked.forEach(function(element, key) {
+          if (!key) {
+            param += '?';
+          } else {
+            param += '&';
+          }
+          param += 'id[]=' + element.value;
+        });
+        param = massDelBnt.href + param;
+        window.location = param;
+      }
       return false;
     }
   }
@@ -60,6 +62,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
+  }
+
+   var changeStatusButton = document.querySelectorAll('.changeStatus');
+  if (changeStatusButton) {
+    changeStatusButton.forEach(function(element) {
+      element.onclick = function() {
+        var data = new FormData;
+        let token = document.head.querySelector('meta[name="csrf-token"]');
+        data.append('_token', token.content);
+        axios.post(element.href, data)
+             .then(function(res) {
+               if (res == 1) {
+               }
+             })
+             .catch(function(err) {
+               console.log(err);
+             });
+        element.querySelector('.status').classList.toggle('denied');
+        element.querySelector('.status').classList.toggle('accept');
+        return false;
+      }
+
+    })
   }
 
   // show atlernative item inputs

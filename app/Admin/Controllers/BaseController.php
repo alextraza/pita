@@ -22,4 +22,15 @@ class BaseController extends Controller
         $this->model::destroy($request->id);
         return back();
     }
+
+    public function changeStatus($id)
+    {
+        $model = $this->model::find($id);
+        if ($model) {
+            $model->status = !$model->status;
+            $model->save();
+            echo $model->status;
+        }
+        return false;
+    }
 }

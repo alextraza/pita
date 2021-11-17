@@ -9,6 +9,8 @@ use App\Models\Page;
 
 class PageController extends BaseController
 {
+    protected $model = Page::class;
+
     public function index()
     {
         $modelName = \App\Admin\Models\PageSearch::class;
@@ -20,13 +22,13 @@ class PageController extends BaseController
 
     public function create()
     {
-        $model = new Page();
+        $model = new $this->model();
         return view('admin.page.create', compact('model'));
     }
 
     public function store(StorePage $request)
     {
-        $model = $this->setModel(new Page(), $request);
+        $model = $this->setModel(new $this->model(), $request);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()
@@ -41,13 +43,13 @@ class PageController extends BaseController
     }
 
     public function edit($id) {
-        $model = Page::findOrFail($id);
+        $model = $this->model::findOrFail($id);
         return view('admin.page.edit', compact('model'));
     }
 
     public function save(UpdatePage $request, $id)
     {
-        $model = $this->setModel(Page::findOrFail($id), $request);
+        $model = $this->setModel($this->model::findOrFail($id), $request);
         if ($model->save()) {
             if ($request->input('apply')) {
                 return redirect()

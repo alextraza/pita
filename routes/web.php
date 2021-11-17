@@ -70,7 +70,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
 
         //change status
         Route::post('/change-status/{id}', [
-            CategoryController::class, 'chage-status'
+            CategoryController::class, 'changeStatus'
         ])->name('change_status');
     });
 
@@ -105,7 +105,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
 
         //change status
         Route::post('/change-status/{id}', [
-            ItemController::class, 'chage-status'
+            ItemController::class, 'changeStatus'
         ])->name('change_status');
     });
 
@@ -140,7 +140,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
 
         //change status
         Route::post('/change-status/{id}', [
-            PageController::class, 'chage-status'
+            PageController::class, 'changeStatus'
         ])->name('change_status');
     });
     // config

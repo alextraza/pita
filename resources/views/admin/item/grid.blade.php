@@ -5,6 +5,7 @@
             @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
             @include('admin.grid.header', ['attr' => 'pos', 'name' => 'Позиция'])
             @include('admin.grid.header', ['attr' => 'header', 'name' => 'Название'])
+            @include('admin.grid.header', ['attr' => 'category_id', 'name' => 'Категория'])
             @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
             @include('admin.grid.header', ['attr' => 'updated_at', 'name' => 'Изменен'])
             <th>Действие</th>
@@ -15,6 +16,10 @@
             <td>{{ $model->id }}</td>
             <td>@include('admin.grid.position')</td>
             <td>{{ $model->header }}</td>
+            <td>@include('admin.grid.parent', ['options' => [
+                   'attr' => 'category_id',
+                   'list' => $categoryList]
+                   ])</td>
             <td>@include('admin.grid.status', ['path' => 'item'])</td>
             <td>{{ date('d.m.Y', strtotime($model->updated_at)) }}</td>
             <td>

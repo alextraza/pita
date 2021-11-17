@@ -12,10 +12,10 @@ class ItemSearch extends Item
     protected static $_model;
 
     protected static $sorting = [
-        'id', 'header', 'pos', 'status'
+        'id', 'header', 'pos', 'status', 'category_id'
     ];
 
     protected static $filtering = [
-        'header'
+        'header', 'category_id'
     ];
 }

@@ -16,9 +16,10 @@ class ItemController extends BaseController
     {
         $modelName = \App\Admin\Models\ItemSearch::class;
         $models = $modelName::getAll();
+        $categoryList = Category::getList();
         $sort = request()->get('sort');
         $filter = request()->get('filter');
-        return view('admin.item.index', compact('models', 'modelName', 'sort', 'filter'));
+        return view('admin.item.index', compact('models', 'modelName', 'sort', 'filter', 'categoryList'));
     }
 
     public function create()

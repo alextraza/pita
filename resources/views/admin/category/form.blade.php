@@ -42,6 +42,15 @@
             @enderror
         </div>
     </div>
+    <div class="md-4">
+        <div class="form-group @error('header2') has-error @enderror">
+            <label>Заголовок в корзине</label>
+            <input type="text" name="header" value="{{ old('header2', $model->header2) }}" />
+            @error('header2')
+                <span class="text-danger">{{ $errors->first('header2') }}</span>
+            @enderror
+        </div>
+    </div>
     <div class="md-2">
         <div class="form-group @error('pos') has-error @enderror">
             <label>Позиция</label>

@@ -25,7 +25,7 @@ class BaseController extends Controller
 
     public function changeStatus($id)
     {
-        $model = $this->model::find($id);
+        $model = $this->model::where('id', $id)->first();
         if ($model) {
             $model->status = !$model->status;
             $model->save();

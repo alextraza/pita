@@ -17,7 +17,7 @@
             <td>@include('admin.grid.position')</td>
             <td>{{ $model->slug }}</td>
             <td>{{ $model->header }}</td>
-            <td>@include('admin.grid.status')</td>
+            <td>@include('admin.grid.status', ['path' => 'page'])</td>
             <td>{{ date('d.m.Y', strtotime($model->updated_at)) }}</td>
             <td>
                 <div class="action-field">

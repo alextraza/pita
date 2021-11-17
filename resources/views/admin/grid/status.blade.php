@@ -1,4 +1,4 @@
-<a class="changeStatus" href="{{ route('category.change_status', ['id' => $model->id]) }}">
+<a class="changeStatus" href="{{ route($path . '.change_status', ['id' => $model->id]) }}">
 @if ($model->status)
         <span class="status accept">
         </span>

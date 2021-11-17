@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // enable/disable mass-delete button
     checkMes.forEach(function(checkbox) {
-      checkbox.addEventListener('change', (event, flag) => {
+      checkbox.addEventListener('change', (event) => {
         let checked = document.querySelectorAll('.checkMe:checked');
         if (checked.length > 0) {
           document.getElementById('massDel').classList.remove('disabled')
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-   var changeStatusButton = document.querySelectorAll('.changeStatus');
+  var changeStatusButton = document.querySelectorAll('.changeStatus');
   if (changeStatusButton) {
     changeStatusButton.forEach(function(element) {
       element.onclick = function() {
@@ -85,6 +85,29 @@ document.addEventListener("DOMContentLoaded", function() {
       }
 
     })
+  }
+
+  var changePosInputs = document.querySelectorAll('.changePos');
+  if (changePosInputs) {
+    changePosInputs.forEach(function(element) {
+      element.addEventListener('change', (event) => {
+        var data = new FormData;
+        let token = document.head.querySelector('meta[name="csrf-token"]');
+        data.append('_token', token.content);
+        data.append('id', event.target.dataset.id);
+        data.append('pos', event.target.value);
+
+        axios.post(event.target.dataset.path, data)
+             .then(function(res) {
+               if (res == 1) {
+               }
+             })
+             .catch(function(err) {
+               console.log(err);
+             });
+
+      });
+    });
   }
 
   // show atlernative item inputs

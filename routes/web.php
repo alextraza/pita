@@ -6,7 +6,9 @@ use App\Admin\Controllers\ConfigController;
 use App\Admin\Controllers\ItemController;
 use App\Admin\Controllers\OrderController;
 use App\Admin\Controllers\PageController;
+use App\Admin\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +23,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 // admin routing
-Route::middleware(['auth'])->prefix('admin')->group(function() {
+Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function() {
     // orders
     Route::get('/', [
         OrderController::class, 'index'
@@ -72,6 +74,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/change-status/{id}', [
             CategoryController::class, 'changeStatus'
         ])->name('change_status');
+
+        //change position
+        Route::post('/change-position', [
+            CategoryController::class, 'changePos'
+        ])->name('change_position');
     });
 
     // items
@@ -107,6 +114,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/change-status/{id}', [
             ItemController::class, 'changeStatus'
         ])->name('change_status');
+
+        //change position
+        Route::post('/change-position', [
+            ItemController::class, 'changePos'
+        ])->name('change_position');
     });
 
     // pages
@@ -142,7 +154,38 @@ Route::middleware(['auth'])->prefix('admin')->group(function() {
         Route::post('/change-status/{id}', [
             PageController::class, 'changeStatus'
         ])->name('change_status');
+
+        //change position
+        Route::post('/change-position', [
+            PageController::class, 'changePos'
+        ])->name('change_position');
     });
+
+    // users
+    Route::prefix('user')->name('user.')->group(function() {
+        Route::get('/', [
+            UserController::class, 'index'
+        ])->name('index');
+        Route::get('/create', [
+            UserController::class, 'create'
+        ])->name('create');
+        Route::put('/create', [
+            UserController::class, 'store'
+        ])->name('store');
+        Route::get('/edit/{id}', [
+            UserController::class, 'edit'
+        ])->name('edit');
+        Route::post('/edit/{id}', [
+            UserController::class, 'save'
+        ])->name('post');
+        Route::get('/delete', [
+            UserController::class, 'delete'
+        ])->name('delete');
+        Route::get('/archive/{id}', [
+            UserController::class, 'archive'
+        ])->name('archive');
+    });
+
     // config
     Route::get('/config', [
         ConfigController::class, 'index'

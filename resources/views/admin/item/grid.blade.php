@@ -14,7 +14,7 @@
         <tr>
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
             <td>{{ $model->id }}</td>
-            <td>@include('admin.grid.position')</td>
+            <td>@include('admin.grid.position', ['path' => 'item'])</td>
             <td>{{ $model->header }}</td>
             <td>@include('admin.grid.parent', ['options' => [
                    'attr' => 'category_id',

@@ -45,7 +45,7 @@
     <div class="md-4">
         <div class="form-group @error('title') has-error @enderror">
             <label>Meta Title</label>
-            <input type="text" name="title" value="{{ old('"title', $model->title) }}" />
+            <input type="text" name="title" value="{{ old('title', $model->title) }}" />
             @error('title')
             <span class="text-danger">{{ $errors->first('title') }}</span>
             @enderror

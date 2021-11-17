@@ -25,12 +25,32 @@ class BaseController extends Controller
 
     public function changeStatus($id)
     {
-        $model = $this->model::where('id', $id)->first();
-        if ($model) {
+        if ($model = $this->getModel($id)) {
             $model->status = !$model->status;
             $model->save();
             echo $model->status;
         }
         return false;
+    }
+
+    public function changePos(Request $request)
+    {
+        $request->validate([
+            'id' => 'numeric',
+            'pos' => 'numeric',
+        ]);
+
+        if ($model = $this->getModel($request->id)) {
+            $model->pos = $request->pos;
+            $model->save();
+            echo $model->pos;
+        }
+        return false;
+    }
+
+    private function getModel($id)
+    {
+        $model = $this->model::where('id', $id)->first();
+        return $model;
     }
 }

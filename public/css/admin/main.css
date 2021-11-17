@@ -1651,6 +1651,18 @@ label.image .img__inner a.delete {
   display: flex;
 }
 
+.admin-star {
+  display: flex;
+  align-items: center;
+  color: #ff9f43;
+}
+
+.admin-star svg {
+  width: 1rem;
+  margin-left: 5px;
+  color: #ff9f43;
+}
+
 .ss-main {
   color: #d0d2d6;
 }

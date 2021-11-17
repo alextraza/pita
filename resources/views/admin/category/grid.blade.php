@@ -14,7 +14,7 @@
         <tr>
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
             <td>{{ $model->id }}</td>
-            <td>@include('admin.grid.position')</td>
+            <td>@include('admin.grid.position', ['path' => 'category'])</td>
             <td>{{ $model->slug }}</td>
             <td>{{ $model->header }}</td>
             <td>@include('admin.grid.status', ['path' => 'category'])</td>

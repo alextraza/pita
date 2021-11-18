@@ -75,6 +75,11 @@ body
 .hidden
   display: none !important
 
+.mart
+  margin-top: 1em
+.marb
+  margin-bottom: 1rem
+
 .btn
   background: $violent-color
   color: $text-color
@@ -492,19 +497,24 @@ body
 
 .md-2
   flex: 0 0 auto
-  width: calc(100% / 6)
+  width: 100%
+  max-width: calc(100% / 6)
 .md-3
   flex: 0 0 auto
-  width: 25%
+  width: 100%
+  max-width: 25%
 .md-4
   flex: 0 0 auto
-  width: calc(100% / 3)
+  width: 100%
+  max-width: calc(100% / 3)
 .md-6
   flex: 0 0 auto
-  width: 50%
+  width: 100%
+  max-width: 50%
 .md-8
   flex: 0 0 auto
-  width: calc(100% / 3 * 2)
+  width: 100%
+  max-width: calc(100% / 3 * 2)
 
 .form-group
   padding-left: 10px
@@ -586,6 +596,82 @@ label.image
     width: 1rem
     margin-left: 5px
     color: #ff9f43
+
+.timeline
+  list-style: none
+  margin: 0px
+  padding: 0px
+  margin-left: 0.5rem
+  margin-top: 20px
+  &__item
+    position: relative
+    padding-left: 2.5rem
+    padding-bottom: 1.3rem
+    border-left: 1px solid $text-alt-color
+    &:nth-child(1), &:nth-child(6)
+      .timeline__point
+        background: $violent-color
+        &:before
+          background: $violent-color
+    &:nth-child(2)
+      .timeline__point
+        background: #ff9f43
+        &:before
+          background: #ff9f43
+    &:nth-child(3)
+      .timeline__point
+        background: #00cfe8
+        &:before
+          background: #00cfe8
+    &:nth-child(4)
+      .timeline__point
+        background: #ea5455
+        &:before
+          background: #ea5455
+    &:nth-child(5)
+      .timeline__point
+        background: #28c76f
+        &:before
+          background: #28c76f
+    &:last-child
+      border: none
+
+  &__point
+    height: 12px
+    width: 12px
+    position: absolute
+    left: -6px
+    top: 1px
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    &:before
+      content: ''
+      height: 20px
+      width: 20px
+      display: block
+      position: absolute
+      top: -4px
+      left: -4px
+      border-radius: 50%
+      opacity: .5
+  &__header
+    line-height: 1.2
+    font-weight: 500
+    p
+      line-height: 1.5rem
+      font-size: 0.9rem
+
+td.total
+  font-weight: 600
+  text-align: right
+  &-price
+    font-weight: 600
+    font-size: 1.2rem
+
+.rub
+  font-size: 0.8rem
 
 @import editor_reset
 @import login

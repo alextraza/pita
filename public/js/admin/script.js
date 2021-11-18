@@ -149,11 +149,19 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // init slimselect
-  let categoryField = document.getElementById("category_id");
-  if (categoryField) {
-    var category = new SlimSelect({
-      select: categoryField,
-    })
+  var categorySelect = initSlimSelect('category_id');
+  var orderStatusSelect = initSlimSelect('order_status');
+  var paymentStatusSelect = initSlimSelect('payment_status');
+
+  function initSlimSelect(id) {
+    let selectBox = document.getElementById(id);
+    if (selectBox) {
+      var result = new SlimSelect({
+        select: selectBox,
+      })
+      return result;
+    }
+    return false;
   }
 
   // init markdown editor

@@ -14,8 +14,19 @@ class Order extends Model
         'delivering' => 'Доставляется'
     ];
 
+    const PAYMENTS = [
+        'cash' => 'Наличными',
+        'card' => 'Картой',
+        'payed' => 'Оплачено'
+    ];
+
     public function orderItems()
     {
-        return $this->hasMany(OrderItems::class);
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function getFullPriceAttribute()
+    {
+        return $this->orderItems->sum('price');
     }
 }

@@ -31,9 +31,9 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->group(function() {
     Route::get('/edit/{id}', [
         OrderController::class, 'edit'
     ])->name('order.edit');
-    Route::get('/create', [
-        OrderController::class, 'create'
-    ])->name('order.create');
+    Route::post('/edit/{id}', [
+        OrderController::class, 'save'
+    ])->name('order.post');
     Route::get('/delete', [
         OrderController::class, 'delete'
     ])->name('order.delete');

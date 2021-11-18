@@ -11,9 +11,9 @@ class PageSearch extends Page
     protected $table = 'pages';
     protected static $_model;
     protected static $sorting = [
-        'id', 'status', 'pos', 'header', 'updated_at'
+        'id', 'pos', 'header', 'updated_at'
     ];
     protected static $filtering = [
-        'id', 'status', 'header', 'slug',
+        'status', 'header', 'slug',
     ];
 }

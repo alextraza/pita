@@ -53,7 +53,14 @@ document.addEventListener("DOMContentLoaded", function() {
   // show/hide filter input
   function openFilterToggle(event) {
     if (event.target.classList.contains('filter')) {
-      event.target.classList.toggle('open');
+      if (event.shiftKey) {
+        event.target.nextElementSibling.value = '';
+        if (form = document.getElementById('filter-search')) {
+          form.submit();
+        }
+      } else {
+        event.target.classList.toggle('open');
+      }
       event.preventDefault();
     }
   }

@@ -1,5 +1,6 @@
 <div class="table-responsive">
     <table class="table-stripped data-table">
+            <form method="get" id="filter-search">
         <tr>
             <th><input id="checkAll" type="checkbox" name="all" /></th>
             @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
@@ -10,6 +11,7 @@
             @include('admin.grid.header', ['attr' => 'updated_at', 'name' => 'Изменен'])
             <th>Действие</th>
         </tr>
+            </form>
         @foreach($models as $model)
         <tr>
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>

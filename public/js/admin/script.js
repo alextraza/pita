@@ -1,11 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
 
   document.body.addEventListener('click', (e) => {
-    ddToggle(e);
+    ddToggle(e); // show delete sublinks
+    openFilterToggle(e);
+
     if (! confirmDelete(e.target)) {
       e.preventDefault();
     };
   });
+
+  document.body.addEventListener('change', (e) => {
+    filterBy(e);
+  });
+
+  // filter grid
+  function filterBy(e) {
+    if(e.target.classList.contains('filter-input')) {
+      if (form = document.getElementById('filter-search')) {
+        form.submit();
+      }
+    }
+  }
 
   // show delete sublinks
   function ddToggle(event) {
@@ -34,6 +49,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     return true;
   }
+
+  // show/hide filter input
+  function openFilterToggle(event) {
+    if (event.target.classList.contains('filter')) {
+      event.target.classList.toggle('open');
+      event.preventDefault();
+    }
+  }
+
 
   var massDelBnt = document.getElementById('massDel');
   if (massDelBnt) {
@@ -159,17 +183,6 @@ document.addEventListener("DOMContentLoaded", function() {
       showImage.classList.toggle('active');
       return false;
     }
-  }
-
-  var filterBtn = document.querySelectorAll('a.filter');
-  if (filterBtn) {
-    filterBtn.forEach(function(filter) {
-      filter.onclick = function() {
-        filter.classList.toggle('open');
-        return false;
-      }
-
-    })
   }
 
   // init slimselect

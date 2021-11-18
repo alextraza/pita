@@ -17,8 +17,8 @@ trait SearchTrait
     {
         if ($sort = request()->input('sort')) {
             foreach ($sort as $attribute => $sortDirection) {
-                if (self::isSorting($attribute)) {
-                    self::$_model->orderBy($attribute, $sortDirection);
+                if (self::isSorting($attribute) && $sortDirection) {
+                    self::$_model->orderBy($attribute, trim($sortDirection));
                 }
             }
         }
@@ -28,7 +28,7 @@ trait SearchTrait
     {
         if ($filter = request()->input('filter')) {
             foreach ($filter as $attribute => $like) {
-                if (self::isFiltering($attribute)) {
+                if (self::isFiltering($attribute) && $like) {
                     self::$_model->where($attribute, 'like', '%'.$like.'%');
                 }
             }

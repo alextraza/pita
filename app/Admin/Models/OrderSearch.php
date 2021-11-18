@@ -11,9 +11,9 @@ class OrderSearch extends Order
     protected $table = 'orders';
     protected static $_model;
     protected static $sorting = [
-        'id', 'status'
+        'id', 'created_at', 'name', 'status'
     ];
     protected static $filtering = [
-        'id', 'status', 'name'
+        'id', 'status', 'name', 'payment'
     ];
 }

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.body.addEventListener('click', (e) => {
     ddToggle(e); // show delete sublinks
     openFilterToggle(e);
+    sortBy(e);
 
     if (! confirmDelete(e.target)) {
       e.preventDefault();
@@ -22,9 +23,41 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  // sort grig
+  function sortBy(e) {
+    if(e.target.classList.contains('sorting')) {
+      let sortInput = e.target.querySelector('input[type=hidden]');
+      if (!sortInput) {
+        return false;
+      }
+      if (sortInput.value == '') {
+        resetSortInputs();
+        sortInput.value = 'desc';
+      } else if (sortInput.value == 'desc') {
+        resetSortInputs();
+        sortInput.value = 'asc';
+      } else {
+        resetSortInputs();
+      }
+      if (form = document.getElementById('filter-search')) {
+        form.submit();
+      }
+    }
+  }
+
+  function resetSortInputs() {
+    let inputs = document.querySelectorAll('.sorting input[type=hidden]');
+    if (inputs) {
+      inputs.forEach((element) => {
+        element.value = '';
+      });
+    }
+  }
+
+
   // show delete sublinks
   function ddToggle(event) {
-    ddHide();
+    ddHide(); //hide sublinks
     if (event.target.classList.contains('dd-toggle')) {
       event.target.classList.toggle('active');
       event.preventDefault();
@@ -64,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
       event.preventDefault();
     }
   }
-
 
   var massDelBnt = document.getElementById('massDel');
   if (massDelBnt) {

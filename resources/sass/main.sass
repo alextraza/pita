@@ -146,15 +146,24 @@ svg
       color: $text-color
       display: flex
       align-items: center
+      &.logout:hover
+        svg
+          color: #d63384
+      &.edit-users:hover
+        svg
+          color: #00cfe8
     svg
       color: $text-color
       height: 1.5rem
       width: 1.5rem
       position: relative
       margin-left: 0.5rem
+      transition: .2s
     .cart
       position: relative
       margin-right: 1rem
+      &:hover svg
+        color: #28c76f
       span
         position: absolute
         min-width: 1.5rem

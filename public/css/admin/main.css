@@ -1060,17 +1060,30 @@ svg {
   align-items: center;
 }
 
+.top-bar .right a.logout:hover svg {
+  color: #d63384;
+}
+
+.top-bar .right a.edit-users:hover svg {
+  color: #00cfe8;
+}
+
 .top-bar .right svg {
   color: #d0d2d6;
   height: 1.5rem;
   width: 1.5rem;
   position: relative;
   margin-left: 0.5rem;
+  transition: .2s;
 }
 
 .top-bar .right .cart {
   position: relative;
   margin-right: 1rem;
+}
+
+.top-bar .right .cart:hover svg {
+  color: #28c76f;
 }
 
 .top-bar .right .cart span {

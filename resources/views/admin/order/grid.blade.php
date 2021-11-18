@@ -4,15 +4,17 @@
 
 <div class="table-responsive">
     <table class="table-stripped data-table">
-        <tr>
-            <th><input id="checkAll" type="checkbox" name="all" /></th>
-            @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
-            @include('admin.grid.header', ['attr' => 'created_at', 'name' => 'Дата'])
-            @include('admin.grid.header', ['attr' => 'name', 'name' => 'Имя'])
-            @include('admin.grid.header', ['attr' => 'phone', 'name' => 'Телефон'])
-            @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
-            <th>Действие</th>
-        </tr>
+        <form method="get" id="filter-search">
+            <tr>
+                <th><input id="checkAll" type="checkbox" name="all" /></th>
+                @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
+                @include('admin.grid.header', ['attr' => 'created_at', 'name' => 'Дата'])
+                @include('admin.grid.header', ['attr' => 'name', 'name' => 'Имя'])
+                @include('admin.grid.header', ['attr' => 'phone', 'name' => 'Телефон'])
+                @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
+                <th>Действие</th>
+            </tr>
+        </form>
         @foreach($models as $model)
         <tr>
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>

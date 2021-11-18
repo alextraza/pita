@@ -1,14 +1,38 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  var ddToggler = document.querySelectorAll('.dd-toggle');
-  if (ddToggler) {
-    ddToggler.forEach(function(element) {
-      element.onclick = function() {
-        element.classList.toggle('active');
-        return false;
-      }
+  document.body.addEventListener('click', (e) => {
+    ddToggle(e);
+    if (! confirmDelete(e.target)) {
+      e.preventDefault();
+    };
+  });
 
-    })
+  // show delete sublinks
+  function ddToggle(event) {
+    ddHide();
+    if (event.target.classList.contains('dd-toggle')) {
+      event.target.classList.toggle('active');
+      event.preventDefault();
+      return false;
+    }
+  }
+  function ddHide() {
+    if (dd = document.querySelectorAll('.dd-toggle.active')) {
+      dd.forEach((element) => {
+        element.classList.remove('active');
+      })
+    }
+  }
+
+  // confirm element delete
+  function confirmDelete(button) {
+    if (button.parentNode.classList.contains('dd-container')) {
+      if (confirm('Вы действительно хотите удалить данный элемент?')) {
+        return true;
+      }
+      return false;
+    }
+    return true;
   }
 
   var massDelBnt = document.getElementById('massDel');

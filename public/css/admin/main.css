@@ -956,6 +956,11 @@ body {
   overflow-x: hidden;
   color: #d0d2d6;
   background: #161d31;
+  min-height: 100vh;
+}
+
+svg {
+  pointer-events: none;
 }
 
 .hidden {

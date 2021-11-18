@@ -16,6 +16,6 @@ class ItemSearch extends Item
     ];
 
     protected static $filtering = [
-        'header', 'category_id'
+        'header', 'category_id', 'status'
     ];
 }

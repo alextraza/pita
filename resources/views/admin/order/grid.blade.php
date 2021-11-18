@@ -11,7 +11,8 @@
                 @include('admin.grid.header', ['attr' => 'created_at', 'name' => 'Дата'])
                 @include('admin.grid.header', ['attr' => 'name', 'name' => 'Имя'])
                 @include('admin.grid.header', ['attr' => 'phone', 'name' => 'Телефон'])
-                @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
+                @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус', 'list' => $modelName::STATUSES])
+                @include('admin.grid.header', ['attr' => 'payment', 'name' => 'Оплата', 'list' => $modelName::PAYMENTS])
                 <th>Действие</th>
             </tr>
         </form>
@@ -23,6 +24,7 @@
             <td>{{ $model->name }}</td>
             <td>{{ $model->phone }}</td>
             <td><span class="badge {{ $model->status }}">{{ $model::STATUSES[$model->status] }}</span></td>
+            <td><span class="badge {{ $model->payment }}">{{ $model::PAYMENTS[$model->payment] }}</span></td>
             <td>
                 <div class="action-field">
                     <a href="#" class="dd-toggle">

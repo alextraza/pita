@@ -6,8 +6,8 @@
                 @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
                 @include('admin.grid.header', ['attr' => 'pos', 'name' => 'Позиция'])
                 @include('admin.grid.header', ['attr' => 'header', 'name' => 'Название'])
-                @include('admin.grid.header', ['attr' => 'category_id', 'name' => 'Категория'])
-                @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус'])
+                @include('admin.grid.header', ['attr' => 'category_id', 'name' => 'Категория', 'list' => $categoryList])
+                @include('admin.grid.header', ['attr' => 'status', 'name' => 'Статус', 'list' => ['Скрыт', 'Показан']])
                 @include('admin.grid.header', ['attr' => 'updated_at', 'name' => 'Изменен'])
                 <th>Действие</th>
             </tr>

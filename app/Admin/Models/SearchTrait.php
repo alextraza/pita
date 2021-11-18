@@ -28,7 +28,7 @@ trait SearchTrait
     {
         if ($filter = request()->input('filter')) {
             foreach ($filter as $attribute => $like) {
-                if (self::isFiltering($attribute) && $like) {
+                if (self::isFiltering($attribute) && $like !== null) {
                     self::$_model->where($attribute, 'like', '%'.$like.'%');
                 }
             }

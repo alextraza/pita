@@ -240,6 +240,17 @@ document.addEventListener("DOMContentLoaded", function() {
     return false;
   }
 
+  let filterSelectBox = document.querySelectorAll('select.filter-input');
+  if (filterSelectBox) {
+    filterSelectBox.forEach((element) => {
+      new SlimSelect({
+        select: element,
+        placeholder: '------',
+        allowDeselect: true,
+      });
+    });
+  }
+
   // init markdown editor
 
   let textarea = document.getElementById("content");

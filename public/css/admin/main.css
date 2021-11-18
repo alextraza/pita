@@ -1313,7 +1313,7 @@ svg {
   color: #d0d2d6;
 }
 
-.data-table .filter.open + input {
+.data-table .filter.open ~ .filter-input {
   display: block;
   position: absolute;
   left: 0px;
@@ -1325,7 +1325,20 @@ svg {
   background: #161d31;
 }
 
-.data-table .filter + input {
+.data-table .filter.open ~ .filter-input.ss-main {
+  padding: 0px;
+  background: transparent;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.data-table .filter.open ~ .filter-input.ss-main .ss-single-selected {
+  padding-top: .3rem;
+  padding-bottom: .3rem;
+  background: #161d31;
+}
+
+.data-table .filter ~ .filter-input {
   display: none;
 }
 
@@ -1414,12 +1427,12 @@ svg {
   border-radius: 50rem;
 }
 
-.badge.pending {
+.badge.pending, .badge.cash {
   background: rgba(255, 159, 67, 0.12);
   color: #ff9f43;
 }
 
-.badge.complete {
+.badge.complete, .badge.payed {
   background: rgba(40, 199, 111, 0.12);
   color: #28c76f;
 }
@@ -1429,7 +1442,7 @@ svg {
   color: #00cfe8;
 }
 
-.badge.delivering {
+.badge.delivering, .badge.card {
   background-color: rgba(115, 103, 240, 0.12);
   color: #7367F0;
 }

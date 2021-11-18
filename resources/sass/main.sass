@@ -327,7 +327,7 @@ svg
       svg
         color: $text-color
     &.open
-      &+input
+      &~.filter-input
         display: block
         position: absolute
         left: 0px
@@ -337,9 +337,20 @@ svg
         padding-top: 0.3rem
         padding-bottom: 0.3rem
         background: $bg-color
+        &.ss-main
+          padding: 0px
+          background: transparent
+          font-weight: 400
+          text-transform: none
+          .ss-single-selected
+            padding-top: .3rem
+            padding-bottom: .3rem
+            background: $bg-color
 
-    &+input
+
+    &~.filter-input
       display: none
+
 
 
 
@@ -407,16 +418,16 @@ svg
   padding: .3rem .5rem
   font-size: 85%
   border-radius: 50rem
-  &.pending
+  &.pending, &.cash
     background: rgba(255,159,67,.12)
     color: #ff9f43
-  &.complete
+  &.complete, &.payed
     background: rgba(40,199,111,.12)
     color: #28c76f
   &.new
     background: rgba(0,207,232,.12)
     color: #00cfe8
-  &.delivering
+  &.delivering, &.card
     background-color: rgba(115,103,240,.12)
     color: #7367F0
   &.canceled

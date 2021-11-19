@@ -8,7 +8,7 @@ class Category extends Model
 {
     public function items()
     {
-        return $this->hasMany(Items::class);
+        return $this->hasMany(Item::class);
     }
 
     public static function getList()

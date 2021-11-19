@@ -5,6 +5,7 @@
 
 @section('content')
     {{--<x-category-navigation />--}}
+    {{--<x-menu />--}}
     @include('components.category-navigation')
-    <x-menu />
+    @include('components.menu')
 @endsection

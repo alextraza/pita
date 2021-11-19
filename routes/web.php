@@ -203,7 +203,7 @@ Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
 Route::get('/', function() {
    return view('welcome');
-});
+})->name('index');
 
 Route::get('/{slug}', function ($slug) {
     $model = \App\Models\Page::where('slug', $slug)->first();

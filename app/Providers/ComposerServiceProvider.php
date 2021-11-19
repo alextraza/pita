@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Config;
 use App\Models\Order;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -27,6 +28,10 @@ class ComposerServiceProvider extends ServiceProvider
     {
         View::composer('admin.main', function($view) {
             $view->with(['newOrder' => Order::where('status', 'new')->get()]);
+        });
+
+        View::composer('welcome', function($view) {
+            $view->with(['config' => Config::class]);
         });
     }
 }

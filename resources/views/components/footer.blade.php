@@ -1,10 +1,9 @@
-<section class="footer" id="test-2">
+<footer class="footer" id="test-2">
     <div class="logo">
         Pita pizza
     </div>
     <div class="phone">
         Телефон:
-        <a href="tel:">8 (968) 451-04-81</a>
+        <a href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
     </div>
-
-</section>
+</footer>

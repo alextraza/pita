@@ -30,7 +30,7 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with(['newOrder' => Order::where('status', 'new')->get()]);
         });
 
-        View::composer('welcome', function($view) {
+        View::composer('main', function($view) {
             $view->with(['config' => Config::class]);
         });
     }

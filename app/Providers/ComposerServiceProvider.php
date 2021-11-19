@@ -29,9 +29,5 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer('admin.main', function($view) {
             $view->with(['newOrder' => Order::where('status', 'new')->get()]);
         });
-
-        View::composer('main', function($view) {
-            $view->with(['config' => Config::class]);
-        });
     }
 }

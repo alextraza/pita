@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@yield('description')" />
 
     <title>@yield('title')</title>
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <x-header />
-    @yield('main')
+    @yield('content')
     <x-footer />
 
     <script src="{{ asset('js/app.js') }}"></script>

@@ -64,7 +64,7 @@ class CategoryController extends BaseController
         return redirect()->route('category.edit')->withInput();
     }
 
-    protected function setModel(Category $model, $requets)
+    protected function setModel(Category $model, $request)
     {
         // if need upload image
         $model = $this->storeImage($model, $request);

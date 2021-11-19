@@ -1373,10 +1373,10 @@ svg {
   font-size: .857rem;
   letter-spacing: .5px;
   padding: .72rem 2rem;
+  position: relative;
 }
 
 .table-stripped th.sorting {
-  position: relative;
   cursor: pointer;
 }
 

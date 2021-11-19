@@ -8,6 +8,7 @@ use App\Admin\Controllers\OrderController;
 use App\Admin\Controllers\PageController;
 use App\Admin\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -201,9 +202,8 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'makeRegister'])->name('register.post');
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
-Route::get('/', function() {
-   return view('welcome');
-})->name('index');
+Route::get('/', FrontendController::class, 'index')->name('index');
+Route::get('/cart', FrontendController::class, 'cart')->name('cart');
 
 Route::get('/{slug}', function ($slug) {
     $model = \App\Models\Page::where('slug', $slug)->first();

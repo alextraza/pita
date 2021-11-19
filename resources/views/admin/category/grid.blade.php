@@ -18,12 +18,12 @@
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
             <td>{{ $model->id }}</td>
             <td>@if ($model->image)
-                <img src="{{ ImageHelper::thumb($model->image, 50, 50) }}" alt="" />
+                <img src="{{ ImageHelper::thumb($model->image, 30, 30) }}" alt="" />
             @else
                 <span class="icon">
                     {{ $model->icon }}
                 </span>
-            </td>
+            @endif</td>
             <td>@include('admin.grid.position', ['path' => 'category'])</td>
             <td>{{ $model->slug }}</td>
             <td>{{ $model->header }}</td>

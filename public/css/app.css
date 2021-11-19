@@ -317,19 +317,13 @@ a {
   gap: 1rem;
   color: white;
 }
-.menu__block .item .item__content .pizza__size {
-  display: inline-flex;
-  background: #1F2937;
-  border-radius: 2rem;
+.menu__block .item .item__content input[type=checkbox] {
+  display: none;
 }
-.menu__block .item .item__content .pizza__size .pizza__item {
-  flex: 1;
-  justify-content: center;
-}
-.menu__block .item .item__content .pizza__size .pizza__item label {
-  display: flex;
-  padding: 0.6rem 0;
-  justify-content: center;
+.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -337,14 +331,41 @@ a {
           user-select: none;
   font-weight: 600;
 }
-.menu__block .item .item__content .pizza__size .pizza__item input[type=radio] {
+.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:before, .menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:after {
+  padding: 0.6rem 0;
+  color: #D1D5DB;
+  font-weight: 600;
+}
+.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:after {
+  content: attr(data-standart);
+}
+.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:before {
+  content: attr(data-big);
+}
+.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:after {
+  background: #ffa500;
+  color: #1F2937;
+  border-radius: 2rem;
+}
+.menu__block .item .item__content input[type=checkbox]:checked ~ .pizza__size .pizza__item label:after {
+  background: transparent;
+  border-radius: 2rem;
+  color: #D1D5DB;
+}
+.menu__block .item .item__content input[type=checkbox]:checked ~ .pizza__size .pizza__item label:before {
+  background: #ffa500;
+  color: #1F2937;
+  border-radius: 2rem;
+}
+.menu__block .item .item__content input[type=checkbox] ~ .card__comp.secondary, .menu__block .item .item__content input[type=checkbox] ~ .card__price.secondary {
   display: none;
 }
-.menu__block .item .item__content .pizza__size .pizza__item input[type=radio]:checked + label {
-  background: #ffa500;
+.menu__block .item .item__content input[type=checkbox]:checked ~ .card__comp, .menu__block .item .item__content input[type=checkbox]:checked ~ .card__price {
+  display: block;
+}
+.menu__block .item .item__content .pizza__size {
+  background: #1F2937;
   border-radius: 2rem;
-  color: #1F2937;
-  font-weight: 800;
 }
 .menu__block .item .item__content .card__heading {
   display: flex;

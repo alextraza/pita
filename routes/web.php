@@ -202,6 +202,7 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'makeRegister'])->name('register.post');
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
+// frontend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

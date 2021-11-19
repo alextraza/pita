@@ -10,4 +10,9 @@ class FrontendController extends Controller
     {
         return view('welcome');
     }
+
+    public function cart()
+    {
+        return view('cart');
+    }
 }

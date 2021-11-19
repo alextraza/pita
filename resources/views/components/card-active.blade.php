@@ -10,29 +10,30 @@
 
         <div class="card__desc">с моцареллой, шампиньонами, пармезаном, трюфельным кремом, свежемолотым черным
             перцем и петрушкой</div>
-        <input id="switch" type="checkbox" checked>
+        <input id="switch" type="checkbox">
         <div class="pizza__size">
             <div class="pizza__item">
                 <label for="switch" data-standart="Маленькая" data-big="Большая"></label>
             </div>
         </div>
 
-        <div class="main-var">
+        <div class="main__var">
             <div class="card__comp">
-                <div><span>Вес:</span> 2600 г. Белки:</span> 44 г. <span>Жиры:</span> 49 г. <span>Углеводы:</span> 120 г.
+                <div><span>Вес:</span> 2600 г. Белки:</span> 44 г. <span>Жиры:</span> 49 г. <span>Углеводы:</span> 120
+                    г.
                 </div>
                 <div><span>Энергетическая ценность:</span> 247 ккал на 100 г</div>
             </div>
-            <div class="card__price">4000 ₽</div>
+            <div class="card__price">2000 ₽</div>
         </div>
-        <div class="alt-var">
-            <div class="card__comp secondary">
+        <div class="alt__var">
+            <div class="card__comp">
                 <div><span>Вес:</span> 410 г. Белки:</span> 44 г. <span>Жиры:</span> 49 г. <span>Углеводы:</span> 120 г.
                 </div>
                 <div><span>Энергетическая ценность:</span> 1247 ккал на 100 г</div>
 
             </div>
-            <div class="card__price secondary">600 ₽</div>
+            <div class="card__price">6000 ₽</div>
 
         </div>
     </div>

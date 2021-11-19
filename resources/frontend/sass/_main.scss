@@ -364,9 +364,11 @@ a {
 
                     &:after {
                         content: attr(data-standart);
+                      
                     }
 
                     &:before {
+                      
                         content: attr(data-big);
                     }
 
@@ -392,14 +394,17 @@ a {
 
                 
 
-                &~.card__comp.secondary,
-                &~.card__price.secondary {
+                &~.main__var {
+                    display: grid;
+                }
+                &~.alt__var {
                     display: none;
                 }
-                &:checked~.card__comp,
-                &:checked~.card__price {
-                  
-                    display: block;
+                &:checked~.alt__var {
+                    display: grid;
+                }
+                &:checked~.main__var {
+                    display: none;
                 }
 
             }
@@ -432,7 +437,11 @@ a {
                 font-weight: 200;
                 color: $gray-400;
             }
+            .main__var, .alt__var{
+                display: grid;
+                gap: 1rem;
 
+           
             .card__comp {
                 font-size: 0.8rem;
                 color: $gray-400;
@@ -453,7 +462,7 @@ a {
 
         }
 
-
+    }
 
 
 

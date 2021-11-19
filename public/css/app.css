@@ -357,11 +357,17 @@ a {
   color: #1F2937;
   border-radius: 2rem;
 }
-.menu__block .item .item__content input[type=checkbox] ~ .card__comp.secondary, .menu__block .item .item__content input[type=checkbox] ~ .card__price.secondary {
+.menu__block .item .item__content input[type=checkbox] ~ .main__var {
+  display: grid;
+}
+.menu__block .item .item__content input[type=checkbox] ~ .alt__var {
   display: none;
 }
-.menu__block .item .item__content input[type=checkbox]:checked ~ .card__comp, .menu__block .item .item__content input[type=checkbox]:checked ~ .card__price {
-  display: block;
+.menu__block .item .item__content input[type=checkbox]:checked ~ .alt__var {
+  display: grid;
+}
+.menu__block .item .item__content input[type=checkbox]:checked ~ .main__var {
+  display: none;
 }
 .menu__block .item .item__content .pizza__size {
   background: #1F2937;
@@ -384,17 +390,21 @@ a {
   font-weight: 200;
   color: #9CA3AF;
 }
-.menu__block .item .item__content .card__comp {
+.menu__block .item .item__content .main__var, .menu__block .item .item__content .alt__var {
+  display: grid;
+  gap: 1rem;
+}
+.menu__block .item .item__content .main__var .card__comp, .menu__block .item .item__content .alt__var .card__comp {
   font-size: 0.8rem;
   color: #9CA3AF;
   font-weight: 200;
   line-height: 1rem;
 }
-.menu__block .item .item__content .card__comp span {
+.menu__block .item .item__content .main__var .card__comp span, .menu__block .item .item__content .alt__var .card__comp span {
   color: #D1D5DB;
   font-weight: 300;
 }
-.menu__block .item .item__content .card__price {
+.menu__block .item .item__content .main__var .card__price, .menu__block .item .item__content .alt__var .card__price {
   color: #fff;
   font-size: 2rem;
   font-weight: 900;

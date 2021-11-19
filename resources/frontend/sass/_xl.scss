@@ -1,0 +1,5 @@
+@media (min-width: calc($lg + 1px)) and (max-width: $xl) {
+.header{
+    grid-template-columns: 10fr;
+}
+}

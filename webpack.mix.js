@@ -1,3 +1,4 @@
+const { browserSync } = require('laravel-mix');
 const mix = require('laravel-mix');
 
 /*
@@ -11,7 +12,27 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+//  Old Config 
+
+// mix.js('resources/js/app.js', 'public/js')
+//     .postCss('resources/css/app.css', 'public/css', [
+//         //
+//     ]);
+
+// mix.js("resources/frontend/js/app.js", "public/js")
+//     .postCss("resources/frontend/css/app.css", "public/css", [
+
+//     ]);
+mix.sass('resources/frontend/sass/app.scss', 'public/css')
+    .options({
+        postCss: [
+            require('postcss-css-variables')()
+        ]
+    });
+
+    // browserSync 
+mix.browserSync({
+    proxy: 'pita.test',
+    injectChanges: true,
+    clearCashe: true,
+});

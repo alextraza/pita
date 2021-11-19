@@ -201,8 +201,11 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'makeRegister'])->name('register.post');
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
+Route::get('/', function() {
+   return view('welcome');
+});
+
 Route::get('/{slug}', function ($slug) {
     $model = \App\Models\Page::where('slug', $slug)->first();
     echo $model->content;
-    //return view('welcome');
 });

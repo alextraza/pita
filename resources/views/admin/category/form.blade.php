@@ -75,4 +75,13 @@
             @enderror
         </div>
     </div>
+    <div class="md-2">
+        <div class="form-group @error('icon') has-error @enderror">
+            <label>Эмодзи-иконка</label>
+            <input type="text" name="icon" value="{{ old('icon', $model->icon) }}" />
+            @error('icon')
+                <span class="text-danger">{{ $errors->first('icon') }}</span>
+            @enderror
+        </div>
+    </div>
 </div>

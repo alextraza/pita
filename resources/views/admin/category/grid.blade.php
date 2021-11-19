@@ -4,6 +4,7 @@
             <tr>
                 <th><input id="checkAll" type="checkbox" name="all" /></th>
                 @include('admin.grid.header', ['attr' => 'id', 'name' => 'Id'])
+                @include('admin.grid.header', ['attr' => 'icon', 'name' => 'Иконка'])
                 @include('admin.grid.header', ['attr' => 'pos', 'name' => 'Позиция'])
                 @include('admin.grid.header', ['attr' => 'slug', 'name' => 'Slug'])
                 @include('admin.grid.header', ['attr' => 'header', 'name' => 'Название'])
@@ -16,6 +17,13 @@
         <tr>
             <td><input class="checkMe" type="checkbox" name="item[]" value="{{ $model->id }}" /></td>
             <td>{{ $model->id }}</td>
+            <td>@if ($model->image)
+                <img src="{{ ImageHelper::thumb($model->image, 50, 50) }}" alt="" />
+            @else
+                <span class="icon">
+                    {{ $model->icon }}
+                </span>
+            </td>
             <td>@include('admin.grid.position', ['path' => 'category'])</td>
             <td>{{ $model->slug }}</td>
             <td>{{ $model->header }}</td>

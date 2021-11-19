@@ -25,6 +25,7 @@ class StoreCategory extends FormRequest
     {
         return [
             'image' => 'nullable|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'icon' => 'nullable:max:3',
             'slug' => 'required|unique:categories',
             'header' => 'required',
             'pos' => 'integer|nullable',

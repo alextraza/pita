@@ -69,6 +69,7 @@ class CategoryController extends BaseController
         // if need upload image
         $model = $this->storeImage($model, $request);
 
+        $model->icon = $request->input('icon');
         $model->slug = $request->input('slug');
         $model->header = $request->input('header');
         $model->header2 = $request->input('header2');

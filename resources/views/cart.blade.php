@@ -12,8 +12,8 @@
 
 <body>
     <x-header />
-    <x-category-navigation />
-    <x-menu />
+    <x-internal />
+    <x-cart />
     <x-footer />
 
 

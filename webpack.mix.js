@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 
 //  Old Config 
 
-
+mix.js("resources/frontend/js/app.js", "public/js");
 
 mix.sass('resources/frontend/sass/app.scss', 'public/css')
     .options({

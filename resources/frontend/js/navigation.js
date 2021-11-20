@@ -14,8 +14,11 @@
   
       for (i in sections) {
         if (sections[i] <= scrollPosition) {
-          document.querySelector('.active').setAttribute('class', 'cat__nav__con');
+          document.querySelector('.cat__nav__con').setAttribute('class', 'cat__nav__con inactive');
           document.querySelector('a[href*=' + i + ']').setAttribute('class', 'cat__nav__con active');
+        }
+        else{
+          document.querySelector('a[href*=' + i + ']').setAttribute('class', 'cat__nav__con inactive');
         }
       }
     };

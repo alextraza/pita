@@ -13,5 +13,7 @@
             </a>
         @endforeach
     </div>
-    @include('components.minicart')
+    <div class="cat__nav__cart">
+        @include('components.minicart')
+    </div>
 </div>

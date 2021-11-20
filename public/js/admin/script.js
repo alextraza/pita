@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ddToggle(e); // show delete sublinks
     openFilterToggle(e);
     sortBy(e);
+    deleteImage(e);
 
     if (! confirmDelete(e.target)) {
       e.preventDefault();
@@ -51,6 +52,27 @@ document.addEventListener("DOMContentLoaded", function() {
       inputs.forEach((element) => {
         element.value = '';
       });
+    }
+  }
+
+  function deleteImage(event) {
+    if (event.target.classList.contains('delete') && event.target.tagName == "A") {
+      event.preventDefault();
+      if (confirm('Вы действительно хотите удалить выбранные элементы?')) {
+        var data = new FormData;
+        let token = document.head.querySelector('meta[name="csrf-token"]');
+        data.append('_token', token.content);
+        axios.post(event.target.href)
+             .then(function(res) {
+               let showImage = event.target.parentNode.parentNode.parentNode.querySelector('.showImage');
+               showImage.style.display = 'none';
+               showImage.classList.toggle('active');
+             })
+             .catch(function(err) {
+               console.log(err);
+             });
+
+      }
     }
   }
 

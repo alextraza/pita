@@ -36,7 +36,7 @@
                         <div class="img__inner">
                             <img src="{{ ImageHelper::thumb($model->image, 200, 200) }}" alt="" />
                             <a class="close" href="#">&times;</a>
-                            <a class="delete" href="{{ route('category.img_delete', ['id' => $model->id, 'attr' => 'image']) }}">
+                            <a class="delete" href="{{ route('item.img_delete', ['id' => $model->id, 'attr' => 'image']) }}">
                                 Удалить
                             </a>
                         </div>

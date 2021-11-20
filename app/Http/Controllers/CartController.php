@@ -59,6 +59,7 @@ class CartController extends Controller
     {
         $rowId = $request->id;
         \Cart::update($rowId, $request->count);
+
         return response()->json([
             'result' => 'success',
             'total' => \Cart::total(),

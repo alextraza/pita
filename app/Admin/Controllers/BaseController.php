@@ -53,4 +53,20 @@ class BaseController extends Controller
         $model = $this->model::where('id', $id)->first();
         return $model;
     }
+
+    /**
+    *
+    * delete image action
+    *
+    * @param integer $id - model id
+    * @param string $attr - deleted attribute name
+    *
+    */
+    public function imgdel($id, $attr)
+    {
+        if ($model = $this->getModel($id)) {
+            $model->{$attr} = '';
+            $model->save();
+        }
+    }
 }

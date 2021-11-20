@@ -46,13 +46,14 @@ document.addEventListener("DOMContentLoaded", function() {
           body: data
         });
         const result = await response.json();
-        console.log(result);
-        if (result.result == 'success') {
+        if (result.result == 'success' && result.total > 0) {
           let node = e.target.parentNode;
           if (node.classList.contains('cart__item')) {
             node.remove();
             document.getElementById('total-price').innerText = result.total;
           }
+        } else {
+          window.location = '/cart';
         }
       } catch (error) {
         console.error('Ошибка:', error);
@@ -61,4 +62,3 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 });
-

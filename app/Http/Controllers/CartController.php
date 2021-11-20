@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class CartController extends Controller
 {
@@ -34,10 +35,10 @@ class CartController extends Controller
                 $price = $item->price;
                 $header = $item->header . ($item->weight) ? ' - ' . $item->weight . 'г' : '';
             }
-            Cart::add($item->id, $header, $count, $price);
+            \Cart::add($item->id, $header, $count, $price);
         }
 
-        echo view('components.minicart');
+        return response()->view('components.minicart');
     }
 
     /**

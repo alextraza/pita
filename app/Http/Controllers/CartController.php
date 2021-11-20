@@ -26,14 +26,15 @@ class CartController extends Controller
         $data = $request->all();
         $item = Item::where('id', $request->id)->first();
         if ($item) {
+            $count = $request->count ?? 1;
             if (isset($requsts->has_alt)) {
                 $price = $item->price_alt;
                 $header = $item->header . ' - ' . $item->weight_alt . 'г';
             } else {
                 $price = $item->price;
-                $header = $item->header;
+                $header = $item->header . ($item->weight) ? ' - ' . $item->weight . 'г' : '';
             }
-            Cart::add($item->id, $header, $price);
+            Cart::add($item->id, $header, $count, $price);
         }
 
         echo view('components.minicart');
@@ -46,7 +47,7 @@ class CartController extends Controller
 
     public function update(Request $request)
     {
-       //
+
     }
 
     /**

@@ -205,6 +205,9 @@ Route::prefix('cart')->name('cart.')->group(function() {
     Route::get('/', [
         CartController::class, 'index'
     ])->name('index');
+    Route::get('/add/{id}', [
+        CartController::class, 'addOffer'
+    ])->name('offer');
     Route::post('/add', [
         CartController::class, 'add'
     ])->name('add');

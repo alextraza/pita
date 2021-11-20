@@ -8,11 +8,16 @@ use App\Models\Category;
 
 class CartController extends Controller
 {
-    /**
-    * show cart action
-    * param Illuminate\Http\Request     $requst
-    */
+    protected $_id;
+    protected $_header;
+    protected $_count;
+    protected $_weight;
+    protected $_options;
 
+    /**
+     * show cart action
+     * param Illuminate\Http\Request     $requst
+     */
     public function index(Request $request)
     {
         $categories = Category::where('status', true)->orderBy('pos')->get();
@@ -20,60 +25,98 @@ class CartController extends Controller
     }
 
     /**
-    * add to cart action
-    * param Illuminate\Http\Request     $requst
-    */
-
+     * add to cart action
+     * param Illuminate\Http\Request     $request
+     */
     public function add(Request $request)
     {
         $item = Item::where('id', $request->id)->first();
         if ($item) {
-            // set defaut values
-            $count = $request->count ?? 1;
-            $header = $item->header;
-
-            if ($request->has_alt) {
-                $weight = $item->weight_alt;
-                $price = $item->price_alt;
-                $id = $item->id . '_1';
-            } else {
-                $weight = $item->weight;
-                $price = $item->price;
-                $id = $item->id;
-            }
-            if ($weight) {
-                $header = $header . ' - ' . $weight . 'г';
-            }
-
-            $weight = $weight ? $weight : 0;
-
-            \Cart::add($id, $header, $count, $price, $weight, [
-                'category' => $item->category->header,
-                'image' => $item->image
-            ]);
+            $this->setCart($item, $request);
+            $this->saveCart();
         }
-
         return response()->view('components.minicart');
     }
 
     /**
-    * update cart action
-    * param Illuminate\Http\Request     $requst
-    */
-
-    public function update(Request $request)
+     * add to cart and reload page
+     */
+    public function addOffer(Request $request, $id)
     {
-
+        $item = Item::where('id', $id)->first();
+        if ($item) {
+            $this->setCart($item, $request);
+            $this->saveCart();
+        }
+        return redirect()->back();
     }
 
     /**
-    * remove cart action
-    * param Illuminate\Http\Request     $requst
-    */
+     * update cart action
+     * param Illuminate\Http\Request     $request
+     */
+    public function update(Request $request)
+    {
+        $rowId = $request->rowId;
+        \Cart::update($rowId, $request->count);
+        return response()->json([
+            'result' => 'success',
+            'total' => \Cart::total(),
+            'price' => \Cart::get($rowId)->price]
+        );
+    }
 
+    /**
+     * remove cart action
+     * param Illuminate\Http\Request     $request
+     */
     public function rm(Request $request)
     {
         \Cart::remove($request->id);
         return response()->json(['result' => 'success', 'total' => \Cart::total()]);
+    }
+
+    private function saveCart()
+    {
+        \Cart::add(
+            $this->_id,
+            $this->_header,
+            $this->_count,
+            $this->_price,
+            $this->_weight,
+            $this->_options
+        );
+
+    }
+
+    /**
+     * set cart options
+     * @param App\Models\Item            $item
+     * @param Illuminate\Http\Request    $request
+     */
+    private function setCart(Item $item, Request $request)
+    {
+        // set defaut values
+        $this->_count = $request->count ?? 1;
+        $this->_header = $item->header;
+
+        if ($request->has_alt) {
+            $this->_weight = $item->weight_alt;
+            $this->_price = $item->price_alt;
+            $this->_id = $item->id . '_1';
+        } else {
+            $this->_weight = $item->weight;
+            $this->_price = $item->price;
+            $this->_id = $item->id;
+        }
+        if ($this->_weight) {
+            $this->_header = $this->_header . ' - ' . $this->_weight . 'г';
+        }
+
+        $this->_weight = $this->_weight ? $this->_weight : 0;
+        $this->_options = [
+            'image' => $item->image,
+            'category' => $item->category->header
+        ];
     }
 }

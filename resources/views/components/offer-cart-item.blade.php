@@ -11,7 +11,7 @@
             {!! $offer->content !!}
         </div>
         <div class="offer__btn">
-            <a data-id="{{ $offer->id }}" href="#">В корзину</a>
+            <a href="{{ route('cart.offer', ['id' => $offer->id]) }}">В корзину</a>
         </div>
     </div>
     

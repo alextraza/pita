@@ -240,7 +240,7 @@ a {
   color: #ffa500;
   padding-right: 1rem;
 }
-.cat__nav__sec .cat__nav__cart a .cart__icon::after {
+.cat__nav__sec .cat__nav__cart a .cart__icon span {
   position: absolute;
   top: 5px;
   right: 5px;

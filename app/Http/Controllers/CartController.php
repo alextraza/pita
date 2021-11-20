@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Category;
 
 class CartController extends Controller
 {
@@ -14,7 +15,8 @@ class CartController extends Controller
 
     public function index(Request $request)
     {
-        return view('cart');
+        $categories = Category::where('status', true)->orderBy('pos')->get();
+        return view('cart', compact('categories'));
     }
 
     /**
@@ -24,18 +26,25 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        $data = $request->all();
         $item = Item::where('id', $request->id)->first();
         if ($item) {
             $count = $request->count ?? 1;
-            if (isset($requsts->has_alt)) {
+            if ($request->has_alt) {
+                $weight = $item->weight_alt;
                 $price = $item->price_alt;
-                $header = $item->header . ' - ' . $item->weight_alt . 'г';
+                $id = $item->id . '_1';
             } else {
+                $weight = $item->weight;
                 $price = $item->price;
-                $header = $item->header . ($item->weight) ? ' - ' . $item->weight . 'г' : '';
+                $id = $item->id;
             }
-            \Cart::add($item->id, $header, $count, $price);
+            if ($weight) {
+                $header = $item->header . ' - ' . $weight . 'г';
+            }
+            \Cart::add($id, $header, $count, $price, $weight, [
+                'category' => $item->category->header,
+                'image' => $item->image
+            ]);
         }
 
         return response()->view('components.minicart');

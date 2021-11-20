@@ -36,9 +36,14 @@ class ImageHelper
 
     public static function thumb($filename, $width, $height)
     {
+        if (!$filename) {
+            return null;
+        }
+
         if ($image = static::getCachePath($filename, $width, $height)) {
             return $image;
         }
+
         if ($originPath = static::getImagePath($filename)) {
             $pathInfo = pathinfo($originPath);
             $name = $pathInfo['filename'] . '-' . $width . '-' .$height. '.webp';
@@ -49,6 +54,7 @@ class ImageHelper
             })->save($path);
             return asset(static::$storePath . $name);
         }
+
         return null;
     }
 }

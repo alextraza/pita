@@ -3,53 +3,34 @@
 </div>
 <div class="cart__section">
 
-    <div class="cart__result">
-
-        <div class="cart__result__list">
-            <x-cart-item />
-            <x-cart-item />
-            <x-cart-item />
-            <x-cart-item />
-        </div>
-        <div class="cart__pricing">
-            <div class="cart__text">
-                <span>Всего:</span>
-                2500 ₽
+    @if (Cart::count())
+        <div class="cart__result">
+            <div class="cart__result__list">
+                @foreach (Cart::content() as $item)
+                    @include('components.cart-item', ['item' => $item])
+                @endforeach
             </div>
-            <a href="">Заказать</a>
+            <div class="cart__pricing">
+                <div class="cart__text">
+                    <span>Всего:</span>
+                    {{ Cart::total() }} ₽
+                </div>
+                <a href="">Заказать</a>
+            </div>
         </div>
-    </div>
+    @endif
 
     <div class="cart__offer">
-
-        <div class="cart__cat__heading">
-            Попробуйте наши десерты:
-        </div>
-        <div class="cart__offer__list">
-            <x-offer-cart-item />
-            <x-offer-cart-item />
-
-        </div>
-        <div class="cart__cat__heading">
-            Попробуйте наши десерты:
-        </div>
-        <div class="cart__offer__list">
-            <x-offer-cart-item />
-            <x-offer-cart-item />
-
-        </div>
-        <div class="cart__cat__heading">
-            Попробуйте наши десерты:
-        </div>
-        <div class="cart__offer__list">
-            <x-offer-cart-item />
-            <x-offer-cart-item />
-
-        </div>
-
+        @foreach ($categories as $category)
+            <div class="cart__cat__heading">
+                {{ $category->header2 }}
+            </div>
+            <div class="cart__offer__list">
+                @foreach ($category->cartItems as $offer)
+                    {{--<x-offer-cart-item />--}}
+                    @include('components.offer-cart-item')
+                @endforeach
+            </div>
+        @endforeach
     </div>
-
-
-
-
 </div>

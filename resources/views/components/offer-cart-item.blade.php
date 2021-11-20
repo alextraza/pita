@@ -1,18 +1,17 @@
 <div class="offer__item">
     <div class="offer__photo">
-        <img src="{{ asset('img/pizza/10.png') }}" alt="">
+        <img src="{{ ImageHelper::thumb($offer->image, 90, 70) }}" alt="">
     </div>
     <div class="offer__content">
         
         <div class="offer__title">
-            Название
+            {{ $offer->header }}
         </div>
         <div class="offer__desc">
-            с моцареллой, шампиньонами, пармезаном, трюфельным кремом, свежемолотым черным перцем и петрушкой
-          
+            {!! $offer->content !!}
         </div>
         <div class="offer__btn">
-            <a href="#">В корзину</a>
+            <a data-id="{{ $offer->id }}" href="#">В корзину</a>
         </div>
     </div>
     

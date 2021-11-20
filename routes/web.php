@@ -204,5 +204,18 @@ Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
 // frontend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
-Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
+Route::prefix('cart')->name('cart.')->group(function() {
+    Route::get('/', [
+        FrontendController::class, 'index'
+    ])->name('index');
+    Route::post('/add', [
+        FrontendController::class, 'add'
+    ])->name('add');
+    Route::post('/update', [
+        FrontendController::class, 'update'
+    ])->name('update');
+    Route::post('/rm', [
+        FrontendController::class, 'rm'
+    ])->name('remove');
+});
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

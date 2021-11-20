@@ -33,6 +33,10 @@ body {
 	line-height: 1;
 	
 }
+svg{
+	pointer-events: none;
+}
+      
 ol, ul {
 	list-style: none;
 }

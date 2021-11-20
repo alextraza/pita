@@ -14,15 +14,8 @@ const mix = require('laravel-mix');
 
 //  Old Config 
 
-// mix.js('resources/js/app.js', 'public/js')
-//     .postCss('resources/css/app.css', 'public/css', [
-//         //
-//     ]);
 
-// mix.js("resources/frontend/js/app.js", "public/js")
-//     .postCss("resources/frontend/css/app.css", "public/css", [
 
-//     ]);
 mix.sass('resources/frontend/sass/app.scss', 'public/css')
     .options({
         postCss: [

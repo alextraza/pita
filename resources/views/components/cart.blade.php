@@ -24,15 +24,17 @@
 
     <div class="cart__offer">
         @foreach ($categories as $category)
-            <div class="cart__cat__heading">
-                {{ $category->header2 }}
-            </div>
-            <div class="cart__offer__list">
-                @foreach ($category->cartItems as $offer)
-                    {{--<x-offer-cart-item />--}}
-                    @include('components.offer-cart-item')
-                @endforeach
-            </div>
+            @if (($offers = $category->getCartItems(Cart::content())) && $offers->count())
+                <div class="cart__cat__heading">
+                    {{ $category->header2 }}
+                </div>
+                <div class="cart__offer__list">
+                    @foreach ($offers as $offer)
+                        {{--<x-offer-cart-item />--}}
+                        @include('components.offer-cart-item')
+                    @endforeach
+                </div>
+            @endif
         @endforeach
     </div>
 </div>

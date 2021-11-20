@@ -16,8 +16,14 @@ class Category extends Model
         return self::select('id', 'header')->where('status', true)->orderBy('pos')->get();
     }
 
-    public function getCartItemsAttribute()
+    public function getCartItems($cartItems)
     {
-        return $this->items()->where('in_cart', true)->get();
+        $ids = $cartItems->pluck('id')->all();
+        $result = $this->items()
+                    ->where('in_cart', true)
+                    ->whereNotIn('id', $ids)
+                    ->get();
+
+        return $result;
     }
 }

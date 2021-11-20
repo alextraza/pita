@@ -12,9 +12,9 @@
     <div class="cart__item__button">
         <div class="inline__button">
             <div class="cart-totals">
-                <span>-</span>
+                <span class="count-minus">-</span>
+                <span class="count-plus">+</span>
                 <input data-id="{{ $item->rowId }}" type="number" id="quantity{{ $item->id }}" value="{{ $item->qty }}" min="0">
-                <span>+</span>
             </div>
         </div>
     </div>

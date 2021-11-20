@@ -2,7 +2,6 @@
     Ваш заказ
 </div>
 <div class="cart__section">
-
     @if (Cart::count())
         <div class="cart__result">
             <div class="cart__result__list">
@@ -20,8 +19,22 @@
                 <a href="">Заказать</a>
             </div>
         </div>
+ 
     @endif
+    @if (!Cart::count())
+    <div class="cart__empty">
+        <div class="cart__empty__photo">
+            <img src="{{asset('images/empty.png')}}">
+        </div>
+        <div class="cart__empty__text">
+            <div class="empty__header">Привет! Ты ещё ничего не выбрал.</div> 
+            <div class="empty__text">Мы делаем классную пиццу и закуски, которые тебе точно понравятся. Обязательно выбери что-нибудь. И не забудь про напитки!</div> 
+            <div class="empty__button"><a href="">Перейти</a></div> 
+        </div>
 
+    </div>
+    @endif
+    
     <div class="cart__offer">
         @foreach ($categories as $category)
             @if (($offers = $category->getCartItems(Cart::content())) && $offers->count())

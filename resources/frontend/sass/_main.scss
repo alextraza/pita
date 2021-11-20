@@ -649,18 +649,24 @@ a {
 
     .cart__empty {
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 2fr 2fr;
+        align-items: center;
+        gap: 2rem;
 
         .cart__empty__photo {
-            filter: invert(75%);
+            filter: invert(25%);
         }
 
         .cart__empty__text {
-            
-          
+            display: grid;
+            gap: 2rem;
+            height: fit-content;
+
+
 
             .empty__header {
                 font-size: 2rem;
+
                 font-weight: 800;
                 color: $gray-300;
             }
@@ -668,18 +674,24 @@ a {
             .empty__text {
                 color: $gray-400;
                 font-size: 1.1rem;
+                line-height: 1.7rem;
                 font-weight: 300;
             }
 
             .empty__button {
-                position: relative;
-               
-                a{
+
+                a {
+                    font-weight: 600;
+                    display: inline-block;
                     padding: 1rem;
                     border: 2px solid $white;
-                    border-radius: 1rem;
+                    border-radius: 0.5rem;
                     color: white;
-                    
+
+                    &:hover {
+                        color: $yellow;
+                        border-color: $yellow;
+                    }
                 }
             }
 

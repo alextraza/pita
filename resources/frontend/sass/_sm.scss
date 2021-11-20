@@ -5,7 +5,7 @@
 
     // Header
     .header {
-        grid-template-columns: 8fr 1fr;        
+        grid-template-columns: 8fr 1fr;
         gap: 0.5rem;
         align-items: center;
 
@@ -17,9 +17,10 @@
 
         .phone {
             order: 5;
-           a{
-            font-size: 0.9rem;
-           }
+
+            a {
+                font-size: 0.9rem;
+            }
 
             span {
                 display: none;
@@ -28,17 +29,19 @@
         }
 
         .address {
-          
+
             order: 3;
 
             span {
                 display: none;
             }
-            p{
+
+            p {
                 font-size: 0.9rem;
             }
         }
-        .user__log{
+
+        .user__log {
             display: block;
             order: 4;
         }
@@ -48,7 +51,7 @@
             display: grid;
             position: relative;
             order: 2;
-           
+
 
             #menu__toggle {
                 display: block;
@@ -75,7 +78,7 @@
             }
 
             .menu__btn {
-                
+
                 align-items: center;
                 top: 20px;
                 left: 20px;
@@ -190,11 +193,13 @@
         .heading {
             font-size: 3.3rem;
         }
-        .menu__block__con{
+
+        .menu__block__con {
             grid-template-columns: 1fr;
+
             .item {
                 padding: 1rem;
-    
+
                 .item__content {
                     .card__heading {
                         font-size: 1.6rem;
@@ -203,7 +208,7 @@
             }
         }
 
-       
+
 
     }
 
@@ -216,14 +221,16 @@
         }
     }
 
-   
+
     .cart__section {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 2rem;
 
-
+        .cart__empty {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
 
         .cart__result {
 
@@ -293,9 +300,10 @@
                 .cart__text {
                     font-size: 1.7rem;
                     color: $primary;
-                    
+
                 }
-                a{
+
+                a {
                     border-color: $primary;
                     color: $primary;
                 }

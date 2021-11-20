@@ -24,12 +24,15 @@
     @if (!Cart::count())
     <div class="cart__empty">
         <div class="cart__empty__photo">
-            <img src="{{asset('images/empty.png')}}">
+            <object type="image/svg+xml" data="{{asset('images/empty.svg')}}"  >
+                <img src="{{asset('images/empty.png')}}">
+             </object>
+         
         </div>
         <div class="cart__empty__text">
             <div class="empty__header">Привет! Ты ещё ничего не выбрал.</div> 
-            <div class="empty__text">Мы делаем классную пиццу и закуски, которые тебе точно понравятся. Обязательно выбери что-нибудь. И не забудь про напитки!</div> 
-            <div class="empty__button"><a href="">Перейти</a></div> 
+            <div class="empty__text">Мы делаем классную пиццу, десерты и закуски, которые тебе точно понравятся. Обязательно выбери что-нибудь на свой вкус. И не забудь про напитки!</div> 
+            <div class="empty__button"><a href="{{route('index')}}">Выбрать</a></div> 
         </div>
 
     </div>

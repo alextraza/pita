@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     plusMinusUpdate(e);
   });
 
+  document.addEventListener('change', (e) => {
+    changeCount(e.target);
+  });
+
+
   // add to cart
   async function addToCartClick(e) {
     if (e.target.classList.contains('add-to-cart')) {
@@ -60,18 +65,46 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  async function plusMinusUpdate(e) {
+  function plusMinusUpdate(e) {
     if (e.target.classList.contains('count-plus')) {
       let countInput = e.target.parentNode.querySelector('input[type=number]');
       countInput.value = countInput.value * 1 + 1;
+      changeCount(countInput);
     }
     if (e.target.classList.contains('count-minus')) {
       let countInput = e.target.parentNode.querySelector('input[type=number]');
-      if (countInput.value > 0) {
+      if (countInput.value > 1) {
         countInput.value = countInput.value * 1 - 1;
+        changeCount(countInput);
       }
     }
   }
+
+
+  async function changeCount(input) {
+    if (input.classList.contains('ch_count')) {
+      data = new FormData();
+      data.append('_token', getToken());
+      data.append('id', input.dataset.id);
+      data.append('count', input.value);
+      try {
+        const response = await fetch('/cart/update', {
+          method: 'POST',
+          body: data
+        });
+        const result = await response.json();
+        if (result.result == 'success') {
+          document.querySelector('#p' + input.dataset.id + ' span').innerText = result.price * input.value
+          document.getElementById('total-price').innerText = result.total;
+        } else {
+          window.location = '/cart';
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
+    }
+  }
+
 
   function getToken()
   {

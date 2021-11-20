@@ -57,7 +57,7 @@ class CartController extends Controller
      */
     public function update(Request $request)
     {
-        $rowId = $request->rowId;
+        $rowId = $request->id;
         \Cart::update($rowId, $request->count);
         return response()->json([
             'result' => 'success',

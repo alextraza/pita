@@ -1,10 +1,16 @@
 @extends('main')
 
-@section('tile')
+@section('title')
     Корзина
 @endsection
 
-@section('main')
-    <x-internal />
-    <x-cart />
+@section('description')
+    Ваша корзина
+@endsection
+
+@section('content')
+    {{--<x-internal />--}}
+    {{--<x-cart />--}}
+    @include('components.internal')
+    @include('components.cart')
 @endsection

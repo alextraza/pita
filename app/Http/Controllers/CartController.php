@@ -13,7 +13,7 @@ class CartController extends Controller
 
     public function index(Request $request)
     {
-       //
+        return view('cart');
     }
 
     /**

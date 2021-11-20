@@ -7,8 +7,7 @@ use App\Admin\Controllers\ItemController;
 use App\Admin\Controllers\OrderController;
 use App\Admin\Controllers\PageController;
 use App\Admin\Controllers\UserController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\{AuthController, FrontendController, CartController};
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -202,20 +201,22 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'makeRegister'])->name('register.post');
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
-// frontend
-Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::prefix('cart')->name('cart.')->group(function() {
     Route::get('/', [
-        FrontendController::class, 'index'
+        CartController::class, 'index'
     ])->name('index');
     Route::post('/add', [
-        FrontendController::class, 'add'
+        CartController::class, 'add'
     ])->name('add');
     Route::post('/update', [
-        FrontendController::class, 'update'
+        CartController::class, 'update'
     ])->name('update');
     Route::post('/rm', [
-        FrontendController::class, 'rm'
+        CartController::class, 'rm'
     ])->name('remove');
 });
+
+// frontend
+Route::get('/', [FrontendController::class, 'index'])->name('index');
+
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

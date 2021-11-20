@@ -23,7 +23,20 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-       //
+        $data = $request->all();
+        $item = Item::where('id', $request->id)->first();
+        if ($item) {
+            if (isset($requsts->has_alt)) {
+                $price = $item->price_alt;
+                $header = $item->header . ' - ' . $item->weight_alt . 'г';
+            } else {
+                $price = $item->price;
+                $header = $item->header;
+            }
+            Cart::add($item->id, $header, $price);
+        }
+
+        echo view('components.minicart');
     }
 
     /**

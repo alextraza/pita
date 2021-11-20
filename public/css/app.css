@@ -223,20 +223,44 @@ a {
 }
 .cat__nav__sec .cat__nav__cart a {
   display: flex;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 1rem;
-  border: 2px solid #ffa500;
+  flex-direction: row;
+  position: relative;
   align-items: center;
-  color: #ffa500;
-  font-weight: 700;
+  gap: 0.5rem;
+  border: 2px solid #ffa500;
+  border-radius: 1rem;
+}
+.cat__nav__sec .cat__nav__cart a .cart__name {
+  font-weight: 900;
   text-transform: uppercase;
+  padding: 1rem;
+  color: #ffa500;
+}
+.cat__nav__sec .cat__nav__cart a .cart__icon {
+  color: #ffa500;
+  padding-right: 1rem;
+}
+.cat__nav__sec .cat__nav__cart a .cart__icon::after {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  content: attr(data-num);
+  background: #ffa500;
+  padding: 0.3rem;
+  border-radius: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 900;
+  line-height: 0.5rem;
+  color: #1F2937;
+  border: 1px solid #1F2937;
 }
 .cat__nav__sec .cat__nav__cart a:hover {
   background: #ffa500;
   color: #fff;
 }
-
+.cat__nav__sec .cat__nav__cart a:hover .cart__name, .cat__nav__sec .cat__nav__cart a:hover .cart__icon {
+  color: #1F2937;
+}
 .menu__block {
   padding: 1.5rem 1rem;
   display: flex;
@@ -387,21 +411,25 @@ a {
   font-weight: 200;
   color: #9CA3AF;
 }
-.menu__block .item .item__content .main__var, .menu__block .item .item__content .alt__var {
+.menu__block .item .item__content .main__var,
+.menu__block .item .item__content .alt__var {
   display: grid;
   gap: 1rem;
 }
-.menu__block .item .item__content .main__var .card__comp, .menu__block .item .item__content .alt__var .card__comp {
+.menu__block .item .item__content .main__var .card__comp,
+.menu__block .item .item__content .alt__var .card__comp {
   font-size: 0.8rem;
   color: #9CA3AF;
   font-weight: 200;
   line-height: 1rem;
 }
-.menu__block .item .item__content .main__var .card__comp span, .menu__block .item .item__content .alt__var .card__comp span {
+.menu__block .item .item__content .main__var .card__comp span,
+.menu__block .item .item__content .alt__var .card__comp span {
   color: #D1D5DB;
   font-weight: 300;
 }
-.menu__block .item .item__content .main__var .card__price, .menu__block .item .item__content .alt__var .card__price {
+.menu__block .item .item__content .main__var .card__price,
+.menu__block .item .item__content .alt__var .card__price {
   color: #fff;
   font-size: 2rem;
   font-weight: 900;

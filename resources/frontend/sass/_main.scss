@@ -216,23 +216,53 @@ a {
     .cat__nav__cart {
         a {
             display: flex;
-            gap: 0.5rem;
-            padding: 1rem;
-            border-radius: 1rem;
-            border: 2px solid $yellow;
+            flex-direction: row;
+            position: relative;
             align-items: center;
-            color: $yellow;
-            font-weight: 700;
-            text-transform: uppercase;
-
-            &:hover {
-                background: $yellow;
-                color: $white;
+            gap: 0.5rem;
+            border: 2px solid $yellow;
+            border-radius: 1rem;
+                .cart__name{
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    padding: 1rem;
+                    color: $yellow;
+                }
+                .cart__icon{
+                    color: $yellow;
+                    padding-right: 1rem;
+                  
+                    &::after{
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        content: attr(data-num);
+                        background: $yellow;
+                        padding: 0.3rem;
+                        border-radius: 0.6rem;
+                        font-size: 0.7rem;
+                        font-weight: 900;
+                        line-height: 0.5rem;
+                        color: $primary;
+                        border: 1px solid $primary;
+                    }
+                }
+                &:hover{
+                    background: $yellow;
+                    color: $white;
+                 
+                }
+                &:hover .cart__name, &:hover .cart__icon{
+                    color: $primary;
+                }
+                &:hover .cart__icon::after{
+                }
             }
+            
         }
 
     }
-}
+
 
 // Category navigation end
 
@@ -361,11 +391,11 @@ a {
 
                     &:after {
                         content: attr(data-standart);
-                      
+
                     }
 
                     &:before {
-                      
+
                         content: attr(data-big);
                     }
 
@@ -384,23 +414,26 @@ a {
                 }
 
                 &:checked~.pizza__size .pizza__item label:before {
-                   
+
                     background: transparent;
                     border-radius: 2rem;
                     color: $gray-300;
                 }
 
-                
+
 
                 &~.main__var {
                     display: grid;
                 }
+
                 &~.alt__var {
                     display: none;
                 }
+
                 &:checked~.alt__var {
                     display: grid;
                 }
+
                 &:checked~.main__var {
                     display: none;
                 }
@@ -435,32 +468,34 @@ a {
                 font-weight: 200;
                 color: $gray-400;
             }
-            .main__var, .alt__var{
+
+            .main__var,
+            .alt__var {
                 display: grid;
                 gap: 1rem;
 
-           
-            .card__comp {
-                font-size: 0.8rem;
-                color: $gray-400;
-                font-weight: 200;
-                line-height: 1rem;
 
-                span {
-                    color: $gray-300;
-                    font-weight: 300;
+                .card__comp {
+                    font-size: 0.8rem;
+                    color: $gray-400;
+                    font-weight: 200;
+                    line-height: 1rem;
+
+                    span {
+                        color: $gray-300;
+                        font-weight: 300;
+                    }
                 }
-            }
 
-            .card__price {
-                color: $white;
-                font-size: 2rem;
-                font-weight: 900;
+                .card__price {
+                    color: $white;
+                    font-size: 2rem;
+                    font-weight: 900;
+                }
+
             }
 
         }
-
-    }
 
 
 

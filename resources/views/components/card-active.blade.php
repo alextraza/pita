@@ -7,7 +7,7 @@
 
         <div class="card__heading"><span class="card__cat">{{ $item->category->header }}</span> {{ $item->header }}</div>
 
-        <div class="card__desc">{{ $item->content }}</div>
+        @if($item->content)<div class="card__desc">{!! $item->content !!}</div> @endif
         @if ($item->has_alt)
         <input name="has_alt" id="switch{{ $item->id }}" type="checkbox">
         <div class="pizza__size">

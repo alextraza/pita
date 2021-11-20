@@ -784,23 +784,31 @@ a {
 
         .cart__item__button {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 0.5rem;
 
             border-radius: 1rem;
 
 
             .inline__button {
+                .cart-totals{
                 display: flex;
+                align-items: center;
 
                 span {
                     font-size: 1.2rem;
                     font-weight: 800;
                     color: $white;
+                    &.count-minus{
+                        order: 1
+                    }
+                    &.count-plus{
+                        order: 3
+                    }
                 }
 
                 input {
-
+                    order: 2;
                     border-radius: 1rem;
                     text-align: center;
                     background: transparent;
@@ -834,7 +842,7 @@ a {
 
                 }
             }
-
+        }
 
 
         }
@@ -847,8 +855,11 @@ a {
         }
 
         .cart__item__del {
+
             color: $yellow;
             cursor: pointer;
+            text-align: center;
+
 
         }
     }

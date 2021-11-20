@@ -652,19 +652,27 @@ a {
 }
 .cart__section .cart__result .cart__item__button {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
   border-radius: 1rem;
 }
-.cart__section .cart__result .cart__item__button .inline__button {
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals {
   display: flex;
+  align-items: center;
 }
-.cart__section .cart__result .cart__item__button .inline__button span {
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals span {
   font-size: 1.2rem;
   font-weight: 800;
   color: #fff;
 }
-.cart__section .cart__result .cart__item__button .inline__button input {
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-minus {
+  order: 1;
+}
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-plus {
+  order: 3;
+}
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals input {
+  order: 2;
   border-radius: 1rem;
   text-align: center;
   background: transparent;
@@ -677,14 +685,14 @@ a {
   -webkit-appearance: textfield;
   appearance: textfield;
 }
-.cart__section .cart__result .cart__item__button .inline__button inputinput[type=number] {
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals inputinput[type=number] {
   -moz-appearance: textfield;
 }
-.cart__section .cart__result .cart__item__button .inline__button input::-webkit-outer-spin-button, .cart__section .cart__result .cart__item__button .inline__button input::-webkit-inner-spin-button {
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals input::-webkit-outer-spin-button, .cart__section .cart__result .cart__item__button .inline__button .cart-totals input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.cart__section .cart__result .cart__item__button .inline__button a {
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals a {
   padding: 1rem;
   background-color: #9CA3AF;
   border-radius: 2rem;
@@ -699,6 +707,7 @@ a {
 .cart__section .cart__result .cart__item__del {
   color: #ffa500;
   cursor: pointer;
+  text-align: center;
 }
 .cart__section .cart__offer {
   display: grid;

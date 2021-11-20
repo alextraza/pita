@@ -28,7 +28,10 @@ class CartController extends Controller
     {
         $item = Item::where('id', $request->id)->first();
         if ($item) {
+            // set defaut values
             $count = $request->count ?? 1;
+            $header = $item->header;
+
             if ($request->has_alt) {
                 $weight = $item->weight_alt;
                 $price = $item->price_alt;
@@ -39,8 +42,11 @@ class CartController extends Controller
                 $id = $item->id;
             }
             if ($weight) {
-                $header = $item->header . ' - ' . $weight . 'г';
+                $header = $header . ' - ' . $weight . 'г';
             }
+
+            $weight = $weight ? $weight : 0;
+
             \Cart::add($id, $header, $count, $price, $weight, [
                 'category' => $item->category->header,
                 'image' => $item->image
@@ -67,6 +73,7 @@ class CartController extends Controller
 
     public function rm(Request $request)
     {
-       //
+        \Cart::remove($request->id);
+        return response()->json(['result' => 'success', 'total' => \Cart::total()]);
     }
 }

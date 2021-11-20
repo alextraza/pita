@@ -13,7 +13,9 @@
             <div class="cart__pricing">
                 <div class="cart__text">
                     <span>Всего:</span>
-                    {{ Cart::total() }} ₽
+                    <span id="total-price">
+                        {{ Cart::total() }} ₽
+                    </span>
                 </div>
                 <a href="">Заказать</a>
             </div>

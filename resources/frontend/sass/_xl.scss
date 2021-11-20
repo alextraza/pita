@@ -1,5 +1,8 @@
-@media (min-width: calc($lg + 1px)) and (max-width: $xl) {
+@media (min-width: $lg) and (max-width: $xl) {
 .header{
-    grid-template-columns: 10fr;
+    grid-template-columns: 2fr 2fr 2fr 4fr;
+    .logo{
+        font-size: 2rem;
+    }
 }
 }

@@ -310,10 +310,7 @@ a {
   content: "В корзину";
 }
 .menu__block .item .item__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  display: grid;
   gap: 1rem;
   color: white;
 }
@@ -342,20 +339,20 @@ a {
 .menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:before {
   content: attr(data-big);
 }
-.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:after {
+.menu__block .item .item__content input[type=checkbox] ~ .pizza__size .pizza__item label:before {
   background: #ffa500;
   color: #1F2937;
   border-radius: 2rem;
 }
 .menu__block .item .item__content input[type=checkbox]:checked ~ .pizza__size .pizza__item label:after {
-  background: transparent;
-  border-radius: 2rem;
-  color: #D1D5DB;
-}
-.menu__block .item .item__content input[type=checkbox]:checked ~ .pizza__size .pizza__item label:before {
   background: #ffa500;
   color: #1F2937;
   border-radius: 2rem;
+}
+.menu__block .item .item__content input[type=checkbox]:checked ~ .pizza__size .pizza__item label:before {
+  background: transparent;
+  border-radius: 2rem;
+  color: #D1D5DB;
 }
 .menu__block .item .item__content input[type=checkbox] ~ .main__var {
   display: grid;
@@ -1183,5 +1180,13 @@ a {
   .cart__section .cart__offer .cart__cat__heading {
     font-size: 1.8remrem;
     grid-auto-flow: column;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .header {
+    grid-template-columns: 2fr 2fr 2fr 4fr;
+  }
+  .header .logo {
+    font-size: 2rem;
   }
 }

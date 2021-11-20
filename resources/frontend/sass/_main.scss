@@ -332,10 +332,7 @@ a {
         }
 
         .item__content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+            display: grid;
             gap: 1rem;
             color: white;
 
@@ -374,22 +371,23 @@ a {
 
                 }
 
-                &~.pizza__size .pizza__item label:after {
+                &~.pizza__size .pizza__item label:before {
                     background: $yellow;
                     color: $primary;
                     border-radius: 2rem;
                 }
 
                 &:checked~.pizza__size .pizza__item label:after {
-                    background: transparent;
-                    border-radius: 2rem;
-                    color: $gray-300;
-                }
-
-                &:checked~.pizza__size .pizza__item label:before {
                     background: $yellow;
                     color: $primary;
                     border-radius: 2rem;
+                }
+
+                &:checked~.pizza__size .pizza__item label:before {
+                   
+                    background: transparent;
+                    border-radius: 2rem;
+                    color: $gray-300;
                 }
 
                 

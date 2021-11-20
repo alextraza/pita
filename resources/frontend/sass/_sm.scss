@@ -225,7 +225,7 @@
     .cart__section {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2rem 0;
 
         .cart__empty {
             grid-template-columns: 1fr;
@@ -254,7 +254,9 @@
                         order: 2;
 
                         .cart__item__title {
-                            font-size: 1rem;
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                            line-height: 1rem;
 
                             span {
                                 font-size: 0.8rem;

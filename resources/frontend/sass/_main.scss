@@ -799,6 +799,8 @@ a {
                     font-size: 1.2rem;
                     font-weight: 800;
                     color: $white;
+                    cursor: pointer;
+                    padding: 5px;
                     &.count-minus{
                         order: 1
                     }

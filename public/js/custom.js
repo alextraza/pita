@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener('click', (e) => {
     addToCartClick(e);
     rmFromCartClick(e);
+    plusMinusUpdate(e);
   });
 
   // add to cart
@@ -9,8 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (e.target.classList.contains('add-to-cart')) {
       e.preventDefault()
       data = new FormData();
-      let token = document.head.querySelector('meta[name="csrf-token"]');
-      data.append('_token', token.content);
+      data.append('_token', getToken());
       data.append('id', e.target.dataset.id);
       let itemBlock = e.target.parentNode.parentNode;
       if (itemBlock.querySelector('[name=has_alt]:checked')) {
@@ -37,8 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (e.target.classList.contains('cart__item__del')) {
       e.preventDefault();
       data = new FormData();
-      let token = document.head.querySelector('meta[name="csrf-token"]');
-      data.append('_token', token.content);
+      data.append('_token', getToken());
       data.append('id', e.target.dataset.id);
       try {
         const response = await fetch('/cart/rm', {
@@ -61,4 +60,21 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+  async function plusMinusUpdate(e) {
+    if (e.target.classList.contains('count-plus')) {
+      let countInput = e.target.parentNode.querySelector('input[type=number]');
+      countInput.value = countInput.value * 1 + 1;
+    }
+    if (e.target.classList.contains('count-minus')) {
+      let countInput = e.target.parentNode.querySelector('input[type=number]');
+      if (countInput.value > 0) {
+        countInput.value = countInput.value * 1 - 1;
+      }
+    }
+  }
+
+  function getToken()
+  {
+    return document.head.querySelector('meta[name="csrf-token"]').content;
+  }
 });

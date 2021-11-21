@@ -24,7 +24,7 @@
                         <a href="/login">Войти</a>
                     </li>
                     <li>
-                        <a href="/register">Регистрироваться</a>
+                        <a href="/register">Регистрация</a>
                     </li>
                     @endguest
                     @auth

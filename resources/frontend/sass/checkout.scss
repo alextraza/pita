@@ -1,0 +1,305 @@
+.checkout__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 1rem;
+    gap: 2rem;
+
+    .delivery__sec {
+        background: linear-gradient($secondary, $primary);
+        border-radius: 1rem;
+        box-shadow: 0 10px 15px -3px rgb(31 41 55), 0 4px 6px -2px rgb(0 0 0 / 78%);
+
+        .delivery__heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            border-bottom: 2px solid $yellow;
+
+            .title {
+                font-size: 2rem;
+                font-weight: 800;
+                color: white;
+
+            }
+
+            a {
+                &:hover {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+    .tabset {
+        padding: 1.5rem;
+        display: grid;
+        gap: 1.5rem;
+
+        input.input__tab {
+            display: block;
+            /* "enable" hidden elements in IE/edge */
+            position: absolute;
+            /* then hide them off-screen */
+            left: -100%;
+        }
+
+        ul {
+            position: relative;
+            z-index: 999;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: center;
+
+
+            li {
+                background: $primary;
+
+                &:first-child {
+                    border-radius: 2rem 0 0 2rem;
+                }
+
+                &:nth-child(2) {
+                    border-radius: 0 2rem 2rem 0;
+                }
+
+                label {
+                    display: inline-block;
+                    padding: 0.8rem 0;
+                    color: $gray-300;
+                    border-radius: 2rem;
+                    font-weight: 700;
+                    width: 100%;
+
+                }
+            }
+        }
+
+        div {
+            position: relative;
+
+            color: $white;
+
+            section {
+                position: absolute;
+                top: -999em;
+                left: -999em;
+                display: grid;
+                gap: 1.5rem;
+
+                .map {
+                    margin: 0 -1.5rem -1.5rem -1.5rem;
+                    border-radius: 0 0 2rem 2rem;
+                    overflow: hidden;
+                }
+
+                h2 {
+                    font-weight: 800;
+                    font-size: 1.4rem;
+                }
+
+                .form__group {
+                    display: grid;
+                    gap: 1rem;
+
+                    .form__field {
+                        display: flex;
+                        align-items: center;
+
+                        input[type=radio] {
+                            position: relative;
+                            left: 0;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                            border-radius: 50%;
+                            width: 1rem;
+                            height: 1rem;
+                            border: 2px solid $gray-400;
+                            flex: none;
+                            margin: 0 0.5rem 0 0;
+
+
+
+                            &:checked {
+                                border: 2px solid $yellow;
+                                background-color: $yellow;
+
+                            }
+                        }
+
+                        label {
+                            font-weight: 300;
+                        }
+                    }
+
+
+                }
+
+                .form__group__add {
+                    display: grid;
+                    gap: 1rem;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    grid-template-rows: auto;
+                    grid-template-areas:
+                        "street street street street"
+                        "house house appartment appartment"
+                        "entrance floor code code"
+                        "comment comment comment comment"
+
+                    ;
+
+                    .form__field__add {
+                        background-color: $primary;
+                        display: flex;
+                        align-items: center;
+                        border-bottom: 2px solid transparent;
+
+                        &.street {
+                            grid-area: street;
+                        }
+
+                        &.house {
+                            grid-area: house;
+                        }
+
+                        &.appartment {
+                            grid-area: appartment;
+                        }
+
+                        &.entrance {
+                            grid-area: entrance;
+                        }
+
+                        &.floor {
+                            grid-area: floor;
+                        }
+
+                        &.client-code {
+                            grid-area: code;
+                        }
+
+                        &.comment {
+                            display: grid;
+                            grid-area: comment;
+                            label{
+                                padding: 1rem;
+                            }
+                        }
+
+
+                        &:focus-within {
+                            border-color: $yellow;
+                        }
+
+                        &:focus-within label {
+                            color: $yellow;
+                        }
+
+                        input {
+                            padding: 1rem 1rem 1rem 0;
+                            background: $primary;
+                            color: $gray-300;
+                            font-weight: 600;
+                            width: 100%;
+                         
+
+                            &:focus {}
+                        }
+                        textarea{
+                            background: transparent;
+                            border: 0;
+                            padding: 0 1rem;
+                            color: $gray-300;
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                        }
+                        label {
+                            padding: 0 1rem;
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                            &:focus-within {
+                                color: $yellow;
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tabset>input:nth-child(1):checked~ul li:nth-child(1) label,
+.tabset>input:nth-child(2):checked~ul li:nth-child(2) label,
+.tabset>input:nth-child(3):checked~ul li:nth-child(3) label,
+.tabset>input:nth-child(4):checked~ul li:nth-child(4) label,
+.tabset>input:nth-child(5):checked~ul li:nth-child(5) label,
+.tabset>input:nth-child(6):checked~ul li:nth-child(6) label,
+.tabset>input:nth-child(7):checked~ul li:nth-child(7) label,
+.tabset>input:nth-child(8):checked~ul li:nth-child(8) label,
+.tabset>input:nth-child(9):checked~ul li:nth-child(9) label {
+    background: $yellow;
+
+    color: $primary;
+
+}
+
+
+
+
+
+
+.tabset>input:nth-child(1):checked~div>section:nth-child(1),
+.tabset>input:nth-child(2):checked~div>section:nth-child(2),
+.tabset>input:nth-child(3):checked~div>section:nth-child(3),
+.tabset>input:nth-child(4):checked~div>section:nth-child(4),
+.tabset>input:nth-child(5):checked~div>section:nth-child(5),
+.tabset>input:nth-child(6):checked~div>section:nth-child(6),
+.tabset>input:nth-child(7):checked~div>section:nth-child(7),
+.tabset>input:nth-child(8):checked~div>section:nth-child(8),
+.tabset>input:nth-child(9):checked~div>section:nth-child(9) {
+    position: Static;
+}
+
+.tabset>ul label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+@media (max-width: $sm) {
+    .checkout__section {
+        grid-template-columns: 1fr;
+
+        .delivery__sec {
+            .delivery__heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    }
+}

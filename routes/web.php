@@ -11,6 +11,7 @@ use App\Http\Controllers\{AuthController, FrontendController, CartController};
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
+
 /*
    |--------------------------------------------------------------------------
    | Web Routes
@@ -221,5 +222,11 @@ Route::prefix('cart')->name('cart.')->group(function() {
 
 // frontend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
+
+//checkout
+
+Route::get('/checkout', function () {
+    return view('checkout');
+});
 
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

@@ -7,7 +7,7 @@ use App\Admin\Controllers\ItemController;
 use App\Admin\Controllers\OrderController;
 use App\Admin\Controllers\PageController;
 use App\Admin\Controllers\UserController;
-use App\Http\Controllers\{AuthController, FrontendController, CartController};
+use App\Http\Controllers\{AuthController, FrontendController, CartController, CheckoutController};
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -224,9 +224,6 @@ Route::prefix('cart')->name('cart.')->group(function() {
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 
 //checkout
-
-Route::get('/checkout', function () {
-    return view('checkout');
-});
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

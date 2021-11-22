@@ -26,7 +26,7 @@
             <div>
                 <section>
                     <h2>Наш адрес</h2>
-                    <p>г.Москва, Новые Ватутинки, {{ \App\Models\Config::address() }}</p>
+                    <p>{{ \App\Models\Config::address() }}</p>
                     <a href="https://yandex.ru/maps/org/pita_pizza/129261506580/" target="_blank">Посмотреть на
                         карте</a>
                     <div class="map">

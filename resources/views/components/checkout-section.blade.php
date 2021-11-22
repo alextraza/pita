@@ -124,11 +124,10 @@
                 aria-hidden="true" checked>
             <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_statistics" hidden
                 aria-hidden="true">
-            <ul hidden aria-hidden="true" class="payment">
+            <ul hidden aria-hidden="true">
 
                 <li><label for="tabset_2_description">Он-лайн</label></li>
-                <li><label for="tabset_2_statistics">Картой</label></li>
-                <li><label for="tabset_2_description">Наличными</label></li>
+                <li><label for="tabset_2_statistics">Курьеру</label></li>
 
             </ul>
             <div>
@@ -145,20 +144,16 @@
                 <section>
 
                     <div class="form__group">
-                        <h2>Куда доставить пиццу?</h2>
+                        <h2>Как будете оплачивать?</h2>
                         <div class="form__field">
                             <input type="radio" id="address-1" name="client-address" value="address-1">
-                            <label for="address-1">Лиговский переулок, дом.26, кв.23, 2 подъезд, 4 этаж , домофон:
-                                365</label>
+                            <label for="address-1">Оплата курьеру картой</label>
                         </div>
                         <div class="form__field">
                             <input type="radio" id="address-2" name="client-address" value="address-2">
-                            <label for="address-2">Васильева , дом.167, кв.55, 2 подъезд, 2 этаж , домофон: 124</label>
+                            <label for="address-2">Оплата курьеру наличными</label>
                         </div>
-                        <div class="form__field">
-                            <input type="radio" id="address-3" name="client-address" value="address-3" checked>
-                            <label for="address-3">Ввести адрес</label>
-                        </div>
+                        
                     </div>
                     <div class="form__group__add address__form">
                         <div class="form__field__add street">

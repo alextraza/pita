@@ -1338,9 +1338,6 @@ a:hover {
   grid-template-columns: 1fr 1fr;
   text-align: center;
 }
-.checkout__section .tabset ul.payment {
-  grid-template-columns: 1fr 1fr 1fr;
-}
 .checkout__section .tabset ul li {
   background: #1F2937;
 }

@@ -154,6 +154,7 @@
                     <li><label for="tabset_2_statistics">Курьеру</label></li>
 
                 </ul>
+                <button type="submit" class="primary__button">Оформить заказ</button>
                 <div>
                     <section>
                         <h2>Наш адрес</h2>

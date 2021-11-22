@@ -21,6 +21,7 @@ time, mark, audio, video {
   text-decoration: none;
   font-weight: unset;
   transition: 0.3s linear;
+  font-family: "Inter", sans-serif;
 }
 
 input {
@@ -85,6 +86,9 @@ body :-webkit-any-link:focus-visible {
 
 a {
   color: #fff;
+}
+a:hover {
+  color: #ffa500;
 }
 
 .header {
@@ -155,7 +159,6 @@ a {
 .header .resp__nav ul li a:hover {
   color: #ffa500;
 }
-
 .cat__nav__sec {
   display: flex;
   flex-direction: row;
@@ -265,6 +268,7 @@ a {
 .cat__nav__sec .cat__nav__cart a:hover .cart__name, .cat__nav__sec .cat__nav__cart a:hover .cart__icon {
   color: #1F2937;
 }
+
 .menu__block {
   display: grid;
   padding: 1.5rem 1rem;
@@ -496,7 +500,7 @@ a {
 .internal__header {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 2rem 1rem;
   gap: 0.5rem;
 }
 .internal__header .title {
@@ -506,11 +510,11 @@ a {
 }
 .internal__header .breadcrumbs ul {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .internal__header .breadcrumbs ul li {
   font-weight: 200;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .internal__header .breadcrumbs ul li span {
   color: #fff;
@@ -520,7 +524,7 @@ a {
 }
 .internal__header .breadcrumbs ul li:after {
   content: ">";
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   color: #ffa500;
 }
 .internal__header .breadcrumbs ul > li:last-child::after {
@@ -628,10 +632,13 @@ a {
 }
 .cart__section .cart__result .cart__pricing .cart__text {
   font-size: 1.6rem;
-  font-weight: 100;
+  font-weight: 300;
 }
 .cart__section .cart__result .cart__pricing .cart__text span {
   font-weight: 700;
+}
+.cart__section .cart__result .cart__pricing .cart__text span#total-price {
+  font-weight: 300;
 }
 .cart__section .cart__result .cart__pricing a {
   border: 2px solid #ffa500;
@@ -1293,6 +1300,7 @@ a {
 .checkout__section .delivery__sec {
   background: linear-gradient(#374151, #1F2937);
   border-radius: 1rem;
+  border: 2px solid #1F2937;
   box-shadow: 0 10px 15px -3px #1f2937, 0 4px 6px -2px rgba(0, 0, 0, 0.78);
 }
 .checkout__section .delivery__sec .delivery__heading {
@@ -1330,16 +1338,24 @@ a {
   grid-template-columns: 1fr 1fr;
   text-align: center;
 }
+.checkout__section .tabset ul.payment {
+  grid-template-columns: 1fr 1fr 1fr;
+}
 .checkout__section .tabset ul li {
   background: #1F2937;
 }
 .checkout__section .tabset ul li:first-child {
   border-radius: 2rem 0 0 2rem;
 }
-.checkout__section .tabset ul li:nth-child(2) {
+.checkout__section .tabset ul li:last-child {
   border-radius: 0 2rem 2rem 0;
 }
 .checkout__section .tabset ul li label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: inline-block;
   padding: 0.8rem 0;
   color: #D1D5DB;
@@ -1356,26 +1372,43 @@ a {
   top: -999em;
   left: -999em;
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .checkout__section .tabset div section .map {
-  margin: 0 -1.5rem -1.5rem -1.5rem;
-  border-radius: 0 0 2rem 2rem;
+  border: 2px solid #1F2937;
+  margin: 0 -0.5rem -0.5rem -0.5rem;
+  border-radius: 0 0 1rem 1rem;
   overflow: hidden;
 }
 .checkout__section .tabset div section h2 {
   font-weight: 800;
   font-size: 1.4rem;
 }
-.checkout__section .tabset div section .form__group {
+
+.tabset > input:nth-child(1):checked ~ ul li:nth-child(1) label,
+.tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label,
+.tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label,
+.tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label {
+  background: #ffa500;
+  color: #1F2937;
+}
+
+.tabset > input:nth-child(1):checked ~ div > section:nth-child(1),
+.tabset > input:nth-child(2):checked ~ div > section:nth-child(2),
+.tabset > input:nth-child(2):checked ~ div > section:nth-child(2),
+.tabset > input:nth-child(2):checked ~ div > section:nth-child(2) {
+  position: Static;
+}
+
+.form__group {
   display: grid;
   gap: 1rem;
 }
-.checkout__section .tabset div section .form__group .form__field {
+.form__group .form__field {
   display: flex;
   align-items: center;
 }
-.checkout__section .tabset div section .form__group .form__field input[type=radio] {
+.form__group .form__field input[type=radio] {
   position: relative;
   left: 0;
   -webkit-appearance: none;
@@ -1388,112 +1421,141 @@ a {
   flex: none;
   margin: 0 0.5rem 0 0;
 }
-.checkout__section .tabset div section .form__group .form__field input[type=radio]:checked {
+.form__group .form__field input[type=radio]:checked {
   border: 2px solid #ffa500;
   background-color: #ffa500;
 }
-.checkout__section .tabset div section .form__group .form__field label {
+.form__group .form__field label {
+  font-size: 0.9rem;
   font-weight: 300;
 }
-.checkout__section .tabset div section .form__group__add {
+
+.form__group__add {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "street street street street" "house house appartment appartment" "entrance floor code code" "comment comment comment comment";
 }
-.checkout__section .tabset div section .form__group__add .form__field__add {
+.form__group__add.address__form {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "street street street street" "house house appartment appartment" "entrance floor code code";
+}
+.form__group__add.client__form {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name name" "phone phone" "comment comment";
+}
+.form__group__add .form__field__add {
   background-color: #1F2937;
   display: flex;
   align-items: center;
   border-bottom: 2px solid transparent;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.street {
+.form__group__add .form__field__add.street {
   grid-area: street;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.house {
+.form__group__add .form__field__add.house {
   grid-area: house;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.appartment {
+.form__group__add .form__field__add.appartment {
   grid-area: appartment;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.entrance {
+.form__group__add .form__field__add.entrance {
   grid-area: entrance;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.floor {
+.form__group__add .form__field__add.floor {
   grid-area: floor;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.client-code {
+.form__group__add .form__field__add.client-code {
   grid-area: code;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.comment {
+.form__group__add .form__field__add.name {
+  grid-area: name;
+}
+.form__group__add .form__field__add.phone {
+  grid-area: phone;
+}
+.form__group__add .form__field__add.comment {
   display: grid;
   grid-area: comment;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add.comment label {
-  padding: 1rem;
+.form__group__add .form__field__add.comment label {
+  padding: 1rem 1rem 0 1rem;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add:focus-within {
+.form__group__add .form__field__add:focus-within {
   border-color: #ffa500;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add:focus-within label {
+.form__group__add .form__field__add:focus-within label {
   color: #ffa500;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add input {
-  padding: 1rem 1rem 1rem 0;
-  background: #1F2937;
+.form__group__add .form__field__add input {
+  padding: 1rem 0;
+  background-color: #1F2937;
   color: #D1D5DB;
   font-weight: 600;
   width: 100%;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add textarea {
-  background: transparent;
+.form__group__add .form__field__add input::-moz-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #D1D5DB;
+  opacity: 1;
+  /* Firefox */
+}
+.form__group__add .form__field__add input:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #D1D5DB;
+  opacity: 1;
+  /* Firefox */
+}
+.form__group__add .form__field__add input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #D1D5DB;
+  opacity: 1;
+  /* Firefox */
+}
+.form__group__add .form__field__add input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #D1D5DB;
+}
+.form__group__add .form__field__add input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #D1D5DB;
+}
+.form__group__add .form__field__add input:-webkit-autofill, .form__group__add .form__field__add input:-webkit-autofill:hover, .form__group__add .form__field__add input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #1F2937 inset;
+  -webkit-text-fill-color: white;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.form__group__add .form__field__add input:focus {
+  outline: none;
+}
+.form__group__add .form__field__add textarea {
+  background-color: #1F2937;
   border: 0;
-  padding: 0 1rem;
+  padding: 1rem;
   color: #D1D5DB;
   font-size: 0.9rem;
   font-weight: 600;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add label {
+.form__group__add .form__field__add textarea:focus {
+  outline: none;
+}
+.form__group__add .form__field__add label {
   padding: 0 1rem;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
+  color: white;
 }
-.checkout__section .tabset div section .form__group__add .form__field__add label:focus-within {
+.form__group__add .form__field__add label:focus-within {
   color: #ffa500;
 }
 
-.tabset > input:nth-child(1):checked ~ ul li:nth-child(1) label,
-.tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label,
-.tabset > input:nth-child(3):checked ~ ul li:nth-child(3) label,
-.tabset > input:nth-child(4):checked ~ ul li:nth-child(4) label,
-.tabset > input:nth-child(5):checked ~ ul li:nth-child(5) label,
-.tabset > input:nth-child(6):checked ~ ul li:nth-child(6) label,
-.tabset > input:nth-child(7):checked ~ ul li:nth-child(7) label,
-.tabset > input:nth-child(8):checked ~ ul li:nth-child(8) label,
-.tabset > input:nth-child(9):checked ~ ul li:nth-child(9) label {
-  background: #ffa500;
-  color: #1F2937;
+.privacy {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-weight: 300;
 }
-
-.tabset > input:nth-child(1):checked ~ div > section:nth-child(1),
-.tabset > input:nth-child(2):checked ~ div > section:nth-child(2),
-.tabset > input:nth-child(3):checked ~ div > section:nth-child(3),
-.tabset > input:nth-child(4):checked ~ div > section:nth-child(4),
-.tabset > input:nth-child(5):checked ~ div > section:nth-child(5),
-.tabset > input:nth-child(6):checked ~ div > section:nth-child(6),
-.tabset > input:nth-child(7):checked ~ div > section:nth-child(7),
-.tabset > input:nth-child(8):checked ~ div > section:nth-child(8),
-.tabset > input:nth-child(9):checked ~ div > section:nth-child(9) {
-  position: Static;
-}
-
-.tabset > ul label {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.privacy a {
+  text-decoration: underline;
 }
 
 @media (max-width: 640px) {

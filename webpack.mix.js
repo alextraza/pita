@@ -1,4 +1,6 @@
-const { browserSync } = require('laravel-mix');
+const {
+    browserSync
+} = require('laravel-mix');
 const mix = require('laravel-mix');
 
 /*
@@ -14,7 +16,9 @@ const mix = require('laravel-mix');
 
 //  Old Config 
 
-mix.js("resources/frontend/js/navigation.js", "public/js/app.js");
+mix.js(["resources/frontend/js/navigation.js",
+    "resources/frontend/js/phone.js"
+    ], "public/js/app.js");
 
 mix.sass('resources/frontend/sass/app.scss', 'public/css')
     .options({
@@ -23,7 +27,7 @@ mix.sass('resources/frontend/sass/app.scss', 'public/css')
         ]
     });
 
-    // browserSync 
+// browserSync 
 mix.browserSync({
     proxy: 'pita.test',
     injectChanges: true,

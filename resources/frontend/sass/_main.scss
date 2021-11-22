@@ -24,10 +24,10 @@ body {
 }
 
 a {
-
     color: $white;
-
-
+    &:hover{
+        color: $yellow;
+    }
 }
 
 
@@ -116,7 +116,9 @@ a {
                 a:hover {
                     color: $yellow;
                 }
-
+                ul{
+                // Стили для выпадающего списка
+                }
             }
 
         }
@@ -261,7 +263,7 @@ a {
                 color: $primary;
             }
 
-            &:hover .cart__icon::after {}
+      
         }
 
     }
@@ -586,7 +588,7 @@ a {
 .internal__header {
     display: flex;
     flex-direction: column;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 2rem 1rem;
     gap: 0.5rem;
 
 
@@ -598,11 +600,11 @@ a {
 
     .breadcrumbs ul {
         display: flex;
-        gap: 1rem;
+        gap: 0.5rem;
 
         li {
             font-weight: 200;
-            font-size: 0.8rem;
+            font-size: 1rem;
 
             span {
                 color: $white;
@@ -616,7 +618,7 @@ a {
 
             &:after {
                 content: '>';
-                margin-left: 1rem;
+                margin-left: 0.5rem;
                 color: $yellow;
             }
         }
@@ -756,11 +758,15 @@ a {
 
             .cart__text {
                 font-size: 1.6rem;
-                font-weight: 100;
+                font-weight: 300;
 
                 span {
                     font-weight: 700;
+                    &#total-price{
+                        font-weight: 300;
+                    }
                 }
+                
             }
 
             a {

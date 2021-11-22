@@ -33,6 +33,25 @@
 
 /***/ }),
 
+/***/ "./resources/frontend/js/phone.js":
+/*!****************************************!*\
+  !*** ./resources/frontend/js/phone.js ***!
+  \****************************************/
+/***/ (() => {
+
+var $input = document.querySelector('[data-js="input"]');
+$input.addEventListener('input', handleInput, false);
+
+function handleInput(e) {
+  e.target.value = phoneMask(e.target.value);
+}
+
+function phoneMask(phone) {
+  return phone.replace(/(\+)/, '8 (').replace(/\D/g, '').replace(/^(8)/, '8 (').replace(/^([0-7,9])/, '8 ($1').replace(/^(8\s\(\d{3})(\d)/, '$1) $2').replace(/(\d{3})(\d{1,2})/, '$1 $2').replace(/(\d{3}\s\d{2})(\d{1,2})/, '$1 $2').replace(/(\s\d{2}\s\d{2})\d+?$/, '$1');
+}
+
+/***/ }),
+
 /***/ "./resources/frontend/sass/app.scss":
 /*!******************************************!*\
   !*** ./resources/frontend/sass/app.scss ***!
@@ -184,6 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/frontend/js/navigation.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/frontend/js/phone.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/frontend/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	

@@ -24,7 +24,16 @@ class StoreOrder extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'phone' => 'required',
+            'client-address' => 'nullable',
+            'address' => 'nullable|string',
+            'house' => 'nullable|max:10',
+            'entrance' => 'numeric|nullable',
+            'apartment' => 'numeric|nullable',
+            'floor' => 'numeric|nullable',
+            'code' => 'nullable|string|max:10',
+            'delivery_time' => 'string|nullable',
         ];
     }
 }

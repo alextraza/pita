@@ -41,12 +41,12 @@
                                 @if ($user = Auth::user())
                                     @foreach ($user->addresses as $key => $address)
                                         <div class="form__field">
-                                            <input type="radio" id="address-{{ $key }}" name="client-address" value="{{ $address->full_address }}" {{ $key == 0 ? 'checked' : ''  }}>
+                                            <input type="radio" id="address-{{ $key }}" name="client_address" value="{{ $address->full_address }}" {{ $key == 0 ? 'checked' : ''  }}>
                                             <label for="address-{{ $key }}">{{ $address->full_address }}</label>
                                         </div>
                                     @endforeach
                                     <div class="form__field">
-                                        <input type="radio" id="address-3" name="client-address" value="address-3">
+                                        <input type="radio" id="address-3" name="client_address">
                                         <label for="address-3">Ввести адрес</label>
                                     </div>
                                 @else
@@ -58,7 +58,7 @@
                             <div class="form__group__add address__form">
                                 <div class="form__field__add street">
                                     <label for="street">Адрес (улица)<span>*</span></label>
-                                    <input id="street" type="text" name="address">
+                                    <input id="street" type="text" name="street">
                                 </div>
                                 <div class="form__field__add house">
                                     <label for="house">Номер дома<span>*</span></label>
@@ -95,16 +95,16 @@
                     <div class="form__group time__grid">
 
                         <div class="form__field now">
-                            <input type="radio" id="now" name="delivery-time" value="now">
+                            <input type="radio" id="now" name="delivery_time" value="В ближайшее время">
                             <label for="now">В ближайшее время</label>
                         </div>
                         <div class="form__field chose-time">
-                            <input type="radio" id="chose-time" name="client-time">
-                            <label for="chose-time">Указать время:</label>
+                            <input type="radio" id="delivery-time" name="delivery_time" value="time">
+                            <label for="delivery-time">Указать время:</label>
                         </div>
                         <div class="form__field__add time">
                             <label for="chose-time">Указать время:</label>
-                            <input type="time" id="time" name="delivery_time" value="time">
+                            <input type="time" id="chose-time" name="chose_time" value="time">
                         </div>
 
                     </div>

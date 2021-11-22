@@ -1369,7 +1369,7 @@ a:hover {
   top: -999em;
   left: -999em;
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .checkout__section .tabset div section .map {
   border: 2px solid #1F2937;
@@ -1401,6 +1401,10 @@ a:hover {
   display: grid;
   gap: 1rem;
 }
+.form__group.time__grid {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "now time" "chose-time time";
+}
 .form__group .form__field {
   display: flex;
   align-items: center;
@@ -1426,7 +1430,15 @@ a:hover {
   font-size: 0.9rem;
   font-weight: 300;
 }
-
+.form__group .form__field.now {
+  grid-area: now;
+}
+.form__group .form__field.chose-time {
+  grid-area: chose-time;
+}
+.form__group .form__field__add.time {
+  grid-area: time;
+}
 .form__group__add {
   display: grid;
   gap: 1rem;
@@ -1438,7 +1450,7 @@ a:hover {
 }
 .form__group__add.client__form {
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "name name" "phone phone" "comment comment";
+  grid-template-areas: "name phone" "comment comment";
 }
 .form__group__add .form__field__add {
   background-color: #1F2937;

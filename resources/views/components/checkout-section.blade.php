@@ -20,7 +20,9 @@
                 <li><label for="tabset_1_description">Заберу сам</label></li>
                 <li><label for="tabset_1_statistics">Курьером</label></li>
 
+
             </ul>
+           
             <div>
                 <section>
                     <h2>Наш адрес</h2>
@@ -88,17 +90,34 @@
     <div class="delivery__sec">
         <div class="delivery__heading">
             <div class="title">2. Личные данные</div>
-
         </div>
         <div class="tabset">
+            <h2>Когда доставить пиццу?</h2>
+            <div class="form__group time__grid">
+               
+                <div class="form__field now">
+                    <input type="radio" id="now" name="client-time" value="now">
+                    <label for="now">В ближайшее время</label>
+                </div>
+                <div class="form__field chose-time">
+                    <input type="radio" id="chose-time" name="client-time" value="chose-time">
+                    <label for="chose-time">Указать время:</label>
+                </div>
+                <div class="form__field__add time">
+                    <label for="chose-time">Указать время:</label>
+                    <input type="time" id="time" name="time" value="time">
+                </div>
+               
+            </div>
             <div class="form__group__add client__form">
                 <div class="form__field__add name">
                     <label for="name">Имя</label>
-                    <input id="name" type="text" value="@if (Auth::user()) {{Auth::user()->name}} @endif">
+                    <input id="name" type="text" value="@if (Auth::user()) {{ Auth::user()->name }} @endif">
                 </div>
                 <div class="form__field__add phone">
                     <label for="phone">Телефон<span>*</span></label>
-                    <input id="phone" type="text" data-js="input" id="phone" placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{Auth::user()->phone}} @endif">
+                    <input id="phone" type="text" data-js="input" id="phone" placeholder="8 (xxx) xxx-xx-xx"
+                        value="@if (Auth::user()) {{ Auth::user()->phone }} @endif">
                 </div>
                 <div class="form__field__add comment">
                     <label for="comment">Комментарий к заказу</label>
@@ -107,9 +126,11 @@
 
             </div>
             <div class="privacy">
-                Нажимая на кнопку “Заказать”, вы даёте согласие на <a href="/privacy-policy">обработку своих персональных данных</a>, в соответствии с
+                Нажимая на кнопку “Заказать”, вы даёте согласие на <a href="/privacy-policy">обработку своих
+                    персональных данных</a>, в соответствии с
                 <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
-                Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a href="tel:{{ \App\Models\Config::phone() }}">{{ \App\Models\Config::phone() }}</a> 
+                Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a
+                    href="tel:{{ \App\Models\Config::phone() }}">{{ \App\Models\Config::phone() }}</a>
             </div>
         </div>
 
@@ -117,7 +138,7 @@
     <div class="delivery__sec">
         <div class="delivery__heading">
             <div class="title">3. Оплата</div>
-            
+
         </div>
         <div class="tabset">
             <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_description" hidden
@@ -153,7 +174,7 @@
                             <input type="radio" id="address-2" name="client-address" value="address-2">
                             <label for="address-2">Оплата курьеру наличными</label>
                         </div>
-                        
+
                     </div>
                     <div class="form__group__add address__form">
                         <div class="form__field__add street">

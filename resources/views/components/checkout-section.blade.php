@@ -1,7 +1,8 @@
-<div class="checkout__section">
+<div>
     <form method="post" id="checkoutForm" action="{{ route('checkout.store') }}">
         @method('PUT')
         @csrf()
+        <div class="checkout__section">
         <div class="delivery__sec">
             <div class="delivery__heading">
                 <div class="title">1. Доставка</div>
@@ -214,4 +215,5 @@
             </div>
         </div>
     </form>
+</div>
 </div>

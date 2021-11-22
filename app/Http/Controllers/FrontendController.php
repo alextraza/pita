@@ -26,4 +26,9 @@ class FrontendController extends Controller
        $model = Page::where('slug', $slug)->firstOrFail();
         dd($model);
     }
+
+    public function user()
+    {
+        return view('user');
+    }
 }

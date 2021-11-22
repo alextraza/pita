@@ -225,5 +225,6 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::put('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

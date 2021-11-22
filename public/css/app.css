@@ -1608,8 +1608,29 @@ a:hover {
   .checkout__section {
     grid-template-columns: 1fr;
   }
+  .checkout__section .delivery__sec {
+    border-radius: 0.5rem;
+  }
   .checkout__section .delivery__sec .delivery__heading {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1rem;
+  }
+  .checkout__section .delivery__sec .tabset {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .form__group__add.address__form {
+    grid-template-areas: "street street street street" "house house house house" "appartment appartment appartment appartment" "entrance entrance floor floor" "code code code code";
+  }
+
+  .form__group__add.client__form {
+    grid-template-areas: "name name" "phone phone" "comment comment";
+  }
+
+  .form__group.time__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "now" "chose-time" "time";
   }
 }

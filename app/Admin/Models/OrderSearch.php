@@ -16,4 +16,13 @@ class OrderSearch extends Order
     protected static $filtering = [
         'id', 'status', 'name', 'payment'
     ];
+
+    public static function getAll()
+    {
+        self::$_model = self::where('id', '>', 0);
+        self::sorting();
+        self::filtering();
+        return self::$_model->orderBy('created_at', 'desc')->paginate(20)
+                            ->withQueryString();
+    }
 }

@@ -21,7 +21,7 @@
 @section('content')
     <div class="dock">
         <div class="dock__header">
-            <a id="massDel" class="btn btn--transparent del disabled" href="#">- Удалить</a>
+            <a id="massDel" class="btn btn--transparent del disabled" href="{{ route('order.delete') }}">- Удалить</a>
         </div>
         @include('admin.order.grid')
     </div>

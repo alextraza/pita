@@ -23,7 +23,6 @@ class Address extends Model
 
     public function getFullAddressAttribute()
     {
-        echo ('sldkfj');
         $result = [];
         if ($this->street) {
             $result[] = 'ул.' . $this->street;

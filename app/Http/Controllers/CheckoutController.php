@@ -23,8 +23,8 @@ class CheckoutController extends Controller
     *
     * @param App\Http\Request\StoreOrder $request
     */
-    public function srore(StoreOrder $request)
+    public function store(StoreOrder $request)
     {
-        //
+        dd($request->all());
     }
 }

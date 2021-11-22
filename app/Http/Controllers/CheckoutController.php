@@ -15,6 +15,9 @@ class CheckoutController extends Controller
     */
     public function index()
     {
+        if (! Cart::count()) {
+            return redirect(route('cart.index'));
+        };
         return view('checkout');
     }
 

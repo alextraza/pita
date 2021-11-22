@@ -129,12 +129,7 @@
                 Нажимая на кнопку “Заказать”, вы даёте согласие на <a href="/privacy-policy">обработку своих
                     персональных данных</a>, в соответствии с
                 <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
-<<<<<<< HEAD
-                Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a
-                    href="tel:{{ \App\Models\Config::phone() }}">{{ \App\Models\Config::phone() }}</a>
-=======
                 Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
->>>>>>> 21894b9edd0fa6e76678f4f3cc68f9ab75e5d53a
             </div>
         </div>
 
@@ -158,7 +153,7 @@
             <div>
                 <section>
                     <h2>Наш адрес</h2>
-                    <p>г.Москва, Новые Ватутинки, {{ \App\Models\Config::address() }}</p>
+                    <p>{{ \App\Models\Config::address() }}</p>
                     <a href="https://yandex.ru/maps/org/pita_pizza/129261506580/" target="_blank">Посмотреть на
                         карте</a>
                     <div class="map">

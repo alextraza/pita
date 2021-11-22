@@ -20,6 +20,15 @@ class Order extends Model
         'payed' => 'Оплачено'
     ];
 
+    protected static function booted()
+    {
+        static::deleting(function($order) {
+            foreach($order->orderItems as $orderItem) {
+                $orderItem->delete();
+            }
+        });
+    }
+
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);

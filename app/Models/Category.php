@@ -16,6 +16,15 @@ class Category extends Model
         return self::select('id', 'header')->where('status', true)->orderBy('pos')->get();
     }
 
+    protected static function booted()
+    {
+        static::deleting(function($category) {
+            foreach($category->items as $item) {
+                $item->delete();
+            }
+        });
+    }
+
     public function getCartItems($cartItems)
     {
         $ids = $cartItems->pluck('id')->all();

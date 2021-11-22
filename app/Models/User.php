@@ -42,6 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function booted()
+    {
+        static::deleting(function($user) {
+            foreach($user->addresses as $address) {
+                $address->delete();
+            }
+        });
+    }
+
     public function addresses()
     {
         return $this->hasMany(Address::class);

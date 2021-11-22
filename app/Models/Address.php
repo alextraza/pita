@@ -23,36 +23,45 @@ class Address extends Model
 
     public function getFullAddressAttribute()
     {
+        return $this->setAddress($this);
+    }
+
+    public static function getFullAddress($obj)
+    {
+        return self::setAddress($obj);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    private function setAddress($obj)
+    {
         $result = [];
-        if ($this->street) {
-            $result[] = 'ул.' . $this->street;
+        if ($obj->street) {
+            $result[] = 'ул.' . $obj->street;
         }
-        if ($this->house) {
-            $result[] = 'д.' . $this->house;
+        if ($obj->house) {
+            $result[] = 'д.' . $obj->house;
         }
-        if ($this->apartment) {
-            $result[] = 'кв.' . $this->apartment;
+        if ($obj->apartment) {
+            $result[] = 'кв.' . $obj->apartment;
         }
-        if ($this->entrance) {
-            $result[] = $this->entrance . ' подъезд';
+        if ($obj->entrance) {
+            $result[] = $obj->entrance . ' подъезд';
         }
-        if ($this->floor) {
-            $result[] = $this->floor . ' этаж';
+        if ($obj->floor) {
+            $result[] = $obj->floor . ' этаж';
         }
 
-        if ($this->code) {
-            $result[] = 'код домофона: ' . $this->code;
+        if ($obj->code) {
+            $result[] = 'код домофона: ' . $obj->code;
         }
 
         if ($result) {
             return implode(', ', $result);
         }
 
-        return false;
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
     }
 }

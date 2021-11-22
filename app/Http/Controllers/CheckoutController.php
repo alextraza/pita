@@ -44,6 +44,9 @@ class CheckoutController extends Controller
 
     private function getFullAddress($request)
     {
+        if ($request->delivery == 'myself') {
+            return 'Самодоставка';
+        }
         if ($request->client_address && $request->client_address != 'on') {
             return $request->client_address;
         }

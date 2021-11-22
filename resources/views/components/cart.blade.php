@@ -16,7 +16,7 @@
                         {{ Cart::total() }}
                     </span> ₽
                 </div>
-                <a href="">Заказать</a>
+                <a href="{{ route('checkout') }}">Заказать</a>
             </div>
         </div>
  

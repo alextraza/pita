@@ -94,11 +94,11 @@
             <div class="form__group__add client__form">
                 <div class="form__field__add name">
                     <label for="name">Имя</label>
-                    <input id="name" type="text">
+                    <input id="name" type="text" value="@if (Auth::user()) {{Auth::user()->name}} @endif">
                 </div>
                 <div class="form__field__add phone">
                     <label for="phone">Телефон<span>*</span></label>
-                    <input id="phone" type="text" data-js="input" id="phone" placeholder="8 (xxx) xxx-xx-xx">
+                    <input id="phone" type="text" data-js="input" id="phone" placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{Auth::user()->phone}} @endif">
                 </div>
                 <div class="form__field__add comment">
                     <label for="comment">Комментарий к заказу</label>

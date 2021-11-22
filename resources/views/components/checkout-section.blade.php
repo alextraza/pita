@@ -91,7 +91,7 @@
                     <div class="title">2. Личные данные</div>
                 </div>
                 <div class="tabset">
-                    <h2>Когда доставить пиццу?</h2>
+                    <div class="heading">Когда доставить пиццу?</div>
                     <div class="form__group time__grid">
 
                         <div class="form__field now">

@@ -1452,92 +1452,129 @@ a:hover {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "name phone" "comment comment";
 }
-.form__group__add .form__field__add {
+
+.form__field__add {
   background-color: #1F2937;
   display: flex;
   align-items: center;
   border-bottom: 2px solid transparent;
 }
-.form__group__add .form__field__add.street {
+.form__field__add.street {
   grid-area: street;
 }
-.form__group__add .form__field__add.house {
+.form__field__add.house {
   grid-area: house;
 }
-.form__group__add .form__field__add.appartment {
+.form__field__add.appartment {
   grid-area: appartment;
 }
-.form__group__add .form__field__add.entrance {
+.form__field__add.entrance {
   grid-area: entrance;
 }
-.form__group__add .form__field__add.floor {
+.form__field__add.floor {
   grid-area: floor;
 }
-.form__group__add .form__field__add.client-code {
+.form__field__add.client-code {
   grid-area: code;
 }
-.form__group__add .form__field__add.name {
+.form__field__add.name {
   grid-area: name;
 }
-.form__group__add .form__field__add.phone {
+.form__field__add.phone {
   grid-area: phone;
 }
-.form__group__add .form__field__add.comment {
+.form__field__add.comment {
   display: grid;
   grid-area: comment;
 }
-.form__group__add .form__field__add.comment label {
+.form__field__add.comment label {
   padding: 1rem 1rem 0 1rem;
 }
-.form__group__add .form__field__add:focus-within {
+.form__field__add:focus-within {
   border-color: #ffa500;
 }
-.form__group__add .form__field__add:focus-within label {
+.form__field__add:focus-within label {
   color: #ffa500;
 }
-.form__group__add .form__field__add input {
+.form__field__add input {
   padding: 1rem 0;
   background-color: #1F2937;
   color: #D1D5DB;
   font-weight: 600;
   width: 100%;
 }
-.form__group__add .form__field__add input::-moz-placeholder {
+.form__field__add input::-moz-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #D1D5DB;
   opacity: 1;
   /* Firefox */
 }
-.form__group__add .form__field__add input:-ms-input-placeholder {
+.form__field__add input:-ms-input-placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #D1D5DB;
   opacity: 1;
   /* Firefox */
 }
-.form__group__add .form__field__add input::placeholder {
+.form__field__add input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #D1D5DB;
   opacity: 1;
   /* Firefox */
 }
-.form__group__add .form__field__add input:-ms-input-placeholder {
+.form__field__add input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #D1D5DB;
 }
-.form__group__add .form__field__add input::-ms-input-placeholder {
+.form__field__add input::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #D1D5DB;
 }
-.form__group__add .form__field__add input:-webkit-autofill, .form__group__add .form__field__add input:-webkit-autofill:hover, .form__group__add .form__field__add input:-webkit-autofill:focus {
+.form__field__add input:-webkit-autofill, .form__field__add input:-webkit-autofill:hover, .form__field__add input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #1F2937 inset;
   -webkit-text-fill-color: white;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
-.form__group__add .form__field__add input:focus {
+.form__field__add input:focus {
   outline: none;
 }
-.form__group__add .form__field__add textarea {
+.form__field__add input[type=time] {
+  border: none;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-text ::-webkit-datetime-edit-text {
+  padding: 4px 4px;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-hour-field {
+  color: #fff;
+  padding: 1rem;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-hour-field:focus {
+  background: #ffa500;
+  color: #1F2937;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-text {
+  padding: 1rem 4px;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-minute-field {
+  color: #fff;
+  padding: 1rem;
+}
+.form__field__add input[type=time]::-webkit-datetime-edit-minute-field:focus {
+  background: #ffa500;
+  color: #1F2937;
+}
+.form__field__add input[type=time]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5) sepia(2) saturate(8) hue-rotate(10deg);
+  font-size: 2rem;
+  padding-right: 0.5rem;
+}
+.form__field__add textarea {
   background-color: #1F2937;
   border: 0;
   padding: 1rem;
@@ -1545,16 +1582,16 @@ a:hover {
   font-size: 0.9rem;
   font-weight: 600;
 }
-.form__group__add .form__field__add textarea:focus {
+.form__field__add textarea:focus {
   outline: none;
 }
-.form__group__add .form__field__add label {
+.form__field__add label {
   padding: 0 1rem;
   font-size: 0.9rem;
   font-weight: 500;
   color: white;
 }
-.form__group__add .form__field__add label:focus-within {
+.form__field__add label:focus-within {
   color: #ffa500;
 }
 

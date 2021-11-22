@@ -182,7 +182,7 @@
             grid-area: now;
         }
 
-        
+
 
         &.chose-time {
             grid-area: chose-time;
@@ -190,12 +190,12 @@
 
 
     }
-    .form__field__add{
+
+    .form__field__add {
         &.time {
             grid-area: time;
-            input[type="time"]{
-                
-            }
+
+            input[type="time"] {}
         }
     }
 
@@ -223,132 +223,184 @@
             "name phone"
             "comment comment"
     }
+}
 
-    .form__field__add {
-        background-color: $primary;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid transparent;
+.form__field__add {
+    background-color: $primary;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
 
-        &.street {
-            grid-area: street;
-        }
+    &.street {
+        grid-area: street;
+    }
 
-        &.house {
-            grid-area: house;
-        }
+    &.house {
+        grid-area: house;
+    }
 
-        &.appartment {
-            grid-area: appartment;
-        }
+    &.appartment {
+        grid-area: appartment;
+    }
 
-        &.entrance {
-            grid-area: entrance;
-        }
+    &.entrance {
+        grid-area: entrance;
+    }
 
-        &.floor {
-            grid-area: floor;
-        }
+    &.floor {
+        grid-area: floor;
+    }
 
-        &.client-code {
-            grid-area: code;
-        }
+    &.client-code {
+        grid-area: code;
+    }
 
-        &.name {
-            grid-area: name;
-        }
+    &.name {
+        grid-area: name;
+    }
 
-        &.phone {
-            grid-area: phone;
-        }
+    &.phone {
+        grid-area: phone;
+    }
 
-        &.comment {
-            display: grid;
-            grid-area: comment;
-
-            label {
-                padding: 1rem 1rem 0 1rem;
-            }
-        }
-
-
-        &:focus-within {
-            border-color: $yellow;
-        }
-
-        &:focus-within label {
-            color: $yellow;
-        }
-
-        input {
-            padding: 1rem 0;
-            background-color: $primary;
-            color: $gray-300;
-            font-weight: 600;
-            width: 100%;
-
-            &::placeholder {
-                /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: $gray-300;
-                opacity: 1;
-                /* Firefox */
-            }
-
-            &:-ms-input-placeholder {
-                /* Internet Explorer 10-11 */
-                color: $gray-300;
-            }
-
-            &::-ms-input-placeholder {
-                /* Microsoft Edge */
-                color: $gray-300;
-            }
-
-            &:-webkit-autofill,
-            &:-webkit-autofill:hover,
-            &:-webkit-autofill:focus {
-                -webkit-box-shadow: 0 0 0px 1000px $primary inset;
-                -webkit-text-fill-color: white;
-                transition: background-color 5000s ease-in-out 0s;
-
-            }
-
-
-            &:focus {
-                outline: none;
-            }
-        }
-
-        textarea {
-            background-color: $primary;
-            border: 0;
-            padding: 1rem;
-            color: $gray-300;
-            font-size: 0.9rem;
-            font-weight: 600;
-
-            &:focus {
-                outline: none;
-            }
-        }
+    &.comment {
+        display: grid;
+        grid-area: comment;
 
         label {
-            padding: 0 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: white;
+            padding: 1rem 1rem 0 1rem;
+        }
+    }
 
-            &:focus-within {
-                color: $yellow;
-            }
+
+    &:focus-within {
+        border-color: $yellow;
+    }
+
+    &:focus-within label {
+        color: $yellow;
+    }
+
+    input {
+        padding: 1rem 0;
+        background-color: $primary;
+        color: $gray-300;
+        font-weight: 600;
+        width: 100%;
+
+        &::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $gray-300;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: $gray-300;
+        }
+
+        &::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: $gray-300;
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px $primary inset;
+            -webkit-text-fill-color: white;
+            transition: background-color 5000s ease-in-out 0s;
 
         }
 
+
+        &:focus {
+            outline: none;
+        }
+
+        // Timepicker
+        &[type="time"] {
+            border: none;
+            width: 100%;
+            padding: 0;
+            height: 100%;
+           
+
+            &::-webkit-datetime-edit-fields-wrapper {
+                display: flex;
+                
+            }
+
+            &::-webkit-datetime-edit-text {
+                ::-webkit-datetime-edit-text {
+                    padding: 4px 4px;
+                }
+            }
+
+            &::-webkit-datetime-edit-hour-field {
+                color: $white;
+                padding: 1rem;
+                &:focus{
+                    background: $yellow;
+                    color: $primary;
+                }
+            }
+            &::-webkit-datetime-edit-text {
+                padding: 1rem 4px;
+              }
+            &::-webkit-datetime-edit-minute-field {
+                color: $white;
+                padding: 1rem;
+                &:focus{
+                    background: $yellow;
+                    color: $primary;
+                }
+            }
+            &::-webkit-calendar-picker-indicator {
+                filter: invert(0.5) sepia(2) saturate(8) hue-rotate(10deg);
+                font-size: 2rem;
+                padding-right: 0.5rem;
+           
+              
+                
+               
+              
+             }
+        }
+    }
+
+
+    textarea {
+        background-color: $primary;
+        border: 0;
+        padding: 1rem;
+        color: $gray-300;
+        font-size: 0.9rem;
+        font-weight: 600;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    label {
+        padding: 0 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: white;
+
+        &:focus-within {
+            color: $yellow;
+        }
 
     }
 
 
 }
+
+
+
 
 .privacy {
     font-size: 0.8rem;

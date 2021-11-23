@@ -12,7 +12,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -91,9 +91,13 @@ a:hover {
   color: #ffa500;
 }
 
+p {
+  color: #F3F4F6;
+}
+
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 5fr 3fr 4fr 5fr;
   align-items: center;
   padding: 1rem;
   border-bottom: 2px solid #ffa500;
@@ -146,6 +150,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 1.2rem;
+  position: relative;
 }
 .header .resp__nav ul li {
   font-weight: 600;
@@ -159,6 +164,17 @@ a:hover {
 .header .resp__nav ul li a:hover {
   color: #ffa500;
 }
+.header .resp__nav ul li ul {
+  display: grid;
+  gap: 0.1rem;
+}
+.header .resp__nav ul li ul li a {
+  font-size: 0.7rem;
+}
+.header .resp__nav ul li.user {
+  display: flex;
+}
+
 .cat__nav__sec {
   display: flex;
   flex-direction: row;
@@ -578,13 +594,13 @@ a:hover {
   font-weight: 600;
   display: inline-block;
   padding: 1rem;
-  border: 2px solid #fff;
+  border: 2px solid #ffa500;
   border-radius: 0.5rem;
-  color: white;
+  color: #ffa500;
 }
 .cart__section .cart__empty .cart__empty__text .empty__button a:hover {
-  color: #ffa500;
-  border-color: #ffa500;
+  color: #1F2937;
+  background: #ffa500;
 }
 .cart__section .cart__result {
   display: grid;
@@ -600,10 +616,14 @@ a:hover {
   gap: 1rem;
   padding: 0.5rem;
   background: #374151;
+  border: 2px solid #4B5563;
   border-radius: 1rem;
   transition: 0.3s linear;
   align-items: center;
   justify-content: space-between;
+}
+.cart__section .cart__result .cart__result__list .cart__item:hover {
+  border-color: #9CA3AF;
 }
 .cart__section .cart__result .cart__result__list .cart__item .cart__item__desc {
   display: flex;
@@ -618,7 +638,7 @@ a:hover {
   gap: 0.2rem;
 }
 .cart__section .cart__result .cart__result__list .cart__item .cart__item__desc .cart__item__title span {
-  color: #9CA3AF;
+  color: #ffa500;
   font-size: 0.9rem;
 }
 .cart__section .cart__result .cart__pricing {
@@ -675,6 +695,9 @@ a:hover {
 .cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-plus {
   order: 3;
 }
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals span:hover {
+  color: #ffa500;
+}
 .cart__section .cart__result .cart__item__button .inline__button .cart-totals input {
   order: 2;
   border-radius: 1rem;
@@ -712,6 +735,9 @@ a:hover {
   color: #ffa500;
   cursor: pointer;
   text-align: center;
+}
+.cart__section .cart__result .cart__item__del:hover, .cart__section .cart__result .cart__item__del:focus {
+  color: #fff;
 }
 .cart__section .cart__offer {
   display: grid;
@@ -857,7 +883,6 @@ a:hover {
     display: block;
     padding: 12px 24px;
     color: #333;
-    font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 600;
     text-decoration: none;
@@ -913,6 +938,7 @@ a:hover {
   .cart__section {
     display: grid;
     grid-template-columns: 1fr;
+    grid-auto-flow: dense;
     gap: 2rem 0;
   }
   .cart__section .cart__empty {
@@ -924,6 +950,7 @@ a:hover {
     gap: 0.5rem;
     padding: 1rem 0;
     background: none;
+    border: 0;
     border-radius: 0;
     border-bottom: 2px solid #374151;
   }
@@ -947,6 +974,7 @@ a:hover {
   }
   .cart__section .cart__result .cart__result__list .cart__item .cart__item__button .inline__button input {
     width: 1rem;
+    font-size: 1rem;
   }
   .cart__section .cart__result .cart__result__list .cart__item .cart__item__del {
     order: 1;
@@ -1087,7 +1115,6 @@ a:hover {
     display: block;
     padding: 12px 24px;
     color: #333;
-    font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 600;
     text-decoration: none;
@@ -1207,7 +1234,6 @@ a:hover {
     display: block;
     padding: 12px 24px;
     color: #333;
-    font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 600;
     text-decoration: none;
@@ -1301,7 +1327,7 @@ a:hover {
   background: linear-gradient(#374151, #1F2937);
   border-radius: 1rem;
   border: 2px solid #1F2937;
-  box-shadow: 0 10px 15px -3px #1f2937, 0 4px 6px -2px rgba(0, 0, 0, 0.78);
+  border-bottom: 0;
 }
 .checkout__section .delivery__sec .delivery__heading {
   display: flex;
@@ -1359,10 +1385,14 @@ a:hover {
   border-radius: 2rem;
   font-weight: 700;
   width: 100%;
+  cursor: pointer;
 }
 .checkout__section .tabset div {
   position: relative;
-  color: #fff;
+}
+.checkout__section .tabset div.heading {
+  font-weight: 800;
+  font-size: 1.4rem;
 }
 .checkout__section .tabset div section {
   position: absolute;
@@ -1377,9 +1407,11 @@ a:hover {
   border-radius: 0 0 1rem 1rem;
   overflow: hidden;
 }
-.checkout__section .tabset div section h2 {
+
+.sec__title {
   font-weight: 800;
   font-size: 1.4rem;
+  color: #E5E7EB;
 }
 
 .tabset > input:nth-child(1):checked ~ ul li:nth-child(1) label,
@@ -1429,6 +1461,7 @@ a:hover {
 .form__group .form__field label {
   font-size: 0.9rem;
   font-weight: 300;
+  color: #fff;
 }
 .form__group .form__field.now {
   grid-area: now;
@@ -1458,6 +1491,9 @@ a:hover {
   display: flex;
   align-items: center;
   border-bottom: 2px solid transparent;
+}
+.form__field__add.error {
+  border-color: Crimson;
 }
 .form__field__add.street {
   grid-area: street;
@@ -1573,6 +1609,16 @@ a:hover {
   filter: invert(0.5) sepia(2) saturate(8) hue-rotate(10deg);
   font-size: 2rem;
   padding-right: 0.5rem;
+  cursor: pointer;
+}
+.form__field__add .text-danger {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: Crimson;
+  text-transform: lowercase;
 }
 .form__field__add textarea {
   background-color: #1F2937;
@@ -1599,9 +1645,26 @@ a:hover {
   font-size: 0.8rem;
   line-height: 1rem;
   font-weight: 300;
+  color: #fff;
 }
 .privacy a {
   text-decoration: underline;
+}
+
+button.primary__button {
+  background: transparent;
+  color: #ffa500;
+  padding: 1rem;
+  border: 2px solid #ffa500;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+button.primary__button:hover {
+  background-color: #ffa500;
+  color: #374151;
 }
 
 @media (max-width: 640px) {
@@ -1615,6 +1678,9 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
+  }
+  .checkout__section .delivery__sec .delivery__heading .title {
+    font-size: 1.4rem;
   }
   .checkout__section .delivery__sec .tabset {
     padding: 1rem;
@@ -1632,5 +1698,82 @@ a:hover {
   .form__group.time__grid {
     grid-template-columns: 1fr;
     grid-template-areas: "now" "chose-time" "time";
+  }
+
+  .sec__title {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 640px) and (max-width: 768px) {
+  .checkout__section {
+    grid-template-columns: 1fr;
+  }
+  .checkout__section .delivery__sec {
+    border-radius: 0.5rem;
+  }
+  .checkout__section .delivery__sec .delivery__heading {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+  .checkout__section .delivery__sec .tabset {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .form__group__add.address__form {
+    grid-template-areas: "street street street street" "house house appartment appartment" "entrance entrance floor floor" "code code code code";
+  }
+
+  .form__group__add.client__form {
+    grid-template-areas: "name phone" "comment comment";
+  }
+
+  .form__group.time__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "now chose-time" "chose-time time ";
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .checkout__section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .checkout__section {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "first second" "third third";
+  }
+  .checkout__section .delivery__sec .delivery__heading {
+    padding: 1rem;
+  }
+  .checkout__section .tabset {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .checkout__section .tabset div section {
+    gap: 1rem;
+  }
+
+  .first {
+    grid-area: first;
+  }
+
+  .second {
+    grid-area: second;
+  }
+
+  .third {
+    grid-area: third;
+  }
+
+  .form__group__add.address__form {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "street street street street street street" "house house house appartment appartment appartment" "entrance entrance floor floor code code";
+  }
+
+  .form__field__add label {
+    padding: 0 0.5rem;
   }
 }

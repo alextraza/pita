@@ -5,10 +5,14 @@
     gap: 2rem;
 
     .delivery__sec {
-        background: linear-gradient($secondary, $primary);
+        background: linear-gradient($secondary, $primary, );
         border-radius: 1rem;
         border: 2px solid $primary;
-        box-shadow: 0 10px 15px -3px rgb(31 41 55), 0 4px 6px -2px rgb(0 0 0 / 78%);
+        border-bottom: 0;
+
+
+
+
 
         .delivery__heading {
             display: flex;
@@ -36,6 +40,7 @@
         padding: 1.5rem;
         display: grid;
         gap: 1.5rem;
+
 
         input.input__tab {
             display: block;
@@ -80,6 +85,7 @@
                     border-radius: 2rem;
                     font-weight: 700;
                     width: 100%;
+                    cursor: pointer;
 
                 }
             }
@@ -88,7 +94,11 @@
         div {
             position: relative;
 
-            color: $white;
+
+            &.heading {
+                font-weight: 800;
+                font-size: 1.4rem;
+            }
 
             section {
                 position: absolute;
@@ -104,10 +114,7 @@
                     overflow: hidden;
                 }
 
-                h2 {
-                    font-weight: 800;
-                    font-size: 1.4rem;
-                }
+
 
 
 
@@ -116,6 +123,11 @@
     }
 }
 
+.sec__title {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: $gray-200;
+}
 
 .tabset>input:nth-child(1):checked~ul li:nth-child(1) label,
 .tabset>input:nth-child(2):checked~ul li:nth-child(2) label,
@@ -145,6 +157,7 @@
         grid-template-areas:
             "now time"
             "chose-time time";
+
     }
 
     .form__field {
@@ -176,6 +189,7 @@
         label {
             font-size: 0.9rem;
             font-weight: 300;
+            color: $white;
         }
 
         &.now {
@@ -231,6 +245,10 @@
     align-items: center;
     border-bottom: 2px solid transparent;
 
+    &.error {
+        border-color: Crimson;
+    }
+
     &.street {
         grid-area: street;
     }
@@ -276,6 +294,7 @@
     &:focus-within {
         border-color: $yellow;
     }
+
 
     &:focus-within label {
         color: $yellow;
@@ -366,16 +385,22 @@
                 filter: invert(0.5) sepia(2) saturate(8) hue-rotate(10deg);
                 font-size: 2rem;
                 padding-right: 0.5rem;
-
-
-
-
-
+                cursor: pointer;
 
             }
+
         }
     }
 
+    .text-danger {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: Crimson;
+        text-transform: lowercase;
+    }
 
     textarea {
         background-color: $primary;
@@ -412,6 +437,7 @@
     font-size: 0.8rem;
     line-height: 1rem;
     font-weight: 300;
+    color: $white;
 
     a {
 
@@ -422,7 +448,22 @@
     }
 }
 
+button.primary__button {
+    background: transparent;
+    color: $yellow;
+    padding: 1rem;
+    border: 2px solid $yellow;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
 
+    &:hover {
+        background-color: $yellow;
+        color: $secondary;
+    }
+}
 
 @media (max-width: $sm) {
     .checkout__section {
@@ -435,6 +476,65 @@
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 1rem;
+
+                .title {
+                    font-size: 1.4rem;
+                }
+            }
+
+            .tabset {
+                padding: 1rem;
+                gap: 1rem;
+
+
+            }
+        }
+    }
+
+
+    .form__group__add.address__form {
+        grid-template-areas:
+            "street street street street"
+            "house house house house"
+            "appartment appartment appartment appartment"
+            "entrance entrance floor floor"
+            "code code code code";
+    }
+
+    .form__group__add.client__form {
+
+        grid-template-areas:
+            "name name"
+            "phone phone"
+            "comment comment";
+    }
+
+    .form__group.time__grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "now"
+            "chose-time"
+            "time";
+
+    }
+
+    .sec__title {
+        font-size: 1rem;
+    }
+
+}
+
+@media (min-width: $sm) and (max-width: $md) {
+    .checkout__section {
+        grid-template-columns: 1fr;
+
+        .delivery__sec {
+            border-radius: 0.5rem;
+
+            .delivery__heading {
+                flex-direction: row;
+                align-items: center;
+                padding: 1rem;
             }
 
             .tabset {
@@ -443,29 +543,87 @@
             }
         }
     }
-    .form__group__add.address__form{
+
+    .form__group__add.address__form {
         grid-template-areas:
-        "street street street street"
-        "house house house house"
-        "appartment appartment appartment appartment"
-        "entrance entrance floor floor"
-        "code code code code";
+            "street street street street"
+            "house house appartment appartment"
+            "entrance entrance floor floor"
+            "code code code code";
+
     }
 
-    .form__group__add.client__form{
-       
+    .form__group__add.client__form {
+
         grid-template-areas:
-         "name name"
-        "phone phone"
-        "comment comment";
+            "name phone"
+            "comment comment";
     }
+
     .form__group.time__grid {
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "now"
-                "chose-time"
-                "time";
-        
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "now chose-time"
+            "chose-time time ";
+
+    }
+}
+
+@media (min-width: $md) and (max-width: $lg) {
+    .checkout__section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
+
+}
+
+@media (min-width: $lg) and (max-width: $xl) {
+    .checkout__section {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "first second"
+            "third third";
+
+        .delivery__sec {
+            .delivery__heading {
+                padding: 1rem;
+            }
+        }
+
+        .tabset {
+            gap: 1rem;
+            padding: 1rem;
+
+            div {
+                section {
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+
+    .first {
+        grid-area: first;
+    }
+    .second {
+        grid-area: second;
+    }
+    .third {
+        grid-area: third;
+    }
+
+    .form__group__add.address__form {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas:
+            "street street street street street street"
+            "house house house appartment appartment appartment"
+            "entrance entrance floor floor code code"
+        ;
+    }
+
+    .form__field__add {
+        label {
+            padding: 0 0.5rem;
+        }
+    }
 }

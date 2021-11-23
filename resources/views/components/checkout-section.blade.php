@@ -3,16 +3,9 @@
         @method('PUT')
         @csrf()
         <div class="checkout__section">
-            <div class="delivery__sec">
+            <div class="delivery__sec first">
                 <div class="delivery__heading">
                     <div class="title">1. Доставка</div>
-                    <div><a href="/register">Зарегистрировались?</a> <a href="/login">Войти<svg
-                                                                                               xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 24" fill="none"
-                                                                                               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                                                               class="feather feather-user">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg></a></div>
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_1_description" hidden
@@ -21,24 +14,15 @@
                            {{ old('delivery') == 'delivery' ? 'checked' : '' }}
                            aria-hidden="true">
                     <ul hidden aria-hidden="true">
-                        <li><label for="tabset_1_description">Заберу сам</label></li>
-                        <li><label for="tabset_1_statistics">Курьером</label></li>
+                        <li><label for="tabset_1_description">Курьером</label></li>
+                        <li><label for="tabset_1_statistics">Заберу сам</label></li>
                     </ul>
                     <div>
-                        <section>
-                            <h2>Наш адрес</h2>
-                            <p>{{ \App\Models\Config::address() }}</p>
-                            <a href="https://yandex.ru/maps/org/pita_pizza/129261506580/" target="_blank">Посмотреть на
-                                карте</a>
-                            <div class="map">
-                                {!! \App\Models\Config::map() !!}
-
-                            </div>
-                        </section>
+                        
 
                         <section>
                             <div class="form__group">
-                                <h2>Куда доставить пиццу?</h2>
+                                <div class="sec__title">Куда доставить пиццу?</div>
                                 @if ($user = Auth::user())
                                     @foreach ($user->addresses as $key => $address)
                                         <div class="form__field">
@@ -51,9 +35,7 @@
                                         <label for="address-3">Ввести адрес</label>
                                     </div>
                                 @else
-                                    <div class="label">
-                                        Адрес доставки
-                                    </div>
+                                  
                                 @endif
                             </div>
                             <div class="form__group__add address__form">
@@ -98,20 +80,31 @@
                                 </div>
                             </div>
                         </section>
+                        <section>
+                            <div class="sec__title">Наш адрес</div>
+                            <p>{{ \App\Models\Config::address() }}  <a href="https://yandex.ru/maps/org/pita_pizza/129261506580/" target="_blank">Посмотреть на
+                                карте</a></p>
+                           
+                            <div class="map">
+                                {!! \App\Models\Config::map() !!}
+
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
 
-            <div class="delivery__sec">
+            <div class="delivery__sec second">
                 <div class="delivery__heading">
                     <div class="title">2. Личные данные</div>
                 </div>
                 <div class="tabset">
-                    <div class="heading">Когда доставить пиццу?</div>
+                    <div class="sec__title">Когда доставить пиццу?</div>
+                   
                     <div class="form__group time__grid">
-
+                       
                         <div class="form__field now">
-                            <input type="radio" id="now" name="delivery_time" value="В ближайшее время">
+                            <input type="radio" id="now" name="delivery_time" value="В ближайшее время" checked>
                             <label for="now">В ближайшее время</label>
                         </div>
                         <div class="form__field chose-time">
@@ -129,7 +122,7 @@
                             <label for="name">Имя</label>
                             <input id="name" type="text" name="name" value="@if (Auth::user()) {{ Auth::user()->name }} @endif">
                         </div>
-                        <div class="form__field__add phone @error('entrance') has-error @enderror">
+                        <div class="form__field__add phone @error('phone') error @enderror @error('entrance') has-error @enderror">
                             <label for="phone">Телефон<span>*</span></label>
                             <input id="phone" type="text" data-js="input" name="phone" id="phone" placeholder="8 (xxx) xxx-xx-xx"
                                    value="@if (Auth::user()) {{ old('phone', Auth::user()->phone) }} @else {{ old('phone') }} @endif">
@@ -143,16 +136,11 @@
                         </div>
 
                     </div>
-                    <div class="privacy">
-                        Нажимая на кнопку “Заказать”, вы даёте согласие на <a href="/privacy-policy">обработку своих
-                        персональных данных</a>, в соответствии с
-                        <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
-                        Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
-                    </div>
+                   
                 </div>
 
             </div>
-            <div class="delivery__sec">
+            <div class="delivery__sec third">
                 <div class="delivery__heading">
                     <div class="title">3. Оплата</div>
 
@@ -168,64 +156,34 @@
                         <li><label for="tabset_2_statistics">Курьеру</label></li>
 
                     </ul>
-                    <button type="submit" class="primary__button">Оформить заказ</button>
+                    
                     <div>
                         <section>
-                            <h2>Наш адрес</h2>
-                            <p>{{ \App\Models\Config::address() }}</p>
-                            <a href="https://yandex.ru/maps/org/pita_pizza/129261506580/" target="_blank">Посмотреть на
-                                карте</a>
-                            <div class="map">
-                                {!! \App\Models\Config::map() !!}
-
-                            </div>
+                            <div class="sec__title">Какой-то текст</div>
+                           
                         </section>
                         <section>
-
                             <div class="form__group">
-                                <h2>Как будете оплачивать?</h2>
+                                <div class="sec__title">Как будете оплачивать?</div>
                                 <div class="form__field">
                                     <input type="radio" id="address-1" name="client-address" value="address-1">
                                     <label for="address-1">Оплата курьеру картой</label>
                                 </div>
                                 <div class="form__field">
                                     <input type="radio" id="address-2" name="client-address" value="address-2">
-                                    <label for="address-2">Оплата курьеру наличными</label>
+                                    <label for="address-2">Оплата курьеру наличными / Самовывоз</label>
                                 </div>
-
-                            </div>
-                            <div class="form__group__add address__form">
-                                <div class="form__field__add street">
-                                    <label for="street">Адрес (улица)<span>*</span></label>
-                                    <input id="street" type="text">
-                                </div>
-                                <div class="form__field__add house">
-                                    <label for="house">Номер дома<span>*</span></label>
-                                    <input id="house" type="text">
-                                </div>
-                                <div class="form__field__add appartment">
-                                    <label for="appartment">Квартира</label>
-                                    <input id="appartment" type="text">
-                                </div>
-                                <div class="form__field__add entrance">
-                                    <label for="entrance">Подъезд</label>
-                                    <input id="entrance" type="text">
-                                </div>
-                                <div class="form__field__add floor">
-                                    <label for="floor">Этаж</label>
-                                    <input id="floor" type="text">
-                                </div>
-                                <div class="form__field__add client-code">
-                                    <label for="client-code">Код домофона</label>
-                                    <input id="client-code" type="text">
-                                </div>
-
-
-                            </div>
 
                         </section>
 
 
+                    </div>
+                    <button type="submit" class="primary__button">Оформить заказ</button>
+                    <div class="privacy">
+                        Нажимая на кнопку Оформить заказ, вы даёте согласие на <a href="/privacy-policy">обработку
+                        персональных данных</a>, в соответствии с
+                        <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
+                        Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
                     </div>
                 </div>
             </div>

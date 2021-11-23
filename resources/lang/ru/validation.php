@@ -57,7 +57,7 @@ return [
     "not_in"           => "Выбранное значение для :attribute ошибочно.",
     "numeric"          => "Поле :attribute должно быть числом.",
     "regex"            => "Поле :attribute имеет ошибочный формат.",
-    "required"         => "Поле :attribute обязательно для заполнения.",
+    "required"         => "Введите :attribute",
     "required_if"      => "Поле :attribute обязательно для заполнения, когда :other равно :value.",
     "required_with"    => "Поле :attribute обязательно для заполнения, когда :values указано.",
     "required_without" => "Поле :attribute обязательно для заполнения, когда :values не указано.",

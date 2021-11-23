@@ -1,15 +1,12 @@
-<div id="#" class="modal active">
+<div id="userModal" class="modal">
     <div class="modal__overlay">
     </div>
     <div class="modal__window">
-
-
-
+        <div class="modal__close">&times;</div>
         <div class="modal__inner">
             <div class="delivery__sec first">
                 <div class="delivery__heading">
                     <div class="title">Личный кабинет</div>
-                    <div class="modal__close">&times;</div>
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_login" hidden

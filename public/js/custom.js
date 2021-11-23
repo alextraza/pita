@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     addToCartClick(e);
     rmFromCartClick(e);
     plusMinusUpdate(e);
+    showUserModal(e);
+    closeModalWindow(e);
   });
 
   document.addEventListener('change', (e) => {
@@ -80,6 +82,38 @@ document.addEventListener("DOMContentLoaded", function() {
         changeCount(countInput);
       }
     }
+  }
+
+  function showUserModal(e) {
+    if (e.target.id == 'login') {
+      if (inp = document.getElementById('tabset_login')) {
+        inp.checked = true;
+        showModal('userModal');
+      }
+    }
+    if (e.target.id == 'register') {
+      if (inp = document.getElementById('tabset_register')) {
+        inp.checked = true;
+        showModal('userModal');
+      }
+    }
+  }
+
+  function closeModalWindow(e) {
+    if (e.target.classList.contains('modal__close')) {
+      hideModal(e.target.parentNode.parentNode.id);
+    }
+    if (e.target.classList.contains('modal__overlay')) {
+      hideModal(e.target.parentNode.id);
+    }
+  }
+
+  function showModal(id) {
+    document.getElementById(id).classList.add('active');
+  }
+
+  function hideModal(id) {
+    document.getElementById(id).classList.remove('active');
   }
 
 

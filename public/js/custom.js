@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
           body: data
         });
         const result = await response.text();
-        let catNavCart = document.querySelector('.cat__nav__cart');
+        let catNavCart = document.querySelectorAll('.cat__nav__cart');
         if (catNavCart) {
           catNavCart.forEach(element => {
             element.innerHTML = result;
-            })
+          })
         }
       } catch (error) {
         console.error('Ошибка:', error);

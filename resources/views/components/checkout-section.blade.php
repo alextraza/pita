@@ -39,9 +39,12 @@
                                 @endif
                             </div>
                             <div class="form__group__add address__form">
-                                <div class="form__field__add street">
+                                <div class="form__field__add street @error('street') has-error @enderror">
                                     <label for="street">Адрес (улица)<span>*</span></label>
-                                    <input id="street" type="text" name="street">
+                                    <input id="street" type="text" name="street" value="{{ old('street') }}">
+                                    @error('street')
+                                        <span class="text-danger">{{ $errors->first('street') }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form__field__add house  @error('house') has-error @enderror">
                                     <label for="house">Номер дома<span>*</span></label>

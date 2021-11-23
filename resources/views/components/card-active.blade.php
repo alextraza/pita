@@ -1,4 +1,4 @@
-<div class="item @if (Cart::content()->where('id', $item->id)->orWhere('id', $item_id.'_1')->first()) in_cart @endif">
+<div class="item {{ $item->in_cart ? 'in_cart' : '' }}">
     <div class="item__img__block">
         <img src="{{ ImageHelper::thumb($item->image, 400, 310) }}" alt="">
         <button class="item__button add-to-cart" data-id="{{ $item->id }}" type="button"><svg

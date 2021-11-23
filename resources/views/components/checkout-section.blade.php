@@ -35,7 +35,7 @@
                                         <label for="address-3">Ввести адрес</label>
                                     </div>
                                 @else
-                                  
+                                    <input type="hidden" id="address-3" name="client_address" value="on">
                                 @endif
                             </div>
                             <div class="form__group__add address__form">

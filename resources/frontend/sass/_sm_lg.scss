@@ -55,4 +55,44 @@
            
         }
     }
+    .cat__nav__cart.mobile {
+        display: block;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+          
+        .cart {
+            
+            background: $yellow;
+           
+            a {
+                padding: 0.5rem 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+
+                .cart__name {
+                    font-size: 1.7rem;
+                    
+                    color: $primary;
+                    font-weight: 300;
+                    span{
+                        font-weight: 700;
+                    }
+                }
+                .cart__icon{
+                    border: 2px solid $primary;
+                    border-radius: 0.5rem;
+                    color: $primary;
+                    font-weight: 600;
+                    padding: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
 }

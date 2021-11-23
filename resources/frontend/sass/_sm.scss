@@ -183,8 +183,9 @@
 
     .menu__block {
         position: relative;
+
         .heading {
-            font-size: 3.3rem;
+            font-size: 3.2rem;
         }
 
         .menu__block__con {
@@ -264,7 +265,6 @@
 
                         .inline__button {
                             input {
-                                width: 1rem;
                                 font-size: 1rem;
                             }
                         }
@@ -303,6 +303,8 @@
                 a {
                     border-color: $primary;
                     color: $primary;
+                    padding: 0.5rem;
+                    text-transform: capitalize;
                 }
             }
 
@@ -331,23 +333,44 @@
 
 
     }
-    .cart{
+
+    .cat__nav__cart.mobile {
         display: block;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        background: $yellow;
-       
-        a{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 0 1rem 1rem 0;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+          
+        .cart {
             
-            .cart__name{
-                padding: 0.5rem;
-                color: $white;
+            background: $yellow;
+           
+            a {
+                padding: 0.5rem 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+
+                .cart__name {
+                    font-size: 1.7rem;
+                    
+                    color: $primary;
+                    font-weight: 300;
+                    span{
+                        font-weight: 700;
+                    }
+                }
+                .cart__icon{
+                    border: 2px solid $primary;
+                    border-radius: 0.5rem;
+                    color: $primary;
+                    font-weight: 600;
+                    padding: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 800;
+                }
             }
         }
     }

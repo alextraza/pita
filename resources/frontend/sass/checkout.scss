@@ -5,7 +5,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 1rem;
     gap: 2rem;
-
+}
     .delivery__sec {
         background: linear-gradient($secondary, $primary, );
         border-radius: 1rem;
@@ -123,7 +123,7 @@
             }
         }
     }
-}
+
 
 .sec__title {
     font-weight: 800;
@@ -238,6 +238,10 @@
         grid-template-areas:
             "name phone"
             "comment comment"
+    }
+    &.login__form {
+        grid-template-columns: 1fr;
+       
     }
 }
 
@@ -475,28 +479,28 @@ button.primary__button {
             "third"
         ;
 
-        .delivery__sec {
-            border-radius: 0.5rem;
+        
+    }
+    .delivery__sec {
+        border-radius: 0.5rem;
 
-            .delivery__heading {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem;
+        .delivery__heading {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1rem;
 
-                .title {
-                    font-size: 1.4rem;
-                }
-            }
-
-            .tabset {
-                padding: 1rem;
-                gap: 1rem;
-
-
+            .title {
+                font-size: 1.4rem;
             }
         }
-    }
 
+        .tabset {
+            padding: 1rem;
+            gap: 1rem;
+
+
+        }
+    }
 
     .form__group__add.address__form {
         grid-template-areas:
@@ -535,19 +539,20 @@ button.primary__button {
         grid-template-columns: 1fr;
 
 
-        .delivery__sec {
-            border-radius: 0.5rem;
+        
+    }
+    .delivery__sec {
+        border-radius: 0.5rem;
 
-            .delivery__heading {
-                flex-direction: row;
-                align-items: center;
-                padding: 1rem;
-            }
+        .delivery__heading {
+            flex-direction: row;
+            align-items: center;
+            padding: 1rem;
+        }
 
-            .tabset {
-                padding: 1rem;
-                gap: 1rem;
-            }
+        .tabset {
+            padding: 1rem;
+            gap: 1rem;
         }
     }
 
@@ -593,24 +598,24 @@ button.primary__button {
         grid-template-areas: "first second"
             "third third";
 
-        .delivery__sec {
-            .delivery__heading {
-                padding: 1rem;
-            }
-        }
-
-        .tabset {
-            gap: 1rem;
+     
+    }
+    .delivery__sec {
+        .delivery__heading {
             padding: 1rem;
-
-            div {
-                section {
-                    gap: 1rem;
-                }
-            }
         }
     }
 
+    .tabset {
+        gap: 1rem;
+        padding: 1rem;
+
+        div {
+            section {
+                gap: 1rem;
+            }
+        }
+    }
 
 
     .form__group__add.address__form {

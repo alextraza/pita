@@ -13,6 +13,7 @@
 <body>
     <x-header />
     @yield('content')
+    @include('components.modal')
     <x-footer />
 
     <script src="{{ asset('js/app.js') }}"></script>

@@ -779,6 +779,72 @@ p {
   color: #9CA3AF;
 }
 
+.cat__nav__cart.mobile {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal.active {
+  display: flex;
+}
+.modal .modal__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #00000055;
+}
+.modal .modal__window {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 3;
+}
+.modal .modal__window .modal__heading {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #ffa500;
+  align-items: center;
+}
+.modal .modal__window .modal__heading .title {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.modal .modal__window .modal__close {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #fff;
+}
+.modal .modal__window .modal__close:hover {
+  color: #ffa500;
+}
+.modal .modal__window .modal__inner a {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+.modal .modal__window .modal__inner button {
+  background: transparent;
+  border: 2px solid #ffa500;
+  color: #ffa500;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+}
+
 @media (max-width: 640px) {
   .header {
     grid-template-columns: 8fr 1fr;
@@ -914,7 +980,7 @@ p {
     position: relative;
   }
   .menu__block .heading {
-    font-size: 3.3rem;
+    font-size: 3.2rem;
   }
   .menu__block .menu__block__con {
     grid-template-columns: 1fr;
@@ -970,7 +1036,6 @@ p {
     order: 3;
   }
   .cart__section .cart__result .cart__result__list .cart__item .cart__item__button .inline__button input {
-    width: 1rem;
     font-size: 1rem;
   }
   .cart__section .cart__result .cart__result__list .cart__item .cart__item__del {
@@ -998,6 +1063,8 @@ p {
   .cart__section .cart__result .cart__pricing a {
     border-color: #1F2937;
     color: #1F2937;
+    padding: 0.5rem;
+    text-transform: capitalize;
   }
   .cart__section .cart__offer .cart__cat__heading {
     padding: 0;
@@ -1010,23 +1077,39 @@ p {
     grid-template-columns: 1fr 2fr;
   }
 
-  .cart {
+  .cat__nav__cart.mobile {
     display: block;
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
+  }
+  .cat__nav__cart.mobile .cart {
     background: #ffa500;
   }
-  .cart a {
+  .cat__nav__cart.mobile .cart a {
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 1rem 1rem 0;
   }
-  .cart a .cart__name {
+  .cat__nav__cart.mobile .cart a .cart__name {
+    font-size: 1.7rem;
+    color: #1F2937;
+    font-weight: 300;
+  }
+  .cat__nav__cart.mobile .cart a .cart__name span {
+    font-weight: 700;
+  }
+  .cat__nav__cart.mobile .cart a .cart__icon {
+    border: 2px solid #1F2937;
+    border-radius: 0.5rem;
+    color: #1F2937;
+    font-weight: 600;
     padding: 0.5rem;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
   }
 }
 @media (min-width: 640px) and (max-width: 768px) {
@@ -1316,6 +1399,41 @@ p {
     font-size: 1.8remrem;
     grid-auto-flow: column;
   }
+
+  .cat__nav__cart.mobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  .cat__nav__cart.mobile .cart {
+    background: #ffa500;
+  }
+  .cat__nav__cart.mobile .cart a {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cat__nav__cart.mobile .cart a .cart__name {
+    font-size: 1.7rem;
+    color: #1F2937;
+    font-weight: 300;
+  }
+  .cat__nav__cart.mobile .cart a .cart__name span {
+    font-weight: 700;
+  }
+  .cat__nav__cart.mobile .cart a .cart__icon {
+    border: 2px solid #1F2937;
+    border-radius: 0.5rem;
+    color: #1F2937;
+    font-weight: 600;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+  }
 }
 @media (min-width: 1024px) and (max-width: 1280px) {
   .header {
@@ -1343,56 +1461,58 @@ p {
   padding: 0 1rem;
   gap: 2rem;
 }
-.checkout__section .delivery__sec {
+
+.delivery__sec {
   background: linear-gradient(#374151, #1F2937);
   border-radius: 1rem;
   border: 2px solid #1F2937;
   border-bottom: 0;
 }
-.checkout__section .delivery__sec .delivery__heading {
+.delivery__sec .delivery__heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem;
   border-bottom: 2px solid #ffa500;
 }
-.checkout__section .delivery__sec .delivery__heading .title {
+.delivery__sec .delivery__heading .title {
   font-size: 2rem;
   font-weight: 800;
   color: white;
 }
-.checkout__section .delivery__sec .delivery__heading a:hover {
+.delivery__sec .delivery__heading a:hover {
   color: #ffa500;
 }
-.checkout__section .tabset {
+
+.tabset {
   padding: 1.5rem;
   display: grid;
   gap: 1.5rem;
 }
-.checkout__section .tabset input.input__tab {
+.tabset input.input__tab {
   display: block;
   /* "enable" hidden elements in IE/edge */
   position: absolute;
   /* then hide them off-screen */
   left: -100%;
 }
-.checkout__section .tabset ul {
+.tabset ul {
   position: relative;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
 }
-.checkout__section .tabset ul li {
+.tabset ul li {
   background: #1F2937;
 }
-.checkout__section .tabset ul li:first-child {
+.tabset ul li:first-child {
   border-radius: 2rem 0 0 2rem;
 }
-.checkout__section .tabset ul li:last-child {
+.tabset ul li:last-child {
   border-radius: 0 2rem 2rem 0;
 }
-.checkout__section .tabset ul li label {
+.tabset ul li label {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1406,21 +1526,21 @@ p {
   width: 100%;
   cursor: pointer;
 }
-.checkout__section .tabset div {
+.tabset div {
   position: relative;
 }
-.checkout__section .tabset div.heading {
+.tabset div.heading {
   font-weight: 800;
   font-size: 1.4rem;
 }
-.checkout__section .tabset div section {
+.tabset div section {
   position: absolute;
   top: -999em;
   left: -999em;
   display: grid;
   gap: 1.5rem;
 }
-.checkout__section .tabset div section .map {
+.tabset div section .map {
   border: 2px solid #1F2937;
   margin: 0 -0.5rem -0.5rem -0.5rem;
   border-radius: 0 0 1rem 1rem;
@@ -1503,6 +1623,9 @@ p {
 .form__group__add.client__form {
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "name phone" "comment comment";
+}
+.form__group__add.login__form {
+  grid-template-columns: 1fr;
 }
 
 .form__field__add {
@@ -1691,18 +1814,19 @@ button.primary__button:hover {
     grid-template-columns: 1fr;
     grid-template-areas: "first" "second" "third";
   }
-  .checkout__section .delivery__sec {
+
+  .delivery__sec {
     border-radius: 0.5rem;
   }
-  .checkout__section .delivery__sec .delivery__heading {
+  .delivery__sec .delivery__heading {
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
   }
-  .checkout__section .delivery__sec .delivery__heading .title {
+  .delivery__sec .delivery__heading .title {
     font-size: 1.4rem;
   }
-  .checkout__section .delivery__sec .tabset {
+  .delivery__sec .tabset {
     padding: 1rem;
     gap: 1rem;
   }
@@ -1728,15 +1852,16 @@ button.primary__button:hover {
   .checkout__section {
     grid-template-columns: 1fr;
   }
-  .checkout__section .delivery__sec {
+
+  .delivery__sec {
     border-radius: 0.5rem;
   }
-  .checkout__section .delivery__sec .delivery__heading {
+  .delivery__sec .delivery__heading {
     flex-direction: row;
     align-items: center;
     padding: 1rem;
   }
-  .checkout__section .delivery__sec .tabset {
+  .delivery__sec .tabset {
     padding: 1rem;
     gap: 1rem;
   }
@@ -1766,14 +1891,16 @@ button.primary__button:hover {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "first second" "third third";
   }
-  .checkout__section .delivery__sec .delivery__heading {
+
+  .delivery__sec .delivery__heading {
     padding: 1rem;
   }
-  .checkout__section .tabset {
+
+  .tabset {
     gap: 1rem;
     padding: 1rem;
   }
-  .checkout__section .tabset div section {
+  .tabset div section {
     gap: 1rem;
   }
 

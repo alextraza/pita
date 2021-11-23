@@ -17,8 +17,11 @@
             @endforeach
             {{-- Card end --}}
         </div>
+
     @endforeach
     @if (Cart::count())
-        @include('components.minicart')
+        <div class="cat__nav__cart mobile">
+            @include('components.minicart-mobile')
+        </div>
     @endif
 </div>

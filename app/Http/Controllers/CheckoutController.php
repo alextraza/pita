@@ -42,7 +42,7 @@ class CheckoutController extends Controller
             $order->save();
             $order->orderItems()->saveMany($orderItems);
         }
-        echo "Теперь плати";
+        return redirect(route('index'))->withSuccess('Теперь плати');
     }
 
     private function getFullAddress($request)

@@ -21,10 +21,10 @@
                 <ul>
                     @guest
                     <li>
-                        <a href="/login">Войти</a>
+                        <a id="login" href="#">Войти</a>
                     </li>
                     <li>
-                        <a href="/register">Регистрация</a>
+                        <a id="register" href="#">Регистрация</a>
                     </li>
                     @endguest
                     @auth
@@ -32,7 +32,7 @@
                         <a href="/user">Кабинет</a>
                     </li>
                     <li>
-                        <a href="{{ route('signout') }}">Выйти</a>
+                        <a href="{{ route('logout') }}">Выйти</a>
                     </li>
                     @endauth
                 </ul>

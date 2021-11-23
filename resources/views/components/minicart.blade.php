@@ -1,3 +1,4 @@
+<div class="cart">
 <a href="{{ route('cart.index') }}">
   
         <div class="cart__name">@if (Cart::total()){{ Cart::total() }} ₽ @else Корзина @endif</div>
@@ -13,3 +14,4 @@
         @endif
     </div>
 </a>
+</div>

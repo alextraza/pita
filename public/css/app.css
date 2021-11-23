@@ -909,13 +909,10 @@ p {
   .cat__nav__sec .cat__nav__cart {
     display: none;
   }
-  .cat__nav__sec .cat__nav__cart a {
-    padding: 0.7rem;
-  }
-  .cat__nav__sec .cat__nav__cart a span {
-    display: none;
-  }
 
+  .menu__block {
+    position: relative;
+  }
   .menu__block .heading {
     font-size: 3.3rem;
   }
@@ -1011,6 +1008,25 @@ p {
   }
   .cart__section .cart__offer .cart__offer__list .offer__item {
     grid-template-columns: 1fr 2fr;
+  }
+
+  .cart {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #ffa500;
+  }
+  .cart a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 1rem 1rem 0;
+  }
+  .cart a .cart__name {
+    padding: 0.5rem;
+    color: #fff;
   }
 }
 @media (min-width: 640px) and (max-width: 768px) {
@@ -1123,6 +1139,9 @@ p {
 
   .cat__nav__sec {
     overflow-y: scroll;
+  }
+  .cat__nav__sec .cat__nav__cart {
+    display: none;
   }
 
   .menu__block {
@@ -1319,6 +1338,7 @@ p {
 }
 .checkout__section {
   display: grid;
+  grid-template-areas: "first second third";
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 1rem;
   gap: 2rem;
@@ -1358,7 +1378,6 @@ p {
 }
 .checkout__section .tabset ul {
   position: relative;
-  z-index: 999;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1670,6 +1689,7 @@ button.primary__button:hover {
 @media (max-width: 640px) {
   .checkout__section {
     grid-template-columns: 1fr;
+    grid-template-areas: "first" "second" "third";
   }
   .checkout__section .delivery__sec {
     border-radius: 0.5rem;
@@ -1738,6 +1758,7 @@ button.primary__button:hover {
   .checkout__section {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    grid-template-areas: "first second" "third third";
   }
 }
 @media (min-width: 1024px) and (max-width: 1280px) {
@@ -1756,18 +1777,6 @@ button.primary__button:hover {
     gap: 1rem;
   }
 
-  .first {
-    grid-area: first;
-  }
-
-  .second {
-    grid-area: second;
-  }
-
-  .third {
-    grid-area: third;
-  }
-
   .form__group__add.address__form {
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas: "street street street street street street" "house house house appartment appartment appartment" "entrance entrance floor floor code code";
@@ -1776,4 +1785,15 @@ button.primary__button:hover {
   .form__field__add label {
     padding: 0 0.5rem;
   }
+}
+.first {
+  grid-area: first;
+}
+
+.second {
+  grid-area: second;
+}
+
+.third {
+  grid-area: third;
 }

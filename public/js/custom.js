@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const result = await response.text();
         let catNavCart = document.querySelector('.cat__nav__cart');
         if (catNavCart) {
-          catNavCart.innerHTML = result;
+          catNavCart.forEach(element => {
+            element.innerHTML = result;
+            })
         }
       } catch (error) {
         console.error('Ошибка:', error);

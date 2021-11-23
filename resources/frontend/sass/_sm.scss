@@ -142,7 +142,7 @@
 
                 color: #333;
 
-                
+
                 font-size: 20px;
                 font-weight: 600;
 
@@ -178,18 +178,11 @@
 
         .cat__nav__cart {
             display: none;
-
-            a {
-                padding: 0.7rem;
-
-                span {
-                    display: none;
-                }
-            }
         }
     }
 
     .menu__block {
+        position: relative;
         .heading {
             font-size: 3.3rem;
         }
@@ -337,5 +330,25 @@
         }
 
 
+    }
+    .cart{
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: $yellow;
+       
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 1rem 1rem 0;
+            
+            .cart__name{
+                padding: 0.5rem;
+                color: $white;
+            }
+        }
     }
 }

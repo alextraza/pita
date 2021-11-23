@@ -1,5 +1,7 @@
 .checkout__section {
+
     display: grid;
+    grid-template-areas: "first second third";
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 1rem;
     gap: 2rem;
@@ -52,7 +54,7 @@
 
         ul {
             position: relative;
-            z-index: 999;
+
             list-style: none;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -468,6 +470,10 @@ button.primary__button {
 @media (max-width: $sm) {
     .checkout__section {
         grid-template-columns: 1fr;
+        grid-template-areas: "first"
+            "second"
+            "third"
+        ;
 
         .delivery__sec {
             border-radius: 0.5rem;
@@ -528,6 +534,7 @@ button.primary__button {
     .checkout__section {
         grid-template-columns: 1fr;
 
+
         .delivery__sec {
             border-radius: 0.5rem;
 
@@ -573,6 +580,8 @@ button.primary__button {
     .checkout__section {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        grid-template-areas: "first second"
+            "third third";
     }
 
 
@@ -602,15 +611,7 @@ button.primary__button {
         }
     }
 
-    .first {
-        grid-area: first;
-    }
-    .second {
-        grid-area: second;
-    }
-    .third {
-        grid-area: third;
-    }
+
 
     .form__group__add.address__form {
         grid-template-columns: repeat(6, 1fr);
@@ -626,4 +627,16 @@ button.primary__button {
             padding: 0 0.5rem;
         }
     }
+}
+
+.first {
+    grid-area: first;
+}
+
+.second {
+    grid-area: second;
+}
+
+.third {
+    grid-area: third;
 }

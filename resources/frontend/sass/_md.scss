@@ -154,6 +154,9 @@
 
     .cat__nav__sec {
         overflow-y: scroll;
+        .cat__nav__cart {
+            display: none;
+        }
     }
 
     .menu__block {

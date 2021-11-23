@@ -87,6 +87,28 @@ class AuthController extends Controller
 
     }
 
+    public function userRegister(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|min:6|same:password'
+        ]);
+
+        if ($validator->passes()) {
+            $user = new User();
+            $user->email = $request->email;
+            $user->phone = str_replace(['+7', ' ', '(', ')', '-'], '', $request->phone);
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            Auth::loginUsingId($user->id);
+            return response()->json(['status' => 'success']);
+        }
+        return response()->json(['status' => 'error', 'data' => $validator->errors()]);
+    }
+
     public function logout() {
         Auth::logout();
 

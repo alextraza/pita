@@ -1,5 +1,9 @@
-const $input = document.querySelector('[data-js="input"]')
-$input.addEventListener('input', handleInput, false)
+const $inputs = document.querySelectorAll('[data-js="input"]')
+if ($inputs) {
+  $inputs.forEach($input => {
+    $input.addEventListener('input', handleInput, false)
+  })
+}
 
 function handleInput (e) {
   e.target.value = phoneMask(e.target.value)

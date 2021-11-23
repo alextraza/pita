@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
   }
 
+  // submit form function
   function submitForm(e) {
     fetch(e.target.action, {
       method: e.target.method,
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
   }
 
+  // add errors to fields
   function addError(element, value) {
     element.parentNode.classList.add('has-error');
     let errorSpan = document.createElement('span');
@@ -56,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     element.parentNode.appendChild(errorSpan);
   }
 
+  // remove errors if input change
   function removeError(e) {
     if (errorSpan = e.target.parentNode.querySelector('span.text-danger')) {
       errorSpan.remove();

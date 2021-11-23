@@ -14,7 +14,7 @@ class AddUserFields extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone')->nullable()->after('id');
+            $table->string('phone')->unique()->after('id');
             $table->boolean('is_admin')->default(0)->after('id');
         });
     }

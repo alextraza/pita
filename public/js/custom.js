@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         const result = await response.text();
         let catNavCart = document.querySelectorAll('.cat__nav__cart');
+        e.target.parentNode.parentNode.classList.add('in_cart');
         if (catNavCart) {
           catNavCart.forEach(element => {
             element.innerHTML = result;

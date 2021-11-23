@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Address::class);
     }
+
+    public function getFormattedPhoneAttribute()
+    {
+        return substr($this->phone, 0, 1) . ' (' . substr($this->phone, 1, 3) . ') ' . substr($this->phone, 4, 3) . ' ' . substr($this->phone, 7, 2) . ' ' . substr($this->phone, 9, 2);
+    }
 }

@@ -128,7 +128,7 @@
                         <div class="form__field__add phone @error('phone') error @enderror @error('entrance') has-error @enderror">
                             <label for="phone">Телефон<span>*</span></label>
                             <input id="phone" type="text" data-js="input" name="phone" id="phone" placeholder="8 (xxx) xxx-xx-xx"
-                                   value="@if (Auth::user()) {{ old('phone', Auth::user()->phone) }} @else {{ old('phone') }} @endif">
+                                   value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif">
                             @error('phone')
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>
                             @enderror

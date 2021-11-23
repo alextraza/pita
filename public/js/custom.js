@@ -9,8 +9,59 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.addEventListener('change', (e) => {
     changeCount(e.target);
+    removeError(e);
   });
 
+  if (userForms = document.querySelectorAll('.ajax-form')) {
+    userForms.forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        submitForm(e);
+      })
+    })
+  }
+
+  function submitForm(e) {
+    fetch(e.target.action, {
+      method: e.target.method,
+      body: new FormData(e.target)
+    }).then(function(response) {
+      if (response.ok) {
+        return response.json();
+      }
+    }).then(function(data) {
+      if (data.status == 'error') {
+        for (const [key, value] of Object.entries(data.data)) {
+          if (key == 'errors') {
+            addError(e.target.querySelector('.'+key), value);
+          } else {
+            addError(e.target.querySelector('[name='+key+']'), value);
+          }
+        }
+      } else {
+        if (data.status == 'success') {
+          location.reload();
+        }
+      }
+    }).catch(function(error) {
+      console.warn(error);
+    })
+  }
+
+  function addError(element, value) {
+    element.parentNode.classList.add('has-error');
+    let errorSpan = document.createElement('span');
+    errorSpan.classList = 'text-danger';
+    errorSpan.innerText = value;
+    element.parentNode.appendChild(errorSpan);
+  }
+
+  function removeError(e) {
+    if (errorSpan = e.target.parentNode.querySelector('span.text-danger')) {
+      errorSpan.remove();
+      e.target.parentNode.classList.remove('has-error');
+    }
+  }
 
   // add to cart
   async function addToCartClick(e) {

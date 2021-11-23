@@ -7,6 +7,7 @@ use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -59,6 +60,31 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect()->back();
+    }
+
+    //frontend methods
+
+    public function userLogin(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required',
+            'password' => 'required',
+        ]);
+
+        if ($validator->passes()) {
+            $credentials = [
+                'phone' => str_replace(['+7', ' ', '(', ')', '-'], '', $request->phone),
+                'password' => $request->password,
+                ];
+            if (Auth::attempt($credentials)) {
+                return response()->json(['status' => 'success']);
+            } else {
+                return response()->json(['status' => 'error', 'data' => ['errors' => 'Неверные данные']]);
+            }
+        }
+
+        return response()->json(['status' => 'error', 'data' => $validator->errors()]);
+
     }
 
     public function logout() {

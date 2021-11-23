@@ -28,14 +28,16 @@
                                     <div class="form__field__add">
                                         <label for="phone">Телефон</label>
                                         <input id="phone" type="phone" data-js="input" name="phone"
-                                               placeholder="8 (xxx) xxx-xx-xx" value="  ">
+                                               placeholder="8 (xxx) xxx-xx-xx">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Пароль</label>
-                                        <input id="password" type="password" name="phone" value="">
+                                        <input id="password" type="password" name="password">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="forgot_password">Забыли пароль</label>
+                                    </div>
+                                    <div class="errors">
                                     </div>
                                     <button type="submit">Войти</button>
                                 </div>

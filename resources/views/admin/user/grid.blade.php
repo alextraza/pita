@@ -20,7 +20,7 @@
                 @endif </td>
                 <td>{{ $model->name }}</td>
                 <td>{{ $model->email }}</td>
-                <td>{{ $model->phone }}</td>
+                <td>{{ $model->formatted_phone }}</td>
                 <td>
                     <div class="action-field">
                         <a href="#" class="dd-toggle">

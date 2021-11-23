@@ -20,7 +20,7 @@
     <div class="md-4">
         <div class="form-group @error('phone') has-error @enderror">
             <label>Телефон</label>
-            <input type="text" name="phone" value="{{ old('phone', $model->phone) }}" />
+            <input type="text" name="phone" value="{{ old('phone', $model->formatted_phone) }}" />
             @error('title')
             <span class="text-danger">{{ $errors->first('title') }}</span>
             @enderror

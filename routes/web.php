@@ -201,7 +201,15 @@ Route::post('login', [AuthController::class, 'login'])->name('login.post');
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register', [AuthController::class, 'makeRegister'])->name('register.post');
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout'); // frontend logout
+
+/**
+*
+* user management
+*
+*/
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('ulogin', [AuthController::class, 'userLogin'])->name('login.user');
+Route::post('uregister', [AuthController::class, 'userRegister'])->name('register.user');
 
 Route::prefix('cart')->name('cart.')->group(function() {
     Route::get('/', [

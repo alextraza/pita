@@ -1,8 +1,14 @@
 @media (min-width: $lg) and (max-width: $xl) {
-.header{
-    grid-template-columns: 12fr 12fr 12fr 1fr;
-    .logo{
-        font-size: 2rem;
+    .header {
+        grid-template-columns: 12fr 12fr 12fr 1fr;
+
+        .logo {
+            font-size: 2rem;
+        }
     }
-}
+    .menu__block {
+        .menu__block__con{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 }

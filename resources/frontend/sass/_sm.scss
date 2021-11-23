@@ -87,7 +87,7 @@
                 height: 26px;
 
                 cursor: pointer;
-                z-index: 6;
+                z-index: 4;
             }
 
             .menu__btn>span,
@@ -133,7 +133,7 @@
                 box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
 
                 transition-duration: .25s;
-                z-index: 5;
+                z-index: 3;
             }
 
             .menu__item {
@@ -336,32 +336,34 @@
 
     .cat__nav__cart.mobile {
         display: block;
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            left: 0;
-          
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
         .cart {
-            
+
             background: $yellow;
-           
+
             a {
                 padding: 0.5rem 1rem;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                
+
 
                 .cart__name {
                     font-size: 1.7rem;
-                    
+
                     color: $primary;
                     font-weight: 300;
-                    span{
+
+                    span {
                         font-weight: 700;
                     }
                 }
-                .cart__icon{
+
+                .cart__icon {
                     border: 2px solid $primary;
                     border-radius: 0.5rem;
                     color: $primary;
@@ -374,4 +376,48 @@
             }
         }
     }
+      // MODAL
+
+      .modal {
+
+        .modal__overlay {
+           
+        }
+    
+        .modal__window {
+            width: 100vw;
+            height: 100vh;
+           
+    
+            .modal__close {
+               
+    
+           
+    
+            .modal__heading {
+               
+    
+                .title {
+                   
+                }
+            }
+    
+            .modal__inner {
+    
+    
+                a {
+                   
+                }
+    
+                button {
+                   
+    
+                }
+    
+            }
+        }
+    }
+    
+}
+
 }

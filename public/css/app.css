@@ -811,6 +811,18 @@ p {
   position: relative;
   z-index: 3;
 }
+.modal .modal__window .modal__close {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+}
+.modal .modal__window .modal__close:hover {
+  color: #ffa500;
+}
 .modal .modal__window .modal__heading {
   padding: 1rem;
   display: flex;
@@ -822,14 +834,6 @@ p {
   color: #fff;
   font-size: 1.6rem;
   font-weight: 800;
-}
-.modal .modal__window .modal__close {
-  cursor: pointer;
-  font-size: 1.4rem;
-  color: #fff;
-}
-.modal .modal__window .modal__close:hover {
-  color: #ffa500;
 }
 .modal .modal__window .modal__inner a {
   font-size: 0.9rem;
@@ -843,6 +847,10 @@ p {
   font-weight: 600;
   font-size: 1.1rem;
   border-radius: 0.5rem;
+}
+
+input#forgot_password, input#delivery, input#input__tab, input#tabset_register, input#tabset_login {
+  display: none;
 }
 
 @media (max-width: 640px) {
@@ -909,7 +917,7 @@ p {
     width: 26px;
     height: 26px;
     cursor: pointer;
-    z-index: 6;
+    z-index: 4;
   }
   .header .resp__nav .menu__btn > span,
 .header .resp__nav .menu__btn > span::before,
@@ -943,7 +951,7 @@ p {
     background-color: #1F2937;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
     transition-duration: 0.25s;
-    z-index: 5;
+    z-index: 3;
   }
   .header .resp__nav .menu__item {
     display: block;
@@ -1111,6 +1119,11 @@ p {
     align-items: center;
     font-weight: 800;
   }
+
+  .modal .modal__window {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 @media (min-width: 640px) and (max-width: 768px) {
   html {
@@ -1174,7 +1187,7 @@ p {
     align-items: center;
     width: 26px;
     cursor: pointer;
-    z-index: 6;
+    z-index: 4;
   }
   .header .resp__nav .menu__btn > span,
 .header .resp__nav .menu__btn > span::before,
@@ -1208,7 +1221,7 @@ p {
     background-color: #1F2937;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
     transition-duration: 0.25s;
-    z-index: 5;
+    z-index: 3;
   }
   .header .resp__nav .menu__item {
     display: block;
@@ -1342,7 +1355,7 @@ p {
     transition-duration: 0.25s;
   }
   .header .resp__nav .menu__item:hover {
-    background-color: #CFD8DC;
+    background-color: #374151;
   }
 
   .cat__nav__sec {
@@ -1363,6 +1376,12 @@ p {
   .menu__block .menu__block__con {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
+  }
+  .menu__block .menu__block__con .item {
+    padding: 1rem;
+  }
+  .menu__block .menu__block__con .item .item__content .card__heading {
+    font-size: 1.5rem;
   }
 }
 @media (min-width: 640px) and (max-width: 1024px) {
@@ -1441,6 +1460,10 @@ p {
   }
   .header .logo {
     font-size: 2rem;
+  }
+
+  .menu__block .menu__block__con {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 1280px) and (max-width: 1536px) {

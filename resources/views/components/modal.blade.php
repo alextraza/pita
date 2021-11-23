@@ -47,7 +47,7 @@
                         <section>
                             <form method="post" class="ajax-form" action="{{ route('register.user') }}">
                                 @csrf
-                                <div class="form__group__add client__form">
+                                <div class="form__group__add reg__form">
                                     <div class="form__field__add">
                                         <label for="phone">Телефон</label>
                                         <input id="phone" type="text" data-js="input" name="phone"

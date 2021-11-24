@@ -24,6 +24,10 @@ time, mark, audio, video, button {
   font-family: "Inter", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 input {
   border: 0;
 }
@@ -91,13 +95,9 @@ a:hover {
   color: #ffa500;
 }
 
-p {
-  color: #F3F4F6;
-}
-
 .header {
-  display: grid;
-  grid-template-columns: 5fr 3fr 4fr 5fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   border-bottom: 2px solid #ffa500;
@@ -145,9 +145,8 @@ p {
 }
 .header .resp__nav ul {
   display: flex;
-  flex-direction: row;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 1.2rem;
   position: relative;
@@ -169,10 +168,28 @@ p {
   gap: 0.1rem;
 }
 .header .resp__nav ul li ul li a {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
-.header .resp__nav ul li.user {
+.header .resp__nav ul li.user > ul {
+  display: none;
+}
+.header .resp__nav ul li:hover ul {
+  position: absolute;
   display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  top: -0.5rem;
+  right: 0;
+  border-radius: 0.5rem;
+  background: #1F2937;
+  border: 2px solid #374151;
+  padding: 1rem;
+  color: #9CA3AF;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  z-index: 10;
+  gap: 1rem;
 }
 
 .cat__nav__sec {
@@ -188,7 +205,6 @@ p {
   top: 0;
   z-index: 2;
   box-shadow: 0 10px 15px -3px #1f2937, 0 4px 6px -2px rgba(0, 0, 0, 0.78);
-  scroll-behavior: smooth;
   transition: 2s;
   /* width */
   /* Track */
@@ -244,20 +260,33 @@ p {
   color: #ffa500;
   outline: unset;
 }
+.cat__nav__sec .cat__nav .cat__nav__con:active {
+  transform: scale(1.1);
+}
+.cat__nav__sec .cat__nav__cart {
+  border: 2px solid #ffa500;
+  border-radius: 1rem;
+}
+.cat__nav__sec .cat__nav__cart:active {
+  transform: scale3d(1.1);
+  transition: 0.1s;
+}
 .cat__nav__sec .cat__nav__cart a {
   display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
   gap: 0.5rem;
-  border: 2px solid #ffa500;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
 }
 .cat__nav__sec .cat__nav__cart a .cart__name {
   font-weight: 900;
   text-transform: uppercase;
   padding: 1rem 0 1rem 1rem;
   color: #ffa500;
+}
+.cat__nav__sec .cat__nav__cart a .cart__name span {
+  display: none;
 }
 .cat__nav__sec .cat__nav__cart a .cart__icon {
   color: #ffa500;
@@ -323,13 +352,11 @@ p {
 .menu__block .item .item__img__block .item__button {
   position: absolute;
   right: 0;
-  bottom: 0;
   display: flex;
   align-items: center;
   padding: 0.6rem;
   background: #374151;
-  color: #ffa500;
-  border: 2px solid #ffa500;
+  border: 2px solid;
   border-radius: 3rem;
   font-weight: 700;
   font-family: inherit;
@@ -338,19 +365,50 @@ p {
   cursor: pointer;
   text-transform: uppercase;
 }
+.menu__block .item .item__img__block .item__button:active {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+.menu__block .item .item__img__block .item__button.add-to-cart {
+  bottom: -0.5rem;
+  border-color: #ffa500;
+  color: #ffa500;
+}
+.menu__block .item .item__img__block .item__button.rm-from-cart {
+  display: none;
+  bottom: 3.5rem;
+  color: #9CA3AF;
+  border-color: #9CA3AF;
+}
 .menu__block .item:hover {
   border-color: #6B7280;
 }
 .menu__block .item:hover img {
   transform: translateZ(0) rotate(-7deg);
 }
-.menu__block .item:hover .item__button {
+.menu__block .item:hover .item__button.add-to-cart {
   background: #ffa500;
   color: #1F2937;
   box-shadow: -3px -3px 20px 1px #1f2937;
 }
-.menu__block .item:hover .item__button::before {
+.menu__block .item:hover .item__button.rm-from-cart {
+  border-color: #9CA3AF;
+  background: #9CA3AF;
+  color: #1F2937;
+  box-shadow: -3px -3px 20px 1px #1f2937;
+}
+.menu__block .item .item__button.add-to-cart:hover::before, .menu__block .item .item__button.add-to-cart:focus::before {
   content: "В корзину";
+}
+.menu__block .item .item__button.rm-from-cart:hover::before,
+.menu__block .item .item__button.rm-from-cart:focus::before {
+  content: "Удалить";
+}
+.menu__block .item.in_cart, .menu__block .item.in_cart:hover, .menu__block .item.in_cart:hover .item__content .card__heading .card__cat {
+  border-color: #ffa500;
+}
+.menu__block .item.in_cart .item__button.rm-from-cart {
+  display: flex;
 }
 .menu__block .item .item__content {
   display: grid;
@@ -692,8 +750,16 @@ p {
 .cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-minus {
   order: 1;
 }
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-minus:active {
+  transform: scale(1.2);
+  transition: 0.1s;
+}
 .cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-plus {
   order: 3;
+}
+.cart__section .cart__result .cart__item__button .inline__button .cart-totals span.count-plus:active {
+  transform: scale(1.2);
+  transition: 0.1s;
 }
 .cart__section .cart__result .cart__item__button .inline__button .cart-totals span:hover {
   color: #ffa500;
@@ -738,6 +804,10 @@ p {
 }
 .cart__section .cart__result .cart__item__del:hover, .cart__section .cart__result .cart__item__del:focus {
   color: #fff;
+}
+.cart__section .cart__result .cart__item__del:active {
+  transform: scale(1.1);
+  transition: 0.1s;
 }
 .cart__section .cart__offer {
   display: grid;
@@ -810,6 +880,7 @@ p {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 3;
+  min-width: 30vw;
 }
 .modal .modal__window .modal__close {
   cursor: pointer;
@@ -846,7 +917,11 @@ p {
   padding: 0.5rem 1rem;
   font-weight: 600;
   font-size: 1.1rem;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
+}
+.modal .modal__window .modal__inner button:hover {
+  background: #ffa500;
+  color: #1F2937;
 }
 
 input#forgot_password, input#delivery, input#input__tab, input#tabset_register, input#tabset_login {
@@ -855,6 +930,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 
 @media (max-width: 640px) {
   .header {
+    display: grid;
     grid-template-columns: 8fr 1fr;
     gap: 0.5rem;
     align-items: center;
@@ -890,6 +966,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     display: grid;
     position: relative;
     order: 2;
+    width: 26px;
   }
   .header .resp__nav #menu__toggle {
     display: block;
@@ -1121,8 +1198,8 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
 
   .modal .modal__window {
-    width: 100vw;
-    height: 100vh;
+    min-width: 90vw;
+    max-width: 90vw;
   }
 }
 @media (min-width: 640px) and (max-width: 768px) {
@@ -1269,9 +1346,6 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     border-radius: 1rem;
   }
 
-  .header {
-    grid-template-columns: 13fr 10fr 14fr 1fr;
-  }
   .header .logo {
     font-size: 2rem;
   }
@@ -1284,7 +1358,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     display: none;
   }
   .header .resp__nav {
-    display: flex;
+    display: grid;
     position: relative;
     order: 2;
   }
@@ -1308,6 +1382,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
   .header .resp__nav .menu__btn {
     align-items: center;
+    width: 26px;
     cursor: pointer;
     z-index: 6;
   }
@@ -1364,7 +1439,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .cat__nav__sec .cat__nav {
     justify-content: space-between;
     width: 100%;
-    gap: unset;
+    gap: 0.5rem;
   }
   .cat__nav__sec .cat__nav__cart {
     display: none;
@@ -1456,25 +1531,68 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 }
 @media (min-width: 1024px) and (max-width: 1280px) {
   .header {
-    grid-template-columns: 12fr 12fr 12fr 1fr;
+    display: flex;
+    justify-content: space-between;
   }
   .header .logo {
     font-size: 2rem;
+  }
+  .header .phone a,
+.header .address p {
+    font-size: 0.9rem;
+  }
+  .header .phone {
+    text-align: center;
+  }
+  .header .phone span, .header .address span {
+    display: none;
+  }
+  .header .resp__nav ul {
+    justify-content: flex-end;
+  }
+  .header .resp__nav ul li {
+    font-size: 0.9rem;
+  }
+  .header .resp__nav .menu__btn {
+    align-items: center;
+    width: 26px;
+    cursor: pointer;
+    z-index: 4;
   }
 
   .menu__block .menu__block__con {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 1280px) and (max-width: 1536px) {
-  .header {
-    grid-template-columns: 2fr 2fr 3fr 4fr;
+@media (min-width: 1025px) and (max-width: 1186px) {
+  .cat__nav__sec {
+    gap: 0.3rem;
   }
+  .cat__nav__sec .cat__nav {
+    display: flex;
+    gap: 0.3rem;
+  }
+  .cat__nav__sec .cat__nav .cat__nav__con {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    border-radius: 1rem;
+  }
+  .cat__nav__sec .cat__nav__cart a {
+    gap: 0.3rem;
+  }
+  .cat__nav__sec .cat__nav__cart a .cart__name {
+    padding-left: 0.5rem;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1536px) {
   .header .logo {
-    font-size: 2rem;
+    font-size: 3.6rem;
   }
   .header .phone span, .header .address span {
     display: none;
+  }
+
+  .menu__block .menu__block__con {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .checkout__section {
@@ -1563,6 +1681,9 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   display: grid;
   gap: 1.5rem;
 }
+.tabset div section p {
+  color: #fff;
+}
 .tabset div section .map {
   border: 2px solid #1F2937;
   margin: 0 -0.5rem -0.5rem -0.5rem;
@@ -1634,6 +1755,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 .form__group .form__field__add.time {
   grid-area: time;
 }
+
 .form__group__add {
   display: grid;
   gap: 1rem;
@@ -1656,6 +1778,16 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   display: flex;
   align-items: center;
   border-bottom: 2px solid transparent;
+}
+.form__field__add:active {
+  transform: scale(0.99);
+  transition: 0.1s;
+}
+.form__field__add.bg_unset {
+  background-color: transparent;
+}
+.form__field__add.bg_unset label {
+  padding: 0;
 }
 .form__field__add.error {
   border-color: Crimson;
@@ -1806,6 +1938,14 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   color: #ffa500;
 }
 
+.text-danger {
+  font-size: 1rem;
+  font-weight: 300;
+  color: Crimson;
+  text-transform: lowercase;
+  text-align: right;
+}
+
 .privacy {
   font-size: 0.8rem;
   line-height: 1rem;
@@ -1884,8 +2024,17 @@ button.primary__button:hover {
     align-items: center;
     padding: 1rem;
   }
+  .delivery__sec .delivery__heading .title {
+    font-size: 1.4rem;
+  }
   .delivery__sec .tabset {
     padding: 1rem;
+    gap: 1rem;
+  }
+  .delivery__sec .tabset .sec__title {
+    font-size: 1rem;
+  }
+  .delivery__sec .tabset div section {
     gap: 1rem;
   }
 
@@ -1894,12 +2043,12 @@ button.primary__button:hover {
   }
 
   .form__group__add.client__form {
-    grid-template-areas: "name phone" "comment comment";
+    grid-template-areas: "name name" "phone phone" "comment comment";
   }
 
   .form__group.time__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "now chose-time" "chose-time time ";
+    grid-template-areas: "now chose-time" "time time ";
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {

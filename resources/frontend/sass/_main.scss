@@ -1,5 +1,4 @@
 body {
-
     padding: 0;
     margin: 0;
     background: $primary;
@@ -31,16 +30,14 @@ a {
     }
 }
 
-p {
-    color: $gray-100;
-}
+
 
 
 
 // Header
 .header {
-    display: grid;
-    grid-template-columns: 5fr 3fr 4fr 5fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
 
@@ -102,9 +99,9 @@ p {
 
         ul {
             display: flex;
-            flex-direction: row;
+
             width: 100%;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             gap: 1.2rem;
             position: relative;
@@ -132,15 +129,33 @@ p {
 
                     li {
                         a {
-                            font-size: 0.7rem;
+                            font-size: 0.8rem;
                         }
                     }
                 }
 
 
 
-                &.user {
+                &.user>ul {
+                    display: none;
+                }
+
+                &:hover ul {
+                    position: absolute;
                     display: flex;
+                    justify-content: space-between;
+                    bottom: 0;
+                    top: -0.5rem;
+                    right: 0;
+                    border-radius: 0.5rem;
+                    background: $primary;
+                    border: 2px solid $secondary;
+                    padding: 1rem;
+                    color: $gray-400;
+                    max-width: fit-content;
+                    z-index: 10;
+                    gap: 1rem;
+
                 }
             }
 
@@ -152,7 +167,7 @@ p {
 // Header end
 
 
-// Category navigation flex text-center py-12 gap-5 items-center
+// Category navigation 
 .cat__nav__sec {
     display: flex;
     flex-direction: row;
@@ -166,7 +181,7 @@ p {
     z-index: 2;
     box-shadow: 0 10px 15px -3px rgb(31 41 55), 0 4px 6px -2px rgb(0 0 0 / 78%);
     // scroll 
-    scroll-behavior: smooth;
+
     transition: 2s;
 
     /* width */
@@ -217,6 +232,7 @@ p {
             border: 2px solid $gray-400;
             transition: 0.3s linear;
 
+
             .nav__con__icon {
                 font-size: 2rem;
                 line-height: 0;
@@ -234,25 +250,42 @@ p {
                 outline: unset;
             }
 
+            &:active {
+                transform: scale(1.1);
+
+            }
+
         }
 
     }
 
     .cat__nav__cart {
+        border: 2px solid $yellow;
+        border-radius: 1rem;
+        &:active{
+            transform: scale3d(1.1);
+            transition: .1s;
+        }
+
         a {
             display: flex;
             flex-direction: row;
             position: relative;
             align-items: center;
             gap: 0.5rem;
-            border: 2px solid $yellow;
-            border-radius: 1rem;
+            border-radius: 0.8rem;
+
+
 
             .cart__name {
                 font-weight: 900;
                 text-transform: uppercase;
                 padding: 1rem 0 1rem 1rem;
                 color: $yellow;
+
+                span {
+                    display: none;
+                }
             }
 
             .cart__icon {
@@ -290,6 +323,7 @@ p {
         }
 
     }
+    
 
 }
 
@@ -337,6 +371,7 @@ p {
 
 
 
+
         .item__img__block {
             position: relative;
             flex: none;
@@ -351,13 +386,17 @@ p {
             .item__button {
                 position: absolute;
                 right: 0;
-                bottom: 0;
+
+                &:active {
+                    transform: scale(1.1);
+                    transition: .1s;
+                }
+
                 display: flex;
                 align-items: center;
                 padding: 0.6rem;
                 background: $secondary;
-                color: $yellow;
-                border: 2px solid $yellow;
+                border: 2px solid;
                 border-radius: 3rem;
                 font-weight: 700;
                 font-family: inherit;
@@ -365,6 +404,20 @@ p {
                 transition: 0.4s ease-out;
                 cursor: pointer;
                 text-transform: uppercase;
+
+                &.add-to-cart {
+                    bottom: -0.5rem;
+                    border-color: $yellow;
+                    color: $yellow;
+                }
+
+                &.rm-from-cart {
+                    display: none;
+                    bottom: 3.5rem;
+                    color: $gray-400;
+                    border-color: $gray-400;
+
+                }
             }
 
         }
@@ -378,14 +431,36 @@ p {
             transform: translateZ(0) rotate(-7deg);
         }
 
-        &:hover .item__button {
+        &:hover .item__button.add-to-cart {
             background: $yellow;
             color: $primary;
             box-shadow: -3px -3px 20px 1px #1f2937;
         }
 
-        &:hover .item__button::before {
+        &:hover .item__button.rm-from-cart {
+            border-color: $gray-400;
+            background: $gray-400;
+            color: $primary;
+            box-shadow: -3px -3px 20px 1px #1f2937;
+        }
+
+        & .item__button.add-to-cart:hover::before,
+        & .item__button.add-to-cart:focus::before {
             content: "В корзину";
+        }
+
+        & .item__button.rm-from-cart:hover::before,
+        .item__button.rm-from-cart:focus::before {
+            content: "Удалить";
+        }
+
+        &.in_cart,
+        &.in_cart:hover,
+        &.in_cart:hover .item__content .card__heading .card__cat {
+            border-color: $yellow;
+        }
+        &.in_cart .item__button.rm-from-cart{
+            display: flex;
         }
 
         .item__content {
@@ -834,17 +909,29 @@ p {
                         padding: 5px;
 
                         &.count-minus {
-                            order: 1
+                            order: 1;
+                            &:active {
+                                transform: scale(1.2);
+                                transition: .1s;
+                            }
                         }
 
                         &.count-plus {
-                            order: 3
+                            order: 3;
+                            &:active {
+                                transform: scale(1.2);
+                                transition: .1s;
+                            }
                         }
 
                         &:hover {
                             color: $yellow;
                         }
+
+
                     }
+
+                   
 
                     input {
                         order: 2;
@@ -902,6 +989,11 @@ p {
             &:hover,
             &:focus {
                 color: $white;
+            }
+
+            &:active {
+                transform: scale(1.1);
+                transition: .1s;
             }
 
         }
@@ -1001,6 +1093,7 @@ p {
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
         position: relative;
         z-index: 3;
+        min-width: 30vw;
 
         .modal__close {
             cursor: pointer;
@@ -1045,22 +1138,28 @@ p {
                 padding: 0.5rem 1rem;
                 font-weight: 600;
                 font-size: 1.1rem;
-                border-radius: 0.5rem;
+                border-radius: 2rem;
+
+                &:hover {
+                    background: $yellow;
+                    color: $primary;
+                }
 
             }
+
 
         }
     }
 }
 
-input{
+input {
+
     &#forgot_password,
     &#delivery,
     &#input__tab,
     &#tabset_register,
-    &#tabset_login
-     {
+    &#tabset_login {
         display: none;
-        
+
     }
-} 
+}

@@ -31,7 +31,7 @@
 
 
     .header {
-        grid-template-columns: 13fr 10fr 14fr 1fr;
+
 
         .logo {
             font-size: 2rem;
@@ -48,7 +48,7 @@
 
         // Гамбургер
         .resp__nav {
-            display: flex;
+            display: grid;
 
             position: relative;
             order: 2;
@@ -79,7 +79,7 @@
             .menu__btn {
 
                 align-items: center;
-
+                width: 26px;
 
                 cursor: pointer;
                 z-index: 6;
@@ -160,11 +160,14 @@
         .cat__nav {
             justify-content: space-between;
             width: 100%;
-            gap: unset;
+            gap: 0.5rem;
+
+           
         }
 
         .cat__nav__cart {
             display: none;
+
         }
     }
 
@@ -179,7 +182,7 @@
                 padding: 1rem;
 
                 .item__content {
-                    .card__heading{
+                    .card__heading {
                         font-size: 1.5rem;
                     }
                 }
@@ -188,3 +191,6 @@
         }
     }
 }
+
+
+

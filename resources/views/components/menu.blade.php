@@ -21,7 +21,7 @@
     @endforeach
     @if (Cart::count())
         <div class="cat__nav__cart mobile">
-            @include('components.minicart-mobile')
+            @include('components.minicart')
         </div>
     @endif
 </div>

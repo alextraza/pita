@@ -108,6 +108,9 @@
                 left: -999em;
                 display: grid;
                 gap: 1.5rem;
+                p{
+                    color:$white;
+                }
 
                 .map {
                     border: 2px solid $primary;
@@ -165,6 +168,7 @@
     .form__field {
         display: flex;
         align-items: center;
+        
 
         input[type=radio] {
             position: relative;
@@ -208,10 +212,11 @@
     }
 
     .form__field__add {
+        
         &.time {
             grid-area: time;
 
-            input[type="time"] {}
+         
         }
     }
 
@@ -250,6 +255,16 @@
     display: flex;
     align-items: center;
     border-bottom: 2px solid transparent;
+    &:active{
+        transform: scale(0.99);
+        transition: .1s;
+    }
+    &.bg_unset{
+        background-color: transparent;
+        label{
+            padding: 0;
+        }
+    }
 
     &.error {
         border-color: Crimson;
@@ -435,7 +450,14 @@
 
 
 }
-
+.text-danger {
+    
+    font-size: 1rem;
+    font-weight: 300;
+    color: Crimson;
+    text-transform: lowercase;
+    text-align: right;
+}
 
 
 
@@ -530,6 +552,7 @@ button.primary__button {
 
     .sec__title {
         font-size: 1rem;
+        
     }
 
 }
@@ -548,11 +571,23 @@ button.primary__button {
             flex-direction: row;
             align-items: center;
             padding: 1rem;
+            .title{
+                font-size: 1.4rem;
+            }
         }
 
         .tabset {
+        
             padding: 1rem;
             gap: 1rem;
+            .sec__title{
+                font-size: 1rem;
+            }
+            div{
+                section{
+                    gap: 1rem;
+                }
+            }
         }
     }
 
@@ -568,7 +603,8 @@ button.primary__button {
     .form__group__add.client__form {
 
         grid-template-areas:
-            "name phone"
+            "name name"
+            "phone phone"
             "comment comment";
     }
 
@@ -576,7 +612,7 @@ button.primary__button {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "now chose-time"
-            "chose-time time ";
+            "time time ";
 
     }
 }
@@ -628,6 +664,7 @@ button.primary__button {
     }
 
     .form__field__add {
+        
         label {
             padding: 0 0.5rem;
         }

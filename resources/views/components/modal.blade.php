@@ -34,7 +34,7 @@
                                         <label for="password">Пароль</label>
                                         <input id="password" type="password" name="password">
                                     </div>
-                                    <div class="form__field__add">
+                                    <div class="form__field__add bg_unset">
                                         <label for="forgot_password">Забыли пароль</label>
                                     </div>
                                     <div class="errors">

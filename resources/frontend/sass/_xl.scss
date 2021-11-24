@@ -1,14 +1,68 @@
 @media (min-width: $lg) and (max-width: $xl) {
     .header {
-        grid-template-columns: 12fr 12fr 12fr 1fr;
+        display: flex;
+        justify-content: space-between;
 
         .logo {
             font-size: 2rem;
         }
+
+        .phone a,
+        .address p{
+            font-size: 0.9rem;
+        }
+        .phone{
+            text-align: center;
+        }
+        .phone span, .address span{
+            display: none;
+        }
+        .resp__nav{
+
+            ul{
+                justify-content: flex-end;
+                li{
+                    font-size: 0.9rem;
+                }
+            } 
+            .menu__btn{
+                align-items: center;
+                width: 26px;
+                cursor: pointer;
+                z-index: 4;
+            }
+        } 
+        
     }
+
     .menu__block {
-        .menu__block__con{
+        .menu__block__con {
             grid-template-columns: repeat(3, 1fr);
         }
     }
+}
+
+
+@media (min-width: 1025px ) and (max-width: 1186px ) {
+    .cat__nav__sec {
+        gap: 0.3rem;
+        .cat__nav {
+            display: flex;
+            gap: 0.3rem;
+          
+            .cat__nav__con {
+               padding: 1rem 0.5rem 1rem 0.5rem;
+               border-radius: 1rem;
+            }
+        }
+        .cat__nav__cart{
+            a{
+                gap: 0.3rem;
+                .cart__name{
+                    padding-left:0.5rem ;
+                }
+            }
+        } 
+    }
+
 }

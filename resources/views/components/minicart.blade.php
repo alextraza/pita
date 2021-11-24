@@ -1,7 +1,7 @@
 <div class="cart">
 <a href="{{ route('cart.index') }}">
   
-        <div class="cart__name">@if (Cart::total()){{ Cart::total() }} ₽ @else Корзина @endif</div>
+        <div class="cart__name"><span>Всего:</span>@if (Cart::total()){{ Cart::total() }} ₽ @else Корзина @endif</div>
         <div class="cart__icon" >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">

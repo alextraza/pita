@@ -21,6 +21,9 @@ time, mark, audio, video,button {
 	transition: 0.3s linear;
 	font-family: "Inter", sans-serif;
 }
+html{
+	scroll-behavior: smooth;
+}
 input{
 	border: 0;
 }

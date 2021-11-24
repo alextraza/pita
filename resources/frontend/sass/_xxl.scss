@@ -1,11 +1,16 @@
 @media (min-width: $xl) and (max-width: $xxl) {
 .header{
-    grid-template-columns: 2fr 2fr 3fr 4fr;
+   
     .logo{
-        font-size: 2rem;
+        font-size: 3.6rem;
     }
     .phone span, .address span{
         display: none;
+    }
+}
+.menu__block {
+    .menu__block__con{
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 }

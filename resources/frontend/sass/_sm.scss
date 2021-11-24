@@ -5,6 +5,7 @@
 
     // Header
     .header {
+        display: grid;
         grid-template-columns: 8fr 1fr;
         gap: 0.5rem;
         align-items: center;
@@ -51,6 +52,7 @@
             display: grid;
             position: relative;
             order: 2;
+            width: 26px;
 
 
             #menu__toggle {
@@ -82,8 +84,8 @@
                 align-items: center;
                 top: 20px;
                 left: 20px;
-
                 width: 26px;
+              
                 height: 26px;
 
                 cursor: pointer;
@@ -385,9 +387,9 @@
         }
     
         .modal__window {
-            width: 100vw;
-            height: 100vh;
-           
+         
+           min-width: 90vw;
+           max-width: 90vw;
     
             .modal__close {
                

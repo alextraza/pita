@@ -27,7 +27,7 @@ class StoreOrder extends FormRequest
             'name' => 'required|string',
             'phone' => 'required',
             'client-address' => 'nullable',
-            'address' => 'nullable|string|required_if:client_address,==,on',
+            'street' => 'nullable|string|required_if:client_address,==,on',
             'house' => 'nullable|max:10|required_if:client_address,==,on',
             'entrance' => 'numeric|nullable',
             'apartment' => 'numeric|nullable',

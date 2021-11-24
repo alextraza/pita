@@ -84,7 +84,7 @@ class UserController extends BaseController
 
         // set model
         $model->email = $request->input('email');
-        $model->phone = $request->input('phone');
+        $model->phone = str_replace(['+7', ' ', '(', ')', '-'], '', $request->phone);
         $model->name = $request->input('name');
         $model->is_admin = $request->input('is_admin');
         if ($request->input('password')) {

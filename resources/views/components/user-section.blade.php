@@ -5,7 +5,7 @@
         <div class="user__data">
 
 
-            <div class="user__b__heading">Привет, {{ $user->name }}!</div>
+            <div class="user__b__heading">Привет,  {{ $user->name }}!</div>
             <div class="user__b__subtitle">Здесь ты можешь изменить информацию о себе</div>
 
             <form action="{{ route('user.save') }}" method="post">

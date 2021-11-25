@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Page;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -35,5 +36,33 @@ class FrontendController extends Controller
         }
 
         return redirect(route('index'))->withSuccess('Для доступа в личный кабинет необходима авторизация');
+    }
+
+    public function userSave(Request $request)
+    {
+        $validator = $request->validate([
+            'phone' => 'required',
+            'email' => 'required|email',
+            'password' => 'nullable|min:6',
+            'password_confirmation' => 'required_with:password|same:password'
+        ]);
+
+        $user = Auth::user();
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        if ($user->email != $request->email) {
+            $user->email = $request->email;
+        }
+        $phone = str_replace(['+7', ' ', '(', ')', '-'], '', $request->phone);
+        if ($user->phone != $phone) {
+            $user->phoen = $phone;
+        }
+        if ($user->name != $request->name) {
+            $user->name = $request->name;
+        }
+        $user->save();
+
+        return back()->withSuccess('Данные успешно обновлены');
     }
 }

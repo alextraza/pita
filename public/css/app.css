@@ -1032,12 +1032,32 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
   .header .resp__nav .menu__item {
     display: block;
-    padding: 12px 24px;
-    color: #333;
-    font-size: 20px;
+    transition-duration: 0.25s;
+  }
+  .header .resp__nav .menu__item a {
+    padding: 1rem;
+    margin: 0 0.5rem;
+    color: #fff;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    transition-duration: 0.25s;
+  }
+  .header .resp__nav .menu__item.user a.user__link {
+    display: none;
+  }
+  .header .resp__nav .menu__item.user a.user__link svg {
+    display: none;
+  }
+  .header .resp__nav .menu__item.user ul {
+    display: block;
+  }
+  .header .resp__nav .menu__item.user ul li a {
+    padding: 1rem;
+    margin: 0 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
   }
   .header .resp__nav .menu__item:hover {
     background-color: #374151;
@@ -2185,6 +2205,7 @@ button.primary__button:hover {
   border: 2px solid #ffa500;
   border-radius: 1.5rem;
   font-weight: 600;
+  height: 3rem;
 }
 .user__section .user__block button:hover {
   background: #ffa500;
@@ -2202,9 +2223,9 @@ button.primary__button:hover {
 .user__address__add {
   display: grid;
   gap: 1.5rem;
-  padding: 1.5rem;
-  background: linear-gradient(#374151, #1F2937);
-  border-radius: 1.5rem;
+}
+.user__address__add.showed {
+  display: grid;
 }
 
 .user__address__form {

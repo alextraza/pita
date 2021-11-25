@@ -85,7 +85,7 @@
                 top: 20px;
                 left: 20px;
                 width: 26px;
-              
+
                 height: 26px;
 
                 cursor: pointer;
@@ -140,17 +140,43 @@
 
             .menu__item {
                 display: block;
-                padding: 12px 24px;
-
-                color: #333;
-
-
-                font-size: 20px;
-                font-weight: 600;
-
-                text-decoration: none;
-
                 transition-duration: .25s;
+
+                a {
+                    padding: 1rem;
+                    margin: 0 0.5rem;
+                    color: $white;
+                    font-size: 1rem;
+                    font-weight: 600;
+
+                    text-decoration: none;
+                }
+
+                &.user {
+                    a.user__link {
+                        display: none;
+
+                        svg {
+                            display: none;
+                        }
+
+                    }
+
+                    ul {
+                        display: block;
+
+                        li {
+                            a {
+                                padding: 1rem;
+                                margin: 0 0.5rem;
+                                color: $white;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
             }
 
             .menu__item:hover {
@@ -378,48 +404,40 @@
             }
         }
     }
-      // MODAL
 
-      .modal {
+    // MODAL
 
-        .modal__overlay {
-           
-        }
-    
+    .modal {
+
+        .modal__overlay {}
+
         .modal__window {
-         
-           min-width: 90vw;
-           max-width: 90vw;
-    
+
+            min-width: 90vw;
+            max-width: 90vw;
+
             .modal__close {
-               
-    
-           
-    
-            .modal__heading {
-               
-    
-                .title {
-                   
+
+
+
+
+                .modal__heading {
+
+
+                    .title {}
                 }
-            }
-    
-            .modal__inner {
-    
-    
-                a {
-                   
+
+                .modal__inner {
+
+
+                    a {}
+
+                    button {}
+
                 }
-    
-                button {
-                   
-    
-                }
-    
             }
         }
+
     }
-    
-}
 
 }

@@ -88,6 +88,7 @@
             border: 2px solid $yellow;
             border-radius: 1.5rem;
             font-weight: 600;
+            height: 3rem;
 
             &:hover {
                 background: $yellow;
@@ -98,6 +99,7 @@
                 transform: scale(1.1);
                 transition: .1s;
             }
+            
         }
     }
 
@@ -112,11 +114,15 @@
 }
 
 .user__address__add {
+    // display: none;
     display: grid;
     gap: 1.5rem;
-    padding: 1.5rem;
-    background: linear-gradient($secondary, $primary);
-    border-radius: 1.5rem;
+
+   
+    
+    &.showed{
+        display: grid;
+    }
 
 }
 
@@ -212,6 +218,7 @@ button.user__btn {
         gap: 1rem;
         padding: 1rem;
         border-radius: 0.5rem;
+        
     }
 
 

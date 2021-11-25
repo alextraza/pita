@@ -31,7 +31,8 @@
                     </div>
                     <div class="form__field__add email">
                         <label for="email">Email</label>
-                        <input id="email" type="text" name="email" value="{{ $user->email }}" title="Для восстановления пароля">
+                        <input id="email" type="text" name="email" value="{{ $user->email }}"
+                            title="Для восстановления пароля">
                     </div>
                     <div>
                         <button class="user__btn" type="submit">Сохранить</button>
@@ -51,32 +52,37 @@
                     вносить данные о
                     месте доставки.
                 </span>
-
             </div>
+          
             <div class="user__address__list">
                 @foreach ($user->addresses as $address)
-                <div class="address__item">
-                    <div class="address__title">{{ $address->full_address }}</div>
-                    <div><a class="rm-address" data-id="{{ $address->id }}" href="{{ route('user.address') }}">Изменить</a> <a class="add-address" data-id="{{ $address->id }}" href="{{ route('user.address')  }}">Удалить</a></div>
-                </div>
+                    <div class="address__item">
+                        <div class="address__title">{{ $address->full_address }}</div>
+                        <div><a class="rm-address" data-id="{{ $address->id }}"
+                                href="{{ route('user.address') }}">Изменить</a> <a class="add-address"
+                                data-id="{{ $address->id }}" href="{{ route('user.address') }}">Удалить</a></div>
+                    </div>
                 @endforeach
+               
             </div>
-            <button class="user__btn" type="submit">Добавить</button>
+           
+            <div class="user__address__add">
+                <button class="user__btn other" type="submit">Добавить</button>
+
+
+                {{-- Начало формы --}}
+    
+                <div class="user__b__heading">Добавить адрес</div>
+    
+                <form id="address" class="form__group__add user__address__form"
+                    action="{{ route('user.address.store') }}">
+                    @include('components.address')
+                </form>
+    
+                {{-- Конец формы --}}
+            </div>
         </div>
-        <div class="user__address__add">
-
-
-
-            {{-- Начало формы --}}
-
-            <div class="user__b__heading">Добавить адрес</div>
-
-            <form id="address" class="form__group__add user__address__form" action="{{ route('user.address.store') }}">
-                @include('components.address')
-            </form>
-
-            {{-- Конец формы --}}
-        </div>
+       
     </div>
 
 </div>

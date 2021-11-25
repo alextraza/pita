@@ -184,9 +184,13 @@ button.user__btn {
         .user__block {
             .user__data {
                 padding: 1rem;
+                border-radius: 0.5rem;
             }
         }
-
+        & .form__group__add.client__form{
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     
@@ -195,7 +199,11 @@ button.user__btn {
         display: flex;
         flex-direction: column;
     }
-
+    .user__address__add{
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
 
 
 

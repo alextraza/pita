@@ -2257,10 +2257,21 @@ button.user__btn:active {
   }
   .user__section .user__block .user__data {
     padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  .user__section .form__group__add.client__form {
+    display: flex;
+    flex-direction: column;
   }
 
   .user__address__form {
     display: flex;
     flex-direction: column;
+  }
+
+  .user__address__add {
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
   }
 }

@@ -7,6 +7,7 @@
 
             <div class="user__b__heading">Привет, %username!</div>
             <div class="user__b__subtitle">Здесь ты можешь изменить информацию о себе</div>
+
             <form action="">
                 @csrf
                 <div class="form__group__add client__form">
@@ -73,14 +74,19 @@
             <button class="user__btn" type="submit">Добавить</button>
         </div>
         <div class="user__address__add">
+
+
+
+            {{-- Начало формы --}}
+
             <div class="user__b__heading">Добавить адрес</div>
-           
-                <form id="address" class="form__group__add user__address__form">
+
+            <form id="address" class="form__group__add user__address__form">
                 @include('components.address')
-                </form>
-               
-          
+            </form>
+
+            {{-- Конец формы --}}
         </div>
     </div>
-    
+
 </div>

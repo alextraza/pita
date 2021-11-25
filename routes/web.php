@@ -221,6 +221,9 @@ Route::prefix('cart')->name('cart.')->group(function() {
     Route::post('/add', [
         CartController::class, 'add'
     ])->name('add');
+    Route::post('/remove', [
+        CartController::class, 'removeFromFront'
+    ])->name('front.remove');
     Route::post('/update', [
         CartController::class, 'update'
     ])->name('update');

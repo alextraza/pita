@@ -14,16 +14,21 @@ class Item extends Model
 
     public function getInCartAttribute()
     {
-        $cartContent = Cart::content();
         $id = $this->id;
+        if (self::getCartRowId($this->id)->first()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static function getCartRowId($id)
+    {
+        $cartContent = Cart::content();
         $result = $cartContent->filter(function($item) use($id){
             return ($item->id == $id) || ($item->id == $id . '_1');
         });
 
-        if ($result->first()) {
-            return true;
-        }
-        return false;
+        return $result;
     }
 
 }

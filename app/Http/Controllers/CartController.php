@@ -38,6 +38,14 @@ class CartController extends Controller
         return response()->view('components.minicart');
     }
 
+    public function removeFromFront(Request $request)
+    {
+        foreach (Item::getCartRowId($request->id) as $item) {
+            \Cart::remove($item->rowId);
+        }
+        return response()->view('components.minicart');
+    }
+
     /**
      * add to cart and reload page
      */

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener('click', (e) => {
     addToCartClick(e);
+    removeFrontCartClick(e);
     rmFromCartClick(e);
     plusMinusUpdate(e);
     showUserModal(e);
@@ -114,6 +115,37 @@ document.addEventListener("DOMContentLoaded", function() {
         const result = await response.text();
         let catNavCart = document.querySelectorAll('.cat__nav__cart');
         e.target.parentNode.parentNode.classList.add('in_cart');
+        if (catNavCart) {
+          catNavCart.forEach(element => {
+            element.innerHTML = result;
+          })
+        }
+      } catch (error) {
+        console.error('Ошибка:', error);
+      }
+    }
+  }
+  //
+
+  async function removeFrontCartClick(e) {
+    if (e.target.classList.contains('rm-from-cart')) {
+      e.preventDefault()
+      data = new FormData();
+      data.append('_token', getToken());
+      data.append('id', e.target.dataset.id);
+      let itemBlock = e.target.parentNode.parentNode;
+      if (itemBlock.querySelector('[name=has_alt]:checked')) {
+        data.append('has_alt', 1);
+      }
+
+      try {
+        const response = await fetch('/cart/remove', {
+          method: 'POST',
+          body: data
+        });
+        const result = await response.text();
+        let catNavCart = document.querySelectorAll('.cat__nav__cart');
+        e.target.parentNode.parentNode.classList.remove('in_cart');
         if (catNavCart) {
           catNavCart.forEach(element => {
             element.innerHTML = result;

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
 use App\Models\Category;
+use App\Models\Page;
+use Auth;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -29,6 +30,10 @@ class FrontendController extends Controller
 
     public function user()
     {
-        return view('user');
+        if ($user = Auth::user()) {
+            return view('user', compact('user'));
+        }
+
+        return redirect(route('index'))->withSuccess('Для доступа в личный кабинет необходима авторизация');
     }
 }

@@ -5,7 +5,7 @@
         <div class="user__data">
 
 
-            <div class="user__b__heading">Привет, {{ Auth::user()->name }}!</div>
+            <div class="user__b__heading">Привет, {{ $user->name }}!</div>
             <div class="user__b__subtitle">Здесь ты можешь изменить информацию о себе</div>
 
             <form action="">
@@ -14,12 +14,12 @@
 
                     <div class="form__field__add name">
                         <label for="name">Имя</label>
-                        <input id="name" type="text" name="name" value="{{ Auth::user()->name }}">
+                        <input id="name" type="text" name="name" value="{{ $user->name }}">
                     </div>
                     <div class="form__field__add phone">
                         <label for="phone">Телефон</label>
                         <input id="phone" type="text" data-js="input" name="phone" placeholder="8 (xxx) xxx-xx-xx"
-                            value="{{ Auth::user()->formatted_phone }}">
+                            value="{{ $user->formatted_phone }}">
                     </div>
                     <div class="form__field__add pass">
                         <label for="password">Пароль</label>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form__field__add email">
                         <label for="email">Email</label>
-                        <input id="email" type="text" name="email" value="{{ Auth::user()->email }}" title="Для восстановления пароля">
+                        <input id="email" type="text" name="email" value="{{ $user->email }}" title="Для восстановления пароля">
                     </div>
                     <div>
                         <button class="user__btn" type="submit">Сохранить</button>
@@ -54,7 +54,7 @@
 
             </div>
             <div class="user__address__list">
-                @foreach (Auth::user()->addresses as $address)
+                @foreach ($user->addresses as $address)
                 <div class="address__item">
                     <div class="address__title">{{ $address->full_address }}</div>
                     <div><a class="rm-address" data-id="{{ $address->id }}" href="{{ route('user.address') }}">Изменить</a> <a class="add-address" data-id="{{ $address->id }}" href="{{ route('user.address')  }}">Удалить</a></div>
@@ -71,7 +71,7 @@
 
             <div class="user__b__heading">Добавить адрес</div>
 
-            <form id="address" class="form__group__add user__address__form">
+            <form id="address" class="form__group__add user__address__form" action="{{ route('user.address.store') }}">
                 @include('components.address')
             </form>
 

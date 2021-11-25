@@ -1,4 +1,6 @@
-
+@method('put')
+@csrf
+<input type="hidden" name="id" value="{{ $model->id ?? '' }}" />
     <div class="form__field__add street @error('street') has-error @enderror">
         <label for="street">Адрес (улица)<span>*</span></label>
         <input id="street" type="text" name="street" value="{{ old('street') }}">

@@ -232,7 +232,8 @@ Route::prefix('cart')->name('cart.')->group(function() {
 // frontend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/user', [FrontendController::class, 'user'])->name('user');
-Route::post('/address', [FrontendController::class, 'user'])->name('user.address');
+Route::post('/address', [FrontendController::class, 'addressDelEdit'])->name('user.address');
+Route::put('/address', [FrontendController::class, 'addressSave'])->name('user.address.store');
 
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');

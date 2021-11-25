@@ -86,7 +86,7 @@
 
                 <div class="user__b__heading">Добавить адрес</div>
 
-                <form id="address" class="form__group__add user__address__form"
+                <form id="address" method="post" class="form__group__add user__address__form"
                       action="{{ route('user.address.store') }}">
                     @include('components.address')
                 </form>

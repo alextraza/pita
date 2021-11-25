@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Page;
+use App\Models\{Category, Page, Address};
 use Auth;
 use Hash;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    /**
+    * show homepage
+    */
     public function index()
     {
         $categories = Category::where('status', true)
@@ -18,17 +20,27 @@ class FrontendController extends Controller
         return view('welcome', compact('categories'));
     }
 
+    /**
+    * show cart page
+    */
     public function cart()
     {
         return view('cart');
     }
 
+    /**
+    * show page with slug
+    * @param string $slug
+    */
     public function page($slug)
     {
        $model = Page::where('slug', $slug)->firstOrFail();
         dd($model);
     }
 
+    /**
+    * show user page
+    */
     public function user()
     {
         if ($user = Auth::user()) {
@@ -38,6 +50,12 @@ class FrontendController extends Controller
         return redirect(route('index'))->withSuccess('Для доступа в личный кабинет необходима авторизация');
     }
 
+    /**
+    * save user data from cabinet
+    * @param Illuminate\Http\Request $request
+    *
+    * return Response
+    */
     public function userSave(Request $request)
     {
         $validator = $request->validate([
@@ -64,5 +82,36 @@ class FrontendController extends Controller
         $user->save();
 
         return back()->withSuccess('Данные успешно обновлены');
+    }
+
+    public function addressSave(Request $request)
+    {
+        $validator = $request->validate([
+            'street' => 'required',
+            'house' => 'required',
+            'entrance' => 'numeric|nullable',
+            'apartment' => 'numeric|nullable',
+            'floor' => 'numeric|nullable',
+            'code' => 'nullable|string|max:10'
+        ]);
+
+        if ($request->id) {
+            $model = Address::where('id', $request->id)->first();
+            $action = 'изменен';
+        } else {
+            $model = new Address();
+            $action = 'добавлен';
+        }
+
+        $model->street = $request->street;
+        $model->house = $request->house;
+        $model->entrance = $request->entrance;
+        $model->apartment = $request->apartment;
+        $model->floor = $request->floor;
+        $model->code = $request->code;
+        $model->user_id = Auth::user()->id;
+        $model->save();
+
+        return back()->withSuccess('Адрес был успешно ' . $action);
     }
 }

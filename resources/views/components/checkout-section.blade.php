@@ -115,7 +115,7 @@
                             <label for="delivery-time">Выбрать время:</label>
                         </div>
                         <div class="form__field__add time">
-                            <label for="chose-time">Указать время:</label>
+                            <label for="chose-time">Время:</label>
                             <input type="time" id="chose-time" name="chose_time" value="time">
                         </div>
 

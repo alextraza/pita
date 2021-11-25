@@ -10,7 +10,7 @@
 
             <form action="">
                 @csrf
-                <div class="form__group__add client__form">
+                <div class="form__group__add user__form">
 
                     <div class="form__field__add name">
                         <label for="name">Имя</label>

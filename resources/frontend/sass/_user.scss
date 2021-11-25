@@ -101,7 +101,14 @@
         }
     }
 
-
+    .form__group__add.user__form {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name phone"
+            "password rep-pass"
+            "email ."
+        ;
+    }
 }
 
 .user__address__add {
@@ -187,24 +194,66 @@ button.user__btn {
                 border-radius: 0.5rem;
             }
         }
-        & .form__group__add.client__form{
+
+        .form__group__add.user__form {
             display: flex;
             flex-direction: column;
         }
     }
 
-    
+
 
     .user__address__form {
         display: flex;
         flex-direction: column;
     }
-    .user__address__add{
+
+    .user__address__add {
         gap: 1rem;
         padding: 1rem;
         border-radius: 0.5rem;
     }
 
 
+
+}
+
+@media (min-width: $sm) and (max-width: $md) {
+    .user__section {
+        grid-template-columns: 1fr;
+
+        .form__group__add.user__form {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "name phone"
+                "password rep-pass"
+                "email ."
+            ;
+        }
+    }
+
+}
+
+@media (min-width: $lg) and (max-width: $xl) {
+    .user__section {
+        grid-template-columns: 1fr 1fr;
+        .form__group__add.user__form {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "name phone"
+                "password rep-pass"
+                "email ."
+            ;
+        }
+    }
+    .user__address__form{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+        "street street "
+        "house  appartment "
+        "entrance  code "
+        "floor  . "
+        ;
+    }
 
 }

@@ -1835,6 +1835,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 .form__field__add.comment {
   display: grid;
   grid-area: comment;
+  height: unset;
 }
 .form__field__add.comment label {
   padding: 1rem 1rem 0 1rem;
@@ -1879,7 +1880,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   color: #D1D5DB;
 }
 .form__field__add input:-webkit-autofill, .form__field__add input:-webkit-autofill:hover, .form__field__add input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #1F2937 inset;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   -webkit-text-fill-color: white;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
@@ -2099,6 +2100,9 @@ button.primary__button:hover {
     grid-template-areas: "street street street street street street" "house house house appartment appartment appartment" "entrance entrance floor floor code code";
   }
 
+  .form__field__add {
+    height: 3rem;
+  }
   .form__field__add label {
     padding: 0 0.5rem;
   }
@@ -2190,6 +2194,10 @@ button.primary__button:hover {
   transform: scale(1.1);
   transition: 0.1s;
 }
+.user__section .form__group__add.user__form {
+  grid-template-columns: 1fr;
+  grid-template-areas: "name phone" "password rep-pass" "email .";
+}
 
 .user__address__add {
   display: grid;
@@ -2259,7 +2267,7 @@ button.user__btn:active {
     padding: 1rem;
     border-radius: 0.5rem;
   }
-  .user__section .form__group__add.client__form {
+  .user__section .form__group__add.user__form {
     display: flex;
     flex-direction: column;
   }
@@ -2273,5 +2281,28 @@ button.user__btn:active {
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem;
+  }
+}
+@media (min-width: 640px) and (max-width: 768px) {
+  .user__section {
+    grid-template-columns: 1fr;
+  }
+  .user__section .form__group__add.user__form {
+    grid-template-columns: 1fr;
+    grid-template-areas: "name phone" "password rep-pass" "email .";
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .user__section {
+    grid-template-columns: 1fr 1fr;
+  }
+  .user__section .form__group__add.user__form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "name phone" "password rep-pass" "email .";
+  }
+
+  .user__address__form {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "street street " "house  appartment " "entrance  code " "floor  . ";
   }
 }

@@ -42,12 +42,12 @@
     <div class="md-2">
         <div class="form-group @error('status') has-error @enderror">
             <label for="is_admin">
-                Админ права
+                Права
             </label>
             <div class="checkbox">
                 <input type="hidden" name="is_admin" value="0" />
                 <input id="is_admin" type="checkbox" name="is_admin" value="1" @if (old('is_admin', $model->is_admin)) checked @endif />
-                Является администратором
+                Администратор
             </div>
             @error('is_admin')
             <span class="text-danger">{{ $errors->first('is_admin') }}</span>

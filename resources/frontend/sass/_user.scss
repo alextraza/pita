@@ -1,0 +1,202 @@
+.user__section {
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+
+    .user__block {
+
+        .user__data {
+            background: linear-gradient($secondary, $primary);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            display: grid;
+            gap: 1rem;
+
+
+
+
+
+        }
+
+        .user__address__list {
+            display: grid;
+
+            gap: 1rem;
+            align-items: center;
+
+            // background: $secondary;
+
+            // border-radius: 0.5rem;
+
+
+            .address__item {
+
+                color: $white;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                border-bottom: 2px solid $secondary;
+                padding-bottom: 1rem;
+                font-size: 0.9rem;
+
+
+                .address__title {
+                    font-weight: 300;
+
+                    &::before {
+                        content: "🔥 ";
+                        color: $yellow;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+
+        .user__address__con {
+            position: relative;
+            overflow: hidden;
+            grid-template-columns: repeat(3, auto);
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: $secondary;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+
+            &::before {
+                content: '';
+                border-left: 3px solid $yellow;
+                height: 1.5rem;
+                position: absolute;
+                left: 0;
+                border-radius: 10rem;
+            }
+
+            span {
+                color: white;
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+
+        }
+
+        button {
+            background: transparent;
+            color: $yellow;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid $yellow;
+            border-radius: 1.5rem;
+            font-weight: 600;
+
+            &:hover {
+                background: $yellow;
+                color: $primary;
+            }
+
+            &:active {
+                transform: scale(1.1);
+                transition: .1s;
+            }
+        }
+    }
+
+
+}
+
+.user__address__add {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient($secondary, $primary);
+    border-radius: 1.5rem;
+
+}
+
+.user__address__form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "street street  house appartment"
+        " entrance  code  floor .";
+
+
+
+
+}
+
+.user__b__heading {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: $white;
+}
+
+.user__b__subtitle {
+    padding: 1rem;
+    background: $secondary;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $white;
+
+    &::before {
+        content: '';
+        border-left: 3px solid $yellow;
+        height: 1.5rem;
+        position: absolute;
+        left: 0;
+        border-radius: 10rem;
+    }
+}
+
+button.user__btn {
+    border: 2px solid orange;
+
+    border-radius: 2rem;
+    background: orange;
+    color: #1f2937;
+    width: 100%;
+    font-weight: 700;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: transparent;
+        color: $yellow;
+    }
+
+    &:active {
+        transform: scale(1.1);
+        transition: .1s;
+    }
+}
+
+
+@media (max-width: $sm) {
+    .user__section {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+
+
+        .user__block {
+            .user__data {
+                padding: 1rem;
+            }
+        }
+
+    }
+
+    
+
+    .user__address__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
+
+}

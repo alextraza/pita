@@ -112,7 +112,7 @@
                         </div>
                         <div class="form__field chose-time">
                             <input type="radio" id="delivery-time" name="delivery_time" value="time">
-                            <label for="delivery-time">Указать время:</label>
+                            <label for="delivery-time">Выбрать время:</label>
                         </div>
                         <div class="form__field__add time">
                             <label for="chose-time">Указать время:</label>
@@ -135,7 +135,7 @@
                         </div>
                         <div class="form__field__add comment">
                             <label for="comment">Комментарий к заказу</label>
-                            <textarea name="comment" id="comment" cols="30" rows="6"></textarea>
+                            <textarea name="comment" id="comment" cols="30" rows="4"></textarea>
                         </div>
 
                     </div>

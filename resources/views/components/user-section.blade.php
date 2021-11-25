@@ -5,7 +5,7 @@
         <div class="user__data">
 
 
-            <div class="user__b__heading">Привет, %username!</div>
+            <div class="user__b__heading">Привет, {{ Auth::user()->name }}!</div>
             <div class="user__b__subtitle">Здесь ты можешь изменить информацию о себе</div>
 
             <form action="">
@@ -14,12 +14,12 @@
 
                     <div class="form__field__add name">
                         <label for="name">Имя</label>
-                        <input id="name" type="text" name="name" value="">
+                        <input id="name" type="text" name="name" value="{{ Auth::user()->name }}">
                     </div>
                     <div class="form__field__add phone">
                         <label for="phone">Телефон</label>
                         <input id="phone" type="text" data-js="input" name="phone" placeholder="8 (xxx) xxx-xx-xx"
-                            value="  ">
+                            value="{{ Auth::user()->formatted_phone }}">
                     </div>
                     <div class="form__field__add pass">
                         <label for="password">Пароль</label>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form__field__add email">
                         <label for="email">Email</label>
-                        <input id="email" type="text" name="email">
+                        <input id="email" type="text" name="email" value="{{ Auth::user()->email }}" title="Для восстановления пароля">
                     </div>
                     <div>
                         <button class="user__btn" type="submit">Сохранить</button>
@@ -54,22 +54,12 @@
 
             </div>
             <div class="user__address__list">
+                @foreach (Auth::user()->addresses as $address)
                 <div class="address__item">
-                    <div class="address__title">Улица какая-то, дом 45, подъезд такой-то, квартира такая-то</div>
-
-                    <div><a href="">Изменить</a> <a href="">Удалить</a></div>
+                    <div class="address__title">{{ $address->full_address }}</div>
+                    <div><a class="rm-address" data-id="{{ $address->id }}" href="{{ route('user.address') }}">Изменить</a> <a class="add-address" data-id="{{ $address->id }}" href="{{ route('user.address')  }}">Удалить</a></div>
                 </div>
-                <div class="address__item">
-                    <div class="address__title">Улица какая-то, дом 45, подъезд такой-то, квартира такая-то</div>
-
-                    <div><a href="">Изменить</a> <a href="">Удалить</a></div>
-                </div>
-                <div class="address__item">
-                    <div class="address__title">Улица какая-то, дом 45, подъезд такой-то, квартира такая-то</div>
-
-                    <div><a href="">Изменить</a> <a href="">Удалить</a></div>
-                </div>
-
+                @endforeach
             </div>
             <button class="user__btn" type="submit">Добавить</button>
         </div>

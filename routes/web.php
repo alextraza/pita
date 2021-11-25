@@ -232,6 +232,7 @@ Route::prefix('cart')->name('cart.')->group(function() {
 // frontend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/user', [FrontendController::class, 'user'])->name('user');
+Route::post('/address', [FrontendController::class, 'user'])->name('user.address');
 
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');

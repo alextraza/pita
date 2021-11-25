@@ -30,12 +30,17 @@
                                             <label for="address-{{ $key }}">{{ $address->full_address }}</label>
                                         </div>
                                     @endforeach
-                                    <div class="form__field">
-                                        <input type="radio" id="address-3" name="client_address">
-                                        <label for="address-3">Ввести адрес</label>
-                                    </div>
+                                    @if ($user->addresses->isEmpty())
+                                        Добавь адреса, чтобы не видеть эту надпись, они <a href="{{ route('user') }}">тут</a>
+                                    @else
+                                        <div class="form__field">
+                                            <input type="radio" id="address-3" name="client_address">
+                                            <label for="address-3">Ввести адрес</label>
+                                        </div>
+                                    @endif
                                 @else
                                     <input type="hidden" id="address-3" name="client_address" value="on">
+                                    зарегайся и будет тебе счастье.
                                 @endif
                             </div>
                             <div class="form__group__add address__form">
@@ -125,7 +130,7 @@
                             <label for="name">Имя</label>
                             <input id="name" type="text" name="name" value="@if (Auth::user()) {{ Auth::user()->name }} @endif">
                         </div>
-                        <div class="form__field__add phone @error('phone') error @enderror @error('entrance') has-error @enderror">
+                        <div class="form__field__add phone @error('phone') error @enderror">
                             <label for="phone">Телефон<span>*</span></label>
                             <input id="phone" type="text" data-js="input" name="phone" id="phone" placeholder="8 (xxx) xxx-xx-xx"
                                    value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif">

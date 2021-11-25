@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     plusMinusUpdate(e);
     showUserModal(e);
     closeModalWindow(e);
+    editRmAddress(e);
   });
 
   document.addEventListener('change', (e) => {
@@ -47,6 +48,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch(function(error) {
       console.warn(error);
     })
+  }
+
+  // edit or remove address function
+  function editRmAddress(e) {
+    if (e.target.classList.contains('rm-address') || e.target.classList.contains('edit-address')) {
+      e.preventDefault()
+      let data = new FormData();
+      data.append('_token', getToken());
+      data.append('id', e.target.dataset.id);
+      data.append('action', e.target.dataset.action);
+      fetch(e.target.href, {
+        method: 'post',
+        body: data,
+      }).then(function(response) {
+        if (response.ok) {
+          return response.json();
+        }
+      }).then(function(data) {
+        if (data.status && data.status == 'removed') {
+          e.target.parentNode.parentNode.remove();
+        } else {
+          document.getElementById('addressForm').innerHTML = data.result;
+        }
+      }).catch(function(error) {
+        console.warn(error);
+      })
+    }
   }
 
   // add errors to fields

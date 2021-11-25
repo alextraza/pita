@@ -70,9 +70,9 @@
                 @foreach ($user->addresses as $address)
                     <div class="address__item">
                         <div class="address__title">{{ $address->full_address }}</div>
-                        <div><a class="rm-address" data-id="{{ $address->id }}"
-                                href="{{ route('user.address') }}">Изменить</a> <a class="add-address"
-                                                                                   data-id="{{ $address->id }}" href="{{ route('user.address') }}">Удалить</a></div>
+                        <div><a class="edit-address" data-id="{{ $address->id }}" data-action="edit"
+                                href="{{ route('user.address') }}">Изменить</a> <a class="rm-address"
+                                                                                   data-id="{{ $address->id }}" data-action="remove" href="{{ route('user.address') }}">Удалить</a></div>
                     </div>
                 @endforeach
 
@@ -86,10 +86,9 @@
 
                 <div class="user__b__heading">Добавить адрес</div>
 
-                <form id="address" method="post" class="form__group__add user__address__form"
-                      action="{{ route('user.address.store') }}">
+                <div id="addressForm">
                     @include('components.address')
-                </form>
+                </div>
 
                 {{-- Конец формы --}}
             </div>

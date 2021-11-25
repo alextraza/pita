@@ -114,4 +114,16 @@ class FrontendController extends Controller
 
         return back()->withSuccess('Адрес был успешно ' . $action);
     }
+
+    public function addressDelEdit(Request $request)
+    {
+        if ($request->action == 'remove') {
+            Address::destroy($request->id);
+            return response()->json(['status' => 'removed']);
+        }
+
+        $model = Address::where('id', $request->id)->first();
+        $view = view('components.address', compact('model'))->render();
+        return response()->json(['status' => 'edited', 'result' => $view]);
+    }
 }

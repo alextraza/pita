@@ -2,12 +2,12 @@
     @foreach ($categories as $category)
         <div class="heading" id="{{ $category->slug }}">
             <h2>{{ $category->header }} <span>
-                    @if ($category->image)
-                        <img src="{{ ImageHelper::thumb($category->image, 66, 66) }}" alt="" />
-                    @else
-                        {{ $category->icon }}
-                    @endif
-                </span></h2>
+                @if ($category->image)
+                    <img src="{{ ImageHelper::thumb($category->image, 66, 66) }}" alt="" />
+                @else
+                    {{ $category->icon }}
+                @endif
+            </span></h2>
         </div>
         <div class="menu__block__con">
             @foreach ($category->items as $item)
@@ -19,9 +19,9 @@
         </div>
 
     @endforeach
-    @if (Cart::count())
-        <div class="cat__nav__cart mobile">
+    <div class="cat__nav__cart mobile">
+        @if (Cart::count())
             @include('components.minicart')
-        </div>
-    @endif
+        @endif
+    </div>
 </div>

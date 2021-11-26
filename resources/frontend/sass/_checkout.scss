@@ -52,6 +52,7 @@
         position: absolute;
         /* then hide them off-screen */
         left: -100%;
+
     }
 
     ul {
@@ -105,10 +106,7 @@
         }
 
         section {
-            position: absolute;
-            top: -999em;
-            left: -999em;
-            display: grid;
+            display: none;
             gap: 1rem;
 
             p {
@@ -139,8 +137,7 @@
 
 .tabset>input:nth-child(1):checked~ul li:nth-child(1) label,
 .tabset>input:nth-child(2):checked~ul li:nth-child(2) label,
-.tabset>input:nth-child(2):checked~ul li:nth-child(2) label,
-.tabset>input:nth-child(2):checked~ul li:nth-child(2) label {
+.tabset>input:nth-child(3):checked~ul li:nth-child(3) label {
     background: $yellow;
 
     color: $primary;
@@ -148,13 +145,12 @@
 }
 
 
-
 .tabset>input:nth-child(1):checked~div>section:nth-child(1),
 .tabset>input:nth-child(2):checked~div>section:nth-child(2),
-.tabset>input:nth-child(2):checked~div>section:nth-child(2),
-.tabset>input:nth-child(2):checked~div>section:nth-child(2) {
-    position: Static;
+.tabset>input:nth-child(3):checked~div>section:nth-child(3) {
+    display: grid
 }
+
 
 .form__group {
     display: grid;
@@ -287,7 +283,8 @@
         background-color: transparent;
         border: 0;
         justify-self: end;
-        &:hover{
+
+        &:hover {
             color: $yellow;
         }
 

@@ -1157,3 +1157,20 @@ input {
         }
     }
 }
+
+.bg_unset{
+    display: grid;
+    gap: 1rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    .pass__reset{
+        // display: none;
+        
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    &:checked{
+        display: grid;
+    }
+}

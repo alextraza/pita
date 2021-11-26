@@ -913,6 +913,21 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   border-radius: 10rem;
 }
 
+.bg_unset {
+  display: grid;
+  gap: 1rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.bg_unset .pass__reset {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.bg_unset:checked {
+  display: grid;
+}
+
 @media (max-width: 640px) and (max-width: 640px) {
   .header {
     gap: 0.5rem;
@@ -1626,10 +1641,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   font-size: 1.4rem;
 }
 .tabset div section {
-  position: absolute;
-  top: -999em;
-  left: -999em;
-  display: grid;
+  display: none;
   gap: 1rem;
 }
 .tabset div section p {
@@ -1649,17 +1661,15 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 
 .tabset > input:nth-child(1):checked ~ ul li:nth-child(1) label,
 .tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label,
-.tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label,
-.tabset > input:nth-child(2):checked ~ ul li:nth-child(2) label {
+.tabset > input:nth-child(3):checked ~ ul li:nth-child(3) label {
   background: #ffa500;
   color: #1F2937;
 }
 
 .tabset > input:nth-child(1):checked ~ div > section:nth-child(1),
 .tabset > input:nth-child(2):checked ~ div > section:nth-child(2),
-.tabset > input:nth-child(2):checked ~ div > section:nth-child(2),
-.tabset > input:nth-child(2):checked ~ div > section:nth-child(2) {
-  position: Static;
+.tabset > input:nth-child(3):checked ~ div > section:nth-child(3) {
+  display: grid;
 }
 
 .form__group {

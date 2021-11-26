@@ -17,7 +17,8 @@ class FrontendController extends Controller
         $categories = Category::where('status', true)
                               ->orderBy('pos')
                               ->get();
-        return view('welcome', compact('categories'));
+        $page = Page::where('slug', 'index')->first();
+        return view('welcome', compact('categories', 'page'));
     }
 
     /**

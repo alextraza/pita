@@ -25,3 +25,9 @@
         @endif
     </div>
 </div>
+
+@if ($page->content)
+    <div class="content">
+        {!! $page->content  !!}
+    </div>
+@endif

@@ -13,7 +13,7 @@
                            aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
                     <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_register"
                            hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
-                    <input type="radio" class="input__tab" name="forgot_password" value="forgot_password"
+                    <input type="radio" class="input__tab" name="delivery" value="forgot_password"
                            id="tabset_password" hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }}
                            aria-hidden="true">
                     <ul hidden aria-hidden="true">
@@ -72,7 +72,7 @@
                         </section>
                         <section>
 
-                            <form method="post" class="ajax-form">
+                            <form method="post" class="ajax-form" action="{{ route('recovery.user') }}">
                                 @csrf
                                 <div class="pass__reset">
                                     <div class="form__field__add">

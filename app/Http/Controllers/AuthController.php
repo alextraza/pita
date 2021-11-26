@@ -145,18 +145,18 @@ class AuthController extends Controller
     public function passwordRecovery(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'remail' => 'required|email',
         ]);
 
         if ($validator->passes()) {
-            $user = User::where('email', $request->email)->first();
+            $user = User::where('email', $request->remail)->first();
             if (!$user) {
                 return response()->json(['status' => 'error', 'data' => ['errors' => 'Данный email не зарегистрирован в системе']]);
             }
             $newPassword = \Str::random(8);
             $user->pass_recovery = Hash::make($newPassword);
             $user->save();
-            Mail::to($request->email)->send(new PassRecover($newPassword));
+            Mail::to($request->remail)->send(new PassRecover($newPassword));
 
             return response()->json(['status' => 'message', 'data'=>'Вам на почту было направлено письмо с новым паролем']);
         }

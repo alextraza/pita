@@ -225,10 +225,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function showModal(id) {
     document.getElementById(id).classList.add('active');
+    document.getElementById('body').classList.add('active');
   }
 
   function hideModal(id) {
     document.getElementById(id).classList.remove('active');
+    document.getElementById('body').classList.remove('active');
   }
 
 

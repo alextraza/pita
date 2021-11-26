@@ -20,6 +20,9 @@ body {
         outline: unset;
 
     }
+    &.active{
+        overflow: hidden;
+    }
 }
 
 a {
@@ -30,142 +33,7 @@ a {
     }
 }
 
-
-
-
-
-// Header
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-
-    border-bottom: 2px solid $yellow;
-
-    // background: $secondary;
-    .logo {
-        color: $white;
-        font-size: 4rem;
-        // line-height: 0;
-        text-transform: uppercase;
-        font-weight: 900;
-    }
-
-    .resp__nav {
-        #menu__toggle {
-            display: none;
-        }
-    }
-
-
-    .phone,
-    .address {
-        span {
-            color: $gray-400;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        a,
-        p {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            justify-content: space-between;
-            color: $white;
-            font-size: 1.2rem;
-            font-weight: 800;
-
-
-            &:hover {
-                color: $yellow;
-            }
-        }
-    }
-
-    .user__log {
-        display: none;
-        color: white;
-
-        &:hover,
-        &:hover a {
-            color: $yellow;
-            border-color: $yellow;
-        }
-    }
-
-    .resp__nav {
-
-        ul {
-            display: flex;
-
-            width: 100%;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.2rem;
-            position: relative;
-
-            li {
-
-                font-weight: 600;
-                text-transform: uppercase;
-
-                a {
-                    display: flex;
-                    gap: 0.3rem;
-                    align-items: center;
-
-                    &:hover {
-                        color: $yellow;
-
-                    }
-
-                }
-
-                ul {
-                    display: grid;
-                    gap: 0.1rem;
-
-                    li {
-                        a {
-                            font-size: 0.8rem;
-                        }
-                    }
-                }
-
-
-
-                &.user>ul {
-                    display: none;
-                }
-
-                &:hover ul {
-                    position: absolute;
-                    display: flex;
-                    justify-content: space-between;
-                    bottom: 0;
-                    top: -0.5rem;
-                    right: 0;
-                    border-radius: 0.5rem;
-                    background: $primary;
-                    border: 2px solid $secondary;
-                    padding: 1rem;
-                    color: $gray-400;
-                    max-width: fit-content;
-                    z-index: 10;
-                    gap: 1rem;
-
-                }
-            }
-
-        }
-    }
-
-}
-
 // Header end
-
 
 // Category navigation 
 .cat__nav__sec {
@@ -180,9 +48,8 @@ a {
     top: 0;
     z-index: 2;
     box-shadow: 0 10px 15px -3px rgb(31 41 55), 0 4px 6px -2px rgb(0 0 0 / 78%);
-    // scroll 
 
-    transition: 2s;
+
 
     /* width */
     ::-webkit-scrollbar {
@@ -262,7 +129,8 @@ a {
     .cat__nav__cart {
         border: 2px solid $yellow;
         border-radius: 1rem;
-        &:active{
+
+        &:active {
             transform: scale3d(1.1);
             transition: .1s;
         }
@@ -323,7 +191,7 @@ a {
         }
 
     }
-    
+
 
 }
 
@@ -337,7 +205,6 @@ a {
 .menu__block {
     display: grid;
     padding: 1.5rem 1rem;
-
     gap: 2rem;
 
     .heading {
@@ -459,7 +326,8 @@ a {
         &.in_cart:hover .item__content .card__heading .card__cat {
             border-color: $yellow;
         }
-        &.in_cart .item__button.rm-from-cart{
+
+        &.in_cart .item__button.rm-from-cart {
             display: flex;
         }
 
@@ -910,6 +778,7 @@ a {
 
                         &.count-minus {
                             order: 1;
+
                             &:active {
                                 transform: scale(1.2);
                                 transition: .1s;
@@ -918,6 +787,7 @@ a {
 
                         &.count-plus {
                             order: 3;
+
                             &:active {
                                 transform: scale(1.2);
                                 transition: .1s;
@@ -931,7 +801,7 @@ a {
 
                     }
 
-                   
+
 
                     input {
                         order: 2;
@@ -1161,5 +1031,42 @@ input {
     &#tabset_login {
         display: none;
 
+    }
+}
+
+#dialog.modal {
+
+    .modal__close {
+        height: 2rem;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+
+    .modal__inner {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: $secondary;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+        position: relative;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $white;
+        height: 2rem;
+
+        a {
+            cursor: pointer;
+        }
+
+        &::after {
+            content: '';
+            border-left: 3px solid $yellow;
+            height: 2rem;
+            position: absolute;
+            left: 0;
+            border-radius: 10rem;
+        }
     }
 }

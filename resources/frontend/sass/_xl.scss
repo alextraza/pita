@@ -1,27 +1,25 @@
 @media (min-width: $lg) and (max-width: $xl) {
     .header {
-        display: flex;
-        justify-content: space-between;
+        
 
         .logo {
             font-size: 2rem;
         }
 
-        .phone a,
-        .address p{
+        .phone,
+        .address{
             font-size: 0.9rem;
         }
         .phone{
             text-align: center;
         }
-        .phone span, .address span{
-            display: none;
-        }
+        
         .resp__nav{
 
-            ul{
+            .menu__box{
+                gap: 0.5rem;
                 justify-content: flex-end;
-                li{
+                .menu__item{
                     font-size: 0.9rem;
                 }
             } 

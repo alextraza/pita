@@ -4,7 +4,7 @@
     </div>
     <div class="phone"><a href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a></div>
     <div class="address">
-        <p>{{ \App\Models\Config::address() }}</p>
+        {{ \App\Models\Config::address() }}
     </div>
 
     <div class="resp__nav">
@@ -30,7 +30,7 @@
                     @endguest
                     @auth
                     <li>
-                        <a href="/user">Кабинет</a>
+                        <a href="/user">Аккаунт</a>
                     </li>
                     <li>
                         <a href="{{ route('logout') }}">Выйти</a>
@@ -40,10 +40,6 @@
             </li>
         </ul>
     </div>
-    <div class="user__log">
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        </a>
-    </div>
+    
     
 </header>

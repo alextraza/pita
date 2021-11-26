@@ -153,7 +153,9 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: $white;
-
+    a{
+        cursor: pointer;
+    }
     &::before {
         content: '';
         border-left: 3px solid $yellow;

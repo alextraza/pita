@@ -8,17 +8,16 @@
                     <div class="title">1. Доставка</div>
                 </div>
                 <div class="tabset">
-                    <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_1_description" hidden
-                           aria-hidden="true" @if (! old('delivery') || old('delivery') == 'myself') checked @endif>
-                    <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_1_statistics" hidden
-                           {{ old('delivery') == 'delivery' ? 'checked' : '' }}
-                           aria-hidden="true">
+                    <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_1_description"
+                        hidden aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
+                    <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_1_statistics"
+                        hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
                     <ul hidden aria-hidden="true">
                         <li><label for="tabset_1_description">Курьером</label></li>
                         <li><label for="tabset_1_statistics">Заберу сам</label></li>
                     </ul>
                     <div>
-                        
+
 
                         <section>
                             <div class="form__group">
@@ -26,12 +25,17 @@
                                 @if ($user = Auth::user())
                                     @foreach ($user->addresses as $key => $address)
                                         <div class="form__field">
-                                            <input type="radio" id="address-{{ $key }}" name="client_address" value="{{ $address->full_address }}" {{ $key == 0 ? 'checked' : ''  }}>
-                                            <label for="address-{{ $key }}">{{ $address->full_address }}</label>
+                                            <input type="radio" id="address-{{ $key }}" name="client_address"
+                                                value="{{ $address->full_address }}"
+                                                {{ $key == 0 ? 'checked' : '' }}>
+                                            <label
+                                                for="address-{{ $key }}">{{ $address->full_address }}</label>
                                         </div>
                                     @endforeach
                                     @if ($user->addresses->isEmpty())
-                                        Добавь адреса, чтобы не видеть эту надпись, они <a href="{{ route('user') }}">тут</a>
+                                        <div class="user__b__subtitle">
+                                            Добавить адреса вы можете в личном кабинете <a
+                                                href="{{ route('user') }}">Войти</a></div>
                                     @else
                                         <div class="form__field">
                                             <input type="radio" id="address-3" name="client_address">
@@ -40,7 +44,10 @@
                                     @endif
                                 @else
                                     <input type="hidden" id="address-3" name="client_address" value="on">
-                                    зарегайся и будет тебе счастье.
+                                    <div class="user__b__subtitle">
+                                        <a id="login">Войти</a> / 
+                                        <a id="register">Зарегистрироваться</a> 
+                                    </div>
                                 @endif
                             </div>
                             <div class="form__group__add address__form">
@@ -60,7 +67,8 @@
                                 </div>
                                 <div class="form__field__add appartment @error('apartment') has-error @enderror">
                                     <label for="appartment">Квартира</label>
-                                    <input id="appartment" type="text" name="apartment" value="{{ old('apartment') }}">
+                                    <input id="appartment" type="text" name="apartment"
+                                        value="{{ old('apartment') }}">
                                     @error('apartment')
                                         <span class="text-danger">{{ $errors->first('apartment') }}</span>
                                     @enderror
@@ -90,10 +98,13 @@
                         </section>
                         <section>
                             <div class="sec__title">Наш адрес</div>
-                            <p>{{ \App\Models\Config::address() }}  <a href="https://yandex.ru/maps/org/pita_pizza/129261506580/" target="_blank">Посмотреть на
-                                карте</a></p>
                            
+
                             <div class="map">
+                                <div class="user__b__subtitle">{{ \App\Models\Config::address() }} <a
+                                    href="https://yandex.ru/maps/org/pita_pizza/129261506580/"
+                                    target="_blank">Посмотреть на
+                                    карте</a></div>
                                 {!! \App\Models\Config::map() !!}
 
                             </div>
@@ -108,9 +119,9 @@
                 </div>
                 <div class="tabset">
                     <div class="sec__title">Когда доставить пиццу?</div>
-                   
+
                     <div class="form__group time__grid">
-                       
+
                         <div class="form__field now">
                             <input type="radio" id="now" name="delivery_time" value="В ближайшее время" checked>
                             <label for="now">В ближайшее время</label>
@@ -132,8 +143,8 @@
                         </div>
                         <div class="form__field__add phone @error('phone') error @enderror">
                             <label for="phone">Телефон<span>*</span></label>
-                            <input id="phone" type="text" data-js="input" name="phone" id="phone" placeholder="8 (xxx) xxx-xx-xx"
-                                   value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif">
+                            <input id="phone" type="text" data-js="input" name="phone" id="phone"
+                                placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif">
                             @error('phone')
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>
                             @enderror
@@ -144,7 +155,7 @@
                         </div>
 
                     </div>
-                   
+
                 </div>
 
             </div>
@@ -155,20 +166,20 @@
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_description" hidden
-                           aria-hidden="true" checked>
+                        aria-hidden="true" checked>
                     <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_statistics" hidden
-                           aria-hidden="true">
+                        aria-hidden="true">
                     <ul hidden aria-hidden="true">
 
                         <li><label for="tabset_2_description">Он-лайн</label></li>
                         <li><label for="tabset_2_statistics">Курьеру</label></li>
 
                     </ul>
-                    
+
                     <div>
                         <section>
                             <div class="sec__title">Какой-то текст</div>
-                           
+
                         </section>
                         <section>
                             <div class="form__group">
@@ -189,12 +200,13 @@
                     <button type="submit" class="primary__button">Оформить заказ</button>
                     <div class="privacy">
                         Нажимая на кнопку Оформить заказ, вы даёте согласие на <a href="/privacy-policy">обработку
-                        персональных данных</a>, в соответствии с
+                            персональных данных</a>, в соответствии с
                         <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
-                        Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
+                        Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a
+                            href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
                     </div>
                 </div>
             </div>
     </form>
-        </div>
+</div>
 </div>

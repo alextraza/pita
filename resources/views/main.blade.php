@@ -10,7 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body id="body">
     <x-header />
     @yield('content')
     @include('components.modal')

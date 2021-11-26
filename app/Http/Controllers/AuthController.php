@@ -158,7 +158,7 @@ class AuthController extends Controller
             $user->save();
             Mail::to($request->email)->send(new PassRecover($newPassword));
 
-            return response()->json(['status' => 'success', 'data'=>'Вам на почту было направлено письмо с новым паролем']);
+            return response()->json(['status' => 'message', 'data'=>'Вам на почту было направлено письмо с новым паролем']);
         }
         return response()->json(['status' => 'error', 'data' => $validator->errors()]);
     }

@@ -46,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.status == 'success') {
                     location.reload();
                 }
+                if (data.status == 'message') {
+                    e.target.querySelector('.message-container').innerHTML = data.data;
+                }
             }
         }).catch(function (error) {
             console.warn(error);

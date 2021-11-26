@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PassRecover;
 use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Session;
 use Validator;
 
@@ -79,12 +81,37 @@ class AuthController extends Controller
             if (Auth::attempt($credentials)) {
                 return response()->json(['status' => 'success']);
             } else {
+                if ($this->checkPasswordRecovery($credentials)) {
+                    return response()->json(['status' => 'success']);
+                }
                 return response()->json(['status' => 'error', 'data' => ['errors' => 'Неверные данные']]);
             }
         }
 
         return response()->json(['status' => 'error', 'data' => $validator->errors()]);
 
+    }
+
+    public function checkPasswordRecovery($credentials)
+    {
+        $user = User::where('phone', $credentials['phone'])
+                    ->first();
+        if (!$user) {
+            return false;
+        }
+        if (Hash::check($credentials['password'], $user->pass_recovery)) {
+            $user->password = $user->pass_recovery;
+            $user->pass_recovery = null;
+            $user->save();
+            $this->authUser($user->id);
+            return true;
+        }
+        return false;
+    }
+
+    private function authUser($id)
+    {
+        Auth::loginUsingId($id);
     }
 
     public function userRegister(Request $request)
@@ -103,7 +130,7 @@ class AuthController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
 
-            Auth::loginUsingId($user->id);
+            $this->authUser($user->id);
             return response()->json(['status' => 'success']);
         }
         return response()->json(['status' => 'error', 'data' => $validator->errors()]);
@@ -113,5 +140,26 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect()->back();
+    }
+
+    public function passwordRecovery(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+        ]);
+
+        if ($validator->passes()) {
+            $user = User::where('email', $request->email)->first();
+            if (!$user) {
+                return response()->json(['status' => 'error', 'data' => ['errors' => 'Данный email не зарегистрирован в системе']]);
+            }
+            $newPassword = \Str::random(8);
+            $user->pass_recovery = Hash::make($newPassword);
+            $user->save();
+            Mail::to($request->email)->send(new PassRecover($newPassword));
+
+            return response()->json(['status' => 'success', 'data'=>'Вам на почту было направлено письмо с новым паролем']);
+        }
+        return response()->json(['status' => 'error', 'data' => $validator->errors()]);
     }
 }

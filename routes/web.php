@@ -210,6 +210,7 @@ Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('ulogin', [AuthController::class, 'userLogin'])->name('login.user');
 Route::post('uregister', [AuthController::class, 'userRegister'])->name('register.user');
+Route::get('recover', [AuthController::class, 'passwordRecovery'])->name('recovery.user');
 
 Route::prefix('cart')->name('cart.')->group(function() {
     Route::get('/', [

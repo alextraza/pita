@@ -1,7 +1,60 @@
 @media (max-width: $sm) {
 
 
+    @media (max-width: $sm) {
 
+
+        // Header
+        .header {
+    
+    
+            gap: 0.5rem;
+            align-items: center;
+    
+            .logo {
+                font-size: 3rem;
+                color: $white;
+                order: 1;
+    
+            }
+    
+            .phone {
+                order: 5;
+    
+                a {
+                    font-size: 0.9rem;
+                }
+    
+                span {
+                    display: none;
+                }
+    
+            }
+    
+            .address {
+    
+                order: 3;
+    
+                span {
+                    display: none;
+                }
+    
+                p {
+                    font-size: 0.9rem;
+                }
+            }
+            .resp__nav {
+                
+                order: 2;
+            
+            }
+    
+    
+            // Гамбургер
+        
+        }
+    }
+    
 
     
 

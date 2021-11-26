@@ -31,7 +31,6 @@ input {
   border: 0;
 }
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -51,17 +50,6 @@ ol, ul {
 
 blockquote, q {
   quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 img, object {
@@ -86,7 +74,7 @@ body :-webkit-any-link:focus-visible {
   outline-offset: unset;
   outline: unset;
 }
-body.active {
+body.active, body.active-menu {
   overflow: hidden;
 }
 
@@ -95,6 +83,68 @@ a {
 }
 a:hover {
   color: #ffa500;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid #ffa500;
+}
+.header .logo {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.header .phone,
+.header .address {
+  color: #fff;
+  font-weight: 800;
+}
+.header .resp__nav {
+  display: flex;
+  position: relative;
+}
+.header .resp__nav #menu__toggle {
+  display: none;
+}
+.header .resp__nav .menu__box {
+  display: flex;
+}
+.header .resp__nav .menu__box .menu__item {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.header .resp__nav .menu__box .menu__item a:hover {
+  color: #ffa500;
+}
+.header .resp__nav .menu__box .menu__item ul li a {
+  font-size: 0.8rem;
+}
+.header .resp__nav .menu__box .menu__item.user > ul {
+  display: none;
+}
+.header .resp__nav .menu__box .menu__item:hover ul {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  top: -0.5rem;
+  right: 0;
+  border-radius: 0.5rem;
+  background: #1F2937;
+  border: 2px solid #374151;
+  padding: 1rem;
+  color: #9CA3AF;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  z-index: 10;
+  gap: 1rem;
 }
 
 .cat__nav__sec {
@@ -863,6 +913,38 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   border-radius: 10rem;
 }
 
+@media (max-width: 640px) and (max-width: 640px) {
+  .header {
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .header .logo {
+    font-size: 3rem;
+    color: #fff;
+    order: 1;
+  }
+  .header .phone {
+    order: 5;
+  }
+  .header .phone a {
+    font-size: 0.9rem;
+  }
+  .header .phone span {
+    display: none;
+  }
+  .header .address {
+    order: 3;
+  }
+  .header .address span {
+    display: none;
+  }
+  .header .address p {
+    font-size: 0.9rem;
+  }
+  .header .resp__nav {
+    order: 2;
+  }
+}
 @media (max-width: 640px) {
   .cat__nav__sec {
     padding: 1rem 0.5rem 0.5rem 1rem;
@@ -881,7 +963,8 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .cat__nav__sec .cat__nav__cart {
     display: none;
   }
-
+}
+@media (max-width: 640px) {
   .menu__block {
     position: relative;
   }
@@ -897,13 +980,15 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .menu__block .menu__block__con .item .item__content .card__heading {
     font-size: 1.6rem;
   }
-
+}
+@media (max-width: 640px) {
   .footer .logo {
     font-size: 2rem;
     word-break: break-word;
     flex: 1;
   }
-
+}
+@media (max-width: 640px) {
   .cart__section {
     display: grid;
     grid-template-columns: 1fr;
@@ -982,7 +1067,8 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .cart__section .cart__offer .cart__offer__list .offer__item {
     grid-template-columns: 1fr 2fr;
   }
-
+}
+@media (max-width: 640px) {
   .cat__nav__cart.mobile {
     display: block;
     position: fixed;
@@ -1017,7 +1103,8 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     align-items: center;
     font-weight: 800;
   }
-
+}
+@media (max-width: 640px) {
   .modal .modal__window {
     min-width: 90vw;
     max-width: 90vw;
@@ -1044,92 +1131,8 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     border-radius: 1rem;
   }
 
-  .header {
-    display: grid;
-    grid-template-columns: 14fr 14fr 14fr 1fr;
-  }
   .header .logo {
     font-size: 2rem;
-  }
-  .header .phone a,
-.header .address p {
-    font-size: 0.9rem;
-  }
-  .header .phone a span,
-.header .address p span {
-    display: none;
-  }
-  .header .resp__nav {
-    display: grid;
-    position: relative;
-    order: 2;
-  }
-  .header .resp__nav #menu__toggle {
-    opacity: 0;
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0);
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__box {
-    visibility: visible;
-    left: 0;
-  }
-  .header .resp__nav .menu__btn {
-    align-items: center;
-    width: 26px;
-    cursor: pointer;
-    z-index: 4;
-  }
-  .header .resp__nav .menu__btn > span,
-.header .resp__nav .menu__btn > span::before,
-.header .resp__nav .menu__btn > span::after {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #ffa500;
-    transition-duration: 0.25s;
-  }
-  .header .resp__nav .menu__btn > span::before {
-    content: "";
-    top: -8px;
-  }
-  .header .resp__nav .menu__btn > span::after {
-    content: "";
-    top: 8px;
-  }
-  .header .resp__nav .menu__box {
-    display: block;
-    position: fixed;
-    visibility: hidden;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 80px 0;
-    list-style: none;
-    background-color: #1F2937;
-    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-    transition-duration: 0.25s;
-    z-index: 3;
-  }
-  .header .resp__nav .menu__item {
-    display: block;
-    padding: 12px 24px;
-    color: #333;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    transition-duration: 0.25s;
   }
 
   .cat__nav__sec {
@@ -1143,11 +1146,11 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     gap: 2rem;
   }
   .menu__block .menu__block__con {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   html {
     /* width */
     /* Track */
@@ -1170,21 +1173,26 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 
   .header .logo {
     font-size: 2rem;
+    order: 1;
+  }
+  .header .phone {
+    order: 2;
+  }
+  .header .address {
+    order: 3;
   }
   .header .phone a,
 .header .address p {
     font-size: 1rem;
   }
-  .header .phone a span,
-.header .address p span {
-    display: none;
-  }
   .header .resp__nav {
     display: grid;
     position: relative;
-    order: 2;
+    order: 4;
+    width: 30px;
   }
   .header .resp__nav #menu__toggle {
+    display: none;
     opacity: 0;
   }
   .header .resp__nav #menu__toggle:checked ~ .menu__btn > span {
@@ -1200,13 +1208,18 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
   .header .resp__nav #menu__toggle:checked ~ .menu__box {
     visibility: visible;
-    left: 0;
+    right: 0;
   }
   .header .resp__nav .menu__btn {
+    display: flex;
     align-items: center;
+    position: initial;
+    top: 20px;
+    right: 20px;
     width: 26px;
+    height: 26px;
     cursor: pointer;
-    z-index: 6;
+    z-index: 5;
   }
   .header .resp__nav .menu__btn > span,
 .header .resp__nav .menu__btn > span::before,
@@ -1220,39 +1233,46 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
   .header .resp__nav .menu__btn > span::before {
     content: "";
-    top: -8px;
+    top: -0.7rem;
   }
   .header .resp__nav .menu__btn > span::after {
     content: "";
-    top: 8px;
+    top: 0.7rem;
   }
   .header .resp__nav .menu__box {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     visibility: hidden;
     top: 0;
-    left: -100%;
-    width: 100%;
+    right: -100%;
+    width: 300px;
     height: 100%;
     margin: 0;
     padding: 80px 0;
-    list-style: none;
     background-color: #1F2937;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
     transition-duration: 0.25s;
-    z-index: 5;
+    z-index: 4;
   }
-  .header .resp__nav .menu__item {
+  .header .resp__nav .menu__box .menu__item {
+    width: 100%;
+  }
+  .header .resp__nav .menu__box .menu__item a,
+.header .resp__nav .menu__box .menu__item ul li a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  .header .resp__nav .menu__box .menu__item.user > a {
+    display: none;
+  }
+  .header .resp__nav .menu__box .menu__item.user ul {
     display: block;
-    padding: 12px 24px;
-    color: #333;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    transition-duration: 0.25s;
-  }
-  .header .resp__nav .menu__item:hover {
-    background-color: #374151;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
   }
 
   .cat__nav__sec {
@@ -1271,7 +1291,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     gap: 2rem;
   }
   .menu__block .menu__block__con {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   .menu__block .menu__block__con .item {
@@ -1281,7 +1301,96 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     font-size: 1.5rem;
   }
 }
-@media (min-width: 640px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
+  .header .resp__nav {
+    display: grid;
+    position: relative;
+    width: 30px;
+  }
+  .header .resp__nav #menu__toggle {
+    display: none;
+    opacity: 0;
+  }
+  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  .header .resp__nav #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    right: 0;
+  }
+  .header .resp__nav .menu__btn {
+    display: flex;
+    align-items: center;
+    position: initial;
+    top: 20px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 5;
+  }
+  .header .resp__nav .menu__btn > span,
+.header .resp__nav .menu__btn > span::before,
+.header .resp__nav .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffa500;
+    transition-duration: 0.25s;
+  }
+  .header .resp__nav .menu__btn > span::before {
+    content: "";
+    top: -0.7rem;
+  }
+  .header .resp__nav .menu__btn > span::after {
+    content: "";
+    top: 0.7rem;
+  }
+  .header .resp__nav .menu__box {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    background-color: #1F2937;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+    transition-duration: 0.25s;
+    z-index: 4;
+  }
+  .header .resp__nav .menu__box .menu__item {
+    width: 100%;
+  }
+  .header .resp__nav .menu__box .menu__item a,
+.header .resp__nav .menu__box .menu__item ul li a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  .header .resp__nav .menu__box .menu__item.user > a {
+    display: none;
+  }
+  .header .resp__nav .menu__box .menu__item.user ul {
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
   .cart__section {
     gap: 2rem;
     grid-template-columns: 1fr;
@@ -1312,7 +1421,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     padding: 0.8rem;
   }
   .cart__section .cart__offer .cart__cat__heading {
-    font-size: 1.8remrem;
+    font-size: 1.8rem;
     grid-auto-flow: column;
   }
 
@@ -1365,6 +1474,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .header .resp__nav .menu__box {
     gap: 0.5rem;
     justify-content: flex-end;
+    align-items: center;
   }
   .header .resp__nav .menu__box .menu__item {
     font-size: 0.9rem;
@@ -1407,6 +1517,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     font-size: 1.1rem;
   }
   .header .resp__nav .menu__box {
+    align-items: center;
     gap: 1rem;
   }
 
@@ -1420,6 +1531,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
   .header .resp__nav .menu__box {
     gap: 1rem;
+    align-items: center;
   }
 
   .menu__block .menu__block__con {
@@ -2143,186 +2255,5 @@ button.user__btn:active {
   .user__address__form {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "street street " "house  appartment " "entrance  code " "floor  . ";
-  }
-}
-.header {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 2px solid #ffa500;
-}
-.header .logo {
-  color: white;
-  text-transform: uppercase;
-  font-weight: 900;
-}
-.header .phone,
-.header .address {
-  color: #fff;
-  font-weight: 800;
-}
-.header .resp__nav {
-  display: flex;
-  position: relative;
-}
-.header .resp__nav #menu__toggle {
-  display: none;
-}
-.header .resp__nav .menu__box {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.header .resp__nav .menu__box .menu__item {
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.header .resp__nav .menu__box .menu__item a:hover {
-  color: #ffa500;
-}
-.header .resp__nav .menu__box .menu__item ul li a {
-  font-size: 0.8rem;
-}
-.header .resp__nav .menu__box .menu__item.user > ul {
-  display: none;
-}
-.header .resp__nav .menu__box .menu__item:hover ul {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  bottom: 0;
-  top: -0.5rem;
-  right: 0;
-  border-radius: 0.5rem;
-  background: #1F2937;
-  border: 2px solid #374151;
-  padding: 1rem;
-  color: #9CA3AF;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  z-index: 10;
-  gap: 1rem;
-}
-
-@media (max-width: 640px) {
-  .header {
-    gap: 0.5rem;
-    align-items: center;
-  }
-  .header .logo {
-    font-size: 3rem;
-    color: #fff;
-    order: 1;
-  }
-  .header .phone {
-    order: 5;
-  }
-  .header .phone a {
-    font-size: 0.9rem;
-  }
-  .header .phone span {
-    display: none;
-  }
-  .header .address {
-    order: 3;
-  }
-  .header .address span {
-    display: none;
-  }
-  .header .address p {
-    font-size: 0.9rem;
-  }
-  .header .resp__nav {
-    display: grid;
-    position: relative;
-    order: 2;
-    width: 30px;
-  }
-  .header .resp__nav #menu__toggle {
-    display: none;
-    opacity: 0;
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0);
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
-  }
-  .header .resp__nav #menu__toggle:checked ~ .menu__box {
-    visibility: visible;
-    right: 0;
-  }
-  .header .resp__nav .menu__btn {
-    display: flex;
-    align-items: center;
-    position: initial;
-    top: 20px;
-    right: 20px;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    z-index: 5;
-  }
-  .header .resp__nav .menu__btn > span,
-.header .resp__nav .menu__btn > span::before,
-.header .resp__nav .menu__btn > span::after {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #ffa500;
-    transition-duration: 0.25s;
-  }
-  .header .resp__nav .menu__btn > span::before {
-    content: "";
-    top: -0.7rem;
-  }
-  .header .resp__nav .menu__btn > span::after {
-    content: "";
-    top: 0.7rem;
-  }
-  .header .resp__nav .menu__box {
-    display: block;
-    position: fixed;
-    visibility: hidden;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    margin: 0;
-    padding: 80px 0;
-    background-color: #1F2937;
-    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-    transition-duration: 0.25s;
-    z-index: 4;
-  }
-  .header .resp__nav .menu__box .menu__item {
-    width: 100%;
-  }
-  .header .resp__nav .menu__box .menu__item a,
-.header .resp__nav .menu__box .menu__item ul li a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  }
-  .header .resp__nav .menu__box .menu__item.user > a {
-    display: none;
-  }
-  .header .resp__nav .menu__box .menu__item.user ul {
-    display: block;
-    position: relative;
-    padding: 0;
-    margin: 0;
-    border: 0;
   }
 }

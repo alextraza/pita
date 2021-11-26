@@ -20,7 +20,7 @@ body {
         outline: unset;
 
     }
-    &.active{
+    &.active, &.active-menu{
         overflow: hidden;
     }
 }
@@ -32,6 +32,93 @@ a {
         color: $yellow;
     }
 }
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 2px solid $yellow;
+
+
+    .logo {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+
+    .phone,
+    .address {
+        color: $white;
+        font-weight: 800;
+
+    }
+
+    .resp__nav {
+        display: flex;
+        position: relative;
+
+        #menu__toggle {
+            display: none;
+        }
+
+
+        .menu__box {
+            display: flex;
+           
+        
+
+
+            .menu__item {
+                font-weight: 600;
+                text-transform: uppercase;
+
+                a {
+                    &:hover {
+                        color: $yellow;
+
+                    }
+                }
+
+                ul {
+                    li {
+                        a {
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+
+
+
+                &.user>ul {
+                    display: none;
+                }
+
+                &:hover ul {
+                    position: absolute;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    bottom: 0;
+                    top: -0.5rem;
+                    right: 0;
+                    border-radius: 0.5rem;
+                    background: $primary;
+                    border: 2px solid $secondary;
+                    padding: 1rem;
+                    color: $gray-400;
+                    max-width: fit-content;
+                    z-index: 10;
+                    gap: 1rem;
+
+                }
+            }
+        }
+    }
+}
+
+
 
 // Header end
 

@@ -45,7 +45,7 @@
                                 @else
                                     <input type="hidden" id="address-3" name="client_address" value="on">
                                     <div class="user__b__subtitle">
-                                        <a id="login">Войти</a> / 
+                                        <a id="login">Войти</a>
                                         <a id="register">Зарегистрироваться</a> 
                                     </div>
                                 @endif
@@ -184,15 +184,16 @@
                         <section>
                             <div class="form__group">
                                 <div class="sec__title">Как будете оплачивать?</div>
+                                <div>
                                 <div class="form__field">
-                                    <input type="radio" id="address-1" name="client-address" value="address-1">
+                                    <input type="radio" id="address-1" name="client-address" value="address-1" checked>
                                     <label for="address-1">Оплата курьеру картой</label>
                                 </div>
                                 <div class="form__field">
                                     <input type="radio" id="address-2" name="client-address" value="address-2">
                                     <label for="address-2">Оплата курьеру наличными / Самовывоз</label>
                                 </div>
-
+                            </div>
                         </section>
 
 

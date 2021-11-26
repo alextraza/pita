@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (catNavCart) {
                     catNavCart.forEach(element => {
                         element.innerHTML = result;
+                        document.querySelector('footer').classList.add('bottom-marged');
                     })
                 }
             } catch (error) {

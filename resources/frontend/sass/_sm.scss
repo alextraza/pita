@@ -110,11 +110,15 @@
 
     // Footer
     .footer {
+        &.bottom-marged{
+            padding-bottom: 6rem;
+        }
         .logo {
             font-size: 2rem;
             word-break: break-word;
             flex: 1;
         }
+        
     }
 
 

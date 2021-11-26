@@ -36,6 +36,12 @@
                                     </div>
                                     <div class="form__field__add bg_unset">
                                         <label for="forgot_password">Забыли пароль</label>
+                                        <div class="form__field__add">
+                                            <div>
+                                        <label for="email">Email*</label>
+                                        <input id="email" type="text" name="email">
+                                    </div>
+                                    </div>
                                     </div>
                                     <div class="errors">
                                     </div>

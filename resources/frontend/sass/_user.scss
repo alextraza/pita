@@ -145,6 +145,8 @@
 }
 
 .user__b__subtitle {
+    display: flex;
+    justify-content: space-between;
     padding: 1rem;
     background: $secondary;
     border-radius: 0.5rem;
@@ -153,6 +155,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: $white;
+  
     a{
         cursor: pointer;
     }

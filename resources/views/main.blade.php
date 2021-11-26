@@ -10,7 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="@if (Session::get('success'))active @endif">
     <x-header />
     @yield('content')
     @include('components.modal')

@@ -982,6 +982,9 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
 }
 @media (max-width: 640px) {
+  .footer.bottom-marged {
+    padding-bottom: 6rem;
+  }
   .footer .logo {
     font-size: 2rem;
     word-break: break-word;
@@ -1148,6 +1151,10 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .menu__block .menu__block__con {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  .footer.bottom-marged {
+    padding-bottom: 6rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -2168,6 +2175,8 @@ button.primary__button:hover {
 }
 
 .user__b__subtitle {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
   background: #374151;
   border-radius: 0.5rem;

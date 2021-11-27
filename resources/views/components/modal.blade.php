@@ -19,7 +19,7 @@
                     <ul hidden aria-hidden="true">
                         <li><label for="tabset_login">Войти</label></li>
                         <li><label for="tabset_register">Регистрация</label></li>
-                     
+
                     </ul>
                     <div>
                         <section>
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="form__field__add bg_unset">
                                         <label for="forgot_password">Забыли пароль</label>
-                                       
+
                                     </div>
                                     <div class="errors">
                                     </div>
@@ -67,9 +67,10 @@
                                         <label for="password">Подтвердите пароль</label>
                                         <input id="password" type="password" name="password_confirmation">
                                     </div>
-                                   
+
                                     <button type="submit">Зарегистрироваться</button>
                                 </div>
+                            </form>
                         </section>
                         <section>
 
@@ -81,7 +82,7 @@
 
                                         <label for="password-reset">Email</label>
                                         <input id="password-reset" type="text" name="remail">
-                                       
+
 
                                     </div>
                                     <button type="submit">Восстановить</button>

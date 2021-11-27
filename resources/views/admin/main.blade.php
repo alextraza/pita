@@ -17,10 +17,13 @@
                 </object>
                 PITA-PIZZA
             </a>
+            <a class="menu__close" href="#">&times;</a>
         </div>
         @include('admin.menu')
     </div>
+    <div class="overlay"></div>
     <div class="top-bar">
+        <a class="menu-toggle" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu ficon"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
         <div class="left">
             @if ($message = Session::get('success'))
                 <div class="session__msg">
@@ -39,11 +42,11 @@
             </div>
             <a class="edit-users" href="{{ route('user.index') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                {{ Auth::user()->name }}
+                <span>{{ Auth::user()->name }}</span>
             </a>
             <a class="logout" href="{{ route('signout') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power me-50"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
-                Выйти
+                <span>Выйти</span>
             </a>
         </div>
     </div>

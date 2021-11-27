@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     openFilterToggle(e);
     sortBy(e);
     deleteImage(e);
+    menuToggle(e);
 
     if (! confirmDelete(e.target)) {
       e.preventDefault();
@@ -73,6 +74,16 @@ document.addEventListener("DOMContentLoaded", function() {
              });
 
       }
+    }
+  }
+
+  //toggle menu
+  function menuToggle(e) {
+    if (e.target.classList.contains('menu-toggle') ||
+        e.target.classList.contains('overlay') ||
+        e.target.classList.contains('menu__close')) {
+      e.preventDefault();
+      document.querySelector('.menu').classList.toggle('showed');
     }
   }
 

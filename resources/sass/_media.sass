@@ -1,0 +1,124 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+  .menu
+    left: -260px
+    .logo
+      padding-left: 0.5rem
+      padding-right: 2rem
+      .menu__close
+        position: absolute
+        top: 20px
+        right: 20px
+        font-size: 2rem
+        line-height: 1
+    &.showed
+      left: 0px
+      z-index: 5
+      &+.overlay
+        background: rgba(34,41,47,.5)
+        z-index: 4
+        top: 0px
+        left: 0px
+        right: 0px
+        bottom: 0px
+        position: fixed
+
+  .top-bar
+    left: 0
+    width: calc(100% - 4rem)
+    margin-left: 2rem
+    margin-right: 2rem
+
+  .content
+    margin-left: 0
+
+// ≥992px
++media-breakpoint-down(md)
+
+  .row
+    &>div
+      max-width: 100%
+    .md-2
+        max-width: 50%
+
+  .content
+    .breadcrumb-top
+      flex-direction: column
+      align-items: flex-start
+      .header
+        font-size: 1.3rem
+        border: none
+      .breadcrumbs
+        padding-left: 0px
+        font-size: 0.8rem
+  .dock__header,
+  .dock__foot
+    flex-wrap: wrap
+    input.btn, .btn
+      padding-top: .4rem
+      padding-bottom: .4rem
+      min-width: 135px
+    &>*:first-child
+      margin-bottom: .8rem
+  .dock__foot
+    //flex-direction: row-reverse
+
+
+// ≥768px
++media-breakpoint-down(sm)
+
+  .md-2
+    min-width: 100%
+  .top-bar
+    .right
+      a
+        span
+          display: none
+
+// ≥576px
++media-breakpoint-down(xs)
+
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+  .md-2
+    max-width: calc(100% / 3)
+  .md-3
+    max-width: 50%
+  .md-4
+    max-width: 50%
+  .md-6
+    max-width: 50%
+  .md-8
+    max-width: 100%
+
+// ≤992px
++media-breakpoint-up(lg)
+  .menu
+    &-toggle
+      display: none
+    .menu__close
+      display: none
+
+// ≤1200px
++media-breakpoint-up(xl)
+  .md-2
+    max-width: calc(100% / 6)
+  .md-3
+    max-width: 25%
+  .md-4
+    max-width: calc(100% / 3)
+  .md-6
+    max-width: 50%
+  .md-8
+    max-width: calc(100% / 3 * 2)

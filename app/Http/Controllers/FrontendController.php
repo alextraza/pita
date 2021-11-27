@@ -35,8 +35,8 @@ class FrontendController extends Controller
     */
     public function page($slug)
     {
-       $model = Page::where('slug', $slug)->firstOrFail();
-        dd($model);
+        $page = Page::where('slug', $slug)->firstOrFail();
+        return view('page', compact('page'));
     }
 
     /**

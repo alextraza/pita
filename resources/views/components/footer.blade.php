@@ -1,9 +1,9 @@
-{{-- @if (request()->cookie('cookies')) --}}
+@if (!request()->cookie('cookies'))
 <div class="cookieform">
-    Мы используем cookies. Продолжая пользоваться сайтом, вы принимаете <a href="/privacy-policy">условия обработки персональных данных</a> <button onclick="cookie">х</button>
+    Мы используем cookies. Продолжая пользоваться сайтом, вы принимаете <a href="/privacy-policy">условия обработки персональных данных</a> <button class="cookie">х</button>
   
 </div>
-  {{-- @endif --}}
+  @endif
 <footer class="footer @if (Cart::count())bottom-marged @endif">
     <div class="logo">
         Pita pizza

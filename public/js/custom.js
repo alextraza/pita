@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     location.reload();
                 }
                 if (data.status == 'message') {
-                    e.target.querySelector('.message-container').innerHTML = data.data;
+                    e.target.querySelector('.user__b__subtitle').innerHTML = data.data;
                 }
             }
         }).catch(function (error) {

@@ -8,6 +8,7 @@
     {{--<x-menu />--}}
     @include('components.category-navigation')
     @include('components.menu')
+    @include('components.content-section')
   
 @endsection
 

@@ -82,13 +82,8 @@
                                     <div class="form__field__add">
                                         <label for="password-reset">Email</label>
                                         <input id="password-reset" type="text" name="remail">
-<<<<<<< HEAD
-
-
-=======
                                     </div>
                                     <div class="errors">
->>>>>>> e527633faca3a1ed2d6b2bb189fa91b11559ca4d
                                     </div>
                                     <button type="submit">Восстановить</button>
                                 </div>

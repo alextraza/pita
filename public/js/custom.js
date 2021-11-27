@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showUserModal(e);
         closeModalWindow(e);
         editRmAddress(e);
+        cookie(e);
     });
 
     document.addEventListener('change', (e) => {
@@ -269,18 +270,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function overflowHidden(e) {
-      
+
         if (e.target.id == 'menu__toggle') {
-            
-            if (e.target.checked)  {
+
+            if (e.target.checked) {
                 return document.body.classList.add('active-menu');
-                
-                
-            }
-            else{
+
+
+            } else {
                 return document.body.classList.remove('active-menu');
             }
         }
 
+    }
+
+    function cookie(e) {
+
+        if (e.target.classList.contains('cookie')) {
+            document.cookie = "cookies=enable"
+            e.target.parentNode.style.display = 'none'
+      
+
+        }
     }
 });

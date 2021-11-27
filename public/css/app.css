@@ -80,9 +80,16 @@ body.active, body.active-menu {
 
 a {
   color: #fff;
+  transition: 0.3s linear;
+  cursor: pointer;
 }
 a:hover {
   color: #ffa500;
+}
+
+button {
+  transition: 0.3s linear;
+  cursor: pointer;
 }
 
 .header {
@@ -934,6 +941,35 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 .pass__reset {
   display: grid;
   gap: 1rem;
+}
+
+.cookieform {
+  margin: 1rem;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 0.8rem;
+  color: white;
+  padding: 1rem;
+  z-index: 7;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(#374151, #1F2937);
+}
+.cookieform a {
+  color: #ffa500;
+}
+.cookieform a:hover {
+  text-decoration: underline;
+}
+.cookieform button {
+  padding-left: 0.5rem;
+  background: transparent;
+  color: #fff;
+}
+.cookieform button:hover {
+  color: #ffa500;
 }
 
 @media (max-width: 640px) and (max-width: 640px) {
@@ -2285,5 +2321,103 @@ button.user__btn:active {
   .user__address__form {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "street street " "house  appartment " "entrance  code " "floor  . ";
+  }
+}
+.content-section {
+  border-radius: 2rem;
+  padding: 0 1rem;
+}
+.content-section P {
+  color: #E5E7EB;
+  font-weight: 200;
+  margin: 1rem 0;
+  line-height: 1.1rem;
+}
+.content-section h1,
+.content-section h2,
+.content-section h3,
+.content-section h4,
+.content-section h5,
+.content-section h6,
+.content-section .h1,
+.content-section .h2,
+.content-section .h3,
+.content-section .h4,
+.content-section .h5,
+.content-section .h6 {
+  font-weight: 900;
+  color: #fff;
+  margin: 1rem 0;
+}
+.content-section h1:first-child,
+.content-section h2:first-child,
+.content-section h3:first-child,
+.content-section h4:first-child,
+.content-section h5:first-child,
+.content-section h6:first-child,
+.content-section .h1:first-child,
+.content-section .h2:first-child,
+.content-section .h3:first-child,
+.content-section .h4:first-child,
+.content-section .h5:first-child,
+.content-section .h6:first-child {
+  margin-top: 0;
+}
+.content-section h1,
+.content-section .h1 {
+  font-size: 3rem;
+}
+.content-section h2,
+.content-section .h2 {
+  font-size: 2.5rem;
+}
+.content-section h3,
+.content-section .h3 {
+  font-size: 2rem;
+}
+.content-section h4,
+.content-section .h4 {
+  font-size: 1.5rem;
+}
+.content-section a {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 400;
+}
+.content-section ul,
+.content-section ol {
+  color: #D1D5DB;
+  display: grid;
+  margin: 0 1rem;
+  gap: 0.5rem;
+  color: #fff;
+}
+.content-section ul {
+  list-style: "🍕";
+}
+.content-section ol {
+  list-style-type: decimal;
+}
+
+@media (max-width: 768px) {
+  .content-section p {
+    line-height: 1.3rem;
+  }
+  .content-section h1,
+.content-section .h1 {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+  .content-section h2,
+.content-section .h2 {
+    font-size: 1.5rem;
+  }
+  .content-section h3,
+.content-section .h3 {
+    font-size: 1.2rem;
+  }
+  .content-section h4,
+.content-section .h4 {
+    font-size: 1rem;
   }
 }

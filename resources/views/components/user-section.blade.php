@@ -79,7 +79,6 @@
             </div>
 
             <div class="user__address__add">
-                <button class="user__btn other" type="submit">Добавить</button>
 
 
                 {{-- Начало формы --}}

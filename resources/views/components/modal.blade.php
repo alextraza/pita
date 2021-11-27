@@ -72,24 +72,21 @@
                                 </div>
                             </form>
                         </section>
-                        <section>
 
+                        <section>
                             <form method="post" class="ajax-form" action="{{ route('recovery.user') }}">
                                 @csrf
                                 <div class="pass__reset">
                                     <div class="user__b__subtitle">Введите ваш email, новый пароль придёт в письме вам на почту</div>
                                     <div class="form__field__add">
-
                                         <label for="password-reset">Email</label>
                                         <input id="password-reset" type="text" name="remail">
-
-
+                                    </div>
+                                    <div class="errors">
                                     </div>
                                     <button type="submit">Восстановить</button>
                                 </div>
-                                <div class="message-container"></div>
                             </form>
-
                         </section>
                     </div>
                 </div>

@@ -283,13 +283,16 @@
         background-color: transparent;
         border: 0;
         justify-self: end;
+        
 
-        &:hover {
-            color: $yellow;
-        }
+        
 
         label {
+            cursor: pointer;
             padding: 0;
+            &:hover {
+                color: $yellow;
+            }
         }
     }
 

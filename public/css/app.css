@@ -1770,11 +1770,12 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   border: 0;
   justify-self: end;
 }
-.form__field__add.bg_unset:hover {
-  color: #ffa500;
-}
 .form__field__add.bg_unset label {
+  cursor: pointer;
   padding: 0;
+}
+.form__field__add.bg_unset label:hover {
+  color: #ffa500;
 }
 .form__field__add.error, .form__field__add.has-error {
   border-color: Crimson;

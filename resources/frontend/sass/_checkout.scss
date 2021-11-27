@@ -283,13 +283,14 @@
         background-color: transparent;
         border: 0;
         justify-self: end;
-        
 
-        
+
+
 
         label {
             cursor: pointer;
             padding: 0;
+
             &:hover {
                 color: $yellow;
             }
@@ -380,10 +381,11 @@
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
         &:-webkit-autofill:focus {
-            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            -webkit-box-shadow: 0 0 0px 1000px $primary inset;
             -webkit-text-fill-color: white;
             transition: background-color 5000s ease-in-out 0s;
-
+            border-radius: 2rem;
+            border: 2px solid $primary;
         }
 
 
@@ -405,9 +407,9 @@
             }
 
             &::-webkit-datetime-edit-text {
-                ::-webkit-datetime-edit-text {
-                    padding: 4px 4px;
-                }
+
+                padding: 4px 4px;
+
             }
 
             &::-webkit-datetime-edit-hour-field {

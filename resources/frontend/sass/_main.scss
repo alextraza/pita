@@ -1092,6 +1092,7 @@ a {
             }
 
             button {
+
                 background: transparent;
                 border: 2px solid $yellow;
                 color: $yellow;
@@ -1101,6 +1102,7 @@ a {
                 border-radius: 2rem;
                 width: 50%;
                 justify-self: center;
+                cursor: pointer;
 
                 &:hover {
                     background: $yellow;
@@ -1186,3 +1188,5 @@ input {
     display: grid;
     gap: 1rem;
 }
+
+

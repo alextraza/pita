@@ -874,6 +874,7 @@ a:hover {
   border-radius: 2rem;
   width: 50%;
   justify-self: center;
+  cursor: pointer;
 }
 .modal .modal__window .modal__inner button:hover {
   background: #ffa500;
@@ -1852,10 +1853,12 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   color: #D1D5DB;
 }
 .form__field__add input:-webkit-autofill, .form__field__add input:-webkit-autofill:hover, .form__field__add input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  -webkit-box-shadow: 0 0 0px 1000px #1F2937 inset;
   -webkit-text-fill-color: white;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
+  border-radius: 2rem;
+  border: 2px solid #1F2937;
 }
 .form__field__add input:focus {
   outline: none;
@@ -1869,7 +1872,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 .form__field__add input[type=time]::-webkit-datetime-edit-fields-wrapper {
   display: flex;
 }
-.form__field__add input[type=time]::-webkit-datetime-edit-text ::-webkit-datetime-edit-text {
+.form__field__add input[type=time]::-webkit-datetime-edit-text {
   padding: 4px 4px;
 }
 .form__field__add input[type=time]::-webkit-datetime-edit-hour-field {

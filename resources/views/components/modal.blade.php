@@ -10,12 +10,12 @@
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_login" hidden
-                           aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
+                        aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
                     <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_register"
-                           hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
+                        hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
                     <input type="radio" class="input__tab" name="delivery" value="forgot_password"
-                           id="forgot_password" hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }}
-                           aria-hidden="true">
+                        id="forgot_password" hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }}
+                        aria-hidden="true">
                     <ul hidden aria-hidden="true">
                         <li><label for="tabset_login">Войти</label></li>
                         <li><label for="tabset_register">Регистрация</label></li>
@@ -29,7 +29,7 @@
                                     <div class="form__field__add">
                                         <label for="phone">Телефон</label>
                                         <input id="phone" type="phone" data-js="input" name="phone"
-                                               placeholder="8 (xxx) xxx-xx-xx">
+                                            placeholder="8 (xxx) xxx-xx-xx">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Пароль</label>
@@ -57,7 +57,7 @@
                                     <div class="form__field__add">
                                         <label for="phone">Телефон*</label>
                                         <input id="phone" type="text" data-js="input" name="phone"
-                                               placeholder="8 (xxx) xxx-xx-xx" value="  ">
+                                            placeholder="8 (xxx) xxx-xx-xx" value="  ">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Пароль</label>
@@ -77,12 +77,18 @@
                             <form method="post" class="ajax-form" action="{{ route('recovery.user') }}">
                                 @csrf
                                 <div class="pass__reset">
-                                    <div class="user__b__subtitle">Введите ваш email, новый пароль придёт в письме вам на почту</div>
+                                    <div class="user__b__subtitle">Введите ваш email, новый пароль придёт в письме вам
+                                        на почту</div>
                                     <div class="form__field__add">
                                         <label for="password-reset">Email</label>
                                         <input id="password-reset" type="text" name="remail">
+<<<<<<< HEAD
+
+
+=======
                                     </div>
                                     <div class="errors">
+>>>>>>> e527633faca3a1ed2d6b2bb189fa91b11559ca4d
                                     </div>
                                     <button type="submit">Восстановить</button>
                                 </div>

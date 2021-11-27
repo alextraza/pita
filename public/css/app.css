@@ -872,6 +872,8 @@ a:hover {
   font-weight: 600;
   font-size: 1.1rem;
   border-radius: 2rem;
+  width: 50%;
+  justify-self: center;
 }
 .modal .modal__window .modal__inner button:hover {
   background: #ffa500;
@@ -926,6 +928,11 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 }
 .bg_unset:checked {
   display: grid;
+}
+
+.pass__reset {
+  display: grid;
+  gap: 1rem;
 }
 
 @media (max-width: 640px) and (max-width: 640px) {

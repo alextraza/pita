@@ -6,7 +6,7 @@
         <div class="modal__inner">
             <div class="delivery__sec first">
                 <div class="delivery__heading">
-                    <div class="title">Личный кабинет</div>
+                    <div class="title">Авторизация</div>
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_login" hidden
@@ -14,12 +14,12 @@
                     <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_register"
                            hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
                     <input type="radio" class="input__tab" name="delivery" value="forgot_password"
-                           id="tabset_password" hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }}
+                           id="forgot_password" hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }}
                            aria-hidden="true">
                     <ul hidden aria-hidden="true">
                         <li><label for="tabset_login">Войти</label></li>
                         <li><label for="tabset_register">Регистрация</label></li>
-                        <li><label for="tabset_password">Забыл пароль</label></li>
+                     
                     </ul>
                     <div>
                         <section>
@@ -36,7 +36,7 @@
                                         <input id="password" type="password" name="password">
                                     </div>
                                     <div class="form__field__add bg_unset">
-                                        {{-- <label for="forgot_password">Забыли пароль</label> --}}
+                                        <label for="forgot_password">Забыли пароль</label>
                                        
                                     </div>
                                     <div class="errors">
@@ -67,6 +67,7 @@
                                         <label for="password">Подтвердите пароль</label>
                                         <input id="password" type="password" name="password_confirmation">
                                     </div>
+                                   
                                     <button type="submit">Зарегистрироваться</button>
                                 </div>
                         </section>
@@ -75,13 +76,15 @@
                             <form method="post" class="ajax-form" action="{{ route('recovery.user') }}">
                                 @csrf
                                 <div class="pass__reset">
+                                    <div class="user__b__subtitle">Введите ваш email, новый пароль придёт в письме вам на почту</div>
                                     <div class="form__field__add">
 
                                         <label for="password-reset">Email</label>
-                                        <input id="password-reset" type="text" name="email">
+                                        <input id="password-reset" type="text" name="remail">
+                                       
 
                                     </div>
-                                    <button type="submit">Войти</button>
+                                    <button type="submit">Восстановить</button>
                                 </div>
                                 <div class="message-container"></div>
                             </form>

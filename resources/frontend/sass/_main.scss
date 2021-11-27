@@ -20,7 +20,9 @@ body {
         outline: unset;
 
     }
-    &.active, &.active-menu{
+
+    &.active,
+    &.active-menu {
         overflow: hidden;
     }
 }
@@ -32,6 +34,7 @@ a {
         color: $yellow;
     }
 }
+
 .header {
     display: flex;
     flex-direction: row;
@@ -66,8 +69,8 @@ a {
 
         .menu__box {
             display: flex;
-           
-        
+
+
 
 
             .menu__item {
@@ -1096,6 +1099,8 @@ a {
                 font-weight: 600;
                 font-size: 1.1rem;
                 border-radius: 2rem;
+                width: 50%;
+                justify-self: center;
 
                 &:hover {
                     background: $yellow;
@@ -1158,19 +1163,26 @@ input {
     }
 }
 
-.bg_unset{
+.bg_unset {
     display: grid;
     gap: 1rem;
     color: white;
     font-size: 0.9rem;
     font-weight: 600;
-    .pass__reset{
+
+    .pass__reset {
         // display: none;
-        
+
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-    &:checked{
+
+    &:checked {
         display: grid;
     }
+}
+
+.pass__reset {
+    display: grid;
+    gap: 1rem;
 }

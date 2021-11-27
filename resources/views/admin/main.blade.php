@@ -58,6 +58,11 @@
             @yield('content')
 
         </div>
+        <footer>
+            <div class="container">
+                Администрирование сайта 🄯 Copyleft - {{ date('Y') }}г.
+            </div>
+        </footer>
     </div>
 
     <script src="{{ asset("js/admin/slimselect.min.js") }}"></script>

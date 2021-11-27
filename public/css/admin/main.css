@@ -1799,6 +1799,10 @@ td.total-price {
   font-size: 0.8rem;
 }
 
+footer {
+  padding: 2rem 0;
+}
+
 .ss-main {
   color: #d0d2d6;
 }

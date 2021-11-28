@@ -40,6 +40,10 @@ button{
     transition: 0.3s linear;
     cursor: pointer;
 }
+::selection{
+    background: $secondary;
+    color: $yellow;
+}
 
 .header {
     display: flex;

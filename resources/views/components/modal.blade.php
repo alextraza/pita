@@ -29,11 +29,11 @@
                                     <div class="form__field__add">
                                         <label for="phone">Телефон</label>
                                         <input id="phone" type="phone" data-js="input" name="phone"
-                                            placeholder="8 (xxx) xxx-xx-xx">
+                                            placeholder="8 (xxx) xxx-xx-xx" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Пароль</label>
-                                        <input id="password" type="password" name="password">
+                                        <input id="password" type="password" name="password" autocomplete="current-password">
                                     </div>
                                     <div class="form__field__add bg_unset">
                                         <label for="forgot_password">Забыли пароль</label>
@@ -52,20 +52,20 @@
                                 <div class="form__group__add reg__form">
                                     <div class="form__field__add">
                                         <label for="email">Email*</label>
-                                        <input id="email" type="text" name="email">
+                                        <input id="email" type="text" name="email" autocomplete="email">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="phone">Телефон*</label>
-                                        <input id="phone" type="text" data-js="input" name="phone"
-                                            placeholder="8 (xxx) xxx-xx-xx" value="  ">
+                                        <input id="phone-reg" type="text" data-js="input" name="phone"
+                                            placeholder="8 (xxx) xxx-xx-xx" value="" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Пароль</label>
-                                        <input id="password" type="password" name="password" value="">
+                                        <input id="password-reg" type="password" name="password" value="" autocomplete="new-password">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Подтвердите пароль</label>
-                                        <input id="password" type="password" name="password_confirmation">
+                                        <input id="password-confirm" type="password" name="password_confirmation" autocomplete="new-password">
                                     </div>
 
                                     <button type="submit">Зарегистрироваться</button>
@@ -81,7 +81,7 @@
                                         на почту</div>
                                     <div class="form__field__add">
                                         <label for="password-reset">Email</label>
-                                        <input id="password-reset" type="text" name="remail">
+                                        <input id="password-reset" type="text" name="remail" autocomplete="email">
                                     </div>
                                     <div class="errors">
                                     </div>

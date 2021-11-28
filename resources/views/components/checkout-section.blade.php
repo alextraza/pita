@@ -8,9 +8,9 @@
                     <div class="title">1. Доставка</div>
                 </div>
                 <div class="tabset">
-                    <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_1_description"
+                    <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_1_description"
                         hidden aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
-                    <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_1_statistics"
+                    <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_1_statistics"
                         hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
                     <ul hidden aria-hidden="true">
                         <li><label for="tabset_1_description">Курьером</label></li>
@@ -139,12 +139,12 @@
                     <div class="form__group__add client__form">
                         <div class="form__field__add name">
                             <label for="name">Имя</label>
-                            <input id="name" type="text" name="name" value="@if (Auth::user()) {{ Auth::user()->name }} @endif">
+                            <input id="name" type="text" name="name" value="@if (Auth::user()) {{ Auth::user()->name }} @endif" autocomplete="name">
                         </div>
                         <div class="form__field__add phone @error('phone') error @enderror">
                             <label for="phone">Телефон<span>*</span></label>
-                            <input id="phone" type="text" data-js="input" name="phone" id="phone"
-                                placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif">
+                            <input id="client-phone" type="text" data-js="input" name="phone"
+                                placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif" autocomplete="tel">
                             @error('phone')
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>
                             @enderror

@@ -11,5 +11,5 @@
 @endsection
 
 @section('content')
-    {{-- content here --}}
+@include('components.content-section')
 @endsection

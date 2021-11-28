@@ -11,5 +11,6 @@
 @endsection
 
 @section('content')
-@include('components.content-section')
+    @include('components.internal')
+    @include('components.content-section')
 @endsection

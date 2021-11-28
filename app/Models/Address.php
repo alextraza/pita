@@ -36,7 +36,7 @@ class Address extends Model
         return $this->belongsTo(User::class);
     }
 
-    private function setAddress($obj)
+    private static function setAddress($obj)
     {
         $result = [];
         if ($obj->street) {

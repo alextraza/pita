@@ -22,6 +22,7 @@
                     <p>{{ $model->phone }}</p>
                 </div>
             </li>
+            @if( $model->email)
             <li class="timeline__item">
                 <span class="timeline__point"></span>
                 <div class="timeline__event">
@@ -31,6 +32,7 @@
                     <p>{{ $model->email }}</p>
                 </div>
             </li>
+            @endif
             <li class="timeline__item">
                 <span class="timeline__point"></span>
                 <div class="timeline__event">

@@ -17,7 +17,9 @@ class FrontendController extends Controller
         $categories = Category::where('status', true)
                               ->orderBy('pos')
                               ->get();
-        $page = Page::where('slug', 'index')->first();
+        $page = Page::where('slug', 'index')
+                    ->where('status', true)
+                    ->first();
         return view('welcome', compact('categories', 'page'));
     }
 
@@ -35,7 +37,9 @@ class FrontendController extends Controller
     */
     public function page($slug)
     {
-        $page = Page::where('slug', $slug)->firstOrFail();
+        $page = Page::where('slug', $slug)
+                    ->where('status', true)
+                    ->firstOrFail();
         return view('page', compact('page'));
     }
 

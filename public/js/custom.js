@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModalWindow(e);
         editRmAddress(e);
         cookie(e);
-        checkboxAddress(e);
     });
 
 
@@ -298,9 +297,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function checkboxAddress(e) {
+    const addressInputs = document.querySelectorAll('.address__form input');
+    if (addressInputs) {
+        addressInputs.forEach((element) => {
+            element.addEventListener('click', () => {
+                document.getElementById('address-other').checked = true;
+            });
+        })
+    }
 
-
-
+    const choseTime = document.getElementById('chose-time');
+    if (choseTime) {
+        choseTime.addEventListener('click', () => {
+            document.getElementById('delivery-time').checked = true;
+        })
     }
 });

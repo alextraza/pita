@@ -9,9 +9,9 @@
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="delivery" value="delivery" id="tabset_1_description"
-                        hidden aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
+                           hidden aria-hidden="true" @if (!old('delivery') || old('delivery') == 'myself') checked @endif>
                     <input type="radio" class="input__tab" name="delivery" value="myself" id="tabset_1_statistics"
-                        hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
+                           hidden {{ old('delivery') == 'delivery' ? 'checked' : '' }} aria-hidden="true">
                     <ul hidden aria-hidden="true">
                         <li><label for="tabset_1_description">Курьером</label></li>
                         <li><label for="tabset_1_statistics">Заберу сам</label></li>
@@ -26,8 +26,8 @@
                                     @foreach ($user->addresses as $key => $address)
                                         <div class="form__field">
                                             <input type="radio" id="address-{{ $key }}" name="client_address"
-                                                value="{{ $address->full_address }}"
-                                                {{ $key == 0 ? 'checked' : '' }}>
+                                                   value="{{ $address->full_address }}"
+                                                   {{ $key == 0 ? 'checked' : '' }}>
                                             <label
                                                 for="address-{{ $key }}">{{ $address->full_address }}</label>
                                         </div>
@@ -35,7 +35,7 @@
                                     @if ($user->addresses->isEmpty())
                                         <div class="user__b__subtitle">
                                             Добавить адреса вы можете в личном кабинете <a
-                                                href="{{ route('user') }}">Войти</a></div>
+                                                                                            href="{{ route('user') }}">Войти</a></div>
                                     @else
                                         <div class="form__field">
                                             <input type="radio" id="address-other" name="client_address">
@@ -55,55 +55,55 @@
                                     <label for="street">Адрес (улица)<span>*</span></label>
                                     <input id="street" type="text" name="street" value="{{ old('street') }}">
                                     @error('street')
-                                        <span class="text-danger">{{ $errors->first('street') }}</span>
+                                    <span class="text-danger">{{ $errors->first('street') }}</span>
                                     @enderror
                                 </div>
                                 <div class="form__field__add house  @error('house') has-error @enderror">
                                     <label for="house">Номер дома<span>*</span></label>
                                     <input id="house" type="text" name="house" value="{{ old('house') }}">
                                     @error('house')
-                                        <span class="text-danger">{{ $errors->first('house') }}</span>
+                                    <span class="text-danger">{{ $errors->first('house') }}</span>
                                     @enderror
                                 </div>
                                 <div class="form__field__add appartment @error('apartment') has-error @enderror">
                                     <label for="appartment">Квартира</label>
                                     <input id="appartment" type="text" name="apartment"
-                                        value="{{ old('apartment') }}">
+                                           value="{{ old('apartment') }}">
                                     @error('apartment')
-                                        <span class="text-danger">{{ $errors->first('apartment') }}</span>
+                                    <span class="text-danger">{{ $errors->first('apartment') }}</span>
                                     @enderror
                                 </div>
                                 <div class="form__field__add entrance @error('entrance') has-error @enderror">
                                     <label for="entrance">Подъезд</label>
                                     <input id="entrance" type="text" name="entrance" value="{{ old('entrance') }}">
                                     @error('entrance')
-                                        <span class="text-danger">{{ $errors->first('entrance') }}</span>
+                                    <span class="text-danger">{{ $errors->first('entrance') }}</span>
                                     @enderror
                                 </div>
                                 <div class="form__field__add floor @error('floor') has-error @enderror">
                                     <label for="floor">Этаж</label>
                                     <input id="floor" type="text" name="floor" value="{{ old('floor') }}">
                                     @error('floor')
-                                        <span class="text-danger">{{ $errors->first('floor') }}</span>
+                                    <span class="text-danger">{{ $errors->first('floor') }}</span>
                                     @enderror
                                 </div>
                                 <div class="form__field__add client-code @error('floor') has-error @enderror">
                                     <label for="client-code">Код домофона</label>
                                     <input id="client-code" type="text" name="code" value="{{ old('floor') }}">
                                     @error('code')
-                                        <span class="text-danger">{{ $errors->first('code') }}</span>
+                                    <span class="text-danger">{{ $errors->first('code') }}</span>
                                     @enderror
                                 </div>
                             </div>
                         </section>
                         <section>
                             <div class="sec__title">Наш адрес</div>
-                           
+
 
                             <div class="map">
                                 <div class="user__b__subtitle">{{ \App\Models\Config::address() }} <a
-                                    href="https://yandex.ru/maps/org/pita_pizza/129261506580/"
-                                    target="_blank">Посмотреть на
+                                                                                                       href="https://yandex.ru/maps/org/pita_pizza/129261506580/"
+                                                                                                       target="_blank">Посмотреть на
                                     карте</a></div>
                                 {!! \App\Models\Config::map() !!}
 
@@ -144,9 +144,9 @@
                         <div class="form__field__add phone @error('phone') error @enderror">
                             <label for="client-phone">Телефон<span>*</span></label>
                             <input id="client-phone" type="text" data-js="input" name="phone"
-                                placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif" autocomplete="tel">
+                                   placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif" autocomplete="tel">
                             @error('phone')
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
+                            <span class="text-danger">{{ $errors->first('phone') }}</span>
                             @enderror
                         </div>
                         <div class="form__field__add comment">
@@ -166,9 +166,9 @@
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_description" hidden
-                        aria-hidden="true" checked>
+                           aria-hidden="true" checked>
                     <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_statistics" hidden
-                        aria-hidden="true">
+                           aria-hidden="true">
                     <ul hidden aria-hidden="true">
 
                         <li><label for="tabset_2_description">Он-лайн</label></li>
@@ -185,13 +185,14 @@
                             <div class="form__group">
                                 <div class="sec__title">Как будете оплачивать?</div>
                                 <div>
-                                <div class="form__field">
-                                    <input type="radio" id="address-1" name="client-address" value="address-1" checked>
-                                    <label for="address-1">Оплата курьеру картой</label>
-                                </div>
-                                <div class="form__field">
-                                    <input type="radio" id="address-2" name="client-address" value="address-2">
-                                    <label for="address-2">Оплата курьеру наличными / Самовывоз</label>
+                                    <div class="form__field">
+                                        <input type="radio" id="payment-1" name="client-address" value="cart" checked>
+                                        <label for="payment-1">Оплата курьеру картой</label>
+                                    </div>
+                                    <div class="form__field">
+                                        <input type="radio" id="payment-2" name="client-address" value="cash">
+                                        <label for="payment-2">Оплата курьеру наличными / Самовывоз</label>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -201,13 +202,13 @@
                     <button type="submit" class="primary__button">Оформить заказ</button>
                     <div class="privacy">
                         Нажимая на кнопку Оформить заказ, вы даёте согласие на <a href="/privacy-policy">обработку
-                            персональных данных</a>, в соответствии с
+                        персональных данных</a>, в соответствии с
                         <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
                         Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a
-                            href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
+                                                                                                                  href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
-</div>
 </div>

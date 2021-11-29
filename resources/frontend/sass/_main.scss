@@ -266,19 +266,19 @@ button {
                 color: $yellow;
                 padding-right: 1rem;
 
-                span::after {
+                span {
                     position: absolute;
                     top: 5px;
                     right: 5px;
                     background: $yellow;
-                    padding: 0.3rem;
+                    padding: 0.4rem 0.3rem;
                     border-radius: 0.6rem;
                     font-size: 0.7rem;
                     font-weight: 900;
                     line-height: 0.3rem;
                     color: $primary;
                     border: 1px solid $primary;
-                    content: attr(data-num);
+                    
                 }
             }
 
@@ -859,6 +859,10 @@ button {
                 &:hover {
                     background: $yellow;
                     color: $primary;
+                }
+                &:focus{
+                    transform: scale(1.1);
+                    transition: 0.1s;
                 }
             }
         }

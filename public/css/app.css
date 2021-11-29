@@ -267,19 +267,18 @@ button {
   color: #ffa500;
   padding-right: 1rem;
 }
-.cat__nav__sec .cat__nav__cart a .cart__icon span::after {
+.cat__nav__sec .cat__nav__cart a .cart__icon span {
   position: absolute;
   top: 5px;
   right: 5px;
   background: #ffa500;
-  padding: 0.3rem;
+  padding: 0.4rem 0.3rem;
   border-radius: 0.6rem;
   font-size: 0.7rem;
   font-weight: 900;
   line-height: 0.3rem;
   color: #1F2937;
   border: 1px solid #1F2937;
-  content: attr(data-num);
 }
 .cat__nav__sec .cat__nav__cart a:hover {
   background: #ffa500;
@@ -705,6 +704,10 @@ button {
 .cart__section .cart__result .cart__pricing a:hover {
   background: #ffa500;
   color: #1F2937;
+}
+.cart__section .cart__result .cart__pricing a:focus {
+  transform: scale(1.1);
+  transition: 0.1s;
 }
 .cart__section .cart__result .cart__item__button {
   display: flex;
@@ -1190,6 +1193,10 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     padding: 0.5rem;
     text-transform: capitalize;
   }
+  .cart__section .cart__result .cart__pricing a:hover {
+    background: #fff;
+    color: #1F2937;
+  }
   .cart__section .cart__offer .cart__cat__heading {
     padding: 0;
     font-size: 1.5rem;
@@ -1565,6 +1572,14 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     font-weight: 900;
     padding: 0.8rem;
   }
+  .cart__section .cart__result .cart__pricing a:hover {
+    background: #ffa500;
+    color: #1F2937;
+  }
+  .cart__section .cart__result .cart__pricing a:focus {
+    transform: scale(1.1);
+    transition: 0.1s;
+  }
   .cart__section .cart__offer .cart__cat__heading {
     font-size: 1.8rem;
     grid-auto-flow: column;
@@ -1587,7 +1602,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     justify-content: space-between;
   }
   .cat__nav__cart.mobile .cart a .cart__name {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     color: #1F2937;
     font-weight: 300;
   }
@@ -1604,19 +1619,21 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
     align-items: center;
     font-weight: 800;
   }
-  .cat__nav__cart.mobile .cart a .cart__icon::after {
+  .cat__nav__cart.mobile .cart a .cart__icon span {
     position: absolute;
-    top: 5px;
+    top: 2px;
     right: 5px;
-    background: #ffa500;
-    padding: 0.3rem;
-    border-radius: 0.6rem;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 900;
-    line-height: 0.3rem;
+    padding: 0.3rem 0.5rem;
+    background: #fff;
     color: #1F2937;
-    border: 1px solid #1F2937;
-    content: attr(data-num);
+    border: 2px solid #1F2937;
+    border-radius: 1rem;
+  }
+  .cat__nav__cart.mobile .cart a .cart__icon:focus {
+    transform: scale(1.1);
+    transition: 0.1s;
   }
 }
 @media (min-width: 1024px) and (max-width: 1280px) {
@@ -1769,6 +1786,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   font-weight: 700;
   width: 100%;
   cursor: pointer;
+  user-select: none;
 }
 .tabset div {
   position: relative;
@@ -1862,6 +1880,11 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   font-weight: 500;
   color: #fff;
   width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
 }
 .form__group .form__field.now {
   grid-area: now;
@@ -1988,14 +2011,17 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   color: #D1D5DB;
 }
 .form__field__add input:-webkit-autofill, .form__field__add input:-webkit-autofill:hover, .form__field__add input:-webkit-autofill:focus, .form__field__add input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #1F2937 inset;
-  -webkit-text-fill-color: white;
+  filter: invert(1) contrast(0.79) hue-rotate(171deg);
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
+  padding-left: 1rem;
   border-radius: 2rem;
 }
 .form__field__add input:focus {
   outline: none;
+}
+.form__field__add input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
 }
 .form__field__add input[type=time] {
   border: none;
@@ -2230,7 +2256,7 @@ button.primary__button:hover {
 
 @-webkit-keyframes autofill {
   0%, 100% {
-    color: #666;
+    color: #1F2937;
     background: transparent;
   }
 }

@@ -56,16 +56,16 @@
                                     </div>
                                     <div class="form__field__add">
                                         <label for="phone">Телефон*</label>
-                                        <input id="phone-reg" type="text" data-js="input" name="phone"
+                                        <input id="phone" type="text" data-js="input" name="phone"
                                             placeholder="8 (xxx) xxx-xx-xx" value="" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
                                         <label for="password">Пароль</label>
-                                        <input id="password-reg" type="password" name="password" value="" autocomplete="new-password">
+                                        <input id="password" type="password" name="password" value="" autocomplete="new-password">
                                     </div>
                                     <div class="form__field__add">
-                                        <label for="password">Подтвердите пароль</label>
-                                        <input id="password-confirm" type="password" name="password_confirmation" autocomplete="new-password">
+                                        <label for="password_confirmation">Подтвердите пароль</label>
+                                        <input id="password" type="password" name="password_confirmation" autocomplete="new-password">
                                     </div>
 
                                     <button type="submit">Зарегистрироваться</button>

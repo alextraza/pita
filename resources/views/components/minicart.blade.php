@@ -10,7 +10,7 @@
             <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         @if (Cart::count())
-            <span data-num="{{ Cart::count() }}"></span>
+            <span>{{ Cart::count() }}</span>
         @endif
     </div>
 </a>

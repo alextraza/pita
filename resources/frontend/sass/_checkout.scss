@@ -91,6 +91,7 @@
                 font-weight: 700;
                 width: 100%;
                 cursor: pointer;
+                user-select: none;
 
             }
         }
@@ -155,9 +156,11 @@
 .form__group {
     display: grid;
     gap: 1rem;
-    &.add__addr{
+
+    &.add__addr {
         gap: 0;
-        .sec__title{
+
+        .sec__title {
             margin-bottom: 1rem;
         }
     }
@@ -200,6 +203,7 @@
                 &~label {
                     background: $secondary;
                     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+                    
 
 
                 }
@@ -217,6 +221,8 @@
             font-weight: 500;
             color: #fff;
             width: 100%;
+            user-select: none;
+            cursor: pointer;
 
         }
 
@@ -280,6 +286,7 @@
     border-radius: 1.5rem;
     border: 2px solid $gray-700;
 
+
     &:active {
         transform: scale(0.99);
         transition: .1s;
@@ -296,6 +303,7 @@
         label {
             cursor: pointer;
             padding: 0;
+            
 
             &:hover {
                 color: $yellow;
@@ -388,17 +396,23 @@
         &:-webkit-autofill:hover,
         &:-webkit-autofill:focus,
         &:-webkit-autofill:active {
-           
-            -webkit-box-shadow: 0 0 0px 1000px $primary inset;
-            -webkit-text-fill-color: white;
+
+            filter: invert(1) contrast(0.79) hue-rotate(171deg);
+         
             transition: background-color 5000s ease-in-out 0s;
+            padding-left: 1rem;
             border-radius: 2rem;
-            
+
+
         }
 
 
         &:focus {
             outline: none;
+        }
+
+        &:focus-visible {
+            outline: -webkit-focus-ring-color auto 0px;
         }
 
         // Timepicker
@@ -717,6 +731,7 @@ button.primary__button {
     .form__field__add {
         height: 3rem;
 
+
         label {
             padding: 0 0.5rem;
         }
@@ -734,15 +749,19 @@ button.primary__button {
 .third {
     grid-area: third;
 }
+
 @-webkit-keyframes autofill {
-    0%,100% {
-        color: #666;
+
+    0%,
+    100% {
+        color: $primary;
         background: transparent;
     }
 }
 
 input:-webkit-autofill {
-    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-delay: 1s;
+    /* Safari support - any positive time runs instantly */
     -webkit-animation-name: autofill;
     -webkit-animation-fill-mode: both;
 }

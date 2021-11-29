@@ -214,6 +214,13 @@
                     color: $primary;
                     padding: 0.5rem;
                     text-transform: capitalize;
+                    &:hover
+                     {
+                        background: $white;
+                        color: $primary;
+                        
+                    }
+                    
                 }
             }
 
@@ -281,6 +288,7 @@
                     display: flex;
                     align-items: center;
                     font-weight: 800;
+                    
                 }
             }
         }

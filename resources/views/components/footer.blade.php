@@ -13,6 +13,11 @@
         <a
             href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
     </div>
+    <div class="address">
+        Адрес:
+        <p>{{ \App\Models\Config::address() }}</p>
+    </div>
+    
 </footer>
 <div id="dialog" class="modal @if (Session::get('success')) active @endif">
     <div class="modal__overlay">

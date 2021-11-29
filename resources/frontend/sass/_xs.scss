@@ -1,0 +1,67 @@
+@media (max-width: $xs) {
+    .header {
+        gap: 1rem;
+
+        .logo {
+            font-size: 2rem;
+            order: 1;
+        }
+
+        .resp__nav {
+            order: 2;
+        }
+
+        .address {
+            order: 3;
+        }
+
+        .phone {
+            order: 4;
+        }
+    }
+
+    .menu__block {
+        .heading{
+            font-size: 2.4rem;
+        }
+        .menu__block__con {
+            grid-template-columns: 1fr;
+        }
+
+        .item {
+            padding: 1rem;
+            .item__content {
+                gap: 0.5rem;
+                .card__heading {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+
+    }
+
+    .cat__nav__sec {
+        padding: 1rem 0.5rem 0.5rem 1rem;
+
+
+        .cat__nav {
+
+            gap: 0.5rem;
+            overflow-y: scroll;
+            padding-bottom: 1rem;
+            margin-bottom: 0.4rem;
+
+            .cat__nav__con {
+                padding: 0.5rem 0.5rem 0.5rem 0rem;
+                border-radius: 0.5rem;
+                font-size: 0.8rem;
+
+            }
+        }
+
+        .cat__nav__cart {
+            display: none;
+        }
+    }
+}

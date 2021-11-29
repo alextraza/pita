@@ -599,15 +599,16 @@ button {
         text-transform: uppercase;
     }
 
-    .phone {
+    .phone,.address {
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
         color: $gray-400;
         font-size: 0.9rem;
         font-weight: 600;
         justify-content: space-evenly;
 
-        a {
+        a,p {
             color: orange;
             font-size: 1.2rem;
             font-weight: 800;

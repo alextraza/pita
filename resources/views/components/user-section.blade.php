@@ -66,6 +66,8 @@
                 </span>
             </div>
 
+          
+                
             <div class="user__address__list">
                 @foreach ($user->addresses as $address)
                     <div class="address__item">
@@ -77,6 +79,7 @@
                 @endforeach
 
             </div>
+       
 
             <div class="user__address__add">
 

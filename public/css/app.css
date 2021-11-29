@@ -56,6 +56,10 @@ img, object {
   max-width: 100%;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -954,10 +958,14 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 }
 
 .cookieform {
-  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
   position: fixed;
   right: 0;
   bottom: 0;
+  margin: 1rem;
   font-size: 0.8rem;
   color: white;
   padding: 1rem;
@@ -974,7 +982,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   text-decoration: underline;
 }
 .cookieform button {
-  padding-left: 0.5rem;
+  font-size: 2rem;
   background: transparent;
   color: #fff;
 }
@@ -1180,6 +1188,14 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .modal .modal__window {
     min-width: 90vw;
     max-width: 90vw;
+  }
+  .modal .modal__window .modal__inner button {
+    width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  .cookieform {
+    border-radius: 0.5rem;
   }
 }
 @media (min-width: 640px) and (max-width: 768px) {
@@ -1730,6 +1746,12 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   display: grid;
   gap: 1rem;
 }
+.form__group.add__addr {
+  gap: 0;
+}
+.form__group.add__addr .sec__title {
+  margin-bottom: 1rem;
+}
 .form__group.time__grid {
   grid-template-columns: 1fr 1fr;
   gap: 0 1rem;
@@ -1770,7 +1792,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   border-radius: 0.5rem;
   position: relative;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   width: 100%;
 }
@@ -1898,7 +1920,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   /* Microsoft Edge */
   color: #D1D5DB;
 }
-.form__field__add input:-webkit-autofill, .form__field__add input:-webkit-autofill:hover, .form__field__add input:-webkit-autofill:focus {
+.form__field__add input:-webkit-autofill, .form__field__add input:-webkit-autofill:hover, .form__field__add input:-webkit-autofill:focus, .form__field__add input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px #1F2937 inset;
   -webkit-text-fill-color: white;
   -webkit-transition: background-color 5000s ease-in-out 0s;
@@ -2140,6 +2162,19 @@ button.primary__button:hover {
   grid-area: third;
 }
 
+@-webkit-keyframes autofill {
+  0%, 100% {
+    color: #666;
+    background: transparent;
+  }
+}
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s;
+  /* Safari support - any positive time runs instantly */
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
 .user__section {
   padding: 0 1rem;
   display: grid;
@@ -2306,7 +2341,6 @@ button.user__btn:active {
 
   .user__address__add {
     gap: 1rem;
-    padding: 1rem;
     border-radius: 0.5rem;
   }
 }

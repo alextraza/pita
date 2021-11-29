@@ -155,6 +155,12 @@
 .form__group {
     display: grid;
     gap: 1rem;
+    &.add__addr{
+        gap: 0;
+        .sec__title{
+            margin-bottom: 1rem;
+        }
+    }
 
     &.time__grid {
         grid-template-columns: 1fr 1fr;
@@ -208,7 +214,7 @@
             border-radius: 0.5rem;
             position: relative;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
             color: #fff;
             width: 100%;
 
@@ -380,7 +386,9 @@
 
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
-        &:-webkit-autofill:focus {
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+           
             -webkit-box-shadow: 0 0 0px 1000px $primary inset;
             -webkit-text-fill-color: white;
             transition: background-color 5000s ease-in-out 0s;
@@ -725,4 +733,16 @@ button.primary__button {
 
 .third {
     grid-area: third;
+}
+@-webkit-keyframes autofill {
+    0%,100% {
+        color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
 }

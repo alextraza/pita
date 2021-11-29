@@ -20,7 +20,7 @@
 
 
                         <section>
-                            <div class="form__group">
+                            <div class="form__group add__addr">
                                 <div class="sec__title">Куда доставить пиццу?</div>
                                 @if ($user = Auth::user())
                                     @foreach ($user->addresses as $key => $address)
@@ -38,8 +38,8 @@
                                                 href="{{ route('user') }}">Войти</a></div>
                                     @else
                                         <div class="form__field">
-                                            <input type="radio" id="address-3" name="client_address">
-                                            <label for="address-3">Ввести адрес</label>
+                                            <input type="radio" id="address-other" name="client_address">
+                                            <label for="address-other">Ввести адрес</label>
                                         </div>
                                     @endif
                                 @else
@@ -142,7 +142,7 @@
                             <input id="name" type="text" name="name" value="@if (Auth::user()) {{ Auth::user()->name }} @endif" autocomplete="name">
                         </div>
                         <div class="form__field__add phone @error('phone') error @enderror">
-                            <label for="phone">Телефон<span>*</span></label>
+                            <label for="client-phone">Телефон<span>*</span></label>
                             <input id="client-phone" type="text" data-js="input" name="phone"
                                 placeholder="8 (xxx) xxx-xx-xx" value="@if (Auth::user()) {{ old('phone', Auth::user()->formatted_phone) }} @else {{ old('phone') }} @endif" autocomplete="tel">
                             @error('phone')

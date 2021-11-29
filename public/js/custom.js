@@ -8,12 +8,18 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModalWindow(e);
         editRmAddress(e);
         cookie(e);
+
     });
+
 
     document.addEventListener('change', (e) => {
         changeCount(e.target);
         removeError(e);
         overflowHidden(e);
+
+    });
+    document.addEventListener('focus', (e) => {
+        checkboxAddress(e);
     });
 
     if (userForms = document.querySelectorAll('.ajax-form')) {
@@ -289,8 +295,22 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.target.classList.contains('cookie')) {
             document.cookie = "cookies=enable"
             e.target.parentNode.style.display = 'none'
-      
+
 
         }
+    }
+
+    function checkboxAddress(e) {
+        //radio address-other
+        if (e.target.id == 'address-other') {
+            //усли статус Checked
+            if (e.target.checked) {
+                //address-form - id группы с полями для адреса
+                return document.getElementsByClassName('form__group__add address__form').classList.add('disabled');
+
+
+            }
+        }
+
     }
 });

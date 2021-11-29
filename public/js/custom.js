@@ -301,7 +301,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (addressInputs) {
         addressInputs.forEach((element) => {
             element.addEventListener('click', () => {
-                document.getElementById('address-other').checked = true;
+                let other = document.getElementById('address-other')
+                if (other) {
+                    other.checked = true;
+                }
             });
         })
     }

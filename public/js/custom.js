@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModalWindow(e);
         editRmAddress(e);
         cookie(e);
-
+        checkboxAddress(e);
     });
 
 
@@ -18,9 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         overflowHidden(e);
 
     });
-    document.addEventListener('focus', (e) => {
-        checkboxAddress(e);
-    });
+
 
     if (userForms = document.querySelectorAll('.ajax-form')) {
         userForms.forEach(form => {
@@ -301,16 +299,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function checkboxAddress(e) {
-        //radio address-other
-        if (e.target.id == 'address-other') {
-            //усли статус Checked
-            if (e.target.checked) {
-                //address-form - id группы с полями для адреса
-                return document.getElementsByClassName('form__group__add address__form').classList.add('disabled');
 
 
-            }
-        }
 
     }
 });

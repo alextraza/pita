@@ -1926,7 +1926,6 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
   border-radius: 2rem;
-  border: 2px solid #1F2937;
 }
 .form__field__add input:focus {
   outline: none;

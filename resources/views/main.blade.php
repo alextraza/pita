@@ -14,7 +14,7 @@
 <body class="@if (Session::get('success'))active @endif">
     <x-header />
     @yield('content')
-    @include('components.modal')
+    @guest @include('components.modal')@endguest 
     <x-footer />
 
     <script src="{{ asset('js/app.js') }}"></script>

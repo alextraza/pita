@@ -60,12 +60,12 @@
                                             placeholder="8 (xxx) xxx-xx-xx" value="" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
-                                        <label for="password">Пароль</label>
+                                        <label for="reg-password">Пароль</label>
                                         <input id="password" type="password" name="password" value="" autocomplete="new-password">
                                     </div>
                                     <div class="form__field__add">
-                                        <label for="password">Подтвердите пароль</label>
-                                        <input id="password" type="password" name="password_confirmation" autocomplete="new-password">
+                                        <label for="reg-password_confirmation">Подтвердите пароль</label>
+                                        <input id="reg-password_confirmationd" type="password" name="password_confirmation" autocomplete="new-password">
                                     </div>
 
                                     <button type="submit">Зарегистрироваться</button>

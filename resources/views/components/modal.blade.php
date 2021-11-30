@@ -27,13 +27,13 @@
                                 @csrf
                                 <div class="form__group__add ">
                                     <div class="form__field__add">
-                                        <label for="phone">Телефон</label>
-                                        <input id="phone" type="phone" data-js="input" name="phone"
+                                        <label for="log-phone">Телефон</label>
+                                        <input id="log-phone" type="phone" data-js="input" name="phone"
                                             placeholder="8 (xxx) xxx-xx-xx" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
-                                        <label for="password">Пароль</label>
-                                        <input id="password" type="password" name="password" autocomplete="current-password">
+                                        <label for="log-password">Пароль</label>
+                                        <input id="log-password" type="password" name="password" autocomplete="current-password">
                                     </div>
                                     <div class="form__field__add bg_unset">
                                         <label for="forgot_password">Забыли пароль</label>
@@ -51,12 +51,12 @@
                                 @csrf
                                 <div class="form__group__add reg__form">
                                     <div class="form__field__add">
-                                        <label for="email">Email*</label>
-                                        <input id="email" type="text" name="email" autocomplete="email">
+                                        <label for="reg-email">Email*</label>
+                                        <input id="reg-email" type="text" name="email" autocomplete="email">
                                     </div>
                                     <div class="form__field__add">
-                                        <label for="phone">Телефон*</label>
-                                        <input id="phone" type="text" data-js="input" name="phone"
+                                        <label for="reg-phone">Телефон*</label>
+                                        <input id="reg-phone" type="text" data-js="input" name="phone"
                                             placeholder="8 (xxx) xxx-xx-xx" value="" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
@@ -64,7 +64,7 @@
                                         <input id="password" type="password" name="password" value="" autocomplete="new-password">
                                     </div>
                                     <div class="form__field__add">
-                                        <label for="password_confirmation">Подтвердите пароль</label>
+                                        <label for="password">Подтвердите пароль</label>
                                         <input id="password" type="password" name="password_confirmation" autocomplete="new-password">
                                     </div>
 

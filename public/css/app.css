@@ -1937,6 +1937,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   color: #ffa500;
 }
 .form__field__add.error, .form__field__add.has-error {
+  position: relative;
   border-color: Crimson;
 }
 .form__field__add.street {
@@ -2014,7 +2015,6 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   filter: invert(1) contrast(0.79) hue-rotate(171deg);
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
-  padding-left: 1rem;
   border-radius: 2rem;
 }
 .form__field__add input:focus {

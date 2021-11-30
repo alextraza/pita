@@ -240,6 +240,7 @@
     }
 
     .form__field__add {
+        
 
         &.time {
             grid-area: time;
@@ -313,6 +314,7 @@
 
     &.error,
     &.has-error {
+        position: relative;
         border-color: Crimson;
     }
 
@@ -400,7 +402,7 @@
             filter: invert(1) contrast(0.79) hue-rotate(171deg);
          
             transition: background-color 5000s ease-in-out 0s;
-            padding-left: 1rem;
+         
             border-radius: 2rem;
 
 

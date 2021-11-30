@@ -51,7 +51,7 @@ return [
     "min"              => [
         "numeric" => "Поле :attribute должно быть не менее :min.",
         "file"    => "Поле :attribute должно быть не менее :min Килобайт.",
-        "string"  => "Поле :attribute должно быть не короче :min символов.",
+        "string"  => ":attribute не менее :min символов.",
         "array"   => "Поле :attribute должно содержать не менее :min элементов."
     ],
     "not_in"           => "Выбранное значение для :attribute ошибочно.",
@@ -59,9 +59,9 @@ return [
     "regex"            => "Поле :attribute имеет ошибочный формат.",
     "required"         => "Введите :attribute",
     "required_if"      => "Введите :attribute",
-    "required_with"    => "Поле :attribute обязательно для заполнения, когда :values указано.",
+    "required_with"    => ":attribute обязательно, когда :values указано.",
     "required_without" => "Поле :attribute обязательно для заполнения, когда :values не указано.",
-    "same"             => "Значение :attribute должно совпадать с :other.",
+    "same"             => ":attribute должно совпадать с :other.",
     "size"             => [
         "numeric" => "Поле :attribute должно быть :size.",
         "file"    => "Поле :attribute должно быть :size Килобайт.",
@@ -108,6 +108,8 @@ return [
         'street' => 'Улица',
         'house' => 'Номер дома',
         'apartment' => 'Квартира',
+        'password' => 'Пароль',
+        'password_confirmation' => 'Подтверждение пароля',
     ],
 
 ];

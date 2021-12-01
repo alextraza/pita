@@ -28,7 +28,7 @@
                                 <div class="form__group__add ">
                                     <div class="form__field__add">
                                         <label for="log-phone">Телефон</label>
-                                        <input id="log-phone" type="phone" data-js="input" name="phone"
+                                        <input id="log-phone" type="tel" data-js="input" name="phone"
                                             placeholder="8 (xxx) xxx-xx-xx" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">
@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="form__field__add">
                                         <label for="reg-phone">Телефон*</label>
-                                        <input id="reg-phone" type="text" data-js="input" name="phone"
+                                        <input id="reg-phone" type="tel" data-js="input" name="phone"
                                             placeholder="8 (xxx) xxx-xx-xx" value="" autocomplete="tel">
                                     </div>
                                     <div class="form__field__add">

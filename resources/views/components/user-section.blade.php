@@ -26,14 +26,14 @@
                     </div>
                     <div class="form__field__add pass @error('password') error @enderror">
                         <label for="password">Пароль</label>
-                        <input id="password" type="password" name="password" value="">
+                        <input id="password" type="password" name="password" value="" autocomplete="new-password">
                         @error('password')
                         <span class="text-danger">{{ $errors->first('password') }}</span>
                         @enderror
                     </div>
                     <div class="form__field__add rep-pass @error('password_confirmation') error @enderror">
-                        <label for="password">Подтвердите пароль</label>
-                        <input id="password" type="password" name="password_confirmation">
+                        <label for="password_confirmation">Подтвердите пароль</label>
+                        <input id="password_confirmation" type="password" name="password_confirmation" autocomplete="new-password">
                         @error('password_confirmation')
                         <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                         @enderror
@@ -41,7 +41,7 @@
                     <div class="form__field__add email @error('email') error @enderror">
                         <label for="email">Email</label>
                         <input id="email" type="text" name="email" value="{{ old('email', $user->email) }}"
-                               title="Для восстановления пароля">
+                               title="Для восстановления пароля" autocomplete="email">
                         @error('email')
                         <span class="text-danger">{{ $errors->first('email') }}</span>
                         @enderror

@@ -1,0 +1,11 @@
+{
+    "name": "Pita pizza",
+    "short_name": "Pita pizza",
+    "icons": [{
+        "src": "images/favicon.png",
+        "sizes": "512x512"
+    }],
+    "background_color": "#1F2937",
+    "theme_color": "#1F2937",
+    "display": "fullscreen"
+}

@@ -79,7 +79,7 @@ class FrontendController extends Controller
         }
         $phone = str_replace(['+7', ' ', '(', ')', '-'], '', $request->phone);
         if ($user->phone != $phone) {
-            $user->phoen = $phone;
+            $user->phone = $phone;
         }
         if ($user->name != $request->name) {
             $user->name = $request->name;

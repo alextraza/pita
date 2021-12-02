@@ -1,62 +1,60 @@
+@media (min-width: $xs) and (max-width: $sm) {
 
 
+    // Header
+    .header {
 
-    @media (min-width: $xs) and (max-width: $sm) {
 
+        gap: 0.5rem;
+        align-items: center;
 
-        // Header
-        .header {
-    
-    
-            gap: 0.5rem;
-            align-items: center;
-    
-            .logo {
-                font-size: 3rem;
-                color: $white;
-                order: 1;
-    
-            }
-    
-            .phone {
-                order: 5;
-    
-                a {
-                    font-size: 0.9rem;
-                }
-    
-                span {
-                    display: none;
-                }
-    
-            }
-    
-            .address {
-    
-                order: 3;
-    
-                span {
-                    display: none;
-                }
-    
-                p {
-                    font-size: 0.9rem;
-                }
-            }
-            .resp__nav {
-                
-                order: 2;
-            
-            }
-    
-    
-            // Гамбургер
-        
+        .logo {
+            font-size: 3rem;
+            color: $white;
+            order: 1;
+
         }
- 
-    
 
-    
+        .phone {
+            order: 5;
+
+            a {
+                font-size: 0.9rem;
+            }
+
+            span {
+                display: none;
+            }
+
+        }
+
+        .address {
+
+            order: 3;
+
+            span {
+                display: none;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .resp__nav {
+
+            order: 2;
+
+        }
+
+
+        // Гамбургер
+
+    }
+
+
+
+
 
     // Navigation
 
@@ -75,7 +73,7 @@
                 padding: 0.5rem 0.5rem 0.5rem 0rem;
                 border-radius: 0.5rem;
                 font-size: 0.8rem;
-                
+
             }
         }
 
@@ -113,15 +111,17 @@
     .footer {
         flex-direction: column;
         gap: 1rem;
-        &.bottom-marged{
+
+        &.bottom-marged {
             padding-bottom: 6rem;
         }
+
         .logo {
             font-size: 2rem;
             word-break: break-word;
             flex: 1;
         }
-        
+
     }
 
 
@@ -214,13 +214,13 @@
                     color: $primary;
                     padding: 0.5rem;
                     text-transform: capitalize;
-                    &:hover
-                     {
+
+                    &:hover {
                         background: $white;
                         color: $primary;
-                        
+
                     }
-                    
+
                 }
             }
 
@@ -288,14 +288,14 @@
                     display: flex;
                     align-items: center;
                     font-weight: 800;
-                    
+
                 }
             }
         }
     }
 
     // MODAL
-   
+
     .modal {
 
 
@@ -306,15 +306,29 @@
             max-width: 90vw;
 
             .modal__inner {
-                button{
+                button {
                     width: 100%;
                 }
             }
         }
 
     }
-    .cookieform{
+
+    .cookieform {
         border-radius: 0.5rem;
     }
 
+    .map__sec {
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "content"
+            "map ";
+
+        .map__sec__map {
+            border-radius: 0.5rem;
+        }
+
+    }
 }

@@ -68,4 +68,17 @@
             padding-bottom: 6rem;
         }
     }
+    .map__sec {
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "content"
+            "map";
+
+        .map__sec__map {
+            border-radius: 0.5rem;
+        }
+
+    }
 }

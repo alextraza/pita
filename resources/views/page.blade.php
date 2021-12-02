@@ -12,5 +12,6 @@
 
 @section('content')
     @include('components.internal')
-    @include('components.content-section')
+
+    @include('components.map-section')
 @endsection

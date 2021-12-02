@@ -994,6 +994,25 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   color: #ffa500;
 }
 
+.map__sec {
+  margin: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  grid-template-areas: "map content";
+}
+.map__sec .map__sec__map {
+  grid-area: map;
+  overflow: hidden;
+  border-radius: 1rem;
+  min-height: 60vh;
+  border: 3px solid #9CA3AF;
+}
+.map__sec .content-section {
+  padding: 0;
+  grid-area: content;
+}
+
 @media (max-width: 320px) {
   .header {
     gap: 1rem;
@@ -1254,6 +1273,14 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .cookieform {
     border-radius: 0.5rem;
   }
+
+  .map__sec {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content" "map ";
+  }
+  .map__sec .map__sec__map {
+    border-radius: 0.5rem;
+  }
 }
 @media (min-width: 640px) and (max-width: 768px) {
   html {
@@ -1300,6 +1327,14 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   }
   .footer.bottom-marged {
     padding-bottom: 6rem;
+  }
+
+  .map__sec {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content" "map";
+  }
+  .map__sec .map__sec__map {
+    border-radius: 0.5rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -1249,3 +1249,21 @@ input {
         }
     }
 }
+.map__sec{
+    margin: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    grid-template-areas: "map content";
+    .map__sec__map{
+        grid-area: map;
+        overflow: hidden;
+        border-radius: 1rem;
+        min-height: 60vh;
+        border: 3px solid $gray-400;
+    }
+    .content-section{
+        padding: 0;
+        grid-area: content;
+    }
+}

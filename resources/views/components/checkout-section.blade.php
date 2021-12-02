@@ -201,9 +201,8 @@
                     </div>
                     <button type="submit" class="primary__button">Оформить заказ</button>
                     <div class="privacy">
-                        Нажимая на кнопку Оформить заказ, вы даёте согласие на <a href="/privacy-policy">обработку
-                        персональных данных</a>, в соответствии с
-                        <a href="/privacy-policy">“Политикой конфиденциальности”</a>.
+                        Нажимая на кнопку Оформить заказ, вы даёте согласие на <a href="https://docs.google.com/document/d/1T5Dvd_PRlMqbYHKC4ZrHIfl7uQPbOwLhPqynLeWTySw/edit?usp=sharing" target="_blank">обработку
+                        персональных данных</a>.
                         Мы работаем каждый день с 10:00 до 23:00. Точное время доставки в уточняйте по номеру <a
                                                                                                                   href="tel:{{ str_replace([' ', '(', ')', '-'], '', \App\Models\Config::phone()) }}">{{ \App\Models\Config::phone() }}</a>
                     </div>

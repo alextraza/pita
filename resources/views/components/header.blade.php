@@ -14,7 +14,7 @@
         </label>
         
         <ul class="menu__box">
-            <li class="menu__item"><a href="{{ route('page', ['slug' => 'about']) }}">О нас</a></li>
+            {{-- <li class="menu__item"><a href="{{ route('page', ['slug' => 'about']) }}">О нас</a></li> --}}
             <li class="menu__item"><a href="{{ route('page', ['slug' => 'delivery']) }}">Доставка и оплата</a></li>
             <li class="menu__item"><a href="{{ route('page', ['slug' => 'contacts'])  }}">Контакты</a></li>
             <li class="menu__item user">

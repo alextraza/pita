@@ -1,6 +1,6 @@
 @if (! isset($_COOKIE['cookies']))
     <div class="cookieform">
-        <div class="div">Мы используем cookies. Продолжая пользоваться сайтом, вы принимаете <a href="/privacy-policy">условия обработки персональных данных</a></div><button class="cookie">×</button>
+        <div class="div">Мы используем cookies. Продолжая пользоваться сайтом, вы принимаете <a href="https://docs.google.com/document/d/1T5Dvd_PRlMqbYHKC4ZrHIfl7uQPbOwLhPqynLeWTySw/edit?usp=sharing" target="_blank">условия обработки персональных данных</a></div><button class="cookie">×</button>
 
     </div>
 @endif

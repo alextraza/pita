@@ -2504,8 +2504,8 @@ button.user__btn:active {
   margin: 1rem 0;
   line-height: 1.4rem;
 }
-.content-section stong {
-  font-weight: 600;
+.content-section strong {
+  font-weight: 800;
 }
 .content-section h1,
 .content-section h2,

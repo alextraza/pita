@@ -94,6 +94,10 @@ a:hover {
 button {
   transition: 0.3s linear;
   cursor: pointer;
+  outline: none;
+}
+button:active {
+  outline: none;
 }
 
 ::-moz-selection {
@@ -2063,6 +2067,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   width: 100%;
   padding: 0;
   height: 100%;
+  min-height: 3.1rem;
 }
 .form__field__add input[type=time]::-webkit-datetime-edit-fields-wrapper {
   display: flex;

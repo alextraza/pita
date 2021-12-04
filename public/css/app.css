@@ -2203,6 +2203,10 @@ button.primary__button:hover {
   .sec__title {
     font-size: 1rem;
   }
+
+  .form__field__add input[type=time] {
+    margin-right: 1rem;
+  }
 }
 @media (min-width: 640px) and (max-width: 768px) {
   .checkout__section {

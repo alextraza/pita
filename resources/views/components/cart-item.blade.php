@@ -1,6 +1,6 @@
 <div class="cart__item">
     <div class="cart__item__image">
-        <img src="{{ ImageHelper::thumb($item->options->image, 90, 70) }}" alt="">
+        <img src="{{ ImageHelper::thumb($item->options->image, 90, 69) }}" alt="">
     </div>
 
     <div class="cart__item__desc">

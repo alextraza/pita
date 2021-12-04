@@ -423,6 +423,7 @@
             width: 100%;
             padding: 0;
             height: 100%;
+            min-height: 3.1rem;
 
 
             &::-webkit-datetime-edit-fields-wrapper {
@@ -615,11 +616,7 @@ button.primary__button {
         font-size: 1rem;
 
     }
-    .form__field__add{
-        &.time > input{
-            height: 3.1rem;
-        }
-    }
+    
 
 }
 

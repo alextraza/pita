@@ -44,6 +44,7 @@ a {
 button {
     transition: 0.3s linear;
     cursor: pointer;
+    outline: none;
 }
 
 ::selection {

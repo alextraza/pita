@@ -616,8 +616,8 @@ button.primary__button {
 
     }
     .form__field__add{
-        &.time{
-            height: 3rem;
+        &.time > input{
+            height: 3.1rem;
         }
     }
 

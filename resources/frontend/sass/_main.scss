@@ -45,7 +45,8 @@ button {
     transition: 0.3s linear;
     cursor: pointer;
     outline: none;
-    &:active{
+
+    &:active {
         outline: none;
     }
 }
@@ -282,7 +283,7 @@ button {
                     line-height: 0.3rem;
                     color: $primary;
                     border: 1px solid $primary;
-                    
+
                 }
             }
 
@@ -355,9 +356,9 @@ button {
 
             img {
                 transition: 0.4s linear;
-
-
-
+                aspect-ratio: 4/3;
+                max-width: 100%;
+                height: auto;
             }
 
             .item__button {
@@ -603,7 +604,8 @@ button {
         text-transform: uppercase;
     }
 
-    .phone,.address {
+    .phone,
+    .address {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -612,7 +614,8 @@ button {
         font-weight: 600;
         justify-content: space-evenly;
 
-        a,p {
+        a,
+        p {
             color: orange;
             font-size: 1.2rem;
             font-weight: 800;
@@ -864,7 +867,8 @@ button {
                     background: $yellow;
                     color: $primary;
                 }
-                &:focus{
+
+                &:focus {
                     transform: scale(1.1);
                     transition: 0.1s;
                 }
@@ -1253,20 +1257,23 @@ input {
         }
     }
 }
-.map__sec{
+
+.map__sec {
     margin: 0 1rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     grid-template-areas: "map content";
-    .map__sec__map{
+
+    .map__sec__map {
         grid-area: map;
         overflow: hidden;
         border-radius: 1rem;
         min-height: 60vh;
         border: 3px solid $gray-400;
     }
-    .content-section{
+
+    .content-section {
         padding: 0;
         grid-area: content;
     }

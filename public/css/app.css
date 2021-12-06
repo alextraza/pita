@@ -242,7 +242,10 @@ button:active {
   font-weight: 600;
   text-transform: uppercase;
 }
-.header .resp__nav .menu__box .menu__item a:hover {
+.header .resp__nav .menu__box .menu__item a, .header .resp__nav .menu__box .menu__item span {
+  color: #fff;
+}
+.header .resp__nav .menu__box .menu__item a:hover, .header .resp__nav .menu__box .menu__item span:hover {
   color: #ffa500;
 }
 .header .resp__nav .menu__box .menu__item ul li a {
@@ -939,6 +942,13 @@ button:active {
   font-size: 0.8rem;
   font-weight: 200;
   color: #9CA3AF;
+}
+.cart__section .cart__offer .cart__offer__list .offer__item .offer__content .offer__btn {
+  display: flex;
+  justify-content: space-between;
+}
+.cart__section .cart__offer .cart__offer__list .offer__item .offer__content .offer__btn span {
+  color: #ffa500;
 }
 
 .cat__nav__cart.mobile {
@@ -1812,6 +1822,11 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 
   .menu__block .menu__block__con {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cart__section .cart__offer .cart__offer__list .offer__item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 }
 @media (min-width: 1025px) and (max-width: 1186px) {

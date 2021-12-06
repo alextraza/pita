@@ -98,7 +98,8 @@ button {
                 font-weight: 600;
                 text-transform: uppercase;
 
-                a {
+                a, span {
+                    color:$white;
                     &:hover {
                         color: $yellow;
 
@@ -112,7 +113,7 @@ button {
                         }
                     }
                 }
-
+                
 
 
                 &.user>ul {
@@ -804,7 +805,7 @@ button {
                     border-color: $gray-400;
                 }
 
-
+                
 
                 .cart__item__desc {
 
@@ -1035,6 +1036,13 @@ button {
                         font-size: 0.8rem;
                         font-weight: 200;
                         color: $gray-400;
+                    }
+                    .offer__btn{
+                        display: flex;
+                        justify-content: space-between;
+                        span{
+                            color: $yellow;
+                        }
                     }
                 }
             }

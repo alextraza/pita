@@ -39,6 +39,10 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+    .cart__section .cart__offer .cart__offer__list .offer__item{
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
 }
 
 
@@ -63,5 +67,6 @@
             }
         } 
     }
+    
 
 }

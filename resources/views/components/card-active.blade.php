@@ -1,6 +1,13 @@
 <div class="item {{ $item->in_cart ? 'in_cart' : '' }}">
     <div class="item__img__block">
-        <img src="{{ ImageHelper::thumb($item->image, 580, 446) }}" width="580" height="446" alt="{{ $item->category->header }} {{ $item->header }}">
+
+        <picture>
+            <source srcset="{{ ImageHelper::thumb($item->image, 580, 446, 'webp') }}" type="image/webp">
+            <img src="{{ ImageHelper::thumb($item->image, 580, 446, 'png') }}" width="580" height="446"
+                 alt="{{ $item->category->header }} {{ $item->header }}" type="image/png">
+          </picture>
+
+      
         <button class="item__button add-to-cart" data-id="{{ $item->id }}" type="button" aria-label="Добавить в корзину"><svg
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"

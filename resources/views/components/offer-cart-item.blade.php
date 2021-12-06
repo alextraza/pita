@@ -1,6 +1,13 @@
 <div class="offer__item">
     <div class="offer__photo">
-        <img src="{{ ImageHelper::thumb($offer->image, 90, 70) }}" alt="">
+
+        <picture>
+            <source srcset="{{ ImageHelper::thumb($offer->image, 180, 140, 'webp') }}" type="image/webp">
+            <img src="{{ ImageHelper::thumb($offer->image, 180, 140, 'png') }}" width="180" height="140"
+                alt="{{ $offer->header }}" type="image/png">
+        </picture>
+        
+      
     </div>
     <div class="offer__content">
         

@@ -53,6 +53,7 @@ blockquote, q {
 
 img, object {
   max-width: 100%;
+  height: auto;
 }
 
 /* inter-900 - latin_cyrillic */

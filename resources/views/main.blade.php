@@ -42,8 +42,9 @@
     @guest @include('components.modal')@endguest
     <x-footer />
 
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/navigation.js') }}"></script>
+    <script src="{{ asset('js/phone.js') }}"></script>
 </body>
 
 </html>

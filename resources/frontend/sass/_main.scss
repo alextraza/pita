@@ -1030,6 +1030,10 @@ button {
                         color: $gray-200;
                         font-weight: 700;
                         font-size: 1.1rem;
+                        span{
+                            color: $yellow;
+                            float: right;
+                        }
                     }
 
                     .offer__desc {
@@ -1038,11 +1042,8 @@ button {
                         color: $gray-400;
                     }
                     .offer__btn{
-                        display: flex;
-                        justify-content: space-between;
-                        span{
-                            color: $yellow;
-                        }
+                        
+                        
                     }
                 }
             }

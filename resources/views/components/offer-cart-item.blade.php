@@ -12,13 +12,13 @@
     <div class="offer__content">
         
         <div class="offer__title">
-            {{ $offer->header }}
+            {{ $offer->header }}<span>{!! $offer->price !!} ₽</span>
         </div>
         <div class="offer__desc">
             {!! $offer->content !!}
         </div>
         <div class="offer__btn">
-            <a href="{{ route('cart.offer', ['id' => $offer->id]) }}">В корзину</a> <span>{!! $offer->price !!} ₽</span>
+            <a href="{{ route('cart.offer', ['id' => $offer->id]) }}">В корзину</a> 
         </div>
     </div>
     

@@ -1,5 +1,5 @@
 @if ($gtm = \App\Models\Config::gtm())
-<script async src=\"https://www.googletagmanager.com/gtag/js?id={!! $gtm !!} \"></script>
+
 <script>
     window.dataLayer = window.dataLayer || [];
 

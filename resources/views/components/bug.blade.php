@@ -1,14 +1,14 @@
 @if ($gtm = \App\Models\Config::gtm())
-
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src=\"https://www.googletagmanager.com/gtag/js?id={!! $gtm !!} \"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', '{!! $gtm !!}');
+  gtag('config', '{!! $gtm !!}');
 </script>
+
 <!-- Google Analytics -->
 <script>
     (function(i, s, o, g, r, a, m) {

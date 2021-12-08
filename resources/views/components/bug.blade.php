@@ -1,6 +1,6 @@
 @if ($gtm = \App\Models\Config::gtm())
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src=\"https://www.googletagmanager.com/gtag/js?id={!! $gtm !!} \"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={!! $gtm !!}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

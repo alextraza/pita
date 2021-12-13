@@ -137,8 +137,6 @@ class CheckoutController extends Controller
                     $order->save();
                 }
             }
-            return redirect(route('index'))->withSuccess('Оплата принята. Спасибо за заказ!');
         }
-        return redirect(route('index'))->withSuccess('Произошла ошибка при оплате!');
     }
 }

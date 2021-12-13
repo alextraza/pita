@@ -117,6 +117,7 @@ class CheckoutController extends Controller
         ? new NotificationSucceeded($requestBody)
         : new NotificationWaitingForCapture($requestBody);
         $payment = $notification->getObject();
+        \Log::info(json_encode($payment));
         if (isset($payment->status) && $payment->status === 'succeeded') {
             if ((bool)$payment->paid === true) {
                 $metadata = (object)$payment->metadata;

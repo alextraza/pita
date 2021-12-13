@@ -122,6 +122,7 @@ class CheckoutController extends Controller
     {
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
+        \Log::error($source);
         $notification = ($requestBody['event'] == NotificationEventType::PAYMENT_SUCCEEDED)
         ? new NotificationSucceeded($requestBody)
         : new NotificationWaitingForCapture($requestBody);

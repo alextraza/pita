@@ -244,5 +244,6 @@ Route::put('/address', [FrontendController::class, 'addressSave'])->name('user.a
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::put('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::match(['GET', 'POST'], '/payment/callback', [CheckoutController::class, 'callback'])->name('payment.callback');
+Route::get('/payment', [CheckoutController::class, 'payment_ret'])->name('payment_ret');
 
 Route::get('/{slug}', [FrontendController::class, 'page'])->name('page');

@@ -80,6 +80,11 @@ class CheckoutController extends Controller
         return $orderItem;
     }
 
+    public function payment_ret()
+    {
+        return redirect(route('index'))->withSuccess('Спасибо за заказ!');
+    }
+
     private function getClient()
     {
         $client = new Client();
@@ -99,7 +104,7 @@ class CheckoutController extends Controller
                 ],
                 'confirmation' => [
                     'type' => 'redirect',
-                    'return_url' => route('payment.callback'),
+                    'return_url' => route('payment_ret'),
                 ],
                 'metadata' => [
                     'order_id' => $order->id,

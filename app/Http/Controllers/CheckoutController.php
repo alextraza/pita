@@ -128,6 +128,6 @@ class CheckoutController extends Controller
                 }
             }
         }
-        return redirect(route('index'))->withSuccess('Спасибо за заказ!');
+        return redirect(route('index'))->withSuccess('Оплата принята. Спасибо за заказ!');
     }
 }

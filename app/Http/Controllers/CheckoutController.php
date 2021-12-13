@@ -100,7 +100,7 @@ class CheckoutController extends Controller
                 'metadata' => [
                     'order_id' => $order->id,
                 ],
-                'capture' => false,
+                'capture' => true,
                 'description' => 'Заказ №'.$order->id,
             ],
             uniqid('', true)

@@ -38,6 +38,9 @@ class CheckoutController extends Controller
         $order->comment = $request->comment;
         $order->delivery_time = $request->delivery_time == 'time' ? $request->chose_time : $request->delivery_time;
         $order->status = 'new';
+        if ($request->tabset_2 == 'online') {
+            $order->payment = 'card';
+        }
         foreach (Cart::content() as $orderItem) {
             $orderItems[] = $this->setOrderItems($orderItem);
         }

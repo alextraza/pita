@@ -7,7 +7,8 @@ use App\Models\{Order, OrderItem, Address};
 use Cart;
 use Illuminate\Http\Request;
 use YooKassa\Client;
-use YooKassa\Model\{NotificationEventType, NotificationSucceeded, NotificationWaitingForCapture};
+use YooKassa\Model\NotificationEventType;
+use YooKassa\Model\Notification\{NotificationSucceeded, NotificationWaitingForCapture};
 
 class CheckoutController extends Controller
 {

@@ -111,7 +111,7 @@ class CheckoutController extends Controller
 
     public function callback(Request $request)
     {
-        $source = \file_get_content('php://input');
+        $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
         $notification = ($requestBody['event'] == NotificationEventType::PAYMENT_SUCCEEDED)
         ? new NotificationSucceeded($requestBody)

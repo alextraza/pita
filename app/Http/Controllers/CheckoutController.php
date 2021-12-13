@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Cart;
-use App\Models\{Order, OrderItem, Address};
 use App\Http\Requests\StoreOrder;
+use App\Models\{Order, OrderItem, Address};
+use Cart;
+use Illuminate\Http\Request;
+use YooKassa\Client;
+use YooDassa\Model\{NotificationEventType, NotificationSucceeded, NotificationWaitingForCapture};
 
 class CheckoutController extends Controller
 {
@@ -42,6 +45,12 @@ class CheckoutController extends Controller
             $order->save();
             $order->orderItems()->saveMany($orderItems);
         }
+
+        Cart::destroy();
+
+        if ($request->tabset_2 == 'online') {
+            return redirect()->away($this->createPayment($order));
+        }
         return redirect(route('index'))->withSuccess('Спасибо за заказ!');
     }
 
@@ -65,5 +74,59 @@ class CheckoutController extends Controller
         $orderItem->price = $item->price;
         $orderItem->count = $item->qty;
         return $orderItem;
+    }
+
+    private function getClient()
+    {
+        $client = new Client();
+        $client->setAuth(config('services.yookassa.shop_id'),
+                         config('services.yookassa.secret'));
+        return $client;
+    }
+
+    private function createPayment($order)
+    {
+        $client = $this->getClient();
+        $payment = $client->createPayment(
+            [
+                'amount' => [
+                    'value' => (float)$order->full_price,
+                    'currency' => 'RUB',
+                ],
+                'confirmation' => [
+                    'type' => 'redirect',
+                    'return_url' => route('payment.callback'),
+                ],
+                'metadata' => [
+                    'order_id' => $order->id,
+                ],
+                'capture' => false,
+                'description' => 'Заказ №'.$order->id,
+            ],
+            uniqid('', true)
+        );
+
+        return $payment->getConfirmation()->getConfirmationUrl();
+    }
+
+    public function callback(Request $request)
+    {
+        $source = file_get_content('php://input');
+        $requestBody = json_decode($source, true);
+        $notification = ($requestBody['event'] == NotificationEventType::PAYMENT_SUCCEEDED)
+        ? new NotificationSucceeded($requestBody)
+        : new NotificationWaitingForCapture($requestBody);
+        $payment = $notification->getObject();
+        if (isset($payment->status) && $payment->status === 'succeeded') {
+            if ((bool)$payment->paid === true) {
+                $metadata = (object)$payment->metadata;
+                if (isset($metadata->order_id)) {
+                    $order = Order::where('id', (int)$metadata->order_id)->first();
+                    $order->payed = 'payed';
+                    $order->status = 'pending';
+                    $order->save();
+                }
+            }
+        }
     }
 }

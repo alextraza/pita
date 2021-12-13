@@ -166,9 +166,9 @@
                 </div>
                 <div class="tabset">
                     <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_description" hidden
-                           aria-hidden="true" checked>
+                           aria-hidden="true" value="online" checked>
                     <input type="radio" class="input__tab" name="tabset_2" id="tabset_2_statistics" hidden
-                           aria-hidden="true">
+                           aria-hidden="true" value="cash">
                     <ul hidden aria-hidden="true">
 
                         <li><label for="tabset_2_description">Он-лайн</label></li>

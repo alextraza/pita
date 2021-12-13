@@ -133,7 +133,7 @@ class CheckoutController extends Controller
                 $metadata = (object)$payment->metadata;
                 if (isset($metadata->order_id)) {
                     $order = Order::where('id', (int)$metadata->order_id)->first();
-                    $order->payed = 'payed';
+                    $order->payment = 'payed';
                     $order->status = 'pending';
                     $order->save();
                 }

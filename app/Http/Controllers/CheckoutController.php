@@ -128,5 +128,6 @@ class CheckoutController extends Controller
                 }
             }
         }
+        return redirect(route('index'))->withSuccess('Спасибо за заказ!');
     }
 }

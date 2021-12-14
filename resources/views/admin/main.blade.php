@@ -12,9 +12,6 @@
     <div class="menu">
         <div class="logo">
             <a href="{{ route('dashboard') }}">
-                <object data="{{ asset("images/pizza.svg") }}" type="image/svg+xml" width="24px">
-                    <img src="{{ asset("images/pizza.svg") }}" alt="" />
-                </object>
                 PITA-PIZZA
             </a>
             <a class="menu__close" href="#">&times;</a>

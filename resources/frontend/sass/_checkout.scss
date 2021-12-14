@@ -109,6 +109,7 @@
         section {
             display: none;
             gap: 1rem;
+           
 
             p {
                 color: $white;
@@ -626,7 +627,10 @@ button.primary__button {
 @media (min-width: $sm) and (max-width: $md) {
     .checkout__section {
         grid-template-columns: 1fr;
-
+        grid-template-areas: 
+        "first"
+        "second"
+        "third"
 
 
     }
@@ -656,6 +660,8 @@ button.primary__button {
             div {
                 section {
                     gap: 1rem;
+                   
+                    
                 }
             }
         }
@@ -699,7 +705,7 @@ button.primary__button {
 
 }
 
-@media (min-width: $lg) and (max-width: $xl) {
+@media (min-width: $lg) and (max-width: calc($xl - 1px)) {
     .checkout__section {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "first second"
@@ -743,6 +749,7 @@ button.primary__button {
             padding: 0 0.5rem;
         }
     }
+    
 }
 
 .first {
@@ -781,4 +788,26 @@ input:-webkit-autofill {
         "chose-time"
         "time"
     }
+    .yoo__kassa{
+        flex-wrap: wrap;
+        .user__b__subtitle{
+            width: 100%;
+        }
+        img{
+            max-height: 3rem;
+        }
+       
+    } 
+}
+@media (min-width: $xxl) {
+    .yoo__kassa{
+        img{
+            max-width: 40%;
+        }
+    }
+}
+
+.yoo__kassa{
+    display: flex;
+    gap: 1rem;
 }

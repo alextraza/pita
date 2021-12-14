@@ -31,8 +31,8 @@ return [
     ],
 
     'yookassa' => [
-        'shop_id' => env(YOOKASSA_SHOP_ID),
-        'secret' => env(YOOKASSA_SECRET),
+        'shop_id' => env('YOOKASSA_SHOP_ID'),
+        'secret' => env('YOOKASSA_SECRET'),
     ]
-
+        
 ];

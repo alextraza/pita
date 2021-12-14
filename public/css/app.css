@@ -1400,6 +1400,12 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .map__sec .map__sec__map {
     border-radius: 0.5rem;
   }
+
+  .yoo__kassa {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }
 @media (min-width: 640px) and (max-width: 768px) {
   html {
@@ -1788,6 +1794,10 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .cat__nav__cart.mobile .cart a .cart__icon:focus {
     transform: scale(1.1);
     transition: 0.1s;
+  }
+
+  span.user__link {
+    display: none;
   }
 }
 @media (min-width: 1024px) and (max-width: 1280px) {
@@ -2335,6 +2345,7 @@ button.primary__button:hover {
 @media (min-width: 640px) and (max-width: 768px) {
   .checkout__section {
     grid-template-columns: 1fr;
+    grid-template-areas: "first" "second" "third";
   }
 
   .delivery__sec {
@@ -2380,7 +2391,7 @@ button.primary__button:hover {
     grid-template-areas: "first second" "third third";
   }
 }
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .checkout__section {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "first second" "third third";
@@ -2441,7 +2452,27 @@ input:-webkit-autofill {
     grid-template-columns: 1fr;
     grid-template-areas: "now" "chose-time" "time";
   }
+
+  .yoo__kassa {
+    flex-wrap: wrap;
+  }
+  .yoo__kassa .user__b__subtitle {
+    width: 100%;
+  }
+  .yoo__kassa img {
+    max-height: 3rem;
+  }
 }
+@media (min-width: 1536px) {
+  .yoo__kassa img {
+    max-width: 40%;
+  }
+}
+.yoo__kassa {
+  display: flex;
+  gap: 1rem;
+}
+
 .user__section {
   padding: 0 1rem;
   display: grid;

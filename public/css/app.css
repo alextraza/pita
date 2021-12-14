@@ -1859,6 +1859,10 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
   .menu__block .menu__block__con {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .form__group.time__grid {
+    grid-template-columns: 1fr;
+  }
 }
 @media (min-width: 1280px) and (max-width: 1536px) {
   .header .logo {
@@ -1999,7 +2003,7 @@ input#forgot_password, input#delivery, input#input__tab, input#tabset_register, 
 .form__group.time__grid {
   grid-template-columns: 1fr 1fr;
   gap: 0 1rem;
-  grid-template-areas: "now time" "chose-time time";
+  grid-template-areas: "now ." "chose-time time";
 }
 .form__group .form__field {
   display: flex;
@@ -2431,6 +2435,13 @@ input:-webkit-autofill {
   -webkit-animation-fill-mode: both;
 }
 
+@media (min-width: 1280px) and (max-width: 1536px) {
+  .form__group.time__grid {
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: "now" "chose-time" "time";
+  }
+}
 .user__section {
   padding: 0 1rem;
   display: grid;

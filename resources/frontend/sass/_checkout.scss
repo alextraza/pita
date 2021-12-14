@@ -169,7 +169,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 0 1rem;
         grid-template-areas:
-            "now time"
+            "now ."
             "chose-time time";
 
     }
@@ -771,4 +771,14 @@ input:-webkit-autofill {
     /* Safari support - any positive time runs instantly */
     -webkit-animation-name: autofill;
     -webkit-animation-fill-mode: both;
+}
+@media (min-width: $xl) and (max-width: $xxl) {
+    .form__group.time__grid{
+        gap: 0.5rem;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "now"
+        "chose-time"
+        "time"
+    }
 }

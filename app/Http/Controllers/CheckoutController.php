@@ -8,7 +8,7 @@ use Cart;
 use Illuminate\Http\Request;
 use YooKassa\Client;
 use YooKassa\Model\NotificationEventType;
-use YooKassa\Model\Notification\{NotificationSucceeded, NotificationWaitingForCapture};
+use YooKassa\Model\Notification\{NotificationSucceeded, NotificationCanceled};
 
 class CheckoutController extends Controller
 {
@@ -123,9 +123,10 @@ class CheckoutController extends Controller
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
         \Log::error($source);
+
         $notification = ($requestBody['event'] == NotificationEventType::PAYMENT_SUCCEEDED)
         ? new NotificationSucceeded($requestBody)
-        : new NotificationWaitingForCapture($requestBody);
+        : new NotificationCanceled($requestBody);
         $payment = $notification->getObject();
         \Log::info(json_encode($payment));
         if (isset($payment->status) && $payment->status === 'succeeded') {
@@ -139,6 +140,7 @@ class CheckoutController extends Controller
                 }
             }
         }
+
         if (isset($payment->status) && $payment->status === 'canceled') {
             if ((bool)$payment->paid === false) {
                 $metadata = (object)$payment->metadata;

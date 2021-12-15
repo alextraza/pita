@@ -139,5 +139,16 @@ class CheckoutController extends Controller
                 }
             }
         }
+        if (isset($payment->status) && $payment->status === 'canceled') {
+            if ((bool)$payment->paid === false) {
+                $metadata = (object)$payment->metadata;
+                if (isset($metadata->order_id)) {
+                    $order = Order::where('id', (int)$metadata->order_id)->first();
+                    $order->payment = 'card';
+                    $order->status = 'canceled';
+                    $order->save();
+                }
+            }
+        }
     }
 }

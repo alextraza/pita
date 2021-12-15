@@ -9,15 +9,16 @@ class Order extends Model
     const STATUSES = [
         'new' => 'Новый',
         'pending' => 'Оплачен',
+        'delivering' => 'Доставляется',
         'complete' => 'Выполнен',
         'canceled' => 'Отменен',
-        'delivering' => 'Доставляется'
     ];
 
     const PAYMENTS = [
         'cash' => 'Наличными',
         'card' => 'Картой',
-        'payed' => 'Оплачено'
+        'payed' => 'Оплачено',
+        'canceled' => 'Неудачная оплата',
     ];
 
     protected static function booted()

@@ -178,8 +178,13 @@
 
                     <div>
                         <section>
-                            <div class="sec__title">Какой-то текст</div>
 
+                            
+                          <div class="yoo__kassa">
+                            <img src="{{asset('images/logo-white.svg')}}" alt="Логотип YooKassa">
+                            <div class="user__b__subtitle">Оплата осуществляется через сервис Ю kassa от Яндекс. </div>
+                          </div>
+                            
                         </section>
                         <section>
                             <div class="form__group">
@@ -191,7 +196,7 @@
                                     </div>
                                     <div class="form__field">
                                         <input type="radio" id="payment-2" name="client-address" value="cash">
-                                        <label for="payment-2">Оплата курьеру наличными / Самовывоз</label>
+                                        <label for="payment-2">Оплата курьеру наличными</label>
                                     </div>
                                 </div>
                             </div>
@@ -199,6 +204,7 @@
 
 
                     </div>
+                    @if (Cart::count())<div class="sec__title">Общая сумма: <span>{{ Cart::total() }} ₽<span></div>@endif
                     <button type="submit" class="primary__button">Оформить заказ</button>
                     <div class="privacy">
                         Нажимая на кнопку Оформить заказ, вы даёте согласие на <a href="https://docs.google.com/document/d/1T5Dvd_PRlMqbYHKC4ZrHIfl7uQPbOwLhPqynLeWTySw/edit?usp=sharing" target="_blank">обработку

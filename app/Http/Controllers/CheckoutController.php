@@ -144,8 +144,8 @@ class CheckoutController extends Controller
                 $metadata = (object)$payment->metadata;
                 if (isset($metadata->order_id)) {
                     $order = Order::where('id', (int)$metadata->order_id)->first();
-                    $order->payment = 'card';
-                    $order->status = 'canceled';
+                    $order->payment = 'canceled';
+                    $order->status = 'new';
                     $order->save();
                 }
             }

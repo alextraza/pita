@@ -122,13 +122,13 @@ class CheckoutController extends Controller
     {
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
-        \Log::error($source);
+        // \Log::error($source);
 
         $notification = ($requestBody['event'] == NotificationEventType::PAYMENT_SUCCEEDED)
         ? new NotificationSucceeded($requestBody)
         : new NotificationCanceled($requestBody);
         $payment = $notification->getObject();
-        \Log::info(json_encode($payment));
+        // \Log::info(json_encode($payment));
         if (isset($payment->status) && $payment->status === 'succeeded') {
             if ((bool)$payment->paid === true) {
                 $metadata = (object)$payment->metadata;

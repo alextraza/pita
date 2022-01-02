@@ -6,6 +6,7 @@
 @section('content')
     {{--<x-category-navigation />--}}
     {{--<x-menu />--}}
+    @include('components.banner')
     @include('components.category-navigation')
     @include('components.menu')
     @include('components.content-section')

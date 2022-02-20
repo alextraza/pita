@@ -54,12 +54,9 @@ class CheckoutController extends Controller
             $order->orderItems()->saveMany($orderItems);
         }
 
-
         $telegram_user_id = '-1001743529632';
         Notification::send($telegram_user_id, new Telegram());
-        // Notification::send($bot, '-1001743529632')
-        //     ->notify(new Telegram);
-       
+        
     
         
         Cart::destroy();
@@ -167,11 +164,11 @@ class CheckoutController extends Controller
                 }
             }
         }
+        $telegram_user_id = '-1001743529632';
+        Notification::send($telegram_user_id, new Telegram());
 
        
     }
 
-
-// Illuminate\Support\Facades\Http::post('https://api.tlgr.org/bot5183628700:AAEVH8qRvo1qCXInlglusjoZlySQnBMXEz4/sendMessage
-// -1001743529632
+    
 }

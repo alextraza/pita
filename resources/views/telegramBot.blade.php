@@ -5,17 +5,18 @@
 
 @endforeach
 
-💰 *Общая сумма:* {{ \App\Models\Order::first()['full_price'] }}
+💰 *Общая сумма:* {{ \App\Models\Order::get()->last()['full_price'] }} рублей.
 
-💳 *Способ оплаты:* {{ \App\Models\Order::first()['payment'] }}
+💳 *Способ оплаты:* {{ \App\Models\Order::get()->last()['payment'] }}
 
-👤 *Имя:* {{ \App\Models\Order::first()['name'] }}
+👤 *Имя:* {{ \App\Models\Order::get()->last()['name'] }}
 
-☎️ *Телефон:* {{ \App\Models\Order::first()['phone'] }}
+☎️ *Телефон:* {{ \App\Models\Order::get()->last()['phone'] }}
 
-📍 *Адрес:* {{ \App\Models\Order::first()['address'] }}
+📍 *Адрес:* {{ \App\Models\Order::get()->last()['address'] }}
 
-⏰ *Время доставки:*{{ \App\Models\Order::first()['delivery_time'] }}
+⏰ *Время доставки:*{{ \App\Models\Order::get()->last()['delivery_time'] }}
 
-📩 *Комментарий:* @if (\App\Models\Order::first()['comment']) {{ \App\Models\Order::first()['comment'] }}@else Нет @endif
+📩 *Комментарий:* @if (\App\Models\Order::get()->last()['comment']) {{ \App\Models\Order::first()['comment'] }}@else Нет @endif 
+
 

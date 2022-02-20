@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 use YooKassa\Client;
 use YooKassa\Model\NotificationEventType;
 use YooKassa\Model\Notification\{NotificationSucceeded, NotificationCanceled};
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\Telegram;
+
+
 
 class CheckoutController extends Controller
 {
@@ -50,6 +54,14 @@ class CheckoutController extends Controller
             $order->orderItems()->saveMany($orderItems);
         }
 
+
+        $telegram_user_id = '-1001743529632';
+        Notification::send($telegram_user_id, new Telegram());
+        // Notification::send($bot, '-1001743529632')
+        //     ->notify(new Telegram);
+       
+    
+        
         Cart::destroy();
 
         if ($request->tabset_2 == 'online') {
@@ -82,6 +94,8 @@ class CheckoutController extends Controller
 
     public function payment_ret()
     {
+        
+
         return redirect(route('index'))->withSuccess('Спасибо за заказ!');
     }
 
@@ -128,6 +142,7 @@ class CheckoutController extends Controller
         ? new NotificationSucceeded($requestBody)
         : new NotificationCanceled($requestBody);
         $payment = $notification->getObject();
+        
         // \Log::info(json_encode($payment));
         if (isset($payment->status) && $payment->status === 'succeeded') {
             if ((bool)$payment->paid === true) {
@@ -152,5 +167,11 @@ class CheckoutController extends Controller
                 }
             }
         }
+
+       
     }
+
+
+// Illuminate\Support\Facades\Http::post('https://api.tlgr.org/bot5183628700:AAEVH8qRvo1qCXInlglusjoZlySQnBMXEz4/sendMessage
+// -1001743529632
 }

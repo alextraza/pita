@@ -33,6 +33,10 @@ return [
     'yookassa' => [
         'shop_id' => env('YOOKASSA_SHOP_ID'),
         'secret' => env('YOOKASSA_SECRET'),
-    ]
+    ],
+
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN', '5183628700:AAEVH8qRvo1qCXInlglusjoZlySQnBMXEz4')
+    ],
         
 ];

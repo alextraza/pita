@@ -1,5 +1,7 @@
 🍕 *Новый заказ*
 
+⏰ *Время доставки:*{{ \App\Models\Order::get()->last()['delivery_time'] }}
+
 @foreach (Cart::content()->toArray() as $item)
  {{ $item['name'] }} - {{ $item['qty'] }}шт.
 
@@ -14,8 +16,6 @@
 ☎️ *Телефон:* {{ \App\Models\Order::get()->last()['phone'] }}
 
 📍 *Адрес:* {{ \App\Models\Order::get()->last()['address'] }}
-
-⏰ *Время доставки:*{{ \App\Models\Order::get()->last()['delivery_time'] }}
 
 📩 *Комментарий:* @if (\App\Models\Order::get()->last()['comment']) {{ \App\Models\Order::first()['comment'] }}@else Нет @endif 
 

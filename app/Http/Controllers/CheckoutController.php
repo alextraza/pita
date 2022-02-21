@@ -54,7 +54,7 @@ class CheckoutController extends Controller
             $order->orderItems()->saveMany($orderItems);
         }
 
-        $telegram_user_id = '-1001743529632';
+        $telegram_user_id = env('TELEGRAM_GROUP');
         Notification::send($telegram_user_id, new Telegram());
         
     
@@ -164,8 +164,7 @@ class CheckoutController extends Controller
                 }
             }
         }
-        $telegram_user_id = '-1001743529632';
-        Notification::send($telegram_user_id, new Telegram());
+      
 
        
     }

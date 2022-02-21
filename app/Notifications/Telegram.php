@@ -51,7 +51,7 @@ class Telegram extends Notification
         return TelegramMessage::create()
             // Optional recipient user id.
             // ->to($notifiable->telegram_user_id)
-            ->to(-1001743529632)
+            ->to(env('TELEGRAM_GROUP'))
             // Markdown supported.
             // ->content("*Новый заказ*!\nYour invoice has been *PAID*")
             

@@ -37,6 +37,11 @@ class Order extends Model
 
     public function getFullPriceAttribute()
     {
-        return $this->orderItems->sum('price');
+        $sum = 0;
+        foreach($this->orderItems as $item){
+            $sum += $item->count * $item->price;
+        }
+
+        return $sum;
     }
 }
